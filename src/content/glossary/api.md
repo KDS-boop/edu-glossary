@@ -4,7 +4,7 @@ shortDefinition: "Application Programming Interface, the way two applications co
 category: "Software Development"
 letter: "A"
 updatedDate: 2026-09-05
-relatedTerms: ["API Gateway", "Full Stack", "Codebase", "Continuous Integration"]
+relatedTerms: ["API Gateway", "Full Stack", "Codebase", "Continuous Integration", "REST API"]
 ---
 
 An API (Application Programming Interface) is a set of rules and protocols that enable one software application to communicate with another. APIs define the methods, data formats, and conventions that applications use to request and exchange information — without needing to know how the other side is implemented internally.

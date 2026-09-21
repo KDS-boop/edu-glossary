@@ -4,7 +4,7 @@ shortDefinition: "A branch of artificial intelligence that enables systems to le
 category: "AI & Data"
 letter: "M"
 updatedDate: 2026-09-19
-relatedTerms: ["Chatbot", "Training Data", "Predictive Analytics"]
+relatedTerms: ["Chatbot", "Training Data", "Predictive Analytics", "Deep Learning", "Natural Language Processing"]
 ---
 
 Machine Learning (ML) is an approach within artificial intelligence where computers learn to recognize patterns from data and make decisions or predictions without explicit rule-based instructions. Instead of being manually written by a programmer, an ML model learns the relationship between inputs and outputs from historical data examples, then applies those patterns to new, unseen data.

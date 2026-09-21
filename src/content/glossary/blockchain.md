@@ -4,7 +4,7 @@ shortDefinition: "A decentralized digital ledger that records transactions acros
 category: "Blockchain"
 letter: "B"
 updatedDate: 2026-09-01
-relatedTerms: ["Consensus Mechanism", "Decentralization", "Merkle Tree", "Proof of Work", "SHA-256"]
+relatedTerms: ["Consensus Mechanism", "Decentralization", "Merkle Tree", "Proof of Work", "SHA-256", "Proof of Stake", "Smart Contract", "Hash Function"]
 ---
 
 Blockchain is a data structure that stores transaction records in the form of "blocks" that are linked together chronologically and cryptographically secured. Each block contains the hash (a fixed-length digital fingerprint) of the previous block, creating a chain where altering any historical record would require recomputing every subsequent block — a task that is computationally infeasible on a sufficiently large network.

@@ -4,7 +4,7 @@ shortDefinition: "A network security system that monitors and controls incoming 
 category: "Cybersecurity"
 letter: "F"
 updatedDate: 2026-09-19
-relatedTerms: ["Brute Force Attack", "End-to-End Encryption", "API Gateway"]
+relatedTerms: ["Brute Force Attack", "End-to-End Encryption", "API Gateway", "VPN"]
 ---
 
 A firewall is the first line of defense in network security infrastructure. This component acts as a gateway that determines which data packets are allowed to pass and which are blocked, based on a set of rules configured by the administrator.

@@ -4,7 +4,7 @@ shortDefinition: "A computer program that uses natural language processing to ca
 category: "AI & Data"
 letter: "C"
 updatedDate: 2026-09-19
-relatedTerms: ["Machine Learning", "Training Data", "Predictive Analytics"]
+relatedTerms: ["Machine Learning", "Training Data", "Predictive Analytics", "Natural Language Processing"]
 ---
 
 A chatbot is software that simulates human conversation with users, either through text in a chat interface or via voice. Early-generation chatbots were rule-based with simple decision trees — they could only handle predefined paths and failed when users phrased things unexpectedly. Modern chatbots leverage large language models (LLMs) trained on billions of text tokens, enabling them to generate contextual and coherent responses to a much wider range of inputs. The shift from rule-based to LLM-based chatbots represents one of the most significant transitions in conversational AI.

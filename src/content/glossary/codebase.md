@@ -4,7 +4,7 @@ shortDefinition: "The complete collection of source code that forms a software p
 category: "Software Development"
 letter: "C"
 updatedDate: 2026-09-19
-relatedTerms: ["API", "Continuous Integration", "Full Stack"]
+relatedTerms: ["API", "Continuous Integration", "Full Stack", "Version Control"]
 ---
 
 A codebase (code base) is the entirety of raw source code — all files, modules, libraries, and configuration that collectively constitute a software application or project. A codebase lives inside a version control repository such as Git, where every change is recorded historically and can be rolled back if needed.

@@ -4,7 +4,7 @@ shortDefinition: "A development practice where developers routinely merge code i
 category: "Software Development"
 letter: "C"
 updatedDate: 2026-09-19
-relatedTerms: ["API", "Codebase", "Full Stack"]
+relatedTerms: ["API", "Codebase", "Full Stack", "Version Control"]
 ---
 
 Continuous Integration (CI) is a software development practice where every code change pushed to the main branch of a repository automatically triggers a build and runs a test suite. Its primary goal is to detect integration conflicts and regressions early — before bugs accumulate and become difficult to trace.

@@ -4,7 +4,7 @@ shortDefinition: "A blockchain consensus mechanism that requires miners to solve
 category: "Blockchain"
 letter: "P"
 updatedDate: 2026-09-19
-relatedTerms: ["Blockchain", "Consensus Mechanism", "SHA-256", "Merkle Tree"]
+relatedTerms: ["Blockchain", "Consensus Mechanism", "SHA-256", "Merkle Tree", "Proof of Stake"]
 ---
 
 Proof of Work (PoW) is the first consensus mechanism used by Bitcoin and has been the gold standard of blockchain security for over a decade. In this system, miners compete to solve a mathematical puzzle that requires finding a specific nonce — a number that, when combined with block data and hashed, produces a value below the target set by the network.

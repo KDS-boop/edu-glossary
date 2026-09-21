@@ -4,7 +4,7 @@ shortDefinition: "The distribution of control and decision-making from a single 
 category: "Blockchain"
 letter: "D"
 updatedDate: 2026-09-19
-relatedTerms: ["Blockchain", "Consensus Mechanism", "Merkle Tree"]
+relatedTerms: ["Blockchain", "Consensus Mechanism", "Merkle Tree", "Smart Contract"]
 ---
 
 Decentralization is a design principle in which authority and decision-making are distributed across all network participants rather than concentrated in a single entity. In the context of blockchain, this means no single party can unilaterally modify data, block transactions, or change the rules of the network.

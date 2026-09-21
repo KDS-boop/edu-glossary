@@ -4,7 +4,7 @@ shortDefinition: "A protocol that enables nodes in a decentralized network to co
 category: "Blockchain"
 letter: "C"
 updatedDate: 2026-09-19
-relatedTerms: ["Blockchain", "Decentralization", "Proof of Work"]
+relatedTerms: ["Blockchain", "Decentralization", "Proof of Work", "Proof of Stake", "Smart Contract"]
 ---
 
 A consensus mechanism is a set of rules and cryptographic procedures that enable all nodes in a blockchain network to reach a single agreement on the validity of transactions and the order of blocks, without requiring a central authority. This mechanism is the heartbeat of every blockchain — without consensus, a decentralized network cannot function consistently.

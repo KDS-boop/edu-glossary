@@ -4,7 +4,7 @@ shortDefinition: "An encryption method where only the sender and the recipient c
 category: "Cybersecurity"
 letter: "E"
 updatedDate: 2026-09-19
-relatedTerms: ["Brute Force Attack", "Firewall", "SHA-256"]
+relatedTerms: ["Brute Force Attack", "Firewall", "SHA-256", "Symmetric Encryption", "VPN"]
 ---
 
 End-to-end encryption (E2EE) is a communication method where data is encrypted on the sender's device and only decrypted on the intended recipient's device. Throughout the data's journey — across servers, networks, or the service provider's infrastructure — the ciphertext remains encrypted and cannot be read by anyone other than the two endpoints of the communication.

@@ -4,7 +4,7 @@ shortDefinition: "A cryptographic tree data structure that optimizes data integr
 category: "Blockchain"
 letter: "M"
 updatedDate: 2026-09-19
-relatedTerms: ["Blockchain", "SHA-256", "Decentralization", "Proof of Work"]
+relatedTerms: ["Blockchain", "SHA-256", "Decentralization", "Proof of Work", "Hash Function"]
 ---
 
 Merkle Tree (named after Ralph Merkle) is a hierarchical binary tree data structure where each leaf node contains the hash of a single data block, and each internal node contains the hash of the combination of its two child nodes. The topmost node (root) represents a compact hash of all the data beneath it — a single root hash that summarizes thousands of transactions.
