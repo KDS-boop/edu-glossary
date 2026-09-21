@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://situskamu.com',
+  site: 'https://edu-glossary.pages.dev',
   output: 'static',
   trailingSlash: 'always',
   build: {
