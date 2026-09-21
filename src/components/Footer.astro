@@ -1,0 +1,79 @@
+---
+const year = new Date().getFullYear();
+const navMain = [
+  { label: 'Home', href: '/' },
+  { label: 'Learn', href: '/learn/' },
+  { label: 'Glossary', href: '/glossary/' },
+  { label: 'Articles', href: '/articles/' },
+  { label: 'About', href: '/about/' },
+];
+const learnTopics = [
+  { label: 'Blockchain & Decentralization', href: '/learn/blockchain/' },
+  { label: 'Cloud Computing', href: '/learn/cloud-computing/' },
+  { label: 'Software Development', href: '/learn/software-development/' },
+  { label: 'Cybersecurity', href: '/learn/cybersecurity/' },
+  { label: 'AI & Data', href: '/learn/ai-and-data/' },
+];
+const glossaryCategories = [
+  { label: 'AI & Data', href: '/glossary/categories/ai-and-data/' },
+  { label: 'Blockchain', href: '/glossary/categories/blockchain/' },
+  { label: 'Cloud Computing', href: '/glossary/categories/cloud-computing/' },
+  { label: 'Cybersecurity', href: '/glossary/categories/cybersecurity/' },
+  { label: 'Software Development', href: '/glossary/categories/software-development/' },
+];
+const articleCategories = [
+  { label: 'Technology', href: '/articles/categories/technology/' },
+];
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="footer-logo" href="/">EduGlossary</a>
+        <p class="footer-desc">Learn technology terms and articles — explained clearly for everyone.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          {navMain.map((item) => (
+            <li><a href={item.href}>{item.label}</a></li>
+          ))}
+          <li><a href="/glossary/categories/">All Categories</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Learn Topics</h4>
+        <ul>
+          {learnTopics.map((topic) => (
+            <li><a href={topic.href}>{topic.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Glossary Categories</h4>
+        <ul>
+          {glossaryCategories.map((cat) => (
+            <li><a href={cat.href}>{cat.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Article Categories</h4>
+        <ul>
+          {articleCategories.map((cat) => (
+            <li><a href={cat.href}>{cat.label}</a></li>
+          ))}
+          <li><a href="/articles/categories/">All Categories</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {year} EduGlossary. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

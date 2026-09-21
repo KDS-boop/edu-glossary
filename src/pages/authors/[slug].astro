@@ -1,0 +1,127 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { authors, getAuthorBySlug } from '../../data/authors';
+import { getCategoryColor } from '../../utils/categoryColors';
+import { getCategoryIcon } from '../../utils/categoryIcons';
+
+export async function getStaticPaths() {
+  return authors.map((author) => ({
+    params: { slug: author.slug },
+    props: { author },
+  }));
+}
+
+const { author } = Astro.props;
+
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const authorArticles = allArticles
+  .filter((a) => a.data.author === author.slug)
+  .sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf());
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  name: `${author.name} | Authors`,
+  description: author.bio,
+  mainEntity: {
+    '@type': 'Organization',
+    name: author.name,
+    description: author.bio,
+    jobTitle: author.role,
+    url: new URL(`/authors/${author.slug}/`, Astro.site).toString(),
+  },
+};
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Authors', href: '/authors/' },
+  { label: author.name, href: `/authors/${author.slug}/` },
+];
+---
+<Layout
+  title={author.name}
+  description={author.bio}
+  schema={schema}
+  breadcrumbs={breadcrumbs}
+>
+  <Breadcrumb items={breadcrumbs} />
+
+  <h1>{author.name}</h1>
+  <p class="author-role">{author.role}</p>
+
+  <section class="author-about" aria-labelledby="about-heading">
+    <h2 id="about-heading">About</h2>
+    <p class="author-bio">{author.bio}</p>
+  </section>
+
+  {authorArticles.length > 0 && (
+    <section class="author-articles" aria-labelledby="articles-heading">
+      <h2 id="articles-heading">Articles by {author.name}</h2>
+      <div class="grid">
+        {authorArticles.map((article) => {
+          const { bg, text } = getCategoryColor(article.data.category);
+          const icon = getCategoryIcon(article.data.category);
+          return (
+            <a class="card" href={`/articles/${article.slug}/`}>
+              <div class="card-accent" style={`background: ${text};`}></div>
+              <div class="card-body">
+                <span class="badge" style={`background: ${bg}; color: ${text};`}>
+                  <span set:html={icon}></span>
+                  {article.data.category}
+                </span>
+                <h3 class="card-title">{article.data.title}</h3>
+                <p class="card-excerpt">{article.data.description}</p>
+                <span class="card-readmore">
+                  Read article
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </span>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </section>
+  )}
+</Layout>
+
+<style>
+  .author-role {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin: 0 0 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .author-about {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .author-about h2 {
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .author-bio {
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 65ch;
+  }
+
+  .author-articles {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .author-articles h2 {
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+  }
+</style>

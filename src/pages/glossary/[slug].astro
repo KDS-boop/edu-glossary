@@ -1,0 +1,108 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { slugify } from '../../utils/slugify';
+import { getCategoryColor } from '../../utils/categoryColors';
+import { getCategoryIcon } from '../../utils/categoryIcons';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('glossary');
+  return entries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const allEntries = await getCollection('glossary');
+const termToEntry = new Map(allEntries.map((e) => [e.data.term.toLowerCase(), e]));
+
+// Related glossary: resolve term names to slugs, skip self-links
+const relatedGlossary = entry.data.relatedTerms
+  .map((t: string) => {
+    const target = termToEntry.get(t.toLowerCase());
+    if (!target || target.slug === entry.slug) return null;
+    return { term: t, slug: target.slug, category: target.data.category, shortDefinition: target.data.shortDefinition };
+  })
+  .filter(Boolean);
+
+// Related articles: find articles in same category or with matching tags
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const categorySlug = slugify(entry.data.category);
+const relatedArticles = allArticles
+  .filter((a) => {
+    if (a.data.category === entry.data.category) return true;
+    if (entry.data.relatedTerms.some((t: string) => t.toLowerCase() === a.data.title.toLowerCase())) return true;
+    return false;
+  })
+  .slice(0, 3);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'DefinedTerm',
+  name: entry.data.term,
+  description: entry.data.shortDefinition,
+  url: new URL(`/glossary/${entry.slug}/`, Astro.site).toString(),
+  inDefinedTermSet: {
+    '@type': 'DefinedTermSet',
+    name: 'EduGlossary',
+    url: new URL('/glossary/', Astro.site).toString(),
+  },
+};
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Glossary', href: '/glossary/' },
+  { label: entry.data.category, href: `/glossary/categories/${slugify(entry.data.category)}/` },
+  { label: entry.data.term, href: `/glossary/${entry.slug}/` },
+];
+---
+<Layout
+  title={entry.data.term}
+  description={entry.data.shortDefinition}
+  schema={schema}
+  breadcrumbs={breadcrumbs}
+>
+  <Breadcrumb items={breadcrumbs} />
+  
+  <span class="badge" style={`background: ${getCategoryColor(entry.data.category).bg}; color: ${getCategoryColor(entry.data.category).text}; display: inline-flex; align-items: center; gap: 0.3rem;`}><span style="display: inline-flex;" set:html={getCategoryIcon(entry.data.category)}></span><a href={`/glossary/categories/${slugify(entry.data.category)}/`} style="color: inherit; text-decoration: none;">{entry.data.category}</a></span>
+  <h1>{entry.data.term}</h1>
+  <p class="muted">Updated: {entry.data.updatedDate.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+
+  <article class="prose" style="margin-top: 1.5rem;">
+    <Content />
+  </article>
+
+  {relatedGlossary.length > 0 && (
+    <section class="related-section" aria-labelledby="related-terms-heading">
+      <h2 id="related-terms-heading">Related Terms</h2>
+      <div class="related-pill-list">
+        {relatedGlossary.map((r) => {
+          const { bg, text } = getCategoryColor(r.category);
+          return (
+            <a class="related-pill" href={`/glossary/${r.slug}/`} title={r.shortDefinition}>
+              <span class="related-pill-dot" style={`background: ${text};`}></span>
+              {r.term}
+            </a>
+          );
+        })}
+      </div>
+    </section>
+  )}
+
+  {relatedArticles.length > 0 && (
+    <section class="related-section" aria-labelledby="related-articles-heading">
+      <h2 id="related-articles-heading">Related Articles</h2>
+      <div class="related-pill-list">
+        {relatedArticles.map((a) => (
+          <a class="related-pill related-pill--article" href={`/articles/${a.slug}/`} title={a.data.description}>
+            {a.data.title}
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+</Layout>

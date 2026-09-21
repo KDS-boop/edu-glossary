@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: 'About EduGlossary',
+  description: 'About EduGlossary — a learning resource for technology terms and articles.',
+};
+---
+<Layout
+  title="About Us"
+  description="About EduGlossary — a learning resource for technology terms and articles, explained clearly."
+  schema={schema}
+>
+  <div class="prose">
+    <h1>About EduGlossary</h1>
+
+    <p>
+      EduGlossary is a learning resource that presents technology term definitions and educational
+      articles in a concise, clear, and easy-to-understand format — for both beginners and
+      readers looking to deepen their knowledge.
+    </p>
+
+    <h2>Our Mission</h2>
+    <p>
+      To help anyone understand technical terms without having to read complex documentation,
+      with explanations that are brief yet accurate.
+    </p>
+
+    <h2>What We Offer</h2>
+    <ul>
+      <li><strong>Glossary</strong> — a collection of term definitions, organized by category and alphabet.</li>
+      <li><strong>Articles</strong> — in-depth discussions on current technology topics.</li>
+    </ul>
+
+    <h2>Editorial Standards</h2>
+    <p>
+      Every piece of content is reviewed and updated regularly to ensure the information
+      presented remains relevant and accurate.
+    </p>
+
+    <h2>Contact Us</h2>
+    <p>
+      Have questions, feedback, or suggestions for new terms/topics? Send them to
+      <a href="mailto:halo@situskamu.com">halo@situskamu.com</a>.
+    </p>
+  </div>
+</Layout>

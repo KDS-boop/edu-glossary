@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+const articles = (await getCollection('articles', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf()
+);
+---
+<Layout title="Articles" description="All latest educational articles.">
+  <h1>Articles</h1>
+  <p class="muted"><a href="/articles/categories/">Browse by category &rarr;</a></p>
+  <div class="grid" style="margin-top: 1.5rem;">
+    {articles.map((post) => (
+      <ArticleCard
+        title={post.data.title}
+        description={post.data.description}
+        category={post.data.category}
+        author={post.data.author}
+        publishedDate={post.data.publishedDate}
+        slug={post.slug}
+      />
+    ))}
+  </div>
+</Layout>

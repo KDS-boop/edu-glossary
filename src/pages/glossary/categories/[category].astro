@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import GlossaryCard from '../../../components/GlossaryCard.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { slugify } from '../../../utils/slugify';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('glossary');
+  const categories = [...new Set(entries.map((e) => e.data.category))];
+
+  return categories.map((category) => ({
+    params: { category: slugify(category) },
+    props: {
+      category,
+      entries: entries.filter((e) => e.data.category === category),
+    },
+  }));
+}
+
+const { category, entries } = Astro.props;
+const sorted = entries.sort((a, b) => a.data.term.localeCompare(b.data.term));
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Glossary', href: '/glossary/' },
+  { label: 'Categories', href: '/glossary/categories/' },
+  { label: category, href: `/glossary/categories/${slugify(category)}/` },
+];
+---
+<Layout
+  title={`Category: ${category}`}
+  description={`List of terms in the ${category} category.`}
+  breadcrumbs={breadcrumbs}
+>
+  <Breadcrumb items={breadcrumbs} />
+  
+  <h1>{category}</h1>
+  <p class="muted">{sorted.length} terms in this category.</p>
+
+  <div class="grid" style="margin-top: 1.5rem;">
+    {sorted.map((entry) => (
+      <GlossaryCard
+        term={entry.data.term}
+        shortDefinition={entry.data.shortDefinition}
+        category={entry.data.category}
+        slug={entry.slug}
+      />
+    ))}
+  </div>
+</Layout>

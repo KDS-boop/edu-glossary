@@ -1,0 +1,38 @@
+---
+import { slugify } from '../utils/slugify';
+import { getCategoryColor } from '../utils/categoryColors';
+import { getCategoryIcon } from '../utils/categoryIcons';
+
+interface Props {
+  term: string;
+  shortDefinition: string;
+  category: string;
+  slug: string;
+  letter?: string;
+  relatedCount?: number;
+}
+const { term, shortDefinition, category, slug, letter, relatedCount } = Astro.props;
+const { bg, text } = getCategoryColor(category);
+const icon = getCategoryIcon(category);
+---
+<div class="card">
+  <div class="card-accent" style={`background: ${text};`}></div>
+  <div class="card-body">
+    <div class="card-top-row">
+      <a class="badge" href={`/glossary/categories/${slugify(category)}/`} style={`background: ${bg}; color: ${text};`}>
+        <span set:html={icon}></span>
+        {category}
+      </a>
+      {letter && <span class="card-letter" aria-label={`Letter ${letter}`}>{letter}</span>}
+    </div>
+    <h3 class="card-title"><a href={`/glossary/${slug}/`}>{term}</a></h3>
+    <p class="card-excerpt">{shortDefinition}</p>
+    {(relatedCount != null && relatedCount > 0) && (
+      <span class="card-related-hint">{relatedCount} related terms</span>
+    )}
+    <span class="card-readmore">
+      View definition
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </span>
+  </div>
+</div>

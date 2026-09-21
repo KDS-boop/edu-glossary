@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import GlossaryCard from '../../components/GlossaryCard.astro';
+
+const allEntries = (await getCollection('glossary')).sort((a, b) =>
+  a.data.term.localeCompare(b.data.term)
+);
+
+const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+const activeLetters = new Set(allEntries.map((e) => e.data.letter.toUpperCase()));
+---
+<Layout title="Glossary" description="Complete A-Z list of technology terms.">
+  <h1>Glossary</h1>
+  <p class="muted">Browse definitions alphabetically.</p>
+
+  <nav class="az-index">
+    {alphabet.map((letter) => (
+      activeLetters.has(letter)
+        ? <a href={`#huruf-${letter}`}>{letter}</a>
+        : <span class="az-index" style="opacity:0.3;">{letter}</span>
+    ))}
+  </nav>
+
+  <div class="grid">
+    {allEntries.map((entry) => (
+      <div id={`huruf-${entry.data.letter.toUpperCase()}`}>
+        <GlossaryCard
+          term={entry.data.term}
+          shortDefinition={entry.data.shortDefinition}
+          category={entry.data.category}
+          slug={entry.slug}
+        />
+      </div>
+    ))}
+  </div>
+</Layout>

@@ -1,0 +1,193 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { hubs, getHubBySlug } from '../../data/hubs';
+import { slugify } from '../../utils/slugify';
+import { getCategoryColor } from '../../utils/categoryColors';
+import { getCategoryIcon } from '../../utils/categoryIcons';
+
+export async function getStaticPaths() {
+  return hubs.map((hub) => ({
+    params: { hub: hub.slug },
+    props: { hub },
+  }));
+}
+
+const { hub } = Astro.props;
+
+// Resolve glossary slugs to full entries
+const allGlossary = await getCollection('glossary');
+const glossaryBySlug = new Map(allGlossary.map((e) => [e.slug, e]));
+const glossaryEntries = hub.glossarySlugs
+  .map((slug) => glossaryBySlug.get(slug))
+  .filter(Boolean);
+
+// Resolve article slugs to full entries
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const articlesBySlug = new Map(allArticles.map((a) => [a.slug, a]));
+const articleEntries = hub.articleSlugs
+  .map((slug) => articlesBySlug.get(slug))
+  .filter(Boolean);
+
+// Resolve related hubs
+const relatedHubs = hub.relatedHubs
+  .map((slug) => hubs.find((h) => h.slug === slug))
+  .filter(Boolean);
+
+// Map hub slug to category name for colors
+const hubCategoryMap: Record<string, string> = {
+  'blockchain': 'Blockchain',
+  'cloud-computing': 'Cloud Computing',
+  'software-development': 'Software Development',
+  'cybersecurity': 'Cybersecurity',
+  'ai-and-data': 'AI & Data',
+};
+
+const categoryName = hubCategoryMap[hub.slug] || hub.title;
+const { bg, text } = getCategoryColor(categoryName);
+const icon = getCategoryIcon(categoryName);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: hub.title,
+  description: hub.description,
+  url: new URL(`/learn/${hub.slug}/`, Astro.site).toString(),
+};
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Learn', href: '/learn/' },
+  { label: hub.title, href: `/learn/${hub.slug}/` },
+];
+---
+<Layout
+  title={hub.title}
+  description={hub.description}
+  schema={schema}
+  breadcrumbs={breadcrumbs}
+>
+  <Breadcrumb items={breadcrumbs} />
+
+  <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+    <span style={`display: inline-flex; color: ${text}; font-size: 1.5rem;`} set:html={icon}></span>
+    <span class="badge" style={`background: ${bg}; color: ${text}; font-size: 0.8rem;`}>{glossaryEntries.length} terms</span>
+  </div>
+
+  <h1>{hub.title}</h1>
+
+  <article class="prose hub-intro" style="margin-top: 1rem;">
+    {hub.intro.map((p) => <p>{p}</p>)}
+  </article>
+
+  <section class="hub-section" aria-labelledby="key-concepts-heading">
+    <h2 id="key-concepts-heading">Key Concepts</h2>
+    <div class="hub-terms-grid">
+      {glossaryEntries.map((entry) => {
+        const { bg: tBg, text: tText } = getCategoryColor(entry.data.category);
+        return (
+          <a class="card hub-term-card" href={`/glossary/${entry.slug}/`}>
+            <div class="card-accent" style={`background: ${tText};`}></div>
+            <div class="card-body">
+              <span class="badge" style={`background: ${tBg}; color: ${tText}; font-size: 0.65rem;`}>{entry.data.category}</span>
+              <h3 class="hub-term-title">{entry.data.term}</h3>
+              <p class="hub-term-def">{entry.data.shortDefinition}</p>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </section>
+
+  {articleEntries.length > 0 && (
+    <section class="hub-section" aria-labelledby="related-articles-heading">
+      <h2 id="related-articles-heading">Related Articles</h2>
+      <div class="hub-terms-grid">
+        {articleEntries.map((article) => {
+          const { bg: aBg, text: aText } = getCategoryColor(article.data.category);
+          return (
+            <a class="card hub-term-card" href={`/articles/${article.slug}/`}>
+              <div class="card-accent" style={`background: ${aText};`}></div>
+              <div class="card-body">
+                <span class="badge" style={`background: ${aBg}; color: ${aText}; font-size: 0.65rem;`}>{article.data.category}</span>
+                <h3 class="hub-term-title">{article.data.title}</h3>
+                <p class="hub-term-def">{article.data.description}</p>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </section>
+  )}
+
+  {relatedHubs.length > 0 && (
+    <section class="hub-section" aria-labelledby="related-topics-heading">
+      <h2 id="related-topics-heading">Related Topics</h2>
+      <div class="related-pill-list">
+        {relatedHubs.map((rh) => {
+          const rhCat = hubCategoryMap[rh.slug] || rh.title;
+          const { text: rhText } = getCategoryColor(rhCat);
+          return (
+            <a class="related-pill" href={`/learn/${rh.slug}/`}>
+              <span class="related-pill-dot" style={`background: ${rhText};`}></span>
+              {rh.title}
+            </a>
+          );
+        })}
+      </div>
+    </section>
+  )}
+</Layout>
+
+<style>
+  .hub-intro {
+    max-width: 65ch;
+  }
+
+  .hub-section {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .hub-section h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .hub-terms-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+
+  .hub-term-card {
+    display: block;
+    text-decoration: none;
+  }
+
+  .hub-term-card:hover {
+    text-decoration: none;
+  }
+
+  .hub-term-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0.5rem 0 0.35rem;
+    color: var(--color-text);
+  }
+
+  .hub-term-def {
+    color: var(--color-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .hub-terms-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
