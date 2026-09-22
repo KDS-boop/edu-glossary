@@ -29,7 +29,7 @@ export const hubs: Hub[] = [
       'hash-function',
       'smart-contract',
     ],
-    articleSlugs: [],
+    articleSlugs: ['proof-of-work-vs-proof-of-stake'],
     relatedHubs: ['cybersecurity'],
   },
   {
@@ -47,7 +47,7 @@ export const hubs: Hub[] = [
       'storage-area-network',
       'hybrid-cloud-storage',
     ],
-    articleSlugs: [],
+    articleSlugs: ['cloud-computing-explained'],
     relatedHubs: ['software-development'],
   },
   {
@@ -68,7 +68,7 @@ export const hubs: Hub[] = [
       'full-stack',
       'version-control',
     ],
-    articleSlugs: ['mengenal-astro-framework'],
+    articleSlugs: ['mengenal-astro-framework', 'what-is-an-api-beginners-guide'],
     relatedHubs: ['cloud-computing', 'cybersecurity'],
   },
   {
@@ -88,7 +88,7 @@ export const hubs: Hub[] = [
       'vpn',
       'symmetric-encryption',
     ],
-    articleSlugs: [],
+    articleSlugs: ['cybersecurity-for-beginners'],
     relatedHubs: ['blockchain', 'software-development'],
   },
   {
@@ -108,7 +108,7 @@ export const hubs: Hub[] = [
       'predictive-analytics',
       'chatbot',
     ],
-    articleSlugs: [],
+    articleSlugs: ['how-machine-learning-works'],
     relatedHubs: ['software-development'],
   },
 ];
