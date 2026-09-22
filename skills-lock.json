@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "astro": {
+      "source": "ianshk/astro-skills",
+      "sourceType": "github",
+      "skillPath": "skills/astro/SKILL.md",
+      "computedHash": "f775c651063decc550720150b80abd34bb98a8cf9ef85c302186f3edf28d8afc"
+    }
+  }
+}

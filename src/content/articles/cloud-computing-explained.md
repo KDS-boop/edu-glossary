@@ -77,3 +77,54 @@ Cloud providers offer different types of storage for different needs:
 You do not need to be a massive corporation to use the cloud. Most major providers offer a "Free Tier" designed for students and developers to learn the platform without incurring charges. 
 
 To get started, create an account with a provider like AWS or Azure, navigate to their compute service (like EC2), and launch a small virtual machine. You will be assigned an IP address, and within minutes, you can log into a server hosted in a data center hundreds of miles away, ready to host your first web application.
+
+## Security and Shared Responsibility
+
+Cloud security operates on a shared responsibility model. The provider secures the physical infrastructure, network, and hypervisor layers. The customer secures the operating system, applications, data, identity management, and configuration.
+
+This model varies by service type. In IaaS, the customer manages more layers; in PaaS and SaaS, the provider manages more. Misunderstanding this boundary is a leading cause of cloud breaches.
+
+Key practices include enabling multi-factor authentication on root accounts, using least-privilege identity and access management (IAM) policies, encrypting data at rest and in transit, enabling cloud-native security monitoring and logging, and reviewing resource configurations against security benchmarks such as the CIS Foundations Benchmarks.
+
+Providers offer built-in tools: AWS IAM and Security Hub, Azure Security Center and Policy, Google Cloud Security Command Center. Third-party tools can complement native capabilities, especially in multi-cloud environments.
+
+## Cost Management and FinOps
+
+Cloud pricing appears simple (pay for what you use) but complexity grows with scale. Costs come from compute hours, storage capacity, data egress, managed services, and support tiers. Without visibility, small teams can generate large unexpected bills.
+
+Effective cost management (FinOps) uses tagging every resource with project, environment, and owner metadata; setting budgets with alerts; rightsizing instances to match workload needs; using reserved instances or savings plans for predictable workloads; enabling auto-scaling policies with maximum limits; and reviewing cost anomaly reports regularly.
+
+Providers offer free tiers for new accounts (typically twelve months of limited compute, storage, and database usage) and always-free tiers for certain services. Students and developers can also access educational credits through programs like AWS Educate, Azure for Students, and Google Cloud Skill Boost.
+
+## Common Use Cases and Architectures
+
+### Static Website Hosting
+Object storage (Amazon S3, Cloudflare R2, Azure Blob Storage) combined with a CDN serves static sites with high performance, low cost, and zero server management. Build outputs from Astro, Next.js, or Hugo deploy directly to object storage.
+
+### Containerized Microservices
+Orchestration platforms such as Kubernetes (EKS, AKS, GKE) or managed container services (ECS, Cloud Run, Container Apps) run containerized workloads with service discovery, load balancing, and rolling deployments.
+
+### Serverless Event Processing
+Function-as-a-Service platforms (AWS Lambda, Azure Functions, Google Cloud Functions) execute code in response to events (HTTP requests, queue messages, database changes, schedules) without provisioning servers. Billing is per-invocation and per-duration.
+
+### Data Warehousing and Analytics
+Managed analytical databases (Amazon Redshift, Snowflake, BigQuery, Azure Synapse) separate storage and compute, allowing independent scaling. They integrate with BI tools and machine learning platforms for dashboards and predictive modeling.
+
+### Disaster Recovery and Backup
+Cross-region replication, automated snapshots, and point-in-time recovery make cloud-native disaster recovery accessible. Recovery time objectives (RTO) and recovery point objectives (RPO) can be configured per workload.
+
+## Frequently Asked Questions
+
+### Is cloud computing always cheaper than on-premises?
+Not necessarily. For steady, predictable, high-utilization workloads, owned hardware can be less expensive over time. The cloud excels at variable demand, rapid provisioning, and avoiding upfront capital expenditure.
+
+### What is the difference between a region and an availability zone?
+A region is a geographic area (such as us-east-1 or eu-west-1) containing multiple availability zones. An availability zone is one or more discrete data centers with independent power, cooling, and networking. Deploying across zones within a region provides high availability with low latency.
+
+### Do I need to know Linux to use the cloud?
+For IaaS (virtual machines), basic Linux skills are often necessary. For PaaS, SaaS, and serverless platforms, you can deploy applications with minimal operating system knowledge. Managed services abstract the underlying OS.
+
+### Can I move my workloads between cloud providers?
+Yes, but it requires planning. Applications built on open standards (containers, Kubernetes, Terraform, SQL, object storage APIs) are more portable than those using provider-specific managed services. Multi-cloud strategies increase flexibility but add complexity.
+
+Cloud computing shifts infrastructure from a capital expense to an operational one, giving teams of any size access to global-scale computing power. Understanding the service models, deployment types, and shared responsibilities enables better architectural decisions from day one.

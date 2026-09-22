@@ -10,7 +10,7 @@ const allEntries = (await getCollection('glossary')).sort((a, b) =>
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 const activeLetters = new Set(allEntries.map((e) => e.data.letter.toUpperCase()));
 ---
-<Layout title="Glossary" description="Complete A-Z list of technology terms.">
+<Layout title="Technology Glossary: A-Z Terms & Definitions" description="Complete A-Z list of technology terms.">
   <h1>Glossary</h1>
   <p class="muted">Browse definitions alphabetically.</p>
 

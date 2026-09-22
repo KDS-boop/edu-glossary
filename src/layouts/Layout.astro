@@ -10,6 +10,11 @@ interface Props {
   type?: 'website' | 'article';
   schema?: Record<string, any>;
   breadcrumbs?: Array<{ label: string; href: string }>;
+  publishDate?: Date;
+  modifiedDate?: Date;
+  author?: string;
+  noindex?: boolean;
+  ogImageAlt?: string;
 }
 const {
   title,
@@ -18,10 +23,14 @@ const {
   type = 'website',
   schema,
   breadcrumbs,
+  publishDate,
+  modifiedDate,
+  author,
+  noindex = false,
+  ogImageAlt,
 } = Astro.props;
 
 const siteName = 'EduGlossary';
-const fullTitle = `${title} | ${siteName}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = image ? new URL(image, Astro.site) : null;
 
@@ -43,21 +52,32 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{fullTitle}</title>
+    <title>{title} | {siteName}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonicalURL} />
+    <meta name="theme-color" content="#3b5bdb" />
 
     <meta property="og:type" content={type} />
     <meta property="og:site_name" content={siteName} />
-    <meta property="og:title" content={fullTitle} />
+    <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     {ogImageURL && <meta property="og:image" content={ogImageURL} />}
+    {ogImageURL && <meta property="og:image:width" content="1200" />}
+    {ogImageURL && <meta property="og:image:height" content="630" />}
+    {ogImageURL && ogImageAlt && <meta property="og:image:alt" content={ogImageAlt} />}
 
     <meta name="twitter:card" content={ogImageURL ? 'summary_large_image' : 'summary'} />
-    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     {ogImageURL && <meta name="twitter:image" content={ogImageURL} />}
+    {ogImageAlt && <meta name="twitter:image:alt" content={ogImageAlt} />}
+    <meta name="twitter:site" content="@eduglossary" />
+
+    {author && <meta name="author" content={author} />}
+    {publishDate && <meta property="article:published_time" content={publishDate.toISOString()} />}
+    {modifiedDate && <meta property="article:modified_time" content={modifiedDate.toISOString()} />}
 
     {schemas.length > 0 && schemas.map((s) => (
       <script type="application/ld+json" set:html={JSON.stringify(s)} />
