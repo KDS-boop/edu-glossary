@@ -12,6 +12,8 @@
     "@astrojs/check": "^0.9.10",
     "@astrojs/sitemap": "3.5.1",
     "astro": "4.16.18",
+    "exa-js": "^2.22.2",
+    "playwright": "^1.63.0",
     "supermemory": "^4.25.4",
     "typescript": "^5.9.3"
   },
