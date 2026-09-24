@@ -74,7 +74,7 @@
           '<p>Try a different search term or explore our content directly.</p>' +
           '<div class="search-empty-actions">' +
           '<a href="/glossary/">Browse Glossary</a>' +
-          '<a href="/glossary/kategori/">View Categories</a>' +
+          '<a href="/glossary/categories/">View Categories</a>' +
           '<a href="/articles/">Read Articles</a>' +
           '</div>';
         container.appendChild(emptyDiv);
