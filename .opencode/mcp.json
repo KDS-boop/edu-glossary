@@ -4,7 +4,7 @@
       "command": "npx",
       "args": ["-y", "pagespeed-insights-mcp"],
       "env": { 
-        "GOOGLE_API_KEY": "AIzaSyBA_tVoxjBHY91NGdBwEnKvBu0JsMXy3TE" 
+        "GOOGLE_API_KEY": "" 
       }
     }
   }
