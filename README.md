@@ -1,83 +1,53 @@
-# EduGlossary — Skeleton Astro with SEO & Security Enhancements
+# EduGlossary
 
-Structured educational glossary & terminology website, inspired by Webopedia.com layout without affiliate toplist features.
+Glosarium istilah teknologi & artikel edukasi, dibangun dengan [Astro](https://astro.build). Live di **[eduglossary.my.id](https://eduglossary.my.id/)** (hosting Cloudflare Pages).
 
-## 🚀 Current Status
-
-- ✅ **Security Headers**: All 6 headers active (CSP, HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy)
-- ✅ **404 Handling**: Dedicated 404 page with noindex meta tag
-- ✅ **Search Fix**: Empty search results now link to `/glossary/categories/` instead of deprecated `/glossary/kategori/`
-- ✅ **Cloudflare Pages**: Auto-deploy from GitHub to production environment
-
-## 🛠️ How to Run Locally
+## Menjalankan di komputer kamu
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open `http://localhost:4321` to see the site.
+Buka `http://localhost:4321`.
 
-## 📁 Folder Structure
+## Struktur folder
 
 ```
 src/
   content/
-    config.ts        # data schema for glossary & articles
-    glossary/*.md    # term definitions
-    articles/*.md    # educational articles
-  components/        # Header, Footer, Card components
-  layouts/Layout.astro # HTML structure + head
+    config.ts          # skema data glossary & articles
+    glossary/*.md      # tiap file = 1 istilah
+    articles/*.md      # tiap file = 1 artikel
+  components/          # Header, Footer, GlossaryCard, ArticleCard
+  layouts/Layout.astro # kerangka HTML + <head>
   pages/
-    index.astro         # home page
-    glossary/         # term index & details
-    articles/         # article index & details
-  styles/global.css   # global CSS
+    index.astro        # beranda
+    404.astro          # halaman 404 kustom
+    glossary/          # index A-Z, halaman detail istilah, halaman per kategori
+    articles/          # index, halaman detail artikel, halaman per kategori
+    learn/             # halaman topik "Learn" (paralel dengan kategori glossary)
+  styles/global.css    # semua styling
+public/
+  _headers            # header kustom untuk Cloudflare Pages
+  robots.txt
 ```
 
-## 📝 Adding Content
+## Menambah konten
 
-- **New terms**: Create `.md` files in `src/content/glossary/`
-- **New articles**: Create `.md` files in `src/content/articles/`
+- **Istilah baru** → buat file `.md` di `src/content/glossary/`, isi frontmatter sesuai `config.ts`.
+- **Artikel baru** → buat file `.md` di `src/content/articles/`.
 
-## 🔍 SEO Checklist (Before Deploy)
+## Status saat ini
 
-- [x] ✅ Set `site: 'https://eduglossary.my.id'` in `astro.config.mjs`
-- [x] ✅ Update `public/robots.txt` with correct domain
-- [x] ✅ Add `og-default.png` (1200x630px) for fallback images
-- [x] ✅ Set `coverImage` in article frontmatter
-- [x] ✅ Pagefind search enabled (`npm install pagefind` + build)
+- Domain kanonik: **eduglossary.my.id**, di-hosting di Cloudflare Pages, sitemap otomatis via `@astrojs/sitemap`.
+- Konten live: 5 kategori glossary (Blockchain, Software Development, Cybersecurity, AI & Data, Cloud Computing) berisi puluhan istilah, plus artikel edukasi per kategori.
+- SEO dasar sudah terpasang: canonical URL, Open Graph, Twitter card, JSON-LD schema (`DefinedTerm`/`Article`), `robots.txt`, halaman 404 kustom.
+- Sedang berjalan: **fase P4 — Search Visibility & Content Expansion** (SEO teknis & crawlability, riset keyword & search intent, perluasan glosarium, perluasan content cluster, refinement SEO on-page, instrumentasi performa pencarian), dipantau lewat Google Search Console.
 
-## 🚀 Deployment
+## Langkah lanjutan
 
-- ✅ **Cloudflare Pages**: Auto-deploy from GitHub main branch
-- ✅ **Production URL**: https://eduglossary.my.id
-- ✅ **Custom Domain**: `eduglossary.my.id` with SSL/TLS enabled
-- ✅ **Auto-deploy**: Every Git push to main triggers new production deployment
-
-## 🔍 Search & Navigation
-
-- Search results now correctly link to `/glossary/categories/` instead of deprecated `/glossary/kategori/`
-- Empty search states show proper "View Categories" link
-- All internal links follow current URL structure
-
-## 🔒 Security & Compliance
-
-- ✅ HTTPS enforced with HSTS (max-age=31536000)
-- ✅ CSP header prevents XSS and data exfiltration
-- ✅ X-Frame-Options: DENY prevents clickjacking
-- ✅ X-Content-Type-Options: nosniff prevents MIME type sniffing
-- ✅ Referrer-Policy: strict-origin-when-cross-origin
-- ✅ Permissions-Policy restricts browser features
-- ✅ robots.txt controls crawler access appropriately
-
-## 📚 Development Tips
-
-- Use `npm run build` to generate production build
-- Check Cloudflare dashboard for deployment status
-- Use `wrangler pages deployment list` to view deployment history
-- Monitor console logs for CSP violations (expected for Cloudflare beacon)
-
-## 📝 License
-
-MIT License - feel free to use, modify, and share.
+1. Pastikan `public/og-default.png` (1200×630px) sudah ada sebagai fallback OG image untuk halaman tanpa `coverImage`.
+2. Tambahkan **Pagefind** untuk pencarian client-side kalau belum aktif (`npm install pagefind` + jalankan setelah build).
+3. Lanjutkan riset keyword & perluasan konten sesuai roadmap fase P4.
+4. Kalau volume istilah terus bertambah, pertimbangkan migrasi `glossary` dari file `.md` ke folder JSON/CSV import supaya lebih mudah dikelola dalam jumlah besar.
