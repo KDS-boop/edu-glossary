@@ -7,6 +7,7 @@ relatedGlossary: ["Proof of Work", "Proof of Stake", "Consensus Mechanism", "Blo
 author: "eduglossary-team"
 publishedDate: 2026-09-22
 draft: false
+coverImage: "/images/articles/proof-of-work-vs-proof-of-stake.svg"
 ---
 
 Every decentralized blockchain faces a fundamental engineering challenge: in a network where participants do not know or trust one another, how do thousands of independent computers agree on which transactions are valid?

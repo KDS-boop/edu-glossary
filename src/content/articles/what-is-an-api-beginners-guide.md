@@ -7,6 +7,7 @@ relatedGlossary: ["API", "API Gateway", "REST API", "Full Stack", "Codebase"]
 author: "eduglossary-team"
 publishedDate: 2026-09-22
 draft: false
+coverImage: "/images/articles/what-is-an-api-beginners-guide.svg"
 ---
 
 Every time you check the weather on your phone, log into a website with your Google account, pay for something online, or open a social media app — an API is doing the invisible work behind the scenes.

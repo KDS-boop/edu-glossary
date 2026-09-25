@@ -43,3 +43,20 @@ The balance between these two extremes is managed through techniques like cross-
 ## Real-World Applications
 
 ML is used across many sectors: content recommendations on streaming platforms, fraud detection in financial transactions, medical diagnosis from radiological images, autonomous vehicles, supply chain optimization, and virtual assistants. The combination of large-scale available data and modern computational power makes ML increasingly practical across domains that were previously difficult to automate.
+
+## Frequently Asked Questions
+
+### What is the difference between AI, Machine Learning, and Deep Learning?
+Think of them as nested subsets: **AI** is the broad field of making machines intelligent. **Machine Learning** is a subset of AI where systems learn from data rather than following explicit rules. **Deep Learning** is a subset of ML using multi-layer neural networks to learn complex patterns. All deep learning is ML; all ML is AI; but not all AI is ML (e.g., rule-based expert systems).
+
+### How much data do I need for machine learning?
+It depends on the problem complexity and algorithm. Simple problems (linear regression) can work with hundreds of examples. Deep learning typically needs thousands to millions of labeled examples. More data generally improves performance, but quality and representativeness matter more than raw quantity. Techniques like transfer learning (using pre-trained models) can reduce data requirements significantly.
+
+### What is overfitting and how do I prevent it?
+Overfitting happens when a model memorizes training data (including noise) instead of learning generalizable patterns. It performs well on training data but poorly on new data. Prevention: more diverse training data, regularization (L1/L2, dropout), cross-validation, simpler models, early stopping, and data augmentation.
+
+### Do I need a GPU for machine learning?
+For training deep learning models (neural networks), GPUs accelerate computation dramatically (10-100x faster). For traditional ML (decision trees, linear models) or inference (using trained models), CPUs are often sufficient. Cloud services (AWS, GCP, Azure) provide GPU instances on-demand if you don't have local hardware.
+
+### What is transfer learning?
+Transfer learning uses a model pre-trained on a large dataset (e.g., ImageNet for images, BERT for text) and fine-tunes it on your smaller, specific dataset. This leverages learned features from the big dataset, dramatically reducing training time and data requirements. It's the standard approach for most practical deep learning today.

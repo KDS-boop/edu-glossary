@@ -7,6 +7,7 @@ relatedGlossary: ["Machine Learning", "Training Data", "Chatbot", "Predictive An
 author: "eduglossary-team"
 publishedDate: 2026-09-22
 draft: false
+coverImage: "/images/articles/how-machine-learning-works.svg"
 ---
 
 Machine learning is often described as magic, but beneath the impressive results lies a practical, mathematical process. Rather than being explicitly programmed with rules ("if user is younger than 18, hide this content"), a machine learning system learns those rules itself by looking at examples.

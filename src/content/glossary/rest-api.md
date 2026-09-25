@@ -4,7 +4,7 @@ shortDefinition: "An API that follows the REST architectural style, using standa
 category: "Software Development"
 letter: "R"
 updatedDate: 2026-09-21
-relatedTerms: ["API", "API Gateway"]
+relatedTerms: ["API", "API Gateway", "Full Stack", "Codebase", "Continuous Integration"]
 ---
 
 A REST API (Representational State Transfer Application Programming Interface) is an API that adheres to the REST architectural principles defined by Roy Fielding in his 2000 doctoral dissertation. REST APIs use standard HTTP methods, stateless communication, and resource-oriented URLs, making them the most widely implemented API style on the web.
@@ -95,3 +95,29 @@ REST remains the default choice for most API projects due to its simplicity, mat
 **Implement rate limiting.** Protect your API from abuse by limiting requests per client per time window. Return `429 Too Many Requests` with a `Retry-After` header when limits are exceeded.
 
 **Document thoroughly.** Tools like OpenAPI (Swagger) generate interactive documentation from API specifications, making it easy for developers to understand and test your API.
+
+## Frequently Asked Questions
+
+### What is the difference between REST and RESTful?
+Technically, **REST** (Representational State Transfer) is the architectural style defined by Roy Fielding. **RESTful** means an API *follows* REST principles. In practice, the terms are used interchangeably — a "REST API" is expected to be RESTful. True REST compliance includes HATEOAS (Hypermedia as the Engine of Application State), which few APIs fully implement.
+
+### Should I use PUT or PATCH for updates?
+**PUT** replaces the entire resource — the client must send the complete representation. **PATCH** applies a partial update — the client sends only the fields to change. Use PUT when the client has the full object; use PATCH for partial updates (e.g., changing just an email address). PATCH is not idempotent in all implementations, so document the behavior clearly.
+
+### How do I handle versioning in a REST API?
+Common approaches: **URL versioning** (`/api/v1/users`) — most visible, cacheable, easy to route. **Header versioning** (`Accept: application/vnd.myapp.v1+json`) — keeps URLs clean, requires clients to set headers. **Query parameter** (`/users?version=1`) — simple but mixes versioning with filtering. URL versioning is the most widely adopted and recommended for public APIs.
+
+### What HTTP status codes should a REST API return?
+- `200 OK` — successful GET, PUT, PATCH
+- `201 Created` — successful POST (include `Location` header with new resource URL)
+- `204 No Content` — successful DELETE (no response body)
+- `400 Bad Request` — malformed request body
+- `401 Unauthorized` — missing or invalid authentication
+- `403 Forbidden` — authenticated but not authorized for this resource
+- `404 Not Found` — resource does not exist
+- `422 Unprocessable Entity` — valid JSON but semantic validation failed
+- `429 Too Many Requests` — rate limit exceeded
+- `500 Internal Server Error` — unexpected server failure
+
+### How do I paginate large collections in a REST API?
+Two main patterns: **Offset-based** (`?page=2&limit=20`) — simple but slow on large datasets (requires OFFSET). **Cursor-based** (`?cursor=abc123&limit=20`) — faster, stable pagination, works with real-time data. Cursor-based is preferred for large or frequently changing datasets. Always include pagination metadata in the response (`total_count`, `next_cursor`, `has_more`).

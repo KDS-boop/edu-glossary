@@ -7,6 +7,7 @@ relatedGlossary: ["Full Stack", "Codebase"]
 author: "eduglossary-team"
 publishedDate: 2026-09-10
 draft: false
+coverImage: "/images/articles/mengenal-astro-framework.svg"
 ---
 
 Astro is a modern web framework designed specifically for content-driven sites such as blogs, documentation, and educational websites.

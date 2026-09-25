@@ -1,0 +1,17 @@
+{
+  "mcp": {
+    "servers": {
+      "bing-webmaster": {
+        "type": "local",
+        "command": [
+          "npx",
+          "-y",
+          "@isiahw1/mcp-server-bing-webmaster@latest"
+        ],
+        "environment": {
+          "BING_WEBMASTER_API_KEY": "f9a586671b0749d89d70602d99d6c5e0"
+        }
+      }
+    }
+  }
+}

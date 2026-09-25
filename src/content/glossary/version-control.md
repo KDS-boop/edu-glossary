@@ -4,7 +4,7 @@ shortDefinition: "A system that records changes to files over time, allowing dev
 category: "Software Development"
 letter: "V"
 updatedDate: 2026-09-21
-relatedTerms: ["Codebase", "Continuous Integration"]
+relatedTerms: ["Codebase", "Continuous Integration", "Full Stack", "API", "REST API"]
 ---
 
 Version control is a system that tracks changes to files over time, enabling developers to recall previous versions, compare differences between versions, and collaborate on shared projects without conflicts. It is the foundational tool of modern software development — no serious software project operates without it.
@@ -80,3 +80,22 @@ Each commit points to its parent commit, forming a directed acyclic graph (DAG).
 While Git was designed for source code, its content-tracking capabilities are useful for any text-based files: documentation, configuration, infrastructure-as-code (Terraform, Ansible), and even data science notebooks. The key requirement is that files are text-based and mergeable — binary files (images, compiled binaries) can be stored but not meaningfully diffed or merged.
 
 For non-text assets (design files, large datasets), specialized version control tools (Git LFS, DVC, P4) complement Git by handling large file storage while Git manages the metadata and workflow.
+
+## Frequently Asked Questions
+
+### What is the difference between Git and GitHub?
+**Git** is the distributed version control system — the command-line tool that tracks changes locally and across machines. **GitHub** is a web-based hosting service for Git repositories that adds collaboration features (pull requests, issues, code review, CI/CD, project management). Git works without GitHub; GitHub requires Git. Alternatives include GitLab, Bitbucket, and self-hosted Gitea.
+
+### What is the difference between `git merge` and `git rebase`?
+Both integrate changes from one branch into another. **Merge** creates a new commit that combines the two histories — preserves the exact history but creates "merge commits" that some find cluttered. **Rebase** rewrites history by replaying your commits on top of the target branch — produces a linear, cleaner history but modifies commit hashes. Use merge for public/shared branches; rebase for local/feature branches before pushing.
+
+### How do I undo a commit?
+- **`git revert <commit>`** — creates a new commit that undoes the changes. Safe for shared history.
+- **`git reset --hard <commit>`** — moves the branch pointer back, discarding commits. **Dangerous** for shared history — only use on local commits you haven't pushed.
+- **`git commit --amend`** — modifies the most recent commit (message or staged changes). Only for the last local commit.
+
+### What is a "detached HEAD" state?
+This happens when you check out a specific commit (not a branch), e.g., `git checkout a1b2c3d`. You are no longer on a branch — new commits won't be attached to any branch and can be lost. To fix: `git checkout -b new-branch-name` to create a branch from that point, or `git checkout main` to return to a branch.
+
+### How do I resolve merge conflicts?
+When Git cannot auto-merge (both branches changed the same lines), it marks the conflicted files with conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`). Edit the files to resolve the conflict (keep one side, combine, or write new code), then `git add <file>` to mark as resolved, and `git commit` to complete the merge. Tools like `git mergetool` or VS Code's merge editor can help visualize conflicts.

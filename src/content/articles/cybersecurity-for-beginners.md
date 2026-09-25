@@ -7,6 +7,7 @@ relatedGlossary: ["End-to-End Encryption", "SHA-256", "Firewall", "Brute Force A
 author: "eduglossary-team"
 publishedDate: 2026-09-22
 draft: false
+coverImage: "/images/articles/cybersecurity-for-beginners.svg"
 ---
 
 Cybersecurity is the practice of protecting computers, networks, applications, and data from unauthorized access, disruption, or destruction. It is not only an enterprise concern. A personal email account, phone, home router, and online payment all contain assets worth protecting.

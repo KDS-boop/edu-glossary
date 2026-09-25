@@ -4,7 +4,7 @@ shortDefinition: "An encryption method that uses the same key for both encryptin
 category: "Cybersecurity"
 letter: "S"
 updatedDate: 2026-09-21
-relatedTerms: ["End-to-End Encryption", "SHA-256"]
+relatedTerms: ["End-to-End Encryption", "SHA-256", "VPN", "Firewall", "Brute Force Attack"]
 ---
 
 Symmetric encryption is a method of data protection where the same secret key is used to both encrypt plaintext into ciphertext and decrypt ciphertext back to plaintext. Both the sender and receiver must possess the identical key, and the security of the encrypted data depends entirely on keeping that key secret.
@@ -66,3 +66,20 @@ Neither approach is universally superior. They solve different problems and are 
 **VPN tunnels.** OpenVPN and WireGuard encrypt all traffic between client and server using AES or ChaCha20, established through an initial asymmetric key exchange.
 
 **Database encryption.** Sensitive fields (credit card numbers, health records) are encrypted at the application layer using symmetric keys managed through a key management system.
+
+## Frequently Asked Questions
+
+### What is the difference between a block cipher and a stream cipher?
+A **block cipher** (like AES) encrypts fixed-size blocks of data (128 bits for AES). The plaintext is padded to fit the block size. A **stream cipher** (like ChaCha20) generates a continuous keystream of pseudorandom bytes and XORs it with the plaintext — no padding needed, works on data of any length. Stream ciphers are typically faster and simpler for streaming data (TLS, VPN); block ciphers are standard for data at rest (disk encryption, databases).
+
+### Is AES-256 better than AES-128?
+Both are currently unbroken. AES-256 provides a larger security margin against future cryptanalytic advances and quantum computing (Grover's algorithm reduces effective key strength by half, so AES-128 → 64-bit security, AES-256 → 128-bit security). For most applications, AES-128 is perfectly adequate. AES-256 is preferred for government/military data and long-term secrets. The performance difference is small (~40% slower for AES-256 due to additional rounds).
+
+### What is an initialization vector (IV) and why do I need one?
+An IV (or nonce) adds randomness to encryption so that encrypting the same plaintext with the same key produces different ciphertext each time. Without an IV, identical plaintexts would produce identical ciphertexts, leaking information to attackers. The IV does not need to be secret but must be unique per key (never reuse an IV with the same key). It is typically prepended to the ciphertext.
+
+### What is authenticated encryption and why does it matter?
+Standard encryption provides **confidentiality** (attackers cannot read the data) but not **integrity** (attackers cannot detect if ciphertext was tampered with). **Authenticated encryption** (AEAD modes like AES-GCM, ChaCha20-Poly1305) provides both: it encrypts the data and generates an authentication tag. Any tampering with the ciphertext or tag is detected during decryption. Always use authenticated encryption — plain AES-CBC or ChaCha20 without authentication is vulnerable to padding oracle and bit-flipping attacks.
+
+### Can I use the same symmetric key for multiple purposes?
+No. Keys should be **purpose-specific** — one key for disk encryption, a different key for TLS, a different key for database fields. Key separation prevents a breach in one system from compromising another. Derive specialized keys from a master key using a key derivation function (HKDF) if needed. Never reuse a key across different algorithms or protocols.

@@ -4,7 +4,7 @@ shortDefinition: "A subset of machine learning that uses neural networks with ma
 category: "AI & Data"
 letter: "D"
 updatedDate: 2026-09-21
-relatedTerms: ["Machine Learning"]
+relatedTerms: ["Machine Learning", "Neural Networks", "Training Data", "Chatbot", "Predictive Analytics"]
 ---
 
 Deep learning is a branch of machine learning that uses artificial neural networks with multiple layers (hence "deep") to progressively extract higher-level features from raw input data. Where traditional machine learning often requires engineers to manually define which features the model should look at, deep learning models learn relevant features automatically from the data itself.
@@ -53,3 +53,20 @@ Traditional machine learning algorithms can achieve reasonable performance with 
 **Brittleness.** Deep learning models can fail unexpectedly on inputs that differ subtly from their training data (adversarial examples), a vulnerability that traditional ML algorithms handle more gracefully in many cases.
 
 Despite these limitations, deep learning remains the most powerful approach for pattern recognition tasks involving unstructured data, and its capabilities continue to expand with scale, architecture innovations, and training techniques.
+
+## Frequently Asked Questions
+
+### What is the difference between a neural network and deep learning?
+A **neural network** is a computational model inspired by biological neurons — it's the building block. **Deep learning** refers to neural networks with *many* layers (deep architectures). A single-layer perceptron is a neural network but not deep learning; a 100-layer Transformer is both.
+
+### Do I need a GPU to do deep learning?
+For **training** deep networks, yes — GPUs (or TPUs) are practically mandatory due to the massive matrix multiplication workloads. For **inference** (using a trained model), CPUs can work for smaller models, but GPUs are still much faster. Cloud providers (AWS, GCP, Azure) offer GPU instances on-demand if you don't have local hardware.
+
+### How much data do I need for deep learning?
+It depends on the task and model size. Simple CNNs for image classification can work with a few thousand labeled images. Large language models need billions of tokens. Transfer learning (fine-tuning pre-trained models) dramatically reduces data requirements — you can often get good results with hundreds of examples instead of millions.
+
+### What is the difference between CNN, RNN, and Transformer?
+**CNNs** (Convolutional Neural Networks) excel at grid data like images — they detect local patterns (edges, textures) using shared filters. **RNNs** (Recurrent Neural Networks) process sequences step-by-step, maintaining a hidden state — good for time series but slow and hard to parallelize. **Transformers** process entire sequences in parallel using self-attention — they scale better, capture long-range dependencies, and are the standard for modern NLP and increasingly vision tasks.
+
+### What are common deep learning frameworks?
+**PyTorch** (Meta) and **TensorFlow/Keras** (Google) are the two dominant frameworks. PyTorch is preferred for research and dynamic models; TensorFlow has stronger production deployment tooling. **JAX** (Google) is gaining traction for high-performance research. **Hugging Face Transformers** provides pre-trained models and utilities that work with both PyTorch and TensorFlow.

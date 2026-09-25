@@ -82,6 +82,7 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
     {schemas.length > 0 && schemas.map((s) => (
       <script type="application/ld+json" set:html={JSON.stringify(s)} />
     ))}
+    <link rel="alternate" type="application/rss+xml" title="EduGlossary RSS" href="/rss.xml" />
     <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
     <script is:inline src="/pagefind/pagefind-ui.js"></script>
     <script is:inline src="/search-utils.js"></script>

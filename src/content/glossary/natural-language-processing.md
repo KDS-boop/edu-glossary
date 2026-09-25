@@ -4,7 +4,7 @@ shortDefinition: "A field of artificial intelligence that enables computers to u
 category: "AI & Data"
 letter: "N"
 updatedDate: 2026-09-21
-relatedTerms: ["Machine Learning", "Chatbot"]
+relatedTerms: ["Machine Learning", "Chatbot", "Deep Learning", "Training Data", "Predictive Analytics"]
 ---
 
 Natural Language Processing (NLP) is a branch of artificial intelligence focused on enabling computers to work with human language in its natural form — text and speech. Unlike structured data (databases, spreadsheets) that computers handle natively, human language is ambiguous, context-dependent, and full of implicit meaning. NLP bridges this gap, allowing machines to read documents, understand conversations, translate between languages, and generate coherent text.

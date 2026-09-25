@@ -27,15 +27,57 @@ const breadcrumbs = [
   { label: 'Categories', href: '/glossary/categories/' },
   { label: category, href: `/glossary/categories/${slugify(category)}/` },
 ];
+
+const categoryIntros: Record<string, string[]> = {
+  'Software Development': [
+    'Software development encompasses the tools, practices, and concepts that enable teams to build reliable applications. From APIs that connect services to version control that tracks every change, these fundamentals form the backbone of modern engineering.',
+    'Understanding REST APIs, API gateways, and CI/CD pipelines is essential whether you\'re building a simple web app or a complex distributed system. These concepts also bridge into infrastructure topics like cloud computing and containerization.',
+  ],
+  'Cybersecurity': [
+    'Cybersecurity protects systems, networks, and data from unauthorized access and attacks. Core concepts include encryption for confidentiality, firewalls for network boundaries, and cryptographic hashes for integrity verification.',
+    'Whether you\'re securing a personal device or enterprise infrastructure, the principles remain the same: defend confidentiality, integrity, and availability. Understanding attack vectors like brute force helps you build stronger defenses.',
+  ],
+  'AI & Data': [
+    'Artificial intelligence and data science transform raw data into intelligent decisions. Machine learning algorithms learn patterns from training data to make predictions, while deep learning models tackle complex tasks like natural language understanding.',
+    'The quality of training data directly determines model performance. Concepts like overfitting, validation, and predictive analytics are essential for anyone building or evaluating AI systems.',
+  ],
+  'Cloud Computing': [
+    'Cloud computing delivers on-demand computing resources over the internet. Instead of managing physical servers, organizations rent virtual machines, storage, and databases from cloud service providers on a pay-as-you-go basis.',
+    'Virtualization, hybrid cloud storage, and Storage Area Networks (SANs) enable flexible, scalable infrastructure. These concepts bridge into software development through containerization and serverless architectures.',
+  ],
+  'Blockchain': [
+    'Blockchain is a distributed ledger that records transactions across a decentralized network without a central authority. Each block cryptographically links to the previous one, creating an immutable chain secured by consensus mechanisms.',
+    'From Proof of Work to Proof of Stake, consensus algorithms enable trustless agreement. Smart contracts, Merkle trees, and cryptographic hashing are the building blocks of decentralized applications and cryptocurrency systems.',
+  ],
+};
+
+const introParagraphs = categoryIntros[category] || [
+  `Explore terms and concepts in the ${category} category.`,
+  `Each entry includes a concise definition and links to related terms for deeper learning.`,
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: `Category: ${category}`,
+  description: `Browse ${sorted.length} terms in the ${category} category.`,
+  url: new URL(`/glossary/categories/${slugify(category)}/`, Astro.site).toString(),
+};
 ---
 <Layout
   title={`Category: ${category}`}
-  description={`List of terms in the ${category} category.`}
+  description={`Browse ${sorted.length} terms in the ${category} category.`}
+  schema={schema}
   breadcrumbs={breadcrumbs}
 >
   <Breadcrumb items={breadcrumbs} />
   
   <h1>{category}</h1>
+  
+  <article class="prose category-intro" style="margin-top: 1rem; margin-bottom: 1.5rem;">
+    {introParagraphs.map((p) => <p>{p}</p>)}
+  </article>
+
   <p class="muted">{sorted.length} terms in this category.</p>
 
   <div class="grid" style="margin-top: 1.5rem;">

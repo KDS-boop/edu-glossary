@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEO Audit Report: eduglossary.my.id</title>
+<style>
+  :root { --navy: #1E3A8A; --emerald: #10B981; --orange: #C2410C;
+           --dark: #0F172A; --white: #FFFFFF; --gray-50: #F9FAFB;
+           --gray-100: #F3F4F6; --gray-200: #E5E7EB; --gray-500: #6B7280;
+           --gray-600: #4B5563; --gray-700: #374151; --gray-900: #111827; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, Helvetica, sans-serif;
+         color: var(--gray-700); line-height: 1.6; background: var(--white); }
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
+  .report-header { background: linear-gradient(135deg, var(--dark) 0%, var(--navy) 100%);
+                    padding: 60px 0; color: var(--white); }
+  .report-header .inner { display: flex; justify-content: space-between;
+                           align-items: flex-start; }
+  .brand { display: flex; align-items: center; gap: 16px; }
+  .brand-logo { width: 56px; height: 56px; background: var(--navy);
+                 border-radius: 10px; display: flex; align-items: center;
+                 justify-content: center; font-size: 24px; font-weight: 800;
+                 color: var(--white); border: 2px solid rgba(255,255,255,0.15); }
+   .brand-name { font-family: Arial, Helvetica, sans-serif; font-size: 22px;
+                 font-weight: 700; }
+  .brand-role { font-size: 13px; color: rgba(255,255,255,0.6); }
+  .report-meta { text-align: right; }
+  .report-meta .label { font-size: 11px; text-transform: uppercase;
+                         letter-spacing: 0.08em; color: var(--emerald);
+                         font-weight: 600; margin-bottom: 4px; }
+  .report-meta .value { font-size: 14px; color: rgba(255,255,255,0.7); }
+  .score-section { background: var(--white); border: 1px solid var(--gray-200);
+                    border-top: none; padding: 40px 0; }
+  .score-grid { display: grid; grid-template-columns: 200px 1fr;
+                 gap: 40px; align-items: center; }
+  .score-circle { width: 160px; height: 160px; border-radius: 50%;
+                   background: conic-gradient(var(--score-colour) 0deg,
+                   var(--score-colour) var(--score-deg),
+                   var(--orange) var(--score-deg),
+                   var(--orange) var(--score-deg-plus),
+                   var(--gray-200) var(--score-deg-plus));
+                   display: flex; align-items: center; justify-content: center;
+                   position: relative; }
+  .score-circle::after { content: ''; width: 130px; height: 130px;
+                          background: var(--white); border-radius: 50%;
+                          position: absolute; }
+   .score-value { position: relative; z-index: 1;
+                   font-family: Arial, Helvetica, sans-serif; font-size: 48px;
+                   font-weight: 800; color: var(--dark); }
+   .score-value span { font-size: 20px; color: var(--gray-500); }
+   .score-value.decimal { font-size: 38px; }
+   .score-value.decimal span { font-size: 16px; }
+   .score-summary h2 { font-family: Arial, Helvetica, sans-serif; font-size: 24px;
+                       font-weight: 700; color: var(--dark); margin-bottom: 12px; }
+  .score-summary p { color: var(--gray-600); line-height: 1.7; }
+  .findings-count { display: flex; gap: 16px; margin-top: 16px; flex-wrap: wrap; }
+  .findings-count .tag { padding: 4px 12px; border-radius: 6px;
+                          font-size: 12px; font-weight: 600; }
+  .tag-critical { background: #FEE2E2; color: #991B1B; }
+  .tag-high { background: #FEF3C7; color: #92400E; }
+  .tag-medium { background: #DBEAFE; color: #1E40AF; }
+  .tag-low { background: #D1FAE5; color: #065F46; }
+  .content { padding: 48px 0; }
+  .section { margin-bottom: 48px; }
+   .section-title { font-family: Arial, Helvetica, sans-serif; font-size: 20px;
+                    font-weight: 700; color: var(--dark); padding-bottom: 12px;
+                    border-bottom: 2px solid var(--dark); margin-bottom: 24px; }
+   h3 { font-family: Arial, Helvetica, sans-serif; font-size: 16px;
+        font-weight: 600; color: var(--dark); margin-bottom: 12px; }
+  p { margin-bottom: 16px; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+  th { background: var(--gray-50); text-align: left; padding: 10px 16px;
+        font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
+        color: var(--gray-500); font-weight: 600;
+        border-bottom: 1px solid var(--gray-200); }
+  td { padding: 12px 16px; font-size: 14px; border-bottom: 1px solid var(--gray-100);
+        vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px;
+            font-size: 11px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.05em; }
+  .status-critical { background: #FEE2E2; color: #991B1B; }
+  .status-high { background: #FEE2E2; color: #991B1B; }
+  .status-medium { background: #FEF3C7; color: #92400E; }
+  .status-low { background: #DBEAFE; color: #1E40AF; }
+  .status-pass { background: #D1FAE5; color: #065F46; }
+  code { background: var(--gray-100); padding: .1rem .3rem; border-radius: 4px;
+          font-size: .85em; }
+  pre.code { background: var(--dark); color: #e2e8f0; padding: 1rem;
+              border-radius: 8px; overflow-x: auto; font-size: .82rem; }
+  pre.code code { background: none; padding: 0; }
+  blockquote { border-left: 4px solid var(--emerald); margin: 1rem 0;
+                padding: .4rem 1rem; color: var(--ink);
+                background: #ecfdf5; border-radius: 0 8px 8px 0; }
+  hr { border: 0; border-top: 1px solid var(--gray-200); margin: 2rem 0; }
+  a { color: var(--navy); }
+  .rec-grid { display: grid; gap: 12px; }
+  .rec-card { display: grid; grid-template-columns: 80px 1fr; gap: 16px;
+               align-items: center; padding: 16px;
+               border: 1px solid var(--gray-200); border-radius: 8px;
+               background: var(--white); }
+  .rec-card:hover { border-color: var(--navy); }
+  .rec-why { font-size: 13px; color: var(--gray-500); }
+  .working-list { list-style: none; }
+  .working-list li { padding: 10px 0; border-bottom: 1px solid var(--gray-100);
+                      display: flex; align-items: flex-start; gap: 12px;
+                      font-size: 14px; }
+  .working-list li::before { content: '\2713'; display: inline-block;
+                              width: 20px; height: 20px; background: var(--emerald);
+                              color: var(--white); border-radius: 50%;
+                              text-align: center; line-height: 20px; font-size: 12px;
+                              font-weight: 700; flex-shrink: 0; }
+  .next-step { background: linear-gradient(135deg, var(--dark) 0%, var(--navy) 100%);
+                border-radius: 12px; padding: 32px; color: var(--white); margin: 32px 0; }
+  .next-step h3 { color: var(--emerald); margin-bottom: 8px;
+                   font-family: Arial, Helvetica, sans-serif; }
+  .next-step p { color: rgba(255,255,255,0.8); margin-bottom: 0; }
+  .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 16px; margin-bottom: 48px; }
+  .stat-card { background: var(--white); border: 1px solid var(--gray-200);
+                border-radius: 8px; padding: 20px; text-align: center;
+                border-top: 4px solid var(--emerald); }
+  .stat-card:nth-child(2) { border-top-color: var(--navy); }
+  .stat-card:nth-child(3) { border-top-color: var(--orange); }
+  .stat-card:nth-child(4) { border-top-color: var(--emerald); }
+  .stat-card:nth-child(5) { border-top-color: var(--navy); }
+  .stat-card:nth-child(6) { border-top-color: var(--orange); }
+   .stat-value { font-family: Arial, Helvetica, sans-serif; font-size: 28px;
+                 font-weight: 800; color: var(--dark); }
+  .stat-label { font-size: 11px; text-transform: uppercase;
+                 letter-spacing: 0.08em; color: var(--gray-500); margin-top: 4px; }
+  .stat-delta { font-size: .85rem; font-weight: 600; }
+  .roadmap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .roadmap-col { background: var(--white); border: 1px solid var(--gray-200);
+                  border-radius: 8px; padding: 24px;
+                  border-top: 4px solid var(--emerald); }
+  .roadmap-col:nth-child(2) { border-top-color: var(--navy); }
+  .roadmap-col:nth-child(3) { border-top-color: var(--orange); }
+   .roadmap-col h4 { font-family: Arial, Helvetica, sans-serif; font-size: 14px;
+                     font-weight: 700; color: var(--dark); margin-bottom: 16px;
+                     text-transform: uppercase; letter-spacing: 0.05em; }
+  .roadmap-col ol { padding-left: 20px; font-size: 13px; color: var(--gray-600);
+                     line-height: 1.8; }
+  .chart { margin: 1.4rem 0; }
+  .chart figcaption { font-weight: 600; color: var(--dark);
+                       margin-bottom: .6rem; font-size: .95rem; }
+  .chart.donut { text-align: center; }
+  .legend { margin-top: .5rem; font-size: .82rem; color: var(--gray-900); }
+  .legend-item { display: inline-block; margin: 0 .9rem .2rem 0; }
+  .legend-item .sw { display: inline-block; width: 10px; height: 10px;
+                      border-radius: 2px; margin-right: .3rem; }
+  .chart-unparsed { border: 1px dashed var(--orange); border-radius: 8px;
+                     padding: .8rem; margin: 1.4rem 0; font-size: .85rem; }
+  .chart-unparsed strong { color: var(--orange); }
+  .bar-row { display: flex; align-items: center; gap: .7rem;
+              margin: .35rem 0; font-size: .88rem; }
+  .bar-label { flex: 0 0 11rem; color: var(--gray-900); }
+  .bar-track { flex: 1; background: var(--gray-200); border-radius: 999px;
+                height: 14px; overflow: hidden; }
+  .bar-fill { display: block; height: 100%; border-radius: 999px; }
+  .bar-value { flex: 0 0 5.5rem; text-align: right; font-weight: 600; }
+  .cmp-row { display: flex; align-items: center; gap: .7rem;
+              margin: .35rem 0; font-size: .88rem; }
+  .cmp-track { flex: 1; position: relative; background: var(--gray-200);
+                border-radius: 999px; height: 14px; }
+  .cmp-before { position: absolute; inset: 0 auto 0 0;
+                 background: #94a3b8; border-radius: 999px; opacity: .55; }
+  .cmp-after { position: absolute; inset: 0 auto 0 0;
+                border-radius: 999px; height: 8px; margin-top: 3px; }
+  .cmp-delta { flex: 0 0 3rem; text-align: right; font-weight: 700; }
+  .cmp-legend { font-weight: 400; font-size: .78rem; color: var(--gray-500);
+                 margin-left: .5rem; }
+  .cmp-legend .sw { display: inline-block; width: 10px; height: 10px;
+                     border-radius: 2px; margin: 0 .25rem 0 .6rem;
+                     vertical-align: -1px; }
+  .stat-strip { display: flex; flex-wrap: wrap; gap: .8rem; margin: 1.4rem 0; }
+  .report-footer { background: var(--dark); padding: 32px 0;
+                    text-align: center; color: rgba(255,255,255,0.4);
+                    font-size: 13px; }
+  .report-footer a { color: var(--emerald); text-decoration: none; }
+  nav.toc { background: var(--gray-50); border: 1px solid var(--gray-200);
+             border-left: 4px solid var(--emerald); border-radius: 8px;
+             padding: 1rem 1.4rem; margin: 0 0 2rem; font-size: .92rem; }
+  nav.toc strong { color: var(--navy); text-transform: uppercase;
+                    font-size: .75rem; letter-spacing: .1em; }
+  nav.toc ul { margin: .5rem 0 0; padding-left: 1.2rem; }
+  nav.toc li { margin: .15rem 0; }
+  nav.toc li.l3 { margin-left: 1.2rem; font-size: .88em; }
+  nav.toc a { color: var(--gray-900); text-decoration: none; }
+  nav.toc a:hover { color: var(--navy); }
+  body.onepager .score-section { padding: 24px 0; }
+  body.onepager .score-grid { gap: 24px; }
+  body.onepager .score-circle { width: 100px; height: 100px; }
+  body.onepager .score-circle::after { width: 80px; height: 80px; }
+   body.onepager .score-value { font-size: 32px; }
+   body.onepager .score-value.decimal { font-size: 27px; }
+   body.onepager .score-value.decimal span { font-size: 12px; }
+  body.onepager .section { margin-bottom: 24px; }
+  body.onepager .stats-row { margin-bottom: 24px; }
+  body.onepager .roadmap-grid { gap: 12px; }
+  body.onepager .roadmap-col { padding: 16px; }
+  body.onepager .next-step { padding: 20px; margin: 20px 0; }
+  @media print {
+    body { font-size: 11px; }
+    .container { padding: 0 20px; }
+    .report-header { padding: 30px 0; }
+    .score-section, .content { padding: 20px 0; }
+    .section { page-break-inside: avoid; }
+    .roadmap-grid { grid-template-columns: 1fr; }
+    nav.toc { display: none; }
+  }
+  @media (max-width: 768px) {
+    .score-grid { grid-template-columns: 1fr; }
+    .report-header .inner { flex-direction: column; gap: 24px; }
+    .report-meta { text-align: left; }
+    .roadmap-grid { grid-template-columns: 1fr; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body class="onepager">
+<div class="report-header">
+  <div class="container">
+    <div class="inner">
+      <div class="brand">
+        <div class="brand-logo">LB</div>
+        <div>
+          <div class="brand-name">Lee Beirne</div>
+          <div class="brand-role">AI SEO Consultant</div>
+        </div>
+      </div>
+      <div class="report-meta">
+        <div class="label">Complete Site Audit</div>
+        <div class="value">eduglossary.my</div>
+        <div class="value">24 September 2026</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="container">
+    
+    
+    <h2 id="1-executive-summary">1. Executive Summary</h2>
+<p><code>eduglossary.my.id</code> is a high-performance static educational website built with Astro, providing clear definitions, glossaries, and technical guides across blockchain, AI &amp; data, cybersecurity, cloud computing, and software development.</p>
+<p>The technical foundation is robust: the site renders statically (zero JS rendering risk), loads quickly, uses valid mobile viewports, and has clean heading hierarchies and internal linking. However, the audit identified key areas for improvement in <strong>Conversion Rate Optimization (CRO)</strong>, <strong>Security Headers</strong>, and <strong>Structured Data (Schema)</strong>. Specifically, the homepage lacks primary calls-to-action (CTAs), trust signals, and FAQ sections, while security headers (HSTS and CSP) and entity/article JSON-LD schema blocks are missing.</p>
+<hr>
+<figure class="chart donut">
+<svg viewBox="0 0 140 140" width="150" height="150" role="img" aria-label="Overall SEO Health Score">
+  <circle cx="70" cy="70" r="54" fill="none" stroke="#e2e8f0" stroke-width="16"/>
+  <circle cx="70" cy="70" r="54" fill="none" stroke="#10B981" stroke-width="16" stroke-dasharray="254.5 84.8" stroke-dashoffset="-0.0" transform="rotate(-90 70 70)"/><circle cx="70" cy="70" r="54" fill="none" stroke="#1E3A8A" stroke-width="16" stroke-dasharray="84.8 254.5" stroke-dashoffset="-254.5" transform="rotate(-90 70 70)"/>
+</svg>
+<figcaption>Overall SEO Health Score</figcaption>
+<div class="legend"><span class="legend-item"><span class="sw" style="background:#10B981"></span>Score (75)</span><span class="legend-item"><span class="sw" style="background:#1E3A8A"></span>Remaining (25)</span></div>
+</figure>
+<figure class="chart"><figcaption>Pillar Scores (Out of 100)</figcaption><div class="bar-row">
+  <span class="bar-label">Technical</span>
+  <span class="bar-track"><span class="bar-fill" style="width:85.0%;background:#10B981"></span></span>
+  <span class="bar-value">85</span>
+</div><div class="bar-row">
+  <span class="bar-label">Content</span>
+  <span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#10B981"></span></span>
+  <span class="bar-value">80</span>
+</div><div class="bar-row">
+  <span class="bar-label">Authority</span>
+  <span class="bar-track"><span class="bar-fill" style="width:70.0%;background:#10B981"></span></span>
+  <span class="bar-value">70</span>
+</div><div class="bar-row">
+  <span class="bar-label">UX / CRO</span>
+  <span class="bar-track"><span class="bar-fill" style="width:60.0%;background:#F59E0B"></span></span>
+  <span class="bar-value">60</span>
+</div><div class="bar-row">
+  <span class="bar-label">AI Search</span>
+  <span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#10B981"></span></span>
+  <span class="bar-value">75</span>
+</div></figure>
+<h2 id="5-recommendations-actions-table">5. Recommendations &amp; Actions Table</h2>
+<table><thead><tr><th>ID</th><th>Observation</th><th>Why It Matters</th><th>Action / Fix</th><th>Verification</th></tr></thead><tbody>
+<tr><td><strong>CRO-1</strong></td><td>0 CTAs detected</td><td>No visitor conversion path</td><td>Add primary navigation/action buttons in headers and footers.</td><td>Re-run SEO lint (<code>seo_lint.py</code>)</td></tr>
+<tr><td><strong>SEC-1</strong></td><td>Missing HSTS &amp; CSP</td><td>Potential downgrade / injection vulnerability</td><td>Configure server response headers for HSTS and CSP.</td><td>Check headers via curl / security audit tool</td></tr>
+<tr><td><strong>SCH-1</strong></td><td>Missing JSON-LD Schema</td><td>Reduced rich snippet eligibility</td><td>Add Organization, Article, and BreadcrumbList schemas.</td><td>Test with Google Rich Results Test</td></tr>
+<tr><td><strong>MET-1</strong></td><td>Short Meta Descriptions</td><td>Under-optimized SERP real estate</td><td>Expand meta descriptions to 120–155 characters.</td><td>Verify snippet length in page HTML</td></tr>
+</tbody></table>
+  </div>
+</div>
+<div class="report-footer">
+  <div class="container"><p>Report built by Lee Beirne - <a href="https://leebeirne.com">https://leebeirne.com</a></p></div>
+</div>
+</body>
+</html>

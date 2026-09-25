@@ -74,3 +74,20 @@ Understanding these codes helps developers diagnose issues quickly when integrat
 Developers interact with APIs through client libraries, SDKs, or direct HTTP requests. Most APIs require authentication — typically via API keys, OAuth tokens, or JWT (JSON Web Tokens) — to identify the caller and control access.
 
 APIs are also the foundation of modern integrations: payment processing (Stripe), email delivery (SendGrid), cloud services (AWS, Azure), and data providers all expose APIs that applications depend on. The reliability, documentation quality, and versioning strategy of an API directly affect how well these integrations work in practice.
+
+## Frequently Asked Questions
+
+### What is the difference between an API and a library?
+An API is a contract defining how software components communicate — it specifies *what* operations are available. A library is a collection of reusable code that implements functionality — it provides *how* those operations work. You call a library's functions directly in your code; you call an API over a network (usually HTTP).
+
+### Do all APIs use REST?
+No. REST is the most common architectural style for web APIs, but alternatives include GraphQL (flexible querying), gRPC (high-performance RPC), and WebSockets (real-time bidirectional communication). The best choice depends on your use case — REST for simple CRUD, GraphQL for complex data needs, gRPC for microservices.
+
+### What is an API key vs. OAuth?
+An API key is a simple string identifier used to authenticate the calling application — easy to implement but less secure for user-specific data. OAuth is an authorization framework that lets users grant limited access to their data without sharing passwords — better for applications acting on behalf of users (e.g., "Log in with Google").
+
+### How do I version an API?
+Common approaches include URL versioning (`/v1/users`), header versioning (`Accept: application/vnd.myapi.v1+json`), or query parameter versioning (`?version=1`). URL versioning is most visible and cacheable; header versioning keeps URLs clean. Always maintain backward compatibility when possible — add new fields, don't remove or change existing ones.
+
+### What is rate limiting and why does it matter?
+Rate limiting restricts how many requests a client can make in a time window (e.g., 100 requests/minute). It protects APIs from abuse, ensures fair usage, and prevents server overload. Responses typically include headers like `X-RateLimit-Limit` and `X-RateLimit-Remaining` so clients can adjust their behavior.

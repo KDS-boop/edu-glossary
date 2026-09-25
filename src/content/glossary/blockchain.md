@@ -35,3 +35,20 @@ The trade-off is between openness and control: public blockchains maximize trust
 - **Smart contracts** — self-executing code that enforces agreements automatically when conditions are met.
 - **Supply chain tracking** — recording the provenance and movement of goods across multiple parties.
 - **Decentralized identity** — giving individuals control over their own credentials without relying on a central issuer.
+
+## Frequently Asked Questions
+
+### What is the difference between a blockchain and a database?
+A database is typically centralized — controlled by one organization that can modify, delete, or override records. A blockchain is decentralized and append-only: once data is written and confirmed by the network, it cannot be altered without detection. Databases prioritize speed and control; blockchains prioritize trustlessness and auditability.
+
+### How does Proof of Work differ from Proof of Stake?
+Proof of Work (PoW) requires miners to solve computational puzzles to propose blocks — energy-intensive but battle-tested (Bitcoin). Proof of Stake (PoS) selects validators based on the amount of cryptocurrency they stake as collateral — far more energy-efficient (Ethereum post-Merge). Both achieve consensus but with different security models and resource requirements.
+
+### Can a blockchain be hacked?
+The blockchain protocol itself (consensus, cryptography) is extremely hard to attack — a 51% attack on a major network would cost billions. However, vulnerabilities often exist at the *application layer*: smart contract bugs, bridge exploits, private key theft, or exchange hacks. "Blockchain hacks" are almost always smart contract or infrastructure failures, not protocol breaks.
+
+### What is a smart contract?
+A smart contract is self-executing code stored on a blockchain that automatically enforces the terms of an agreement when predefined conditions are met. It runs exactly as programmed, without intermediaries. Common uses: token transfers, decentralized exchanges, lending protocols, and NFTs.
+
+### Why do public blockchains need tokens/coins?
+Tokens provide economic incentives for network security. In PoW, miners earn block rewards and fees. In PoS, validators stake tokens and earn rewards for honest behavior; dishonest behavior risks slashing (losing staked tokens). The token aligns economic incentives with protocol integrity — without it, there's no reason for participants to secure the network.

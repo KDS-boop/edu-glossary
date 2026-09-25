@@ -67,10 +67,13 @@ const allArticles = await getCollection('articles', ({ data }) => !data.draft);
 const relatedArticles = allArticles
   .filter((a) => a.slug !== post.slug && (a.data.category === post.data.category || post.data.tags.some((t: string) => a.data.tags.includes(t))))
   .slice(0, 3);
+// Optimized title format: "Title — Category | EduGlossary"
+const pageTitle = `${post.data.title} — ${post.data.category} Guide`;
+const pageDescription = post.data.description;
 ---
 <Layout
-  title={post.data.title}
-  description={post.data.description}
+  title={pageTitle}
+  description={pageDescription}
   type="article"
   image={post.data.coverImage}
   schema={schema}
