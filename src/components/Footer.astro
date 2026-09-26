@@ -1,5 +1,9 @@
 ---
+import { getCollection } from 'astro:content';
+import { slugify } from '../utils/slugify';
+
 const year = new Date().getFullYear();
+
 const navMain = [
   { label: 'Home', href: '/' },
   { label: 'Learn', href: '/learn/' },
@@ -7,6 +11,7 @@ const navMain = [
   { label: 'Articles', href: '/articles/' },
   { label: 'About', href: '/about/' },
 ];
+
 const learnTopics = [
   { label: 'Blockchain & Decentralization', href: '/learn/blockchain/' },
   { label: 'Cloud Computing', href: '/learn/cloud-computing/' },
@@ -14,6 +19,7 @@ const learnTopics = [
   { label: 'Cybersecurity', href: '/learn/cybersecurity/' },
   { label: 'AI & Data', href: '/learn/ai-and-data/' },
 ];
+
 const glossaryCategories = [
   { label: 'AI & Data', href: '/glossary/categories/ai-and-data/' },
   { label: 'Blockchain', href: '/glossary/categories/blockchain/' },
@@ -21,9 +27,14 @@ const glossaryCategories = [
   { label: 'Cybersecurity', href: '/glossary/categories/cybersecurity/' },
   { label: 'Software Development', href: '/glossary/categories/software-development/' },
 ];
-const articleCategories = [
-  { label: 'Technology', href: '/articles/categories/technology/' },
-];
+
+// Dynamic article categories from content
+const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const articleCategorySet = new Set(allArticles.map((a) => a.data.category));
+const articleCategories = [...articleCategorySet].sort().map((cat) => ({
+  label: cat,
+  href: `/articles/categories/${slugify(cat)}/`,
+}));
 ---
 <footer class="site-footer">
   <div class="container">

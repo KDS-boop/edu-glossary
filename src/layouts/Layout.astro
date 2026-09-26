@@ -32,7 +32,7 @@ const {
 
 const siteName = 'EduGlossary';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const ogImageURL = image ? new URL(image, Astro.site) : null;
+const ogImageURL = image ? new URL(image, Astro.site) : new URL('/images/og-default.svg', Astro.site);
 
 const breadcrumbSchema = breadcrumbs && breadcrumbs.length > 1 ? {
   '@context': 'https://schema.org',
@@ -68,7 +68,7 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
     {ogImageURL && <meta property="og:image:height" content="630" />}
     {ogImageURL && ogImageAlt && <meta property="og:image:alt" content={ogImageAlt} />}
 
-    <meta name="twitter:card" content={ogImageURL ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     {ogImageURL && <meta name="twitter:image" content={ogImageURL} />}
