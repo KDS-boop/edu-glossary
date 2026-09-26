@@ -128,20 +128,6 @@ const pageDescription = entry.data.shortDefinition;
     <Content />
   </article>
 
-  {hasFAQ && (
-    <section class="related-section" aria-labelledby="faq-heading">
-      <h2 id="faq-heading">Frequently Asked Questions</h2>
-      <dl class="faq-list" style="margin-top: 1rem;">
-        {faqData.map((faq) => (
-          <div class="faq-item" style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--color-border);">
-            <dt style="font-weight: 600; margin-bottom: 0.5rem;">{faq.question}</dt>
-            <dd style="color: var(--color-muted); line-height: 1.6;">{faq.answer}</dd>
-          </div>
-        ))}
-      </dl>
-    </section>
-  )}
-
   {relatedGlossary.length > 0 && (
     <section class="related-section" aria-labelledby="related-terms-heading">
       <h2 id="related-terms-heading">Related Terms</h2>

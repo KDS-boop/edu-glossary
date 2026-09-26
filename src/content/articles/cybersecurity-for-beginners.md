@@ -108,34 +108,6 @@ Start with authentication, access control, networking, operating-system basics, 
 
 Cybersecurity includes many careers: security operations, application security, cloud security, digital forensics, governance and risk, penetration testing, and security engineering. Strong fundamentals transfer across all of them.
 
-## Practical Protection for Beginners
-
-### Secure accounts
-
-Use a unique password for every important account. A password manager can generate and store long random passwords. Enable multi-factor authentication, preferably with a hardware security key or authenticator app when available. Review recovery email addresses, phone numbers, and active sessions.
-
-### Update software
-
-Operating system, browser, router, and application updates often fix known vulnerabilities. Enable automatic updates where appropriate. Unsupported software should be replaced or isolated because it may no longer receive security fixes.
-
-### Protect devices
-
-Use screen locks, full-disk encryption, least-privilege accounts, and backups. Do not install pirated or untrusted software. If a device is lost, remote lock and remote wipe features can reduce exposure.
-
-### Use networks carefully
-
-A [VPN](/glossary/vpn/) can protect traffic between your device and the VPN server on an untrusted network, but it does not make you anonymous or secure a compromised device. Prefer HTTPS, avoid sensitive activity on unknown networks when possible, and secure your home router with a strong administrator password and current firmware.
-
-### Prepare for recovery
-
-Back up important files using at least one copy disconnected from the primary device. Test restoration periodically. A backup that has never been restored is an assumption, not a recovery plan.
-
-## A Beginner's Learning Path
-
-Start with authentication, access control, networking, operating-system basics, and HTTP. Then study encryption, hashing, logging, vulnerabilities, threat modeling, and incident response. Practice only in systems you own or have explicit permission to test.
-
-Cybersecurity includes many careers: security operations, application security, cloud security, digital forensics, governance and risk, penetration testing, and security engineering. Strong fundamentals transfer across all of them.
-
 ## Frequently Asked Questions
 
 ### Is cybersecurity only about hackers?

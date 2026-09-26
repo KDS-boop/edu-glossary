@@ -196,33 +196,15 @@ const siteSchema = {
           <a href="/articles/" class="section-link">View all &rarr;</a>
         )}
       </div>
-      <a class="card featured-card" href={`/articles/${featuredArticle.slug}/`}>
-        <div class="card-accent" style={`background: ${getCategoryColor(featuredArticle.data.category).text};`}></div>
-        <div class="card-body">
-          <div class="featured-card-top">
-            <span class="badge" style={`background: ${getCategoryColor(featuredArticle.data.category).bg}; color: ${getCategoryColor(featuredArticle.data.category).text};`}>
-              <span set:html={getCategoryIcon(featuredArticle.data.category)}></span>
-              {featuredArticle.data.category}
-            </span>
-          </div>
-          <h3 class="featured-card-title">{featuredArticle.data.title}</h3>
-          <p class="featured-card-def">{featuredArticle.data.description}</p>
-          <div class="card-meta">
-            <span class="card-meta-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-              {(() => { const a = getAuthorBySlug(featuredArticle.data.author); return a ? <a href={`/authors/${a.slug}/`} style="color: inherit; text-decoration: none;">{a.name}</a> : featuredArticle.data.author; })()}
-            </span>
-            <span class="card-meta-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              {featuredArticle.data.publishedDate.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
-            </span>
-          </div>
-          <span class="card-readmore">
-            Read article
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          </span>
-        </div>
-      </a>
+      <ArticleCard
+        title={featuredArticle.data.title}
+        description={featuredArticle.data.description}
+        category={featuredArticle.data.category}
+        author={featuredArticle.data.author}
+        publishedDate={featuredArticle.data.publishedDate}
+        slug={featuredArticle.slug}
+        featured={true}
+      />
       {remainingArticles.length > 0 && (
         <div class="grid" style="margin-top: 1.25rem;">
           {remainingArticles.map((post) => (

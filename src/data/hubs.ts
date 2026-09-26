@@ -26,7 +26,6 @@ export const hubs: Hub[] = [
       'proof-of-stake',
       'merkle-tree',
       'sha-256',
-      'hash-function',
       'smart-contract',
     ],
     articleSlugs: ['proof-of-work-vs-proof-of-stake'],

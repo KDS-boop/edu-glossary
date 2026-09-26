@@ -11,8 +11,9 @@ interface Props {
   author: string;
   publishedDate: Date;
   slug: string;
+  featured?: boolean;
 }
-const { title, description, category, author, publishedDate, slug } = Astro.props;
+const { title, description, category, author, publishedDate, slug, featured = false } = Astro.props;
 const dateLabel = publishedDate.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
 const { bg, text } = getCategoryColor(category);
 const icon = getCategoryIcon(category);
@@ -21,7 +22,7 @@ const authorData = getAuthorBySlug(author);
 const authorName = authorData?.name || author;
 const authorSlug = authorData?.slug || slugify(author);
 ---
-<div class="card">
+<div class="card" {featured && 'data-featured'}>
   <div class="card-accent" style={`background: ${text};`}></div>
   <div class="card-body">
     <a class="badge" href={`/articles/categories/${slugify(category)}/`} style={`background: ${bg}; color: ${text};`}>
@@ -46,3 +47,20 @@ const authorSlug = authorData?.slug || slugify(author);
     </span>
   </div>
 </div>
+
+<style>
+  [data-featured] .card-body {
+    padding: 1.75rem;
+  }
+  [data-featured] .card-title {
+    font-size: 1.25rem;
+  }
+  [data-featured] .card-excerpt {
+    font-size: 1rem;
+    -webkit-line-clamp: 4;
+  }
+  [data-featured] .badge {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.75rem;
+  }
+</style>
