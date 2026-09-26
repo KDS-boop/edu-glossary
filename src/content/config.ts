@@ -10,6 +10,7 @@ const glossary = defineCollection({
     letter: z.string().length(1),     // First letter for A-Z index
     updatedDate: z.coerce.date(),
     relatedTerms: z.array(z.string()).default([]),
+    metaDescription: z.string().optional(),
   }),
 });
 

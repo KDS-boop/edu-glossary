@@ -1,6 +1,7 @@
 ---
 term: "Version Control"
 shortDefinition: "A system that records changes to files over time, allowing developers to recall specific versions, compare changes, and collaborate without overwriting each other's work."
+metaDescription: "Version control tracks changes to source code over time, enabling developers to collaborate, revert mistakes, and manage multiple versions of a project."
 category: "Software Development"
 letter: "V"
 updatedDate: 2026-09-21

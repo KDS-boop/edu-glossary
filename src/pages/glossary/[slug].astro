@@ -110,7 +110,7 @@ const breadcrumbs = [
 
 // Optimized title format: "Term — Short Definition | EduGlossary"
 const pageTitle = `${entry.data.term} — ${entry.data.shortDefinition}`;
-const pageDescription = entry.data.shortDefinition;
+const pageDescription = entry.data.metaDescription || entry.data.shortDefinition;
 ---
 <Layout
   title={pageTitle}

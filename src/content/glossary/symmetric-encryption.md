@@ -1,6 +1,7 @@
 ---
 term: "Symmetric Encryption"
 shortDefinition: "An encryption method that uses the same key for both encrypting and decrypting data, requiring both parties to share the secret key securely."
+metaDescription: "Symmetric encryption uses the same key for encrypting and decrypting data, requiring secure key sharing between parties for confidential communication."
 category: "Cybersecurity"
 letter: "S"
 updatedDate: 2026-09-21
