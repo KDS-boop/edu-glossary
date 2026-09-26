@@ -1,6 +1,7 @@
 ---
 term: "REST API"
 shortDefinition: "An API that follows the REST architectural style, using standard HTTP methods and stateless requests to interact with resources identified by URLs."
+metaDescription: "REST API uses standard HTTP methods to interact with resources, enabling communication between web services through stateless, cacheable requests."
 category: "Software Development"
 letter: "R"
 updatedDate: 2026-09-21

@@ -1,6 +1,7 @@
 ---
 term: "VPN"
 shortDefinition: "A technology that creates an encrypted tunnel between a user's device and a remote server, masking the user's IP address and protecting data from interception."
+metaDescription: "A VPN creates an encrypted tunnel between your device and a remote server, masking your IP address and protecting data from interception online."
 category: "Cybersecurity"
 letter: "V"
 updatedDate: 2026-09-21
