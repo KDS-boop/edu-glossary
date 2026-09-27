@@ -40,7 +40,9 @@ const articleCategories = [...articleCategorySet].sort().map((cat) => ({
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="footer-logo" href="/">EduGlossary</a>
+        <a class="footer-logo" href="/">
+          <span>E</span>duGlossary
+        </a>
         <p class="footer-desc">Learn technology terms and articles — explained clearly for everyone.</p>
       </div>
 
@@ -64,16 +66,17 @@ const articleCategories = [...articleCategorySet].sort().map((cat) => ({
       </div>
 
       <div class="footer-links">
-        <h4>Glossary Categories</h4>
+        <h4>Glossary</h4>
         <ul>
           {glossaryCategories.map((cat) => (
             <li><a href={cat.href}>{cat.label}</a></li>
           ))}
+          <li><a href="/glossary/">All Terms</a></li>
         </ul>
       </div>
 
       <div class="footer-links">
-        <h4>Article Categories</h4>
+        <h4>Articles</h4>
         <ul>
           {articleCategories.map((cat) => (
             <li><a href={cat.href}>{cat.label}</a></li>
@@ -85,6 +88,7 @@ const articleCategories = [...articleCategorySet].sort().map((cat) => ({
 
     <div class="footer-bottom">
       <p>&copy; {year} EduGlossary. All rights reserved.</p>
+      <p>Made with care for learners everywhere.</p>
     </div>
   </div>
 </footer>

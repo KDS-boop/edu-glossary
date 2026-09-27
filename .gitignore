@@ -20,3 +20,12 @@ __pycache__/
 .mypy_cache/
 .ruff_cache/
 .env
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Cloudflare
+.wrangler/
