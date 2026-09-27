@@ -1,0 +1,78 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Disclaimer',
+  description: 'EduGlossary Disclaimer — educational content policy and limitations.',
+};
+
+const breadcrumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Disclaimer', href: '/disclaimer/' },
+];
+---
+
+<Layout
+  title="Disclaimer | EduGlossary"
+  description="EduGlossary Disclaimer — educational content policy and limitations."
+  schema={schema}
+  breadcrumbs={breadcrumbs}
+>
+  <div class="prose">
+    <h1>Disclaimer</h1>
+
+    <p>
+      EduGlossary provides educational and informational content about technology concepts,
+      terminology, and industry trends. The information presented is intended to help
+      learners understand technical subjects in a clear and accessible manner.
+    </p>
+
+    <h2>Educational Purpose</h2>
+    <p>
+      All content on EduGlossary is created for general educational and informational
+      purposes. The site aims to make technology concepts approachable for beginners
+      and provide refresher material for those with existing knowledge.
+    </p>
+
+    <h2>Accuracy and Completeness</h2>
+    <p>
+      Reasonable effort is made to provide useful and accurate information. However,
+      technology evolves rapidly, and content may not always be complete, current, or
+      free from errors. Definitions, examples, and explanations are simplified for
+      clarity and may not capture every nuance of a topic.
+    </p>
+
+    <h2>Not Professional Advice</h2>
+    <p>
+      EduGlossary content is not a substitute for professional advice. Information
+      provided should not be relied upon as legal, financial, cybersecurity, medical,
+      or other specialized guidance. Always consult qualified professionals for
+      decisions affecting your specific situation.
+    </p>
+
+    <h2>External Links</h2>
+    <p>
+      Some content may include links to external websites or resources for additional
+      context. EduGlossary does not control third-party websites and is not responsible
+      for their content, accuracy, or practices. Accessing external links is done at
+      your own discretion.
+    </p>
+
+    <h2>Content Updates</h2>
+    <p>
+      Definitions, examples, articles, and other content may be updated, corrected,
+      or changed over time as technology advances and editorial reviews are conducted.
+      Past versions of content are not archived.
+    </p>
+
+    <h2>Contact / Editorial</h2>
+    <p>
+      For questions, feedback, or corrections, please reach out to the
+      <a href="/authors/eduglossary-team/">EduGlossary Team</a>, our editorial team.
+      You may also contact us at
+      <a href="mailto:hello@eduglossary.pages.dev">hello@eduglossary.pages.dev</a>.
+    </p>
+  </div>
+</Layout>
