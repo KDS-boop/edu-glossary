@@ -23,7 +23,7 @@ const authorName = authorData?.name || author;
 const authorSlug = authorData?.slug || slugify(author);
 ---
 <div class="card" {featured && 'data-featured'}>
-  <div class="card-accent" style={`background: ${text};`}></div>
+  <div class="card-accent" style={`background: linear-gradient(90deg, ${text}, ${bg});`}></div>
   <div class="card-body">
     <a class="badge" href={`/articles/categories/${slugify(category)}/`} style={`background: ${bg}; color: ${text};`}>
       <span set:html={icon}></span>
@@ -47,20 +47,3 @@ const authorSlug = authorData?.slug || slugify(author);
     </span>
   </div>
 </div>
-
-<style>
-  [data-featured] .card-body {
-    padding: 1.75rem;
-  }
-  [data-featured] .card-title {
-    font-size: 1.25rem;
-  }
-  [data-featured] .card-excerpt {
-    font-size: 1rem;
-    -webkit-line-clamp: 4;
-  }
-  [data-featured] .badge {
-    font-size: 0.75rem;
-    padding: 0.3rem 0.75rem;
-  }
-</style>
