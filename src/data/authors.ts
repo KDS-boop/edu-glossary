@@ -3,9 +3,10 @@ export interface Author {
   name: string;
   bio: string;
   role: string;
+  owner?: string;
   avatar?: string;
   email?: string;
-  sameAs?: string[];           // Social profiles (LinkedIn, Twitter, GitHub, etc.)
+  sameAs?: string[];           // Social profiles (GitHub, X, TikTok, Telegram, etc.)
   credentials?: string[];      // Degrees, certifications, titles
   expertise?: string[];        // Topic areas
   experience?: string;         // Years of experience, background
@@ -25,13 +26,9 @@ export const authors: Author[] = [
   {
     slug: 'eduglossary-team',
     name: 'EduGlossary Team',
-    bio: 'The EduGlossary Team creates clear, accessible explanations of technology and digital concepts for learners at every level. Our contributors include software engineers, security researchers, cloud architects, and technical writers with combined decades of industry experience.',
+    bio: 'The EduGlossary Team creates clear, accessible explanations of technology and digital concepts for learners at every level.',
     role: 'Editorial Team',
-    credentials: [
-      'Collective 25+ years in software engineering, cybersecurity, and cloud architecture',
-      'Contributors hold degrees in Computer Science, Information Security, and Data Science',
-      'Industry certifications: AWS Solutions Architect, CISSP, CKAD, Google Cloud Professional'
-    ],
+    owner: 'Krisna Dwi Saputra',
     expertise: [
       'Software Development & APIs',
       'Cybersecurity & Encryption',
@@ -40,17 +37,18 @@ export const authors: Author[] = [
       'Machine Learning & Data Science',
       'Technical Writing & Documentation'
     ],
-    experience: 'Our team spans senior engineers from FAANG companies, security consultants, cloud architects, and open-source maintainers. We\'ve built production systems serving millions of users, led incident response for critical infrastructure, and authored technical documentation used by developers worldwide.',
     organization: {
       name: 'EduGlossary',
       url: 'https://eduglossary.my.id',
       logo: '/images/logo.svg'
     },
     sameAs: [
-      'https://github.com/eduglossary',
-      'https://twitter.com/eduglossary',
-      'https://linkedin.com/company/eduglossary'
+      'https://github.com/KDS-boop',
+      'https://x.com/EduGlossary',
+      'https://www.tiktok.com/@eduglossary',
+      'https://t.me/EduGlossary'
     ],
+    email: 'admin@eduglossary.my.id',
     publishedWorks: [
       { title: 'Cybersecurity for Beginners: Essential Concepts You Need to Know', url: 'https://eduglossary.my.id/articles/cybersecurity-for-beginners/', year: 2026 },
       { title: 'Cloud Computing Explained: Types, Benefits, and How to Get Started', url: 'https://eduglossary.my.id/articles/cloud-computing-explained/', year: 2026 },
