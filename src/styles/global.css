@@ -1029,8 +1029,9 @@ article.prose {
   h3 { font-size: 1.1rem; }
 
   /* iOS input zoom fix: prevent auto-zoom on inputs with font-size < 16px
-     Uses ID selector (1-0-0) for higher specificity than Pagefind's .pagefind-ui__search-input (0-2-0) */
-  #search .pagefind-ui__search-input { font-size: 1rem; }
+     Uses ID selector (1-0-0) for higher specificity than Pagefind's .pagefind-ui__search-input (0-2-0)
+     Target: #hero-search (where PagefindUI is actually mounted in index.astro) */
+  #hero-search .pagefind-ui__search-input { font-size: 1rem; }
 
   .grid { grid-template-columns: 1fr; }
   .container { padding: 0 1.25rem; }
