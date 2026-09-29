@@ -903,18 +903,18 @@ article.prose {
 }
 .pagefind-ui__search-input::placeholder { opacity: 0.45 !important; font-weight: 400 !important; }
 .pagefind-ui__form:before { top: 14px !important; left: 14px !important; width: 18px !important; height: 18px !important; opacity: 0.4 !important; }
-.pagefind-ui__search-clear { top: 4px !important; right: 4px !important; height: 40px !important; padding: 0 12px !important; font-size: 0.8rem !important; color: var(--color-text-muted) !important; }
-.pagefind-ui__message { font-size: 0.85rem !important; font-weight: 600 !important; color: var(--color-text-muted) !important; padding: 0.75rem 0 !important; height: auto !important; }
-.pagefind-ui__results { padding: 0 !important; }
+.pagefind-ui__search-clear { top: 4px; right: 4px; height: 40px; padding: 0 12px; font-size: 0.8rem; color: var(--color-text-muted); }
+.pagefind-ui__message { font-size: 0.85rem; font-weight: 600; color: var(--color-text-muted); padding: 0.75rem 0; height: auto !important; }
+.pagefind-ui__results { padding: 0; }
 .pagefind-ui__result { padding: 1rem 0 !important; border-color: var(--color-border) !important; }
-.pagefind-ui__result-title { font-size: 1rem !important; }
+.pagefind-ui__result-title { font-size: 1rem; }
 .pagefind-ui__result-link { color: var(--color-text) !important; text-decoration: none !important; transition: color 0.15s ease !important; }
 .pagefind-ui__result-link:hover { color: var(--color-primary) !important; text-decoration: none !important; }
 .pagefind-ui__result-excerpt { font-size: 0.85rem !important; color: var(--color-text-muted) !important; line-height: 1.55 !important; margin-top: 0.3rem !important; }
 .pagefind-ui__result-excerpt mark { background: var(--color-primary-subtle) !important; color: var(--color-text) !important; border-radius: 2px !important; padding: 0 2px !important; }
 .pagefind-ui__result-tag { font-size: 0.7rem !important; padding: 0.15rem 0.5rem !important; border-radius: var(--radius-full) !important; font-weight: 600 !important; }
-.pagefind-ui__button { border-color: var(--color-border) !important; color: var(--color-primary) !important; font-weight: 600 !important; border-radius: var(--radius-md) !important; height: 44px !important; transition: all 0.15s ease !important; }
-.pagefind-ui__button:hover { border-color: var(--color-primary) !important; background: var(--color-primary-subtle) !important; }
+.pagefind-ui__button { border-color: var(--color-border); color: var(--color-primary); font-weight: 600; border-radius: var(--radius-md); height: 44px; transition: all 0.15s ease !important; }
+.pagefind-ui__button:hover { border-color: var(--color-primary); background: var(--color-primary-subtle); }
 
 /* Search result enrichment */
 .search-result-meta {
@@ -1028,8 +1028,9 @@ article.prose {
   h2 { font-size: 1.35rem; }
   h3 { font-size: 1.1rem; }
 
-  /* iOS input zoom fix: prevent auto-zoom on inputs with font-size < 16px */
-  .pagefind-ui__search-input { font-size: 1rem !important; }
+  /* iOS input zoom fix: prevent auto-zoom on inputs with font-size < 16px
+     Uses ID selector (1-0-0) for higher specificity than Pagefind's .pagefind-ui__search-input (0-2-0) */
+  #search .pagefind-ui__search-input { font-size: 1rem; }
 
   .grid { grid-template-columns: 1fr; }
   .container { padding: 0 1.25rem; }
