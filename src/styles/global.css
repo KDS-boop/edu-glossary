@@ -41,6 +41,15 @@
   --font-heading: 'Outfit', system-ui, -apple-system, sans-serif;
   --font-body: 'Work Sans', system-ui, -apple-system, sans-serif;
 
+  /* ── Pagefind UI Variables ── */
+  --pagefind-ui-scale: 0.85;
+  --pagefind-ui-primary: var(--color-primary);
+  --pagefind-ui-text: var(--color-text);
+  --pagefind-ui-background: var(--color-bg);
+  --pagefind-ui-border: var(--color-border);
+  --pagefind-ui-tag: var(--color-surface);
+  --pagefind-ui-border-radius: var(--radius-md);
+
   /* ── Border Radius ── */
   --radius-sm: 6px;
   --radius-md: 10px;
@@ -872,21 +881,15 @@ article.prose {
 
 /* ═══════════════════════════════════════════════════════════════
    PAGEFIND OVERRIDES
+   Note: !important required here because Pagefind loads its own
+   UI stylesheet externally. Without !important, our styles would
+   have lower specificity and be overridden.
    ═══════════════════════════════════════════════════════════════ */
-:root {
-  --pagefind-ui-scale: 0.85;
-  --pagefind-ui-primary: var(--color-primary);
-  --pagefind-ui-text: var(--color-text);
-  --pagefind-ui-background: var(--color-bg);
-  --pagefind-ui-border: var(--color-border);
-  --pagefind-ui-tag: var(--color-surface);
-  --pagefind-ui-border-radius: var(--radius-md);
-}
 
 .pagefind-ui__search-input {
   height: 48px !important;
   padding: 0 2.5rem 0 2.75rem !important;
-  font-size: 0.95rem !important;
+  font-size: 0.95rem !important; /* TODO(batch-3): increase to 1rem on mobile for iOS zoom fix */
   font-weight: 500 !important;
   border-color: var(--color-border) !important;
   border-radius: var(--radius-lg) !important;
@@ -930,7 +933,7 @@ article.prose {
   padding: 0.15rem 0.5rem;
   border-radius: var(--radius-full);
   font-weight: 600;
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
@@ -1024,6 +1027,9 @@ article.prose {
   h1 { font-size: 1.75rem; }
   h2 { font-size: 1.35rem; }
   h3 { font-size: 1.1rem; }
+
+  /* iOS input zoom fix: prevent auto-zoom on inputs with font-size < 16px */
+  .pagefind-ui__search-input { font-size: 1rem !important; }
 
   .grid { grid-template-columns: 1fr; }
   .container { padding: 0 1.25rem; }
