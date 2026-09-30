@@ -68,7 +68,7 @@ body {
   font-family: var(--font-body);
   color: var(--color-text);
   background: var(--color-bg);
-  line-height: 1.65;
+  line-height: var(--lh-relaxed);
   font-size: 1rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -184,7 +184,7 @@ article.prose {
 .prose p {
   margin-bottom: var(--space-5);
   font-size: var(--fs-base);
-  line-height: var(--lh-relaxed);
+  line-height: var(--lh-loose);
   color: var(--color-text-muted);
 }
 
@@ -261,7 +261,7 @@ article.prose {
   border: none;
   color: var(--color-text);
   font-size: var(--fs-sm);
-  line-height: var(--lh-normal);
+  line-height: var(--lh-code);
 }
 
 /* Article tables */
@@ -597,7 +597,7 @@ article.prose {
   color: var(--color-text-muted);
   max-width: 580px;
   margin: 0 auto var(--space-7);
-  line-height: var(--lh-subtle);
+  line-height: 1.6;
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -660,7 +660,7 @@ article.prose {
 .card-excerpt {
   color: var(--color-text-muted);
   font-size: var(--fs-sm);
-  line-height: var(--lh-subtle);
+  line-height: 1.6;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -708,7 +708,7 @@ article.prose {
   font-size: var(--fs-xl);
   font-weight: 800;
   color: var(--color-border-strong);
-  line-height: var(--lh-ultra-tight);
+  line-height: var(--lh-stretch);
   user-select: none;
   flex-shrink: 0;
 }
@@ -788,8 +788,8 @@ article.prose {
 .featured-card:hover { text-decoration: none; }
 .featured-card .card-body { padding: var(--space-7); }
 .featured-card-top { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); }
-.featured-card-letter { font-size: var(--fs-2xl); font-weight: 800; color: var(--color-border-strong); line-height: var(--lh-ultra-tight); user-select: none; }
-.featured-card-title { font-size: var(--fs-xl); font-weight: 700; margin: var(--space-3) 0 var(--space-2); line-height: var(--lh-card); }
+.featured-card-letter { font-size: var(--fs-2xl); font-weight: 800; color: var(--color-border-strong); line-height: var(--lh-stretch); user-select: none; }
+.featured-card-title { font-size: var(--fs-xl); font-weight: 700; margin: var(--space-3) 0 var(--space-2); line-height: var(--lh-compact); }
 .featured-card-title a { color: var(--color-text); text-decoration: none; }
 .featured-card-title a:hover { color: var(--color-primary); }
 .featured-card-def { color: var(--color-text-muted); font-size: var(--fs-base); line-height: var(--lh-relaxed); margin: 0; }
