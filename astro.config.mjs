@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://eduglossary.my.id',
@@ -23,4 +24,7 @@ export default defineConfig({
     '/articles/kategori/technology/': '/articles/categories/technology/',
   },
   integrations: [sitemap()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });
