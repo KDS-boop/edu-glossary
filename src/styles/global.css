@@ -1074,7 +1074,17 @@ article.prose {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--space-6);
   }
-  #search { min-width: 150px; max-width: 180px; }
+  .header-actions {
+    flex-shrink: 1;
+  }
+  #theme-toggle {
+    flex-shrink: 1;
+  }
+  #search {
+    flex-shrink: 1;
+    min-width: 120px;
+    max-width: 180px;
+  }
   .prose h1 {
     font-size: 1.4rem;
   }
