@@ -151,6 +151,8 @@ article.prose {
   font-size: var(--text-body);
   line-height: var(--leading-loose);
   color: var(--color-text-muted);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 /* Article lists */
@@ -1104,6 +1106,14 @@ article.prose {
     width: var(--space-8);
     height: var(--space-8);
     font-size: var(--text-xs);
+  }
+  .related-pill {
+    flex-shrink: 1;
+    min-width: 0;
+  }
+  .badge {
+    flex-shrink: 1;
+    min-width: 0;
   }
 }
 
