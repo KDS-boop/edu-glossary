@@ -1090,6 +1090,11 @@ article.prose {
   .category-grid {
     grid-template-columns: 1fr;
   }
+  .az-index a {
+    width: var(--space-8);
+    height: var(--space-8);
+    font-size: var(--text-xs);
+  }
 }
 
 /* Tablet breakpoint */
