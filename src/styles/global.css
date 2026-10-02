@@ -1087,6 +1087,9 @@ article.prose {
     align-items: flex-start;
     gap: var(--space-1);
   }
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Tablet breakpoint */
