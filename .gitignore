@@ -35,3 +35,4 @@ __pycache__/
 .cursor/
 .mcp.json
 .vscode/
+google-chrome-stable_current_arm64.deb
