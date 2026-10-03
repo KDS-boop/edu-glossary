@@ -1183,7 +1183,44 @@ article.prose {
   }
 }
 
-/* ── Animations ── */
+/* ════════════════════════════════════════════════════════════════
+   CODE BLOCK SYNTAX HIGHLIGHTING CONTRAST FIXES
+   Override low-contrast Shiki GitHub Dark theme colors to meet WCAG AA
+   ════════════════════════════════════════════════════════════════ */
+.astro-code code span[style*="color: #8b949e"],
+.astro-code code span[style*="color: #8B949E"] {
+  color: #a8b2c0 !important; /* Comments: lighter blue-gray for WCAG AA */
+}
+.astro-code code span[style*="color: #79c0ff"],
+.astro-code code span[style*="color: #79C0FF"] {
+  color: #9cdcfe !important; /* Numbers/strings: brighter blue */
+}
+.astro-code code span[style*="color: #d2a8ff"],
+.astro-code code span[style*="color: #D2A8FF"] {
+  color: #d2a8ff !important; /* Functions: keep but ensure visibility */
+}
+
+/* Ensure code blocks use design tokens for background/text in both themes */
+.astro-code {
+  background-color: var(--color-surface-elevated) !important;
+  color: var(--color-text) !important;
+}
+.astro-code code {
+  color: var(--color-text) !important;
+}
+
+/* Dark mode code block adjustments */
+[data-theme="dark"] .astro-code {
+  background-color: var(--color-surface-elevated) !important;
+  color: var(--color-text) !important;
+}
+[data-theme="dark"] .astro-code code {
+  color: var(--color-text) !important;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════════════════════════ */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
