@@ -12,6 +12,14 @@
           "BING_WEBMASTER_API_KEY": "${BING_WEBMASTER_API_KEY}"
         }
       }
+    },
+    "firecrawl": {
+      "type": "remote",
+      "url": "https://mcp.firecrawl.dev/v2/mcp",
+      "enabled": true,
+      "headers": {
+        "Authorization": "Bearer {env:FIRECRAWL_API_KEY}"
+      }
     }
   }
 }

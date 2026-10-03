@@ -1,0 +1,14 @@
+{
+  "viewport": {
+    "width": 390,
+    "height": 844,
+    "name": "390"
+  },
+  "page": {
+    "path": "/glossary/",
+    "name": "glossary"
+  },
+  "url": "https://eduglossary.my.id/glossary/",
+  "timestamp": "2026-10-02T19:27:09.996704+00:00",
+  "result": "id=UUID('a3d10da7-4f87-40dd-8af6-7b6546b476e0') task='\\n    Navigate to https://eduglossary.my.id/glossary/ with viewport 390x844.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check glossary page overflow data' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":375,\"clientWidth\":375,\"hasOverflow\":false}}' error=None session_id=UUID('53c98fd8-926f-4087-b5cb-62f214e782f3') workspace_id=UUID('c3c006ca-17c2-434c-802a-8b5f74eb9bce') attached_file_ids=None judgement=None total_input_tokens=35507 total_output_tokens=210 total_cost_usd='0.002353' created_at=datetime.datetime(2026, 10, 2, 19, 26, 58, 451612, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 27, 9, 98379, tzinfo=TzInfo(0))"
+}

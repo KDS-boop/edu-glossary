@@ -1,0 +1,14 @@
+{
+  "viewport": {
+    "width": 1440,
+    "height": 900,
+    "name": "1440"
+  },
+  "page": {
+    "path": "/",
+    "name": "home"
+  },
+  "url": "https://eduglossary.my.id/",
+  "timestamp": "2026-10-02T19:33:33.503434+00:00",
+  "result": "id=UUID('464e8e94-7a4e-41d9-8003-8c6254287325') task='\\n    Navigate to https://eduglossary.my.id/ with viewport 1440x900.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check website horizontal overflow as JSON' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":1425,\"clientWidth\":1425,\"hasOverflow\":false}}' error=None session_id=UUID('87612ad1-8c15-41ea-8cd4-592cad3e4610') workspace_id=UUID('cbeea500-d6a5-4998-ab6f-45c3a0db7dbd') attached_file_ids=None judgement=None total_input_tokens=35531 total_output_tokens=237 total_cost_usd='0.002371' created_at=datetime.datetime(2026, 10, 2, 19, 33, 22, 36219, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 33, 33, 334093, tzinfo=TzInfo(0))"
+}

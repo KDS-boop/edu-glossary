@@ -1,0 +1,14 @@
+{
+  "viewport": {
+    "width": 1024,
+    "height": 768,
+    "name": "1024"
+  },
+  "page": {
+    "name": "glossary-detail",
+    "path": "/glossary/blockchain/"
+  },
+  "url": "https://eduglossary.my.id/glossary/blockchain/",
+  "timestamp": "2026-10-03T03:58:01.830821+00:00",
+  "result": "id=UUID('04e25f88-ab29-40aa-b06b-082884e6ecb2') task='\\n    Navigate to https://eduglossary.my.id/glossary/blockchain/ with viewport 1024x768.\\n    \\n    1. Get the initial theme (check data-theme attribute on html element)\\n    2. Click the theme toggle button (#theme-toggle)\\n    4. Wait 500ms\\n    5. Get the theme after click (check data-theme attribute on html element)\\n    6. Click the theme toggle button again\\n    7. Wait 500ms\\n    8. Get the theme after second click\\n    \\n    Return JSON with:\\n    - initial_theme\\n    - after_first_click_theme\\n    - after_second_click_theme\\n    - any errors\\n    ' title='Test theme toggle and return JSON' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"initial_theme\":null,\"after_first_click_theme\":\"dark\",\"after_second_click_theme\":\"light\",\"errors\":[]}' error=None session_id=UUID('44f7871b-2eca-4ecb-91e5-d7d3e84f62dd') workspace_id=UUID('f9a49a28-f361-4d1c-9867-bc977198b468') attached_file_ids=None judgement=None total_input_tokens=36051 total_output_tokens=425 total_cost_usd='0.002533' created_at=datetime.datetime(2026, 10, 3, 3, 57, 47, 713713, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 3, 3, 58, 0, 952384, tzinfo=TzInfo(0))"
+}

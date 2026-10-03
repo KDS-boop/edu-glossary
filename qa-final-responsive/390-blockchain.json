@@ -1,0 +1,14 @@
+{
+  "viewport": {
+    "width": 390,
+    "height": 844,
+    "name": "390"
+  },
+  "page": {
+    "path": "/glossary/blockchain/",
+    "name": "blockchain"
+  },
+  "url": "https://eduglossary.my.id/glossary/blockchain/",
+  "timestamp": "2026-10-02T19:27:22.453582+00:00",
+  "result": "id=UUID('da5c77f9-ffda-403d-80a7-4af44127731c') task='\\n    Navigate to https://eduglossary.my.id/glossary/blockchain/ with viewport 390x844.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check blockchain page overflow JSON' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":375,\"clientWidth\":375,\"hasOverflow\":false}}' error=None session_id=UUID('d59bf338-7c0e-400e-a795-cd8941a7d54b') workspace_id=UUID('9386b643-8b00-4c04-aef6-abbed585c145') attached_file_ids=None judgement=None total_input_tokens=35534 total_output_tokens=242 total_cost_usd='0.002375' created_at=datetime.datetime(2026, 10, 2, 19, 27, 11, 784, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 27, 22, 585063, tzinfo=TzInfo(0))"
+}

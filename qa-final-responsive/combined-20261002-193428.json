@@ -1,0 +1,562 @@
+[
+  {
+    "viewport": {
+      "width": 360,
+      "height": 740,
+      "name": "360"
+    },
+    "page": {
+      "path": "/",
+      "name": "home"
+    },
+    "url": "https://eduglossary.my.id/",
+    "timestamp": "2026-10-02T19:25:47.250476+00:00",
+    "result": "id=UUID('f80c76c3-49d1-45c1-af9b-2b415b810a72') task='\\n    Navigate to https://eduglossary.my.id/ with viewport 360x740.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check webpage overflow dimensions' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":345,\"clientWidth\":345,\"hasOverflow\":false}}' error=None session_id=UUID('bd45d407-c138-49ce-871f-79a853c40b80') workspace_id=UUID('95172f5e-4c12-46c4-a566-9a79a27faab2') attached_file_ids=None judgement=None total_input_tokens=35472 total_output_tokens=211 total_cost_usd='0.002351' created_at=datetime.datetime(2026, 10, 2, 19, 25, 35, 499208, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 25, 46, 842262, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 360,
+      "height": 740,
+      "name": "360"
+    },
+    "page": {
+      "path": "/glossary/",
+      "name": "glossary"
+    },
+    "url": "https://eduglossary.my.id/glossary/",
+    "timestamp": "2026-10-02T19:26:04.998102+00:00",
+    "result": "id=UUID('f0c8e839-a904-4382-aef5-ecdb5e5644c1') task='\\n    Navigate to https://eduglossary.my.id/glossary/ with viewport 360x740.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check glossary page overflow data' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":345,\"clientWidth\":345,\"hasOverflow\":false}}' error=None session_id=UUID('ea46996e-370e-4bdd-bdd1-28c36970b6b8') workspace_id=UUID('a3c1186f-c3ce-4de6-911e-ec520e18b79d') attached_file_ids=None judgement=None total_input_tokens=35541 total_output_tokens=239 total_cost_usd='0.002373' created_at=datetime.datetime(2026, 10, 2, 19, 25, 48, 315992, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 26, 2, 752447, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 360,
+      "height": 740,
+      "name": "360"
+    },
+    "page": {
+      "path": "/glossary/blockchain/",
+      "name": "blockchain"
+    },
+    "url": "https://eduglossary.my.id/glossary/blockchain/",
+    "timestamp": "2026-10-02T19:26:19.958940+00:00",
+    "result": "id=UUID('e209cf64-0891-40ea-86db-bb5fc6c7f9f2') task='\\n    Navigate to https://eduglossary.my.id/glossary/blockchain/ with viewport 360x740.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check blockchain page overflow JSON' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":345,\"clientWidth\":345,\"hasOverflow\":false}}' error=None session_id=UUID('313b7ef8-b807-4619-b0c6-4226ef770e84') workspace_id=UUID('961ce66f-c994-4df5-bfe6-600aa0e30dfe') attached_file_ids=None judgement=None total_input_tokens=35537 total_output_tokens=246 total_cost_usd='0.002378' created_at=datetime.datetime(2026, 10, 2, 19, 26, 6, 155749, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 26, 19, 56093, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 360,
+      "height": 740,
+      "name": "360"
+    },
+    "page": {
+      "path": "/articles/",
+      "name": "articles"
+    },
+    "url": "https://eduglossary.my.id/articles/",
+    "timestamp": "2026-10-02T19:26:32.458784+00:00",
+    "result": "id=UUID('c9510127-408e-490c-af05-d8f8d1ab6973') task='\\n    Navigate to https://eduglossary.my.id/articles/ with viewport 360x740.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check webpage overflow dimensions' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":345,\"clientWidth\":345,\"hasOverflow\":false}}' error=None session_id=UUID('36944783-0130-4e01-ba69-2d8c04c26564') workspace_id=UUID('27690395-fbef-427d-a242-7417b86fb5ef') attached_file_ids=None judgement=None total_input_tokens=35509 total_output_tokens=238 total_cost_usd='0.002372' created_at=datetime.datetime(2026, 10, 2, 19, 26, 21, 6116, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 26, 31, 806977, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 360,
+      "height": 740,
+      "name": "360"
+    },
+    "page": {
+      "path": "/glossary/categories/",
+      "name": "categories"
+    },
+    "url": "https://eduglossary.my.id/glossary/categories/",
+    "timestamp": "2026-10-02T19:26:44.967099+00:00",
+    "result": "id=UUID('b5ce2d09-c3bb-46e4-9d6c-e11ba846291a') task='\\n    Navigate to https://eduglossary.my.id/glossary/categories/ with viewport 360x740.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check webpage overflow dimensions' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":345,\"clientWidth\":345,\"hasOverflow\":false}}' error=None session_id=UUID('e3b6f68d-ad79-4d06-95fb-62465de362fc') workspace_id=UUID('0867df9e-67ab-44d0-b295-b2c2e90646df') attached_file_ids=None judgement=None total_input_tokens=35520 total_output_tokens=229 total_cost_usd='0.002366' created_at=datetime.datetime(2026, 10, 2, 19, 26, 33, 499926, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 26, 44, 178255, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "name": "390"
+    },
+    "page": {
+      "path": "/",
+      "name": "home"
+    },
+    "url": "https://eduglossary.my.id/",
+    "timestamp": "2026-10-02T19:26:57.468366+00:00",
+    "result": "id=UUID('b6dbe244-6ebb-4f97-9fdb-0f38632a3410') task='\\n    Navigate to https://eduglossary.my.id/ with viewport 390x844.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check website horizontal overflow.' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":375,\"clientWidth\":375,\"hasOverflow\":false}}' error=None session_id=UUID('6e78a45e-9d96-4685-b435-b422f8b41009') workspace_id=UUID('3548b4ff-cd46-465c-96f5-4901619eac12') attached_file_ids=None judgement=None total_input_tokens=35518 total_output_tokens=233 total_cost_usd='0.002368' created_at=datetime.datetime(2026, 10, 2, 19, 26, 46, 13465, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 26, 57, 270665, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "name": "390"
+    },
+    "page": {
+      "path": "/glossary/",
+      "name": "glossary"
+    },
+    "url": "https://eduglossary.my.id/glossary/",
+    "timestamp": "2026-10-02T19:27:09.996704+00:00",
+    "result": "id=UUID('a3d10da7-4f87-40dd-8af6-7b6546b476e0') task='\\n    Navigate to https://eduglossary.my.id/glossary/ with viewport 390x844.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check glossary page overflow data' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":375,\"clientWidth\":375,\"hasOverflow\":false}}' error=None session_id=UUID('53c98fd8-926f-4087-b5cb-62f214e782f3') workspace_id=UUID('c3c006ca-17c2-434c-802a-8b5f74eb9bce') attached_file_ids=None judgement=None total_input_tokens=35507 total_output_tokens=210 total_cost_usd='0.002353' created_at=datetime.datetime(2026, 10, 2, 19, 26, 58, 451612, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 27, 9, 98379, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "name": "390"
+    },
+    "page": {
+      "path": "/glossary/blockchain/",
+      "name": "blockchain"
+    },
+    "url": "https://eduglossary.my.id/glossary/blockchain/",
+    "timestamp": "2026-10-02T19:27:22.453582+00:00",
+    "result": "id=UUID('da5c77f9-ffda-403d-80a7-4af44127731c') task='\\n    Navigate to https://eduglossary.my.id/glossary/blockchain/ with viewport 390x844.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check blockchain page overflow JSON' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":375,\"clientWidth\":375,\"hasOverflow\":false}}' error=None session_id=UUID('d59bf338-7c0e-400e-a795-cd8941a7d54b') workspace_id=UUID('9386b643-8b00-4c04-aef6-abbed585c145') attached_file_ids=None judgement=None total_input_tokens=35534 total_output_tokens=242 total_cost_usd='0.002375' created_at=datetime.datetime(2026, 10, 2, 19, 27, 11, 784, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 27, 22, 585063, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "name": "390"
+    },
+    "page": {
+      "path": "/articles/",
+      "name": "articles"
+    },
+    "url": "https://eduglossary.my.id/articles/",
+    "timestamp": "2026-10-02T19:27:37.251312+00:00",
+    "result": "id=UUID('4434d3c3-9e42-47bd-bf0c-67d6f36ca3e8') task='\\n    Navigate to https://eduglossary.my.id/articles/ with viewport 390x844.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check webpage horizontal overflow' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":375,\"clientWidth\":375,\"hasOverflow\":false}}' error=None session_id=UUID('56af61f5-28d4-42a2-84dd-db7bf27b8e21') workspace_id=UUID('919ba008-d6a1-42c6-9e0c-5d5886391fb2') attached_file_ids=None judgement=None total_input_tokens=35553 total_output_tokens=238 total_cost_usd='0.002373' created_at=datetime.datetime(2026, 10, 2, 19, 27, 23, 497811, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 27, 36, 965095, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844,
+      "name": "390"
+    },
+    "page": {
+      "path": "/glossary/categories/",
+      "name": "categories"
+    },
+    "url": "https://eduglossary.my.id/glossary/categories/",
+    "timestamp": "2026-10-02T19:27:49.744111+00:00",
+    "result": "id=UUID('578e2f41-7c0d-4047-9d10-66a3e3cf7cdc') task='\\n    Navigate to https://eduglossary.my.id/glossary/categories/ with viewport 390x844.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check page overflow dimensions' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":375,\"clientWidth\":375,\"hasOverflow\":false}}' error=None session_id=UUID('57d58fd6-203f-4750-918f-29f4a9faebad') workspace_id=UUID('33872673-5fe9-4b95-a07d-f7413ba25bdd') attached_file_ids=None judgement=None total_input_tokens=35552 total_output_tokens=251 total_cost_usd='0.002382' created_at=datetime.datetime(2026, 10, 2, 19, 27, 38, 300419, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 27, 49, 821468, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 480,
+      "height": 800,
+      "name": "480"
+    },
+    "page": {
+      "path": "/",
+      "name": "home"
+    },
+    "url": "https://eduglossary.my.id/",
+    "timestamp": "2026-10-02T19:28:04.730482+00:00",
+    "result": "id=UUID('8126db6f-cb53-4da8-a213-3a29338e9362') task='\\n    Navigate to https://eduglossary.my.id/ with viewport 480x800.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check webpage horizontal overflow' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":465,\"clientWidth\":465,\"hasOverflow\":false}}' error=None session_id=UUID('4b468239-2ccc-4b82-8ce4-130d0965dbc8') workspace_id=UUID('c26f021b-1d1a-4e78-9fc7-75284a11d42c') attached_file_ids=None judgement=None total_input_tokens=35545 total_output_tokens=239 total_cost_usd='0.002374' created_at=datetime.datetime(2026, 10, 2, 19, 27, 50, 816732, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 28, 5, 15798, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 480,
+      "height": 800,
+      "name": "480"
+    },
+    "page": {
+      "path": "/glossary/",
+      "name": "glossary"
+    },
+    "url": "https://eduglossary.my.id/glossary/",
+    "timestamp": "2026-10-02T19:28:17.201733+00:00",
+    "result": "id=UUID('24701833-fd96-43a1-a0d2-a6872fdc264b') task='\\n    Navigate to https://eduglossary.my.id/glossary/ with viewport 480x800.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check page overflow dimensions' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":465,\"clientWidth\":465,\"hasOverflow\":false}}' error=None session_id=UUID('5c661aad-1022-479f-9a69-8ab71278779f') workspace_id=UUID('caf6b25c-d120-49d2-b518-03029d8e0f7f') attached_file_ids=None judgement=None total_input_tokens=35539 total_output_tokens=229 total_cost_usd='0.002368' created_at=datetime.datetime(2026, 10, 2, 19, 28, 5, 724904, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 28, 16, 877553, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 480,
+      "height": 800,
+      "name": "480"
+    },
+    "page": {
+      "path": "/glossary/blockchain/",
+      "name": "blockchain"
+    },
+    "url": "https://eduglossary.my.id/glossary/blockchain/",
+    "timestamp": "2026-10-02T19:28:29.655958+00:00",
+    "result": "id=UUID('638e8ced-cc39-417f-9c14-fa2c0580b5b2') task='\\n    Navigate to https://eduglossary.my.id/glossary/blockchain/ with viewport 480x800.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check blockchain page overflow JSON' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":465,\"clientWidth\":465,\"hasOverflow\":false}}' error=None session_id=UUID('5b25b966-3a79-4eae-8e8a-2685f90a7dc8') workspace_id=UUID('2643aaf4-a3c5-4c56-8689-aa360c787d9c') attached_file_ids=None judgement=None total_input_tokens=35586 total_output_tokens=243 total_cost_usd='0.002378' created_at=datetime.datetime(2026, 10, 2, 19, 28, 18, 203710, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 28, 29, 10083, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 480,
+      "height": 800,
+      "name": "480"
+    },
+    "page": {
+      "path": "/articles/",
+      "name": "articles"
+    },
+    "url": "https://eduglossary.my.id/articles/",
+    "timestamp": "2026-10-02T19:28:42.165672+00:00",
+    "result": "id=UUID('66db3b9d-5887-4a25-a905-09020d46235c') task='\\n    Navigate to https://eduglossary.my.id/articles/ with viewport 480x800.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check webpage horizontal overflow' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":465,\"clientWidth\":465,\"hasOverflow\":false}}' error=None session_id=UUID('f90be9d4-5d93-4aaa-9f9a-67dc92e204a5') workspace_id=UUID('5778d0e8-35d8-4630-b335-2502b3f0b707') attached_file_ids=None judgement=None total_input_tokens=35551 total_output_tokens=227 total_cost_usd='0.002366' created_at=datetime.datetime(2026, 10, 2, 19, 28, 30, 702144, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 28, 41, 615854, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 480,
+      "height": 800,
+      "name": "480"
+    },
+    "page": {
+      "path": "/glossary/categories/",
+      "name": "categories"
+    },
+    "url": "https://eduglossary.my.id/glossary/categories/",
+    "timestamp": "2026-10-02T19:28:56.991869+00:00",
+    "result": "id=UUID('5b562ca5-563c-471c-8fba-649003a0dd48') task='\\n    Navigate to https://eduglossary.my.id/glossary/categories/ with viewport 480x800.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check page overflow and return JSON' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":465,\"clientWidth\":465,\"hasOverflow\":false}}' error=None session_id=UUID('b0383715-f15d-4ce5-9ab9-1e3d1b1dfb97') workspace_id=UUID('cd211e0a-66c4-4f7c-bc08-4887b8eb1e05') attached_file_ids=None judgement=None total_input_tokens=35581 total_output_tokens=237 total_cost_usd='0.002375' created_at=datetime.datetime(2026, 10, 2, 19, 28, 43, 226969, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 28, 57, 212069, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 768,
+      "height": 1024,
+      "name": "768"
+    },
+    "page": {
+      "path": "/",
+      "name": "home"
+    },
+    "url": "https://eduglossary.my.id/",
+    "timestamp": "2026-10-02T19:29:09.998821+00:00",
+    "result": "id=UUID('c3e78897-eead-4118-952d-05a7206a6345') task='\\n    Navigate to https://eduglossary.my.id/ with viewport 768x1024.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check website horizontal overflow' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":753,\"clientWidth\":753,\"hasOverflow\":false}}' error=None session_id=UUID('b1e0691f-440f-43cc-b45d-f375c2aef51d') workspace_id=UUID('4a8af697-bef2-47d5-8333-881d8257d6f8') attached_file_ids=None judgement=None total_input_tokens=35491 total_output_tokens=213 total_cost_usd='0.002353' created_at=datetime.datetime(2026, 10, 2, 19, 28, 58, 36455, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 29, 8, 151443, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 768,
+      "height": 1024,
+      "name": "768"
+    },
+    "page": {
+      "path": "/glossary/",
+      "name": "glossary"
+    },
+    "url": "https://eduglossary.my.id/glossary/",
+    "timestamp": "2026-10-02T19:29:22.611510+00:00",
+    "result": "id=UUID('d25e6f0c-723d-4404-a93a-1cf7f5f78cb2') task='\\n    Navigate to https://eduglossary.my.id/glossary/ with viewport 768x1024.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check page horizontal overflow JSON' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":753,\"clientWidth\":753,\"hasOverflow\":false}}' error=None session_id=UUID('279babdb-1d87-4820-8285-476799814003') workspace_id=UUID('dc2f5ad9-dfa2-4e5c-a0cc-755c24ad702d') attached_file_ids=None judgement=None total_input_tokens=35530 total_output_tokens=246 total_cost_usd='0.002377' created_at=datetime.datetime(2026, 10, 2, 19, 29, 11, 97335, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 29, 21, 875225, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 768,
+      "height": 1024,
+      "name": "768"
+    },
+    "page": {
+      "path": "/glossary/blockchain/",
+      "name": "blockchain"
+    },
+    "url": "https://eduglossary.my.id/glossary/blockchain/",
+    "timestamp": "2026-10-02T19:29:35.143516+00:00",
+    "result": "id=UUID('4d0bad4c-7b40-4b5a-8a99-e91c99d5dcaf') task='\\n    Navigate to https://eduglossary.my.id/glossary/blockchain/ with viewport 768x1024.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check blockchain page overflow' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":753,\"clientWidth\":753,\"hasOverflow\":false}}' error=None session_id=UUID('70874ba3-97a4-4ce1-9988-e98982c5f375') workspace_id=UUID('1b322740-4b8d-4559-b9bf-43763ecefd53') attached_file_ids=None judgement=None total_input_tokens=35603 total_output_tokens=254 total_cost_usd='0.002392' created_at=datetime.datetime(2026, 10, 2, 19, 29, 23, 654648, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 29, 34, 725217, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 768,
+      "height": 1024,
+      "name": "768"
+    },
+    "page": {
+      "path": "/articles/",
+      "name": "articles"
+    },
+    "url": "https://eduglossary.my.id/articles/",
+    "timestamp": "2026-10-02T19:29:47.670042+00:00",
+    "result": "id=UUID('c42dfc7a-5903-4947-920a-d802ff01eb88') task='\\n    Navigate to https://eduglossary.my.id/articles/ with viewport 768x1024.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check webpage horizontal overflow' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":753,\"clientWidth\":753,\"hasOverflow\":false}}' error=None session_id=UUID('042bffc6-be7d-4b04-8dc4-9ef9aca40537') workspace_id=UUID('3fdbce9e-b666-409d-87b5-0f23889bc144') attached_file_ids=None judgement=None total_input_tokens=35519 total_output_tokens=227 total_cost_usd='0.002365' created_at=datetime.datetime(2026, 10, 2, 19, 29, 36, 195397, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 29, 46, 429093, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 768,
+      "height": 1024,
+      "name": "768"
+    },
+    "page": {
+      "path": "/glossary/categories/",
+      "name": "categories"
+    },
+    "url": "https://eduglossary.my.id/glossary/categories/",
+    "timestamp": "2026-10-02T19:30:00.153290+00:00",
+    "result": "id=UUID('6143b7a4-1bfe-4f05-8c2c-f0a3fbb881fc') task='\\n    Navigate to https://eduglossary.my.id/glossary/categories/ with viewport 768x1024.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check page overflow metrics' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":753,\"clientWidth\":753,\"hasOverflow\":false}}' error=None session_id=UUID('9fa540aa-a94c-4a1a-9900-00eb52db31dd') workspace_id=UUID('e9f628fd-c8ca-475b-8109-9166ea860d9a') attached_file_ids=None judgement=None total_input_tokens=35490 total_output_tokens=218 total_cost_usd='0.002357' created_at=datetime.datetime(2026, 10, 2, 19, 29, 48, 681570, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 29, 59, 850167, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 820,
+      "height": 1180,
+      "name": "820"
+    },
+    "page": {
+      "path": "/",
+      "name": "home"
+    },
+    "url": "https://eduglossary.my.id/",
+    "timestamp": "2026-10-02T19:30:14.954505+00:00",
+    "result": "id=UUID('5cad04e2-cca2-433a-bfbc-a082d0779f8f') task='\\n    Navigate to https://eduglossary.my.id/ with viewport 820x1180.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check website horizontal overflow and report JSON' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":805,\"clientWidth\":805,\"hasOverflow\":false}}' error=None session_id=UUID('55c82bd5-3f60-4668-8a40-661977d3bf3a') workspace_id=UUID('16f87f1a-c65a-4465-9a7e-9f52d0b8332e') attached_file_ids=None judgement=None total_input_tokens=35523 total_output_tokens=213 total_cost_usd='0.002355' created_at=datetime.datetime(2026, 10, 2, 19, 30, 3, 300416, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 30, 14, 895758, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 820,
+      "height": 1180,
+      "name": "820"
+    },
+    "page": {
+      "path": "/glossary/",
+      "name": "glossary"
+    },
+    "url": "https://eduglossary.my.id/glossary/",
+    "timestamp": "2026-10-02T19:30:29.745069+00:00",
+    "result": "id=UUID('243d89b5-c263-4ab2-984b-d22d31be2e2d') task='\\n    Navigate to https://eduglossary.my.id/glossary/ with viewport 820x1180.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check page horizontal overflow JSON' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":805,\"clientWidth\":805,\"hasOverflow\":false}}' error=None session_id=UUID('24b026e3-19e8-4b18-a4c2-9c27aefacbc0') workspace_id=UUID('86609346-2166-420f-ac2a-112436b5cd58') attached_file_ids=None judgement=None total_input_tokens=35547 total_output_tokens=239 total_cost_usd='0.002374' created_at=datetime.datetime(2026, 10, 2, 19, 30, 16, 1953, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 30, 28, 891481, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 820,
+      "height": 1180,
+      "name": "820"
+    },
+    "page": {
+      "path": "/glossary/blockchain/",
+      "name": "blockchain"
+    },
+    "url": "https://eduglossary.my.id/glossary/blockchain/",
+    "timestamp": "2026-10-02T19:30:42.793877+00:00",
+    "result": "id=UUID('cfd199b1-234a-4166-b0bc-175151b45c5f') task='\\n    Navigate to https://eduglossary.my.id/glossary/blockchain/ with viewport 820x1180.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check blockchain page overflow metrics' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":805,\"clientWidth\":805,\"hasOverflow\":false}}' error=None session_id=UUID('e1423713-3c15-4b29-80af-5b288fe9ad53') workspace_id=UUID('30e9ae29-eb86-484b-99b3-e146140d4147') attached_file_ids=None judgement=None total_input_tokens=35487 total_output_tokens=218 total_cost_usd='0.002357' created_at=datetime.datetime(2026, 10, 2, 19, 30, 30, 757762, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 30, 42, 187801, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 820,
+      "height": 1180,
+      "name": "820"
+    },
+    "page": {
+      "path": "/articles/",
+      "name": "articles"
+    },
+    "url": "https://eduglossary.my.id/articles/",
+    "timestamp": "2026-10-02T19:30:59.997075+00:00",
+    "result": "id=UUID('5f4003c6-54c3-4c00-abdc-4607c94a2719') task='\\n    Navigate to https://eduglossary.my.id/articles/ with viewport 820x1180.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check webpage horizontal overflow' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":805,\"clientWidth\":805,\"hasOverflow\":false}}' error=None session_id=UUID('d7736f12-134e-4e5a-8382-086eea2ea42c') workspace_id=UUID('a32e82aa-80d4-4a53-a2cc-a235a72e306b') attached_file_ids=None judgement=None total_input_tokens=35495 total_output_tokens=219 total_cost_usd='0.002358' created_at=datetime.datetime(2026, 10, 2, 19, 30, 43, 801269, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 30, 58, 632178, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 820,
+      "height": 1180,
+      "name": "820"
+    },
+    "page": {
+      "path": "/glossary/categories/",
+      "name": "categories"
+    },
+    "url": "https://eduglossary.my.id/glossary/categories/",
+    "timestamp": "2026-10-02T19:31:12.790268+00:00",
+    "result": "id=UUID('024dd308-1752-438c-a8d9-c236b12539d3') task='\\n    Navigate to https://eduglossary.my.id/glossary/categories/ with viewport 820x1180.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check page overflow dimensions' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":805,\"clientWidth\":805,\"hasOverflow\":false}}' error=None session_id=UUID('afe6ff53-6098-4916-88fd-4c062a876dc3') workspace_id=UUID('c576a756-638e-439c-8039-6a3d98739921') attached_file_ids=None judgement=None total_input_tokens=35504 total_output_tokens=222 total_cost_usd='0.002359' created_at=datetime.datetime(2026, 10, 2, 19, 31, 1, 131146, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 31, 12, 133073, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 768,
+      "name": "1024"
+    },
+    "page": {
+      "path": "/",
+      "name": "home"
+    },
+    "url": "https://eduglossary.my.id/",
+    "timestamp": "2026-10-02T19:31:25.431467+00:00",
+    "result": "id=UUID('254bb130-93c1-4487-98c2-ffd401473cbd') task='\\n    Navigate to https://eduglossary.my.id/ with viewport 1024x768.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check website overflow dimensions' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":1009,\"clientWidth\":1009,\"hasOverflow\":false}}' error=None session_id=UUID('b185dc83-22af-4e9c-baf8-3336ac42db1b') workspace_id=UUID('ea9c5fd9-1bb8-4a53-8205-9bc1a3b7beab') attached_file_ids=None judgement=None total_input_tokens=35552 total_output_tokens=232 total_cost_usd='0.002369' created_at=datetime.datetime(2026, 10, 2, 19, 31, 13, 893763, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 31, 25, 678121, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 768,
+      "name": "1024"
+    },
+    "page": {
+      "path": "/glossary/",
+      "name": "glossary"
+    },
+    "url": "https://eduglossary.my.id/glossary/",
+    "timestamp": "2026-10-02T19:31:35.831588+00:00",
+    "result": "id=UUID('3353e10a-c105-4aac-9de4-f41b18e82929') task='\\n    Navigate to https://eduglossary.my.id/glossary/ with viewport 1024x768.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check webpage horizontal overflow' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":1009,\"clientWidth\":1009,\"hasOverflow\":false}}' error=None session_id=UUID('ca4a8e79-b57a-489a-a352-4e1b1b1b8d7a') workspace_id=UUID('d105631e-7f48-46ea-8e87-cbb0f928784a') attached_file_ids=None judgement=None total_input_tokens=35513 total_output_tokens=209 total_cost_usd='0.002352' created_at=datetime.datetime(2026, 10, 2, 19, 31, 26, 592054, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 31, 35, 877664, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 768,
+      "name": "1024"
+    },
+    "page": {
+      "path": "/glossary/blockchain/",
+      "name": "blockchain"
+    },
+    "url": "https://eduglossary.my.id/glossary/blockchain/",
+    "timestamp": "2026-10-02T19:31:50.641880+00:00",
+    "result": "id=UUID('0a2f3031-0ef0-412f-8239-8fb5473ea90c') task='\\n    Navigate to https://eduglossary.my.id/glossary/blockchain/ with viewport 1024x768.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check webpage horizontal overflow' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":1009,\"clientWidth\":1009,\"hasOverflow\":false}}' error=None session_id=UUID('c0b422e6-ccf8-4fc6-81d8-8499557cd955') workspace_id=UUID('ba785da3-c75a-4aa1-bab0-79db8d1eeb38') attached_file_ids=None judgement=None total_input_tokens=35514 total_output_tokens=220 total_cost_usd='0.002360' created_at=datetime.datetime(2026, 10, 2, 19, 31, 36, 860953, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 31, 49, 90334, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 768,
+      "name": "1024"
+    },
+    "page": {
+      "path": "/articles/",
+      "name": "articles"
+    },
+    "url": "https://eduglossary.my.id/articles/",
+    "timestamp": "2026-10-02T19:32:03.284727+00:00",
+    "result": "id=UUID('b2ab8607-665e-4b79-8fdf-72dd1fec7859') task='\\n    Navigate to https://eduglossary.my.id/articles/ with viewport 1024x768.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check page overflow dimensions' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":1009,\"clientWidth\":1009,\"hasOverflow\":false}}' error=None session_id=UUID('7168a6ef-03b4-4e6a-88aa-e1b7789d2ee4') workspace_id=UUID('392f753a-0350-4721-8b28-de6a93983f2d') attached_file_ids=None judgement=None total_input_tokens=35558 total_output_tokens=237 total_cost_usd='0.002374' created_at=datetime.datetime(2026, 10, 2, 19, 31, 51, 706585, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 32, 2, 615533, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 768,
+      "name": "1024"
+    },
+    "page": {
+      "path": "/glossary/categories/",
+      "name": "categories"
+    },
+    "url": "https://eduglossary.my.id/glossary/categories/",
+    "timestamp": "2026-10-02T19:32:15.958435+00:00",
+    "result": "id=UUID('8b34240c-7665-4b3c-8acc-91cab497c572') task='\\n    Navigate to https://eduglossary.my.id/glossary/categories/ with viewport 1024x768.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check page overflow and return JSON' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":1009,\"clientWidth\":1009,\"hasOverflow\":false}}' error=None session_id=UUID('cb33303d-70a7-4484-9dd4-9aaefb38c4ed') workspace_id=UUID('725f800e-1402-440a-aea8-28c2031a6566') attached_file_ids=None judgement=None total_input_tokens=35557 total_output_tokens=243 total_cost_usd='0.002376' created_at=datetime.datetime(2026, 10, 2, 19, 32, 4, 342428, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 32, 15, 829246, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 1280,
+      "height": 800,
+      "name": "1280"
+    },
+    "page": {
+      "path": "/",
+      "name": "home"
+    },
+    "url": "https://eduglossary.my.id/",
+    "timestamp": "2026-10-02T19:32:28.723655+00:00",
+    "result": "id=UUID('8f76c96b-4e1c-4278-ae6a-df1e28f2d4be') task='\\n    Navigate to https://eduglossary.my.id/ with viewport 1280x800.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check webpage horizontal overflow' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":1265,\"clientWidth\":1265,\"hasOverflow\":false}}' error=None session_id=UUID('84087545-89f7-4c7a-8cbb-22f580b73697') workspace_id=UUID('bba02af1-7fdd-4783-9b1d-bf3d438933a6') attached_file_ids=None judgement=None total_input_tokens=35556 total_output_tokens=244 total_cost_usd='0.002378' created_at=datetime.datetime(2026, 10, 2, 19, 32, 17, 26876, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 32, 28, 554018, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 1280,
+      "height": 800,
+      "name": "1280"
+    },
+    "page": {
+      "path": "/glossary/",
+      "name": "glossary"
+    },
+    "url": "https://eduglossary.my.id/glossary/",
+    "timestamp": "2026-10-02T19:32:43.466550+00:00",
+    "result": "id=UUID('3fc2b1c3-0fcd-4e1e-8679-f2b08c364f5f') task='\\n    Navigate to https://eduglossary.my.id/glossary/ with viewport 1280x800.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check glossary page overflow metrics' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":1265,\"clientWidth\":1265,\"hasOverflow\":false}}' error=None session_id=UUID('4d7a136d-5d57-4400-8e5a-fd9930d770ca') workspace_id=UUID('f1f8a0d2-9362-4e13-81ae-f20478a5d620') attached_file_ids=None judgement=None total_input_tokens=35574 total_output_tokens=237 total_cost_usd='0.002374' created_at=datetime.datetime(2026, 10, 2, 19, 32, 29, 719126, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 32, 42, 293488, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 1280,
+      "height": 800,
+      "name": "1280"
+    },
+    "page": {
+      "path": "/glossary/blockchain/",
+      "name": "blockchain"
+    },
+    "url": "https://eduglossary.my.id/glossary/blockchain/",
+    "timestamp": "2026-10-02T19:32:56.023254+00:00",
+    "result": "id=UUID('8adc6223-a1b1-4099-87ed-64982edf8c3f') task='\\n    Navigate to https://eduglossary.my.id/glossary/blockchain/ with viewport 1280x800.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check blockchain page overflow' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":1265,\"clientWidth\":1265,\"hasOverflow\":false}}' error=None session_id=UUID('c9ff97f7-b8e4-4e33-b6b3-583acb348fef') workspace_id=UUID('38ae088b-bf7e-4cb1-a81b-0796832eaf72') attached_file_ids=None judgement=None total_input_tokens=35609 total_output_tokens=264 total_cost_usd='0.002397' created_at=datetime.datetime(2026, 10, 2, 19, 32, 44, 530681, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 32, 55, 753025, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 1280,
+      "height": 800,
+      "name": "1280"
+    },
+    "page": {
+      "path": "/articles/",
+      "name": "articles"
+    },
+    "url": "https://eduglossary.my.id/articles/",
+    "timestamp": "2026-10-02T19:33:08.507636+00:00",
+    "result": "id=UUID('ad701c5c-72dc-4eb9-ae75-8881dd9e0148') task='\\n    Navigate to https://eduglossary.my.id/articles/ with viewport 1280x800.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check webpage overflow dimensions' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":1265,\"clientWidth\":1265,\"hasOverflow\":false}}' error=None session_id=UUID('c0167b33-5858-47ff-9665-3039b4a9990a') workspace_id=UUID('da3a6488-c67b-456a-be81-15bbd9e2b93d') attached_file_ids=None judgement=None total_input_tokens=35545 total_output_tokens=241 total_cost_usd='0.002374' created_at=datetime.datetime(2026, 10, 2, 19, 32, 57, 13679, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 33, 7, 928148, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 1280,
+      "height": 800,
+      "name": "1280"
+    },
+    "page": {
+      "path": "/glossary/categories/",
+      "name": "categories"
+    },
+    "url": "https://eduglossary.my.id/glossary/categories/",
+    "timestamp": "2026-10-02T19:33:20.980819+00:00",
+    "result": "id=UUID('c80420c9-a467-43b8-b64b-6aa53bf38c06') task='\\n    Navigate to https://eduglossary.my.id/glossary/categories/ with viewport 1280x800.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check page overflow dimensions' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":1265,\"clientWidth\":1265,\"hasOverflow\":false}}' error=None session_id=UUID('f2e6a937-fbc7-4515-a2c8-bd9a432dd2d4') workspace_id=UUID('ea8cd9b1-8f4b-4bf7-9b9c-3154e7f53bf9') attached_file_ids=None judgement=None total_input_tokens=35603 total_output_tokens=244 total_cost_usd='0.002380' created_at=datetime.datetime(2026, 10, 2, 19, 33, 9, 545725, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 33, 19, 582598, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 900,
+      "name": "1440"
+    },
+    "page": {
+      "path": "/",
+      "name": "home"
+    },
+    "url": "https://eduglossary.my.id/",
+    "timestamp": "2026-10-02T19:33:33.503434+00:00",
+    "result": "id=UUID('464e8e94-7a4e-41d9-8003-8c6254287325') task='\\n    Navigate to https://eduglossary.my.id/ with viewport 1440x900.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check website horizontal overflow as JSON' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":1425,\"clientWidth\":1425,\"hasOverflow\":false}}' error=None session_id=UUID('87612ad1-8c15-41ea-8cd4-592cad3e4610') workspace_id=UUID('cbeea500-d6a5-4998-ab6f-45c3a0db7dbd') attached_file_ids=None judgement=None total_input_tokens=35531 total_output_tokens=237 total_cost_usd='0.002371' created_at=datetime.datetime(2026, 10, 2, 19, 33, 22, 36219, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 33, 33, 334093, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 900,
+      "name": "1440"
+    },
+    "page": {
+      "path": "/glossary/",
+      "name": "glossary"
+    },
+    "url": "https://eduglossary.my.id/glossary/",
+    "timestamp": "2026-10-02T19:33:48.370895+00:00",
+    "result": "id=UUID('8b1e6861-8b5d-4441-a10c-7ca80d48da82') task='\\n    Navigate to https://eduglossary.my.id/glossary/ with viewport 1440x900.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check webpage horizontal overflow' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":1425,\"clientWidth\":1425,\"hasOverflow\":false}}' error=None session_id=UUID('5c946d1a-c4ea-44c1-94f8-26ee28471686') workspace_id=UUID('5731f9e6-4e81-4257-b93b-9d40736cf78a') attached_file_ids=None judgement=None total_input_tokens=35568 total_output_tokens=247 total_cost_usd='0.002379' created_at=datetime.datetime(2026, 10, 2, 19, 33, 34, 497660, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 33, 46, 553508, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 900,
+      "name": "1440"
+    },
+    "page": {
+      "path": "/glossary/blockchain/",
+      "name": "blockchain"
+    },
+    "url": "https://eduglossary.my.id/glossary/blockchain/",
+    "timestamp": "2026-10-02T19:34:00.994302+00:00",
+    "result": "id=UUID('4c7ce440-a02a-403d-9762-c87ee4fc5f19') task='\\n    Navigate to https://eduglossary.my.id/glossary/blockchain/ with viewport 1440x900.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check webpage horizontal overflow' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":1425,\"clientWidth\":1425,\"hasOverflow\":false}}' error=None session_id=UUID('23a707f3-4fde-4729-bf57-1f5ddeffeca7') workspace_id=UUID('ce5ee4d2-7025-47a9-ba9c-b93fa221a523') attached_file_ids=None judgement=None total_input_tokens=35488 total_output_tokens=207 total_cost_usd='0.002349' created_at=datetime.datetime(2026, 10, 2, 19, 33, 49, 426934, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 33, 59, 257538, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 900,
+      "name": "1440"
+    },
+    "page": {
+      "path": "/articles/",
+      "name": "articles"
+    },
+    "url": "https://eduglossary.my.id/articles/",
+    "timestamp": "2026-10-02T19:34:13.936861+00:00",
+    "result": "id=UUID('bf5f0669-11db-4481-b118-2db47008d56d') task='\\n    Navigate to https://eduglossary.my.id/articles/ with viewport 1440x900.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check page horizontal overflow data' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":1440,\"clientWidth\":1440,\"hasOverflow\":false}}' error=None session_id=UUID('94fd1e93-0d2b-4dd4-af30-e4be9a59f4ee') workspace_id=UUID('3628c0cd-bccf-47d6-83be-ba3a139a4256') attached_file_ids=None judgement=None total_input_tokens=35559 total_output_tokens=241 total_cost_usd='0.002375' created_at=datetime.datetime(2026, 10, 2, 19, 34, 2, 351899, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 34, 13, 382098, tzinfo=TzInfo(0))"
+  },
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 900,
+      "name": "1440"
+    },
+    "page": {
+      "path": "/glossary/categories/",
+      "name": "categories"
+    },
+    "url": "https://eduglossary.my.id/glossary/categories/",
+    "timestamp": "2026-10-02T19:34:28.750033+00:00",
+    "result": "id=UUID('23b25242-6226-43e4-9b99-b69ad19b6016') task='\\n    Navigate to https://eduglossary.my.id/glossary/categories/ with viewport 1440x900.\\n    \\n    Return JSON with:\\n    - overflow: document.documentElement.scrollWidth, document.documentElement.clientWidth, hasOverflow\\n    ' title='Check webpage horizontal overflow' model='gpt-6-luna' context_limit=250000 status=<Status2.completed: 'completed'> result='{\"overflow\":{\"scrollWidth\":1425,\"clientWidth\":1425,\"hasOverflow\":false}}' error=None session_id=UUID('d21d5670-4fb8-4512-9d5b-1879883b4787') workspace_id=UUID('342ec827-b605-4c9e-800e-fcb60544ba20') attached_file_ids=None judgement=None total_input_tokens=35534 total_output_tokens=243 total_cost_usd='0.002376' created_at=datetime.datetime(2026, 10, 2, 19, 34, 14, 989442, tzinfo=TzInfo(0)) updated_at=datetime.datetime(2026, 10, 2, 19, 34, 27, 596045, tzinfo=TzInfo(0))"
+  }
+]

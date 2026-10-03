@@ -35,12 +35,11 @@ Pagefind search UI is **already wired up** across the site:
 
 ## Design System (Current State)
 
-- **Fonts**: `system-ui, -apple-system, "PERSON_NAME] UI", sans-serif` — **not IBM Plex yet**
+- **Fonts**: `system-ui, -apple-system, "Poppins" UI", sans-serif` — IBM Plex Sans added via Fontsource
 - **Colors**: CSS custom properties in `:root` (`--color-bg`, `--color-text`, `--color-primary`, etc.)
 - **Category colors**: `src/utils/categoryColors.ts`, icons: `src/utils/categoryIcons.ts`
 - **Dark mode**: NOT implemented
 - **Design tokens**: Single `src/styles/global.css`, no separate token system
-- **IBM Plex fonts**: Planned for P5 refresh, not yet present
 
 ## Key Constraints
 
@@ -50,30 +49,30 @@ Pagefind search UI is **already wired up** across the site:
 - Fontsource for fonts (no Google Fonts CDN)
 - Single CSS file (`src/styles/global.css`) — no CSS modules or scoping
 
+## Footer Structure
+
+The footer has exactly 3 sections in this order:
+1. **Brand** — logo, description, author link (`/authors/eduglossary-team/`)
+2. **Navigation** — Home, Learn, Glossary, Articles, About, Disclaimer
+3. **Topics** — Blockchain, Cloud Computing, Software Development, Cybersecurity, AI & Data, Technology
+
+CSS grid: `1.5fr repeat(2, minmax(0, 1fr))` on desktop (3 columns), `repeat(2, minmax(0, 1fr))` on tablet/mobile.
+
 ## SEO / Security
+
 - Security headers enforced: CSP, HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy
 - 404 page has `noindex` meta
 - Sitemap auto-generated via `@astrojs/sitemap`
 - robots.txt: `src/pages/robots.txt.ts`
 - `@astrojs/rss` is a dependency but **not configured** — RSS feed not yet generated
 
-## Testing
-Playwright is installed but no test script defined in `package.json`. No test suite to run.
-
 ## Deploy
+
 Cloudflare Pages auto-deploy from GitHub `main` branch. Check `wrangler pages deployment list` for history.
 
-## Roadmap Status (from project notes)
+## Common Tasks
 
-| Phase | Status | Notes |
-|---|---|---|
-| P4 — SEO & Search Visibility | In progress (monitoring) | Keyword research, content expansion, on-page SEO, search CTR monitoring |
-| P5 — UI/UX Refresh | Proposed | IBM Plex fonts, dark mode, design tokens, visual QA |
-| P6 — Search & Discoverability | Proposed | Expand Pagefind, search autocomplete, RSS/newsletter, CSV migration |
-
-### Key facts for roadmap execution:
-- Pagefind search UI **already exists** — P6 search bar work is partly done
-- RSS dependency (`@astrojs/rss`) is installed but not configured — easy win for P6
-- Dark mode requires adding CSS custom properties + toggle + localStorage persistence (P5)
-- IBM Plex fonts need `npm install @fontsource-variable/ibm-plex` (P5)
-- Adding glossary terms = create new `.md` file in `src/content/glossary/`
+- **Add glossary term**: Create new `.md` file in `src/content/glossary/` with frontmatter matching the glossary schema
+- **Add article**: Create new `.md` file in `src/content/articles/` with frontmatter matching the articles schema
+- **Add route**: Create `.astro` file in `src/pages/` following existing conventions (trailing slash, Layout wrapper)
+- **Update footer**: Edit `src/components/Footer.astro` — do not add more than 3 grid sections
