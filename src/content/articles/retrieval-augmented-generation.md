@@ -180,9 +180,9 @@ Modern RAG systems often use embeddings and vector databases, but these are tool
 
 **Documents become chunks.** Raw documents are typically split into smaller pieces called chunks. Chunking makes the content easier to search and ensures individual pieces fit within the context window.
 
-**Chunks become embeddings.** An embedding model converts each text chunk into a vector — a list of numbers representing the semantic content. Similar texts receive similar vectors.
+**Chunks become embeddings.** An [embedding model](/glossary/training-data/) converts each text chunk into a vector — a list of numbers representing the semantic content. Similar texts receive similar vectors.
 
-**Vectors are stored in a vector database.** A vector database is a specialized storage system designed to hold and search embeddings efficiently. It indexes the vectors so that similarity searches can be performed quickly across millions of documents.
+**Vectors are stored in a vector database.** A vector database is a specialized storage system designed to hold and search embeddings efficiently. It indexes the vectors so that similarity searches can be performed quickly across millions of documents. For a broader view of how these concepts connect, see the [AI & Data learning path](/learn/ai-and-data/).
 
 **Semantic similarity search.** Unlike traditional keyword search, semantic search finds documents that are conceptually related to the query even if they use different words.
 
@@ -232,4 +232,4 @@ Yes. RAG is particularly valuable for accessing private or proprietary informati
 
 ---
 
-*This article is part of the EduGlossary AI & Data category. Explore related topics in [Machine Learning](/glossary/machine-learning/), [Natural Language Processing](/glossary/natural-language-processing/), and [Deep Learning](/glossary/deep-learning/) for more foundational concepts.*
+*This article is part of the EduGlossary AI & Data category. Explore related topics in [Machine Learning](/glossary/machine-learning/), [Natural Language Processing](/glossary/natural-language-processing/), and [Deep Learning](/glossary/deep-learning/) for more foundational concepts. For a structured learning path, visit the [AI & Data hub](/learn/ai-and-data/).*

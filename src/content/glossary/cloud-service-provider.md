@@ -140,3 +140,7 @@ The provider secures the cloud (infrastructure), while customers secure what's i
 
 ### How do I avoid cloud bill shock?
 Set up billing alerts, use cost management tools, right-size resources, implement auto-scaling, and regularly review usage patterns. Consider third-party FinOps tools for advanced cost optimization.
+
+---
+
+**Related concepts:** [Hybrid Cloud Storage](/glossary/hybrid-cloud-storage/), [Storage Area Network](/glossary/storage-area-network/), [Virtualization Software](/glossary/virtualization-software/), [Cloud Computing hub](/learn/cloud-computing/)

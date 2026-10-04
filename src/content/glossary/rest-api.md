@@ -122,3 +122,9 @@ Common approaches: **URL versioning** (`/api/v1/users`) — most visible, cachea
 
 ### How do I paginate large collections in a REST API?
 Two main patterns: **Offset-based** (`?page=2&limit=20`) — simple but slow on large datasets (requires OFFSET). **Cursor-based** (`?cursor=abc123&limit=20`) — faster, stable pagination, works with real-time data. Cursor-based is preferred for large or frequently changing datasets. Always include pagination metadata in the response (`total_count`, `next_cursor`, `has_more`).
+
+---
+
+**For a beginner-friendly overview:** [What is an API? A Complete Beginner's Guide](/articles/what-is-an-api-beginners-guide/)
+**For general API concepts:** [API](/glossary/api/)
+**For broader context:** [Software Development hub](/learn/software-development/)

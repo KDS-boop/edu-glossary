@@ -99,3 +99,7 @@ Yes, but consider data gravity. Moving large datasets back to on-premises can be
 
 ### What about regulatory compliance?
 Many regulations specify where data must be stored. Hybrid cloud allows compliance by keeping regulated data on-premises while using cloud for non-regulated workloads. Verify requirements with legal counsel.
+
+---
+
+**Related concepts:** [Cloud Service Provider](/glossary/cloud-service-provider/), [Storage Area Network](/glossary/storage-area-network/), [Virtualization Software](/glossary/virtualization-software/), [Cloud Computing hub](/learn/cloud-computing/)

@@ -110,3 +110,7 @@ Yes, SAN is commonly used as a backup target. Features like snapshots enable qui
 
 ### What is the difference between FC and iSCSI?
 FC provides dedicated high-speed storage networking with lower latency but requires specialized infrastructure. iSCSI runs over standard Ethernet, reducing costs but potentially introducing higher latency. The choice depends on performance requirements and budget.
+
+---
+
+**Related concepts:** [Cloud Service Provider](/glossary/cloud-service-provider/), [Hybrid Cloud Storage](/glossary/hybrid-cloud-storage/), [Virtualization Software](/glossary/virtualization-software/), [Cloud Computing hub](/learn/cloud-computing/)

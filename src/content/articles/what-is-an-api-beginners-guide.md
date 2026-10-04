@@ -12,7 +12,7 @@ coverImage: "/images/articles/what-is-an-api-beginners-guide.svg"
 
 Every time you check the weather on your phone, log into a website with your Google account, pay for something online, or open a social media app — an API is doing the invisible work behind the scenes.
 
-API stands for **Application Programming Interface**, and it is the single most important concept in modern software development. Despite the technical-sounding name, the underlying idea is remarkably simple: an API is a way for two pieces of software to talk to each other without either one needing to understand how the other one works internally.
+API stands for **Application Programming Interface**, and it is the single most important concept in modern software development. Despite the technical-sounding name, the underlying idea is remarkably simple: an [API](/glossary/api/) is a way for two pieces of software to talk to each other without either one needing to understand how the other one works internally.
 
 This guide explains everything a beginner needs to know about APIs — what they are, how they function, the different types that exist, and how to make a real API call yourself.
 
@@ -90,7 +90,7 @@ Not all APIs follow the same rules or structure. The three types you will encoun
 
 ### 1. REST APIs
 
-**REST** (Representational State Transfer) is the most widely used API architecture on the internet today. Most major public APIs — including GitHub, Stripe, Twitter, and thousands of others — use REST.
+**REST** (Representational State Transfer) is the most widely used API architecture on the internet today. Most major public APIs — including GitHub, Stripe, Twitter, and thousands of others — use REST. For a deeper technical reference, see the [REST API glossary entry](/glossary/rest-api/).
 
 REST APIs follow a set of design principles that make them predictable, scalable, and easy to work with:
 
@@ -161,6 +161,8 @@ When you start working with APIs, you will encounter a handful of recurring term
 - **Authentication:** A method to verify who is making the request. Common methods include API keys, OAuth tokens, and JWTs (JSON Web Tokens).
 - **Rate limiting:** A restriction on how many requests a client can make within a given time window. If you exceed the limit, the API returns a 429 (Too Many Requests) status code.
 - **Timeout:** The maximum time a client will wait for a server to respond before giving up. Poorly designed APIs with slow responses frustrate users and cause application errors.
+
+For a structured overview of these concepts and more, explore the [Software Development learning path](/learn/software-development/).
 
 ---
 

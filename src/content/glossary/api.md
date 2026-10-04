@@ -165,3 +165,9 @@ Rate limiting restricts how many requests a client can make in a time window (e.
 
 ### What is the difference between synchronous and asynchronous APIs?
 Synchronous APIs wait for a response before continuing. Asynchronous APIs return immediately and notify the caller when the result is ready (via callbacks, promises, or webhooks). Asynchronous APIs are better for long-running operations but add complexity.
+
+---
+
+**For a comprehensive beginner guide:** [What is an API? A Complete Beginner's Guide](/articles/what-is-an-api-beginners-guide/)
+**For REST-specific details:** [REST API](/glossary/rest-api/)
+**For broader context:** [Software Development hub](/learn/software-development/)
