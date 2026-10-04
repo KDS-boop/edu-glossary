@@ -67,7 +67,7 @@ export const hubs: Hub[] = [
       'full-stack',
       'version-control',
     ],
-    articleSlugs: ['mengenal-astro-framework', 'what-is-an-api-beginners-guide'],
+    articleSlugs: ['mengenal-astro-framework', 'what-is-an-api-beginners-guide', 'what-is-a-rest-api', 'what-is-an-api-gateway'],
     relatedHubs: ['cloud-computing', 'cybersecurity'],
   },
   {
@@ -107,7 +107,13 @@ export const hubs: Hub[] = [
       'predictive-analytics',
       'chatbot',
     ],
-    articleSlugs: ['how-machine-learning-works'],
+    articleSlugs: [
+      'how-machine-learning-works',
+      'what-is-an-ai-agent',
+      'what-is-a-vector-database',
+      'what-is-an-llm',
+      'retrieval-augmented-generation'
+    ],
     relatedHubs: ['software-development'],
   },
 ];
