@@ -432,11 +432,11 @@ Or use Postman, Insomnia, or browser dev tools. No code required to try.
 
 - **[API](/glossary/api/)** — The broader concept of application programming interfaces
 - **[API Gateway](/glossary/api-gateway/)** — Traffic management layer for APIs
-- **[GraphQL](/glossary/graphql/)** — Flexible query language alternative to REST
+- **GraphQL** — Flexible query language alternative to REST
 - **[Full Stack Development](/glossary/full-stack/)** — Building both client and server
 - **[Codebase](/glossary/codebase/)** — Source code organization
-- **[OAuth](/glossary/oauth/)** — Authorization framework for API access
-- **[JWT](/glossary/jwt/)** — Token-based authentication for APIs
+- **OAuth** — Authorization framework for API access
+- **JWT** — Token-based authentication for APIs
 
 ---
 

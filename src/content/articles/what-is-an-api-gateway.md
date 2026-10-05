@@ -410,12 +410,12 @@ Consider: scale, latency requirements, team expertise, cloud vs on-prem, open-so
 
 - **[API](/glossary/api/)** — The interface being managed
 - **[REST API](/glossary/rest-api/)** — Most common API style through gateways
-- **[OAuth](/glossary/oauth/)** — Authorization framework gateways enforce
-- **[JWT](/glossary/jwt/)** — Token format gateways validate
-- **[Microservices](/glossary/microservices/)** — Architecture pattern requiring gateways
-- **[Load Balancer](/glossary/load-balancer/)** — Infrastructure layer below gateway
-- **[Reverse Proxy](/glossary/reverse-proxy/)** — Simpler proxy layer
-- **[Service Mesh](/glossary/service-mesh/)** — Complementary East-West layer
+- **OAuth** — Authorization framework gateways enforce
+- **JWT** — Token format gateways validate
+- **Microservices** — Architecture pattern requiring gateways
+- **Load Balancer** — Infrastructure layer below gateway
+- **Reverse Proxy** — Simpler proxy layer
+- **Service Mesh** — Complementary East-West layer
 
 ---
 
