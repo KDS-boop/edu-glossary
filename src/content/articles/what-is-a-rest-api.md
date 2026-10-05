@@ -12,7 +12,7 @@ coverImage: "/images/articles/rest-api-request-response.svg"
 
 Every time you use a weather app, log into a website with Google, or pay for something online — a REST API is likely doing the work behind the scenes.
 
-**REST API** (Representational State Transfer Application Programming Interface) is the most common way for software applications to communicate over the internet. Despite the technical name, the core idea is straightforward: a REST API lets one application request data or actions from another using standard web protocols.
+**REST API** (Representational State Transfer Application Programming Interface) is one of the most widely used approaches for building web APIs and enabling software applications to communicate over the internet. Despite the technical name, the core idea is straightforward: a REST API lets one application request data or actions from another using standard web protocols.
 
 This guide explains what REST APIs are, how they work, and what beginners need to know to start using them.
 
@@ -51,7 +51,7 @@ The core REST principles:
 
 A **REST API** is an API that follows the REST architectural style. It uses standard HTTP to let clients interact with resources on a server.
 
-Most public APIs you encounter — GitHub, Stripe, Twitter/X, Spotify, weather services — are REST APIs. They are popular because they work with any programming language, are easy to debug, and leverage existing web infrastructure (caching, load balancing, security).
+Many public web APIs use REST-style interfaces, although APIs can also use other approaches such as GraphQL, gRPC, SOAP, or protocol-specific designs. Services may also expose more than one API style. They are popular because they work with any programming language, are easy to debug, and leverage existing web infrastructure (caching, load balancing, security).
 
 ---
 
@@ -441,3 +441,11 @@ Or use Postman, Insomnia, or browser dev tools. No code required to try.
 ---
 
 *This article is part of the EduGlossary Software Development category. Explore related topics in the [Software Development hub](/learn/software-development/).*
+
+---
+
+## Sources
+
+- [HTTP request methods — MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods)
+- [HTTP response status codes — MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status)
+- [Roy Fielding, Architectural Styles and the Design of Network-based Software Architectures](https://ics.uci.edu/~fielding/pubs/dissertation/abstract.htm)

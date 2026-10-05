@@ -142,7 +142,7 @@ dot_product(A, B) = Σ(Aᵢ × Bᵢ)
 
 ## Vector Database and RAG
 
-**RAG (Retrieval-Augmented Generation)** is the primary use case for vector databases in 2026.
+**RAG (Retrieval-Augmented Generation) is one of the most prominent use cases for vector databases in modern AI applications.
 
 ### The RAG Flow
 
@@ -299,3 +299,11 @@ No. They're useful anywhere similarity matters: recommendation systems, fraud de
 ---
 
 *This article is part of the EduGlossary AI & Data category. Explore related topics in [Machine Learning](/glossary/machine-learning/), [Natural Language Processing](/glossary/natural-language-processing/), and [Deep Learning](/glossary/deep-learning/). For a structured learning path, visit the [AI & Data hub](/learn/ai-and-data/).*
+
+---
+
+## Sources
+
+- [Vector database choices in RAG Engine — Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/vector-db-choices)
+- [Use embedding models with RAG Engine — Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-embedding-models)
+- [Retrievers for RAG workflows — AWS Prescriptive Guidance](https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/rag-custom-retrievers.html)

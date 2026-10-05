@@ -14,7 +14,7 @@ When you use a modern app — mobile, web, or AI-powered — your requests don't
 
 An **API gateway** is a management layer that sits between clients (apps, browsers, AI agents) and backend services. It handles cross-cutting concerns — authentication, routing, rate limiting, monitoring — so individual services don't have to.
 
-This guide explains what API gateways are, how they work, and why they're essential in modern architectures.
+This guide explains what API gateways are, how they work, and why they are commonly used in architectures that need a centralized entry point for APIs.
 
 ---
 
@@ -337,7 +337,7 @@ In a microservices architecture, the API gateway is the **front door**:
 
 ## API Gateways and Modern AI Applications
 
-In 2026, API gateways play new roles in AI architectures:
+API gateways can also play an important role in AI application architectures:
 
 ### AI Agent Traffic
 - Agents make high-volume, bursty API calls
@@ -365,7 +365,7 @@ In 2026, API gateways play new roles in AI architectures:
 | Concern | Mitigation |
 |---------|------------|
 | **Single point of failure** | Deploy gateway in HA (multiple replicas, multi-AZ); health checks |
-| **Added latency** | Typically 1–5ms overhead; optimize with caching, efficient routing |
+| **Added latency** | Additional network and processing latency; optimize with efficient routing, caching, and appropriate deployment |
 | **Complexity** | Start simple; use managed services (AWS API Gateway, Kong Konnect) |
 | **Vendor lock-in** | Use open-source (Kong, APISIX, Traefik, Gravitee) or standard APIs |
 | **Configuration drift** | GitOps: store gateway config as code (Declarative: Kong deck, Apigee API) |
@@ -420,3 +420,10 @@ Consider: scale, latency requirements, team expertise, cloud vs on-prem, open-so
 ---
 
 *This article is part of the EduGlossary Software Development category. Explore related topics in the [Software Development hub](/learn/software-development/).*
+
+---
+
+## Sources
+
+- [What is Amazon API Gateway? — AWS](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html)
+- [Amazon API Gateway — AWS](https://aws.amazon.com/api-gateway/)

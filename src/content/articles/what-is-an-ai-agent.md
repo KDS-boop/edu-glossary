@@ -251,7 +251,7 @@ Traditional automation follows **instructions**. AI agents follow **intent**.
 | **Level 4** | High — operates independently in defined domain | Trading agent with risk limits |
 | **Level 5** | Full — sets own goals, operates indefinitely | Hypothetical future AGI |
 
-Most production AI agents in 2026 operate at **Level 2–3**. They handle well-defined tasks autonomously but escalate or require approval for high-stakes decisions.
+This spectrum is illustrative rather than an industry-wide standard. In practice, production agents can operate at different levels of autonomy depending on their tools, guardrails, approval requirements, and task scope.
 
 ---
 
@@ -290,7 +290,7 @@ Most production AI agents in 2026 operate at **Level 2–3**. They handle well-d
 A chatbot responds to messages in a conversation. An AI agent pursues a goal by reasoning, planning, using tools, and iterating until the task is complete. Chatbots are conversational; agents are operational.
 
 ### Do AI agents require LLMs?
-Most modern AI agents use LLMs for reasoning and planning, but simpler agents can use rule-based systems. The term "AI agent" in 2026 typically implies LLM-based reasoning.
+Many modern AI agents use LLMs for reasoning and planning, but an AI agent does not inherently require an LLM. Simpler agents can use rules, search, planning algorithms, or other AI techniques depending on the task.
 
 ### Can AI agents replace human workers?
 AI agents excel at specific, well-scoped tasks (data extraction, code generation, research synthesis). They complement human work rather than replace entire roles. Human judgment, creativity, and accountability remain essential.
@@ -322,3 +322,9 @@ An agentic workflow is a process where an AI agent (or multiple agents) handles 
 ---
 
 *This article is part of the EduGlossary AI & Data category. Explore related topics in [Machine Learning](/glossary/machine-learning/), [Natural Language Processing](/glossary/natural-language-processing/), and [Deep Learning](/glossary/deep-learning/) for more foundational concepts. For a structured learning path, visit the [AI & Data hub](/learn/ai-and-data/).*
+
+---
+
+## Sources
+
+- [What are AI agents? — Google Cloud](https://cloud.google.com/discover/what-are-ai-agents)

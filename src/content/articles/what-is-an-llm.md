@@ -26,7 +26,7 @@ This guide explains what LLMs are, how they work, and what they can (and cannot)
 | **L** | **Language** — Designed for natural language (English, code, multilingual) |
 | **M** | **Model** — A mathematical representation of learned patterns |
 
-"Large" refers to both the model size (parameters) and the training data scale. Early models had millions of parameters; 2026 frontier models have hundreds of billions to trillions.
+"Large" refers to both the model size (parameters) and the training data scale. Modern language models can contain very large numbers of learned parameters, but the exact parameter counts of many proprietary models are not publicly disclosed. The important beginner concept is that parameters are learned numerical values that help determine the model's behavior.
 
 ---
 
@@ -170,7 +170,7 @@ The **Transformer** is the neural network architecture that made modern LLMs pos
 
 - **GPT-3**: 175 billion parameters
 - **Llama 3 70B**: 70 billion parameters  
-- **GPT-4**: Estimated 1+ trillion (mixture of experts)
+- **Large proprietary models**: exact parameter counts may not be publicly disclosed
 - **Small models**: 1B–7B parameters (run on consumer hardware)
 
 More parameters generally = more capacity to learn complex patterns, but:
@@ -191,13 +191,7 @@ Parameters are organized in layers:
 
 The **context window** is the maximum number of tokens the model can process at once (input + output).
 
-| Model | Context Window |
-|-------|----------------|
-| GPT-3.5 | 4,096 tokens |
-| GPT-4 | 8,192 / 32,768 / 128,000 tokens |
-| Claude 3 | 200,000 tokens |
-| Gemini 1.5 | 1,000,000+ tokens |
-| Llama 3 | 8,192 / 128,000 tokens |
+Context-window sizes vary by model and version and can change over time. Rather than treating a single vendor's number as universal, think of the context window as the amount of tokenized information a particular model can process as context for a request.
 
 **Why it matters**:
 - Longer context = more information the model can "see" at once
@@ -338,3 +332,11 @@ A sampling parameter controlling randomness. 0 = deterministic (greedy). 0.7–1
 ---
 
 *This article is part of the EduGlossary AI & Data category. Explore related topics in [Machine Learning](/glossary/machine-learning/), [Natural Language Processing](/glossary/natural-language-processing/), and [Deep Learning](/glossary/deep-learning/). For a structured learning path, visit the [AI & Data hub](/learn/ai-and-data/).*
+
+---
+
+## Sources
+
+- [Introduction to Large Language Models — Google for Developers](https://developers.google.com/machine-learning/crash-course/llm)
+- [LLMs: What's a large language model? — Google for Developers](https://developers.google.com/machine-learning/crash-course/llm/transformers)
+- [What is LLM inference? — IBM](https://www.ibm.com/think/topics/llm-inference)
