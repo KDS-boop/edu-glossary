@@ -15,7 +15,6 @@
     "@fontsource-variable/outfit": "^5.3.0",
     "@fontsource-variable/work-sans": "^5.3.0",
     "@fontsource/inter": "^5.3.0",
-    "@microsoft/clarity": "^1.0.2",
     "astro": "^4.16.18",
     "browser-use-sdk": "^3.11.3",
     "exa-js": "^2.24.0",

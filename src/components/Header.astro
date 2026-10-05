@@ -100,12 +100,20 @@ const nav = [
   }, { passive: true });
   
   // ── Search Initialization ──
-  if (window.__eduglossary && window.__eduglossary.search) {
-    window.__eduglossary.search.init('#search', {
-      showImages: false,
-      excerptLength: 15,
-      placeholder: 'Search terms, articles...'
-    });
+  function initHeaderSearch() {
+    if (window.__eduglossary && window.__eduglossary.search && window.PagefindUI) {
+      window.__eduglossary.search.init('#search', {
+        showImages: false,
+        excerptLength: 15,
+        placeholder: 'Search terms, articles...'
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeaderSearch, { once: true });
+  } else {
+    initHeaderSearch();
   }
 </script>
 

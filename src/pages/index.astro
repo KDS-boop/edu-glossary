@@ -240,13 +240,19 @@ const siteSchema = {
 </Layout>
 
 <script is:inline>
-  window.addEventListener('load', () => {
-    if (window.__eduglossary && window.__eduglossary.search) {
+  function initHeroSearch() {
+    if (window.__eduglossary && window.__eduglossary.search && window.PagefindUI) {
       window.__eduglossary.search.init('#hero-search', {
         showImages: false,
         excerptLength: 15,
         placeholder: 'Search terms, articles...'
       });
     }
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeroSearch, { once: true });
+  } else {
+    initHeroSearch();
+  }
 </script>
