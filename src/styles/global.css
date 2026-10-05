@@ -1121,6 +1121,27 @@ article.prose {
 }
 
 @media (max-width: 480px) {
+  .header-actions {
+    min-width: 0;
+    max-width: 100%;
+  }
+  #search {
+    min-width: 0;
+    max-width: min(180px, 100%);
+    width: min(180px, 100%);
+  }
+  #search .pagefind-ui__drawer {
+    max-width: calc(100vw - 2.5rem);
+    overflow-x: hidden;
+  }
+  #search .pagefind-ui__results-area,
+  #search .pagefind-ui__result,
+  #search .pagefind-ui__result-inner,
+  #search .pagefind-ui__result-excerpt {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
   .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--space-6);
