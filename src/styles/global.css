@@ -1189,6 +1189,23 @@ article.prose {
 
 /* Tablet breakpoint */
 @media (min-width: 769px) and (max-width: 1023px) {
+  .site-header nav {
+    gap: var(--space-3);
+  }
+  .site-header ul {
+    gap: 0;
+  }
+  .site-header ul a {
+    padding-inline: var(--space-2);
+  }
+  .header-actions {
+    gap: var(--space-2);
+  }
+  #search {
+    width: 200px;
+    min-width: 160px;
+    max-width: 200px;
+  }
   .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--space-8);
