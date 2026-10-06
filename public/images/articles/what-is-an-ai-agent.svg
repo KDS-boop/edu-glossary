@@ -1,1 +1,66 @@
-<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg"><title>How an AI Agent Works</title><desc>A goal-directed agent reasons, plans, uses tools, observes results, and iterates until it reaches a result.</desc><rect width="1200" height="630" fill="#f8fafc"/><rect x="40" y="36" width="1120" height="558" rx="28" fill="white" stroke="#cbd5e1" stroke-width="3"/><text x="80" y="105" font-family="system-ui,sans-serif" font-size="38" font-weight="700" fill="#0f172a">How an AI Agent Works</text><rect x="80.0" y="235" width="153.3" height="150" rx="18" fill="#f1f5f9" stroke="#15803d" stroke-width="3"/><text x="156.7" y="300" font-family="system-ui,sans-serif" font-size="22" font-weight="700" fill="#0f172a" text-anchor="middle">Goal</text><path d="M 238.3 310 L 252.3 310" stroke="#64748b" stroke-width="4" marker-end="url(#a)"/><rect x="257.3" y="235" width="153.3" height="150" rx="18" fill="#f1f5f9" stroke="#15803d" stroke-width="3"/><text x="334.0" y="300" font-family="system-ui,sans-serif" font-size="22" font-weight="700" fill="#0f172a" text-anchor="middle">Reason / Plan</text><path d="M 415.7 310 L 429.7 310" stroke="#64748b" stroke-width="4" marker-end="url(#a)"/><rect x="434.7" y="235" width="153.3" height="150" rx="18" fill="#f1f5f9" stroke="#15803d" stroke-width="3"/><text x="511.3" y="300" font-family="system-ui,sans-serif" font-size="22" font-weight="700" fill="#0f172a" text-anchor="middle">Use Tool</text><path d="M 593.0 310 L 607.0 310" stroke="#64748b" stroke-width="4" marker-end="url(#a)"/><rect x="612.0" y="235" width="153.3" height="150" rx="18" fill="#f1f5f9" stroke="#15803d" stroke-width="3"/><text x="688.7" y="300" font-family="system-ui,sans-serif" font-size="22" font-weight="700" fill="#0f172a" text-anchor="middle">Observe</text><path d="M 770.3 310 L 784.3 310" stroke="#64748b" stroke-width="4" marker-end="url(#a)"/><rect x="789.3" y="235" width="153.3" height="150" rx="18" fill="#f1f5f9" stroke="#15803d" stroke-width="3"/><text x="866.0" y="300" font-family="system-ui,sans-serif" font-size="22" font-weight="700" fill="#0f172a" text-anchor="middle">Iterate</text><path d="M 947.7 310 L 961.7 310" stroke="#64748b" stroke-width="4" marker-end="url(#a)"/><rect x="966.7" y="235" width="153.3" height="150" rx="18" fill="#f1f5f9" stroke="#15803d" stroke-width="3"/><text x="1043.3" y="300" font-family="system-ui,sans-serif" font-size="22" font-weight="700" fill="#0f172a" text-anchor="middle">Result</text><defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#64748b"/></marker></defs><text x="80" y="530" font-family="system-ui,sans-serif" font-size="20" fill="#475569">EduGlossary · Conceptual overview</text></svg>
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">How an AI Agent Works</title>
+  <desc id="desc">An AI agent starts with a goal, reasons about it and plans steps, uses a tool to act, observes the outcome, and iterates the loop until it produces a final result.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#15803d"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="630" fill="#f8fafc"/>
+  <rect x="40" y="36" width="1120" height="558" rx="28" fill="#ffffff" stroke="#cbd5e1" stroke-width="3"/>
+  <text x="80" y="102" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="38" font-weight="700" fill="#0f172a">How an AI Agent Works</text>
+  <text x="80" y="140" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="20" fill="#475569">A goal-directed loop: reason, plan, act, observe, repeat</text>
+  <path d="M 876 240 V 186 H 508 V 234" fill="none" stroke="#15803d" stroke-width="3" stroke-dasharray="7 6" marker-end="url(#arrowGreen)"/>
+  <text x="692" y="174" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="16" font-weight="600" fill="#15803d" text-anchor="middle">iterate until the goal is met</text>
+  <g>
+    <rect x="60" y="240" width="160" height="130" rx="16" fill="#f0fdf4" stroke="#15803d" stroke-width="3"/>
+    <circle cx="84" cy="264" r="14" fill="#15803d"/>
+    <text x="84" y="269" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+    <text x="140" y="312" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="21" font-weight="700" fill="#0f172a" text-anchor="middle">Goal</text>
+    <text x="140" y="338" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#475569" text-anchor="middle">define the objective</text>
+  </g>
+  <path d="M 224 305 L 238 305" fill="none" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+  <g>
+    <rect x="244" y="240" width="160" height="130" rx="16" fill="#f0fdf4" stroke="#15803d" stroke-width="3"/>
+    <circle cx="268" cy="264" r="14" fill="#15803d"/>
+    <text x="268" y="269" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+    <text x="324" y="312" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="21" font-weight="700" fill="#0f172a" text-anchor="middle">Reason / Plan</text>
+    <text x="324" y="338" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#475569" text-anchor="middle">break it into steps</text>
+  </g>
+  <path d="M 408 305 L 422 305" fill="none" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+  <g>
+    <rect x="428" y="240" width="160" height="130" rx="16" fill="#f0fdf4" stroke="#15803d" stroke-width="3"/>
+    <circle cx="452" cy="264" r="14" fill="#15803d"/>
+    <text x="452" y="269" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">3</text>
+    <text x="508" y="312" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="21" font-weight="700" fill="#0f172a" text-anchor="middle">Use Tool</text>
+    <text x="508" y="338" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#475569" text-anchor="middle">search · code · APIs</text>
+  </g>
+  <path d="M 592 305 L 606 305" fill="none" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+  <g>
+    <rect x="612" y="240" width="160" height="130" rx="16" fill="#f0fdf4" stroke="#15803d" stroke-width="3"/>
+    <circle cx="636" cy="264" r="14" fill="#15803d"/>
+    <text x="636" y="269" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">4</text>
+    <text x="692" y="312" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="21" font-weight="700" fill="#0f172a" text-anchor="middle">Observe</text>
+    <text x="692" y="338" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#475569" text-anchor="middle">check the outcome</text>
+  </g>
+  <path d="M 776 305 L 790 305" fill="none" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+  <g>
+    <rect x="796" y="240" width="160" height="130" rx="16" fill="#f0fdf4" stroke="#15803d" stroke-width="3"/>
+    <circle cx="820" cy="264" r="14" fill="#15803d"/>
+    <text x="820" y="269" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">5</text>
+    <text x="876" y="312" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="21" font-weight="700" fill="#0f172a" text-anchor="middle">Iterate</text>
+    <text x="876" y="338" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#475569" text-anchor="middle">loop until done</text>
+  </g>
+  <path d="M 960 305 L 974 305" fill="none" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+  <g>
+    <rect x="980" y="240" width="160" height="130" rx="16" fill="#f0fdf4" stroke="#15803d" stroke-width="3"/>
+    <circle cx="1004" cy="264" r="14" fill="#15803d"/>
+    <text x="1004" y="269" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">6</text>
+    <text x="1060" y="312" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="21" font-weight="700" fill="#0f172a" text-anchor="middle">Result</text>
+    <text x="1060" y="338" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#475569" text-anchor="middle">final answer</text>
+  </g>
+  <text x="80" y="572" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="18" fill="#64748b">EduGlossary · AI &amp; Data</text>
+</svg>

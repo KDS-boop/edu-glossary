@@ -1,23 +1,27 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollectionSorted } from '../../utils/collections';
 import Layout from '../../layouts/Layout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { slugify } from '../../utils/slugify';
 import { getCategoryColor } from '../../utils/categoryColors';
 import { getCategoryIcon } from '../../utils/categoryIcons';
+import { render } from 'astro:content';
+import fs from 'fs';
+import path from 'path';
 
 export async function getStaticPaths() {
-  const entries = await getCollection('glossary');
+  const entries = await getCollectionSorted('glossary');
   return entries.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id },
     props: { entry },
   }));
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 
-// Extract FAQ from raw markdown body
+// Extract FAQ from raw markdown file (Content Collections v5 no longer provides entry.body)
+// Read the source markdown file directly using entry.id (filename without extension)
 function extractFAQ(body: string): Array<{ question: string; answer: string }> {
   const faqMatch = body.match(/## Frequently Asked Questions\s*([\s\S]*)/i);
   if (!faqMatch) return [];
@@ -33,31 +37,33 @@ function extractFAQ(body: string): Array<{ question: string; answer: string }> {
   return faqs;
 }
 
-const faqData = extractFAQ(entry.body);
-  const testMatch = entry.body.match(/## Frequently Asked Questions\s*([\s\S]*)/i);
+// Read the raw markdown file to extract FAQ
+const markdownPath = path.join(process.cwd(), 'src/content/glossary', `${entry.id}.md`);
+const rawMarkdown = fs.existsSync(markdownPath) ? fs.readFileSync(markdownPath, 'utf-8') : '';
+const faqData = extractFAQ(rawMarkdown);
 const hasFAQ = faqData.length > 0;
 
-const allEntries = await getCollection('glossary');
+const allEntries = await getCollectionSorted('glossary');
 const termToEntry = new Map(allEntries.map((e) => [e.data.term.toLowerCase(), e]));
 
 // Related glossary: resolve term names to slugs, skip self-links
 const explicitRelated = entry.data.relatedTerms
   .map((t: string) => {
     const target = termToEntry.get(t.toLowerCase());
-    if (!target || target.slug === entry.slug) return null;
-    return { term: t, slug: target.slug, category: target.data.category, shortDefinition: target.data.shortDefinition };
+    if (!target || target.id === entry.id) return null;
+    return { term: t, slug: target.id, category: target.data.category, shortDefinition: target.data.shortDefinition };
   })
-  .filter(Boolean);
+  .filter((r): r is { term: string; slug: string; category: string; shortDefinition: string } => r !== null);
 
 // Fallback: add same-category terms to reach at least 5 related terms
 const sameCategoryTerms = allEntries
-  .filter((e) => e.data.category === entry.data.category && e.slug !== entry.slug)
-  .filter((e) => !explicitRelated.some((r) => r.slug === e.slug))
+  .filter((e) => e.data.category === entry.data.category && e.id !== entry.id)
+  .filter((e) => !explicitRelated.some((r) => r.slug === e.id))
   .sort((a, b) => a.data.term.localeCompare(b.data.term))
   .slice(0, Math.max(0, 5 - explicitRelated.length))
   .map((e) => ({
     term: e.data.term,
-    slug: e.slug,
+    slug: e.id,
     category: e.data.category,
     shortDefinition: e.data.shortDefinition,
   }));
@@ -65,8 +71,7 @@ const sameCategoryTerms = allEntries
 const relatedGlossary = [...explicitRelated, ...sameCategoryTerms];
 
 // Related articles: find articles in same category or with matching tags
-const allArticles = await getCollection('articles', ({ data }) => !data.draft);
-const categorySlug = slugify(entry.data.category);
+const allArticles = await getCollectionSorted('articles', ({ data }) => !data.draft);
 const relatedArticles = allArticles
   .filter((a) => {
     if (a.data.category === entry.data.category) return true;
@@ -80,13 +85,13 @@ const schema = {
   '@type': 'DefinedTerm',
   name: entry.data.term,
   description: entry.data.shortDefinition,
-  url: new URL(`/glossary/${entry.slug}/`, Astro.site).toString(),
+  url: new URL(`/glossary/${entry.id}/`, Astro.site).toString(),
   inDefinedTermSet: {
     '@type': 'DefinedTermSet',
     name: 'EduGlossary',
     url: new URL('/glossary/', Astro.site).toString(),
   },
-  ...(hasFAQ && {
+  ...(hasFAQ ? {
     mainEntity: {
       '@type': 'FAQPage',
       mainEntity: faqData.map((faq) => ({
@@ -98,14 +103,14 @@ const schema = {
         },
       })),
     },
-  }),
+  } : {}),
 };
 
 const breadcrumbs = [
   { label: 'Home', href: '/' },
   { label: 'Glossary', href: '/glossary/' },
   { label: entry.data.category, href: `/glossary/categories/${slugify(entry.data.category)}/` },
-  { label: entry.data.term, href: `/glossary/${entry.slug}/` },
+  { label: entry.data.term, href: `/glossary/${entry.id}/` },
 ];
 
 // Optimized title format: "Term — Short Definition | EduGlossary"
@@ -133,7 +138,7 @@ const pageDescription = entry.data.metaDescription || entry.data.shortDefinition
       <h2 id="related-terms-heading">Related Terms</h2>
       <div class="related-pill-list">
         {relatedGlossary.map((r) => {
-          const { bg, text } = getCategoryColor(r.category);
+          const { text } = getCategoryColor(r.category);
           return (
             <a class="related-pill" href={`/glossary/${r.slug}/`} title={r.shortDefinition}>
               <span class="related-pill-dot" style={`background: ${text};`}></span>
@@ -150,7 +155,7 @@ const pageDescription = entry.data.metaDescription || entry.data.shortDefinition
       <h2 id="related-articles-heading">Related Articles</h2>
       <div class="related-pill-list">
         {relatedArticles.map((a) => (
-          <a class="related-pill related-pill--article" href={`/articles/${a.slug}/`} title={a.data.description}>
+          <a class="related-pill related-pill--article" href={`/articles/${a.id}/`} title={a.data.description}>
             {a.data.title}
           </a>
         ))}

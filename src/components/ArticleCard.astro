@@ -22,7 +22,7 @@ const authorData = getAuthorBySlug(author);
 const authorName = authorData?.name || author;
 const authorSlug = authorData?.slug || slugify(author);
 ---
-<div class="card" {featured && 'data-featured'}>
+<div class="card" data-featured={featured ? '' : undefined}>
   <div class="card-accent" style={`background: linear-gradient(90deg, ${text}, ${bg});`}></div>
   <div class="card-body">
     <a class="badge" href={`/articles/categories/${slugify(category)}/`} style={`background: ${bg}; color: ${text};`}>

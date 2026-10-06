@@ -1,9 +1,9 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollectionSorted } from '../../utils/collections';
 import Layout from '../../layouts/Layout.astro';
 import GlossaryCard from '../../components/GlossaryCard.astro';
 
-const allEntries = (await getCollection('glossary')).sort((a, b) =>
+const allEntries = (await getCollectionSorted('glossary')).sort((a, b) =>
   a.data.term.localeCompare(b.data.term)
 );
 
@@ -29,7 +29,7 @@ const activeLetters = new Set(allEntries.map((e) => e.data.letter.toUpperCase())
           term={entry.data.term}
           shortDefinition={entry.data.shortDefinition}
           category={entry.data.category}
-          slug={entry.slug}
+          slug={entry.id}
         />
       </div>
     ))}

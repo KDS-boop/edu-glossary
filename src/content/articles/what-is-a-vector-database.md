@@ -142,7 +142,7 @@ dot_product(A, B) = Σ(Aᵢ × Bᵢ)
 
 ## Vector Database and RAG
 
-**RAG (Retrieval-Augmented Generation) is one of the most prominent use cases for vector databases in modern AI applications.
+**RAG (Retrieval-Augmented Generation)** is one of the most prominent use cases for vector databases in modern AI applications.
 
 ### The RAG Flow
 

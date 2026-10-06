@@ -1,12 +1,12 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollectionSorted } from '../../../utils/collections';
 import Layout from '../../../layouts/Layout.astro';
 import GlossaryCard from '../../../components/GlossaryCard.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { slugify } from '../../../utils/slugify';
 
 export async function getStaticPaths() {
-  const entries = await getCollection('glossary');
+  const entries = await getCollectionSorted('glossary');
   const categories = [...new Set(entries.map((e) => e.data.category))];
 
   return categories.map((category) => ({
@@ -86,7 +86,7 @@ const schema = {
         term={entry.data.term}
         shortDefinition={entry.data.shortDefinition}
         category={entry.data.category}
-        slug={entry.slug}
+        slug={entry.id}
       />
     ))}
   </div>

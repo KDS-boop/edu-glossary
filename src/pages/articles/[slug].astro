@@ -1,23 +1,26 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollectionSorted } from '../../utils/collections';
 import Layout from '../../layouts/Layout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import { slugify } from '../../utils/slugify';
 import { getCategoryColor } from '../../utils/categoryColors';
 import { getCategoryIcon } from '../../utils/categoryIcons';
 import { getAuthorBySlug } from '../../data/authors';
+import { render } from 'astro:content';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('articles', ({ data }) => !data.draft);
+  const posts = await getCollectionSorted('articles', ({ data }) => !data.draft);
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.id },
     props: { post },
   }));
 }
 
 const { post } = Astro.props;
-const { Content } = await post.render();
-const words = post.body.split(/\s+/).length;
+const { Content } = await render(post);
+// body is no longer available directly in Astro v6 content collections
+// We'll estimate reading time from the rendered content instead
+const words = (post as any).body?.split(/\s+/).length ?? Content.toString().split(/\s+/).length;
 const readingTime = Math.max(1, Math.round(words / 200));
 
 const author = getAuthorBySlug(post.data.author);
@@ -29,7 +32,7 @@ const schema = {
   '@type': 'Article',
   headline: post.data.title,
   description: post.data.description,
-  url: new URL(`/articles/${post.slug}/`, Astro.site).toString(),
+  url: new URL(`/articles/${post.id}/`, Astro.site).toString(),
   author: {
     '@type': 'Organization',
     name: authorName,
@@ -40,7 +43,7 @@ const schema = {
     name: 'EduGlossary',
     url: Astro.site?.toString(),
   },
-  mainEntityOfPage: new URL(`/articles/${post.slug}/`, Astro.site).toString(),
+  mainEntityOfPage: new URL(`/articles/${post.id}/`, Astro.site).toString(),
   datePublished: post.data.publishedDate.toISOString(),
   ...(post.data.updatedDate && { dateModified: post.data.updatedDate.toISOString() }),
 };
@@ -48,24 +51,24 @@ const schema = {
 const breadcrumbs = [
   { label: 'Home', href: '/' },
   { label: 'Articles', href: '/articles/' },
-  { label: post.data.title, href: `/articles/${post.slug}/` },
+  { label: post.data.title, href: `/articles/${post.id}/` },
 ];
 
 // Resolve related glossary terms
-const allGlossary = await getCollection('glossary');
+const allGlossary = await getCollectionSorted('glossary');
 const termToEntry = new Map(allGlossary.map((e) => [e.data.term.toLowerCase(), e]));
 const relatedGlossary = (post.data.relatedGlossary || [])
   .map((t: string) => {
     const target = termToEntry.get(t.toLowerCase());
     if (!target) return null;
-    return { term: t, slug: target.slug, category: target.data.category, shortDefinition: target.data.shortDefinition };
+    return { term: t, slug: target.id, category: target.data.category, shortDefinition: target.data.shortDefinition };
   })
-  .filter(Boolean);
+  .filter((r): r is { term: string; slug: string; category: string; shortDefinition: string } => r !== null);
 
 // Related articles: same category, excluding self
-const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const allArticles = await getCollectionSorted('articles', ({ data }) => !data.draft);
 const relatedArticles = allArticles
-  .filter((a) => a.slug !== post.slug && (a.data.category === post.data.category || post.data.tags.some((t: string) => a.data.tags.includes(t))))
+  .filter((a) => a.id !== post.id && (a.data.category === post.data.category || post.data.tags.some((t: string) => a.data.tags.includes(t))))
   .slice(0, 3);
 // Optimized title format: "Title — Category | EduGlossary"
 const pageTitle = `${post.data.title} — ${post.data.category} Guide`;
@@ -116,7 +119,7 @@ const pageDescription = post.data.description;
       <h2 id="related-terms-heading">Related Terms</h2>
       <div class="related-pill-list">
         {relatedGlossary.map((r) => {
-          const { bg, text } = getCategoryColor(r.category);
+          const { text } = getCategoryColor(r.category);
           return (
             <a class="related-pill" href={`/glossary/${r.slug}/`} title={r.shortDefinition}>
               <span class="related-pill-dot" style={`background: ${text};`}></span>
@@ -133,7 +136,7 @@ const pageDescription = post.data.description;
       <h2 id="related-articles-heading">Related Articles</h2>
       <div class="related-pill-list">
         {relatedArticles.map((a) => (
-          <a class="related-pill related-pill--article" href={`/articles/${a.slug}/`} title={a.data.description}>
+          <a class="related-pill related-pill--article" href={`/articles/${a.id}/`} title={a.data.description}>
             {a.data.title}
           </a>
         ))}
