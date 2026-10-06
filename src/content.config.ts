@@ -1,5 +1,6 @@
-import { defineCollection, z } from 'astro:content';
-import { glob, file } from 'astro/loaders';
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
 
 // "glossary" collection — for terms/definitions (like Webopedia Definitions)
 const glossary = defineCollection({
@@ -8,7 +9,7 @@ const glossary = defineCollection({
     term: z.string(),                 // Term name, e.g. "Blockchain"
     shortDefinition: z.string(),      // One concise sentence for preview/SEO
     category: z.string(),             // e.g. "Networking", "AI", "Security"
-    letter: z.string().length(1),     // First letter for A-Z index
+    letter: z.string().regex(/^[A-Z]$/), // First letter for A-Z index
     updatedDate: z.coerce.date(),
     relatedTerms: z.array(z.string()).default([]),
     metaDescription: z.string().optional(),
