@@ -1,8 +1,8 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollectionSorted } from '../../utils/collections';
 import Layout from '../../layouts/Layout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
-import { authors, getAuthorBySlug } from '../../data/authors';
+import { authors } from '../../data/authors';
 import { getCategoryColor } from '../../utils/categoryColors';
 import { getCategoryIcon } from '../../utils/categoryIcons';
 
@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 
 const { author } = Astro.props;
 
-const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const allArticles = await getCollectionSorted('articles', ({ data }) => !data.draft);
 const authorArticles = allArticles
   .filter((a) => a.data.author === author.slug)
   .sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf());
@@ -173,7 +173,7 @@ const breadcrumbs = [
           const { bg, text } = getCategoryColor(article.data.category);
           const icon = getCategoryIcon(article.data.category);
           return (
-            <a class="card" href={`/articles/${article.slug}/`}>
+            <a class="card" href={`/articles/${article.id}/`}>
               <div class="card-accent" style={`background: ${text};`}></div>
               <div class="card-body">
                 <span class="badge" style={`background: ${bg}; color: ${text};`}>

@@ -1,9 +1,8 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollectionSorted } from '../../utils/collections';
 import Layout from '../../layouts/Layout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
-import { hubs, getHubBySlug } from '../../data/hubs';
-import { slugify } from '../../utils/slugify';
+import { hubs } from '../../data/hubs';
 import { getCategoryColor } from '../../utils/categoryColors';
 import { getCategoryIcon } from '../../utils/categoryIcons';
 
@@ -17,23 +16,23 @@ export async function getStaticPaths() {
 const { hub } = Astro.props;
 
 // Resolve glossary slugs to full entries
-const allGlossary = await getCollection('glossary');
-const glossaryBySlug = new Map(allGlossary.map((e) => [e.slug, e]));
+const allGlossary = await getCollectionSorted('glossary');
+const glossaryBySlug = new Map(allGlossary.map((e) => [e.id, e]));
 const glossaryEntries = hub.glossarySlugs
   .map((slug) => glossaryBySlug.get(slug))
-  .filter(Boolean);
+  .filter((entry): entry is typeof entry & NonNullable<typeof entry> => entry !== undefined);
 
 // Resolve article slugs to full entries
-const allArticles = await getCollection('articles', ({ data }) => !data.draft);
-const articlesBySlug = new Map(allArticles.map((a) => [a.slug, a]));
+const allArticles = await getCollectionSorted('articles', ({ data }) => !data.draft);
+const articlesBySlug = new Map(allArticles.map((a) => [a.id, a]));
 const articleEntries = hub.articleSlugs
   .map((slug) => articlesBySlug.get(slug))
-  .filter(Boolean);
+  .filter((article): article is typeof article & NonNullable<typeof article> => article !== undefined);
 
 // Resolve related hubs
 const relatedHubs = hub.relatedHubs
   .map((slug) => hubs.find((h) => h.slug === slug))
-  .filter(Boolean);
+  .filter((rh): rh is typeof rh & NonNullable<typeof rh> => rh !== undefined);
 
 // Map hub slug to category name for colors
 const hubCategoryMap: Record<string, string> = {
@@ -87,7 +86,7 @@ const breadcrumbs = [
       {glossaryEntries.map((entry) => {
         const { bg: tBg, text: tText } = getCategoryColor(entry.data.category);
         return (
-          <a class="card hub-term-card" href={`/glossary/${entry.slug}/`}>
+          <a class="card hub-term-card" href={`/glossary/${entry.id}/`}>
             <div class="card-accent" style={`background: ${tText};`}></div>
             <div class="card-body">
               <span class="badge" style={`background: ${tBg}; color: ${tText}; font-size: 0.65rem;`}>{entry.data.category}</span>
@@ -107,7 +106,7 @@ const breadcrumbs = [
         {articleEntries.map((article) => {
           const { bg: aBg, text: aText } = getCategoryColor(article.data.category);
           return (
-            <a class="card hub-term-card" href={`/articles/${article.slug}/`}>
+            <a class="card hub-term-card" href={`/articles/${article.id}/`}>
               <div class="card-accent" style={`background: ${aText};`}></div>
               <div class="card-body">
                 <span class="badge" style={`background: ${aBg}; color: ${aText}; font-size: 0.65rem;`}>{article.data.category}</span>

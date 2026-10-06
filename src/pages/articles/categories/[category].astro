@@ -1,12 +1,12 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollectionSorted } from '../../../utils/collections';
 import Layout from '../../../layouts/Layout.astro';
 import ArticleCard from '../../../components/ArticleCard.astro';
 import Breadcrumb from '../../../components/Breadcrumb.astro';
 import { slugify } from '../../../utils/slugify';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('articles', ({ data }) => !data.draft);
+  const posts = await getCollectionSorted('articles', ({ data }) => !data.draft);
   const categories = [...new Set(posts.map((p) => p.data.category))];
 
   return categories.map((category) => ({
@@ -48,7 +48,7 @@ const breadcrumbs = [
         category={post.data.category}
         author={post.data.author}
         publishedDate={post.data.publishedDate}
-        slug={post.slug}
+        slug={post.id}
       />
     ))}
   </div>

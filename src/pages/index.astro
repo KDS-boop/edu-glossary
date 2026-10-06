@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollectionSorted } from '../utils/collections';
 import Layout from '../layouts/Layout.astro';
 import GlossaryCard from '../components/GlossaryCard.astro';
 import ArticleCard from '../components/ArticleCard.astro';
@@ -7,9 +7,8 @@ import { getCategoryColor } from '../utils/categoryColors';
 import { getCategoryIcon } from '../utils/categoryIcons';
 import { slugify } from '../utils/slugify';
 import { hubs } from '../data/hubs';
-import { getAuthorBySlug } from '../data/authors';
 
-const allGlossary = await getCollection('glossary');
+const allGlossary = await getCollectionSorted('glossary');
 
 // Featured glossary: most relatedTerms, tiebreak by updatedDate asc, then term asc
 const featuredGlossary = allGlossary.reduce((best, entry) => {
@@ -30,7 +29,7 @@ const glossaryEntries = allGlossary
   .sort((a, b) => b.data.updatedDate.valueOf() - a.data.updatedDate.valueOf())
   .slice(0, 6);
 
-const allArticles = await getCollection('articles', ({ data }) => !data.draft);
+const allArticles = await getCollectionSorted('articles', ({ data }) => !data.draft);
 const articles = allArticles
   .sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf());
 
@@ -93,7 +92,7 @@ const siteSchema = {
       <div class="section-header">
         <h2 id="featured-glossary-heading" class="section-title">Featured Term</h2>
       </div>
-      <a class="card featured-card" href={`/glossary/${featuredGlossary.slug}/`}>
+      <a class="card featured-card" href={`/glossary/${featuredGlossary.id}/`}>
         <div class="card-accent" style={`background: linear-gradient(90deg, ${getCategoryColor(featuredGlossary.data.category).text}, ${getCategoryColor(featuredGlossary.data.category).bg});`}></div>
         <div class="card-body">
           <div class="featured-card-top">
@@ -111,7 +110,7 @@ const siteSchema = {
               {featuredGlossary.data.relatedTerms.slice(0, 3).map((t: string) => {
                 const related = allGlossary.find((e) => e.data.term.toLowerCase() === t.toLowerCase());
                 return related ? (
-                  <a href={`/glossary/${related.slug}/`} class="related-tag">{t}</a>
+                  <a href={`/glossary/${related.id}/`} class="related-tag">{t}</a>
                 ) : (
                   <span class="related-tag">{t}</span>
                 );
@@ -138,7 +137,7 @@ const siteSchema = {
     </div>
     <div class="category-grid">
       {topCategories.map(([category, count]) => {
-        const { bg, text } = getCategoryColor(category);
+        const { text } = getCategoryColor(category);
         const icon = getCategoryIcon(category);
         return (
           <a class="category-card" href={`/glossary/categories/${slugify(category)}/`} style={`border-color: ${text}30;`}>
@@ -161,7 +160,7 @@ const siteSchema = {
     </div>
     <div class="hub-home-grid">
       {hubs.map((hub) => {
-        const hubCatMap = {
+        const hubCatMap: Record<string, string> = {
           'blockchain': 'Blockchain',
           'cloud-computing': 'Cloud Computing',
           'software-development': 'Software Development',
@@ -197,7 +196,7 @@ const siteSchema = {
           category={entry.data.category}
           letter={entry.data.letter}
           relatedCount={entry.data.relatedTerms.length}
-          slug={entry.slug}
+          slug={entry.id}
         />
       ))}
     </div>
@@ -218,7 +217,7 @@ const siteSchema = {
         category={featuredArticle.data.category}
         author={featuredArticle.data.author}
         publishedDate={featuredArticle.data.publishedDate}
-        slug={featuredArticle.slug}
+        slug={featuredArticle.id}
         featured={true}
       />
       {remainingArticles.length > 0 && (
@@ -230,7 +229,7 @@ const siteSchema = {
               category={post.data.category}
               author={post.data.author}
               publishedDate={post.data.publishedDate}
-              slug={post.slug}
+              slug={post.id}
             />
           ))}
         </div>

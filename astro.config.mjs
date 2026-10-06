@@ -1,4 +1,7 @@
 import { defineConfig } from 'astro/config';
+import expressiveCode from 'astro-expressive-code';
+import mdx from '@astrojs/mdx';
+import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
@@ -23,7 +26,7 @@ export default defineConfig({
     '/glossary/kategori/software-development/': '/glossary/categories/software-development/',
     '/articles/kategori/technology/': '/articles/categories/technology/',
   },
-  integrations: [sitemap()],
+  integrations: [expressiveCode(), mdx(), partytown({ config: { forward: ['dataLayer.push'] } }), sitemap()],
   vite: {
     plugins: [tailwindcss()],
   },
