@@ -5,7 +5,7 @@ import { z } from 'astro/zod';
 // "glossary" collection — for terms/definitions (like Webopedia Definitions)
 const glossary = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/glossary' }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     term: z.string(),                 // Term name, e.g. "Blockchain"
     shortDefinition: z.string(),      // One concise sentence for preview/SEO
     category: z.string(),             // e.g. "Networking", "AI", "Security"
@@ -13,6 +13,8 @@ const glossary = defineCollection({
     updatedDate: z.coerce.date(),
     relatedTerms: z.array(z.string()).default([]),
     metaDescription: z.string().optional(),
+    image: image().optional(),
+    imageAlt: z.string().optional(),
   }),
 });
 
