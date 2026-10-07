@@ -5,6 +5,8 @@ metaDescription: "Learn what on-chain data includes, how analysts interpret bloc
 category: "Blockchain"
 letter: "O"
 updatedDate: 2026-10-07
+image: "./images/on-chain-data.svg"
+imageAlt: "On-chain data concept illustration showing blocks, transactions, and measurable blockchain activity."
 relatedTerms: ["Blockchain", "Smart Contract", "Decentralization", "Total Value Locked (TVL)", "Cryptocurrency", "Crypto Market Capitalization"]
 ---
 

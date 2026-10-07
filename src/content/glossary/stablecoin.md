@@ -5,6 +5,8 @@ metaDescription: "Understand stablecoins, their reserve and collateral models, h
 category: "Blockchain"
 letter: "S"
 updatedDate: 2026-10-07
+image: "./images/stablecoin.svg"
+imageAlt: "Stablecoin concept illustration showing a token connected to a reference value and reserve mechanism."
 relatedTerms: ["Cryptocurrency", "Decentralized Finance (DeFi)", "Decentralized Exchange (DEX)", "Smart Contract", "On-Chain Data", "Tokenomics"]
 ---
 

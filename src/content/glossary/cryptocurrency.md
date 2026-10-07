@@ -5,6 +5,8 @@ metaDescription: "Learn what cryptocurrency is, how blockchain networks record t
 category: "Blockchain"
 letter: "C"
 updatedDate: 2026-10-07
+image: "./images/cryptocurrency.svg"
+imageAlt: "Cryptocurrency concept illustration showing a digital asset moving between a wallet, blockchain network, and ledger."
 relatedTerms: ["Blockchain", "Decentralization", "Proof of Stake", "Smart Contract", "Stablecoin", "Tokenomics"]
 ---
 

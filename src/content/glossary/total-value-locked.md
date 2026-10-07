@@ -5,6 +5,8 @@ metaDescription: "Understand Total Value Locked, how DeFi data providers calcula
 category: "Blockchain"
 letter: "T"
 updatedDate: 2026-10-07
+image: "./images/total-value-locked.svg"
+imageAlt: "Total Value Locked concept illustration showing assets deposited into a protocol and the reported TVL metric."
 relatedTerms: ["Decentralized Finance (DeFi)", "Decentralized Exchange (DEX)", "Smart Contract", "Stablecoin", "On-Chain Data", "Crypto Market Capitalization"]
 ---
 

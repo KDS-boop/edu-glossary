@@ -5,6 +5,8 @@ metaDescription: "Learn what tokenomics covers, including supply, issuance, dist
 category: "Blockchain"
 letter: "T"
 updatedDate: 2026-10-07
+image: "./images/tokenomics.svg"
+imageAlt: "Tokenomics concept illustration showing token supply, utility, distribution, and incentives."
 relatedTerms: ["Cryptocurrency", "Blockchain", "Proof of Stake", "Smart Contract", "Stablecoin", "Crypto Market Capitalization"]
 ---
 

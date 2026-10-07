@@ -5,6 +5,8 @@ metaDescription: "Learn how crypto market capitalization is calculated, how circ
 category: "Blockchain"
 letter: "C"
 updatedDate: 2026-10-07
+image: "./images/crypto-market-cap.svg"
+imageAlt: "Crypto market capitalization concept illustration showing price, circulating supply, and the resulting market capitalization."
 relatedTerms: ["Cryptocurrency", "Tokenomics", "Stablecoin", "Total Value Locked (TVL)", "On-Chain Data", "Blockchain"]
 ---
 

@@ -5,6 +5,8 @@ metaDescription: "Understand decentralized exchanges, automated market makers, l
 category: "Blockchain"
 letter: "D"
 updatedDate: 2026-10-07
+image: "./images/decentralized-exchange.svg"
+imageAlt: "Decentralized exchange concept illustration showing a wallet, on-chain liquidity mechanism, and token swap."
 relatedTerms: ["Decentralized Finance (DeFi)", "Smart Contract", "Stablecoin", "On-Chain Data", "Blockchain", "Cryptocurrency"]
 ---
 

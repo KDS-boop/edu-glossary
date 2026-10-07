@@ -5,6 +5,8 @@ metaDescription: "Learn how decentralized finance uses blockchains, smart contra
 category: "Blockchain"
 letter: "D"
 updatedDate: 2026-10-07
+image: "./images/decentralized-finance.svg"
+imageAlt: "Decentralized finance concept illustration showing users, protocols, and liquidity connected by smart contracts."
 relatedTerms: ["Blockchain", "Decentralization", "Smart Contract", "Decentralized Exchange (DEX)", "Stablecoin", "Total Value Locked (TVL)"]
 ---
 
