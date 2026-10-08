@@ -44,6 +44,48 @@ Stablecoins introduce another nuance. A stablecoin's market cap may approximate 
 
 Market capitalization is most useful as one standardized way to organize and compare assets under a stated methodology. It should not be used alone to decide whether an asset is cheap, expensive, safe, or suitable for a particular person.
 
+## Circulating, Total, and Fully Diluted Supply
+
+Market capitalization depends directly on the supply definition. **Circulating market cap** generally multiplies the current market price by units considered circulating under a provider's methodology. **Total market capitalization** can instead use a broader supply figure, while **fully diluted valuation (FDV)** commonly applies the current price to a maximum or future supply estimate.
+
+These measures can diverge sharply when a token has large allocations scheduled for future unlocks. A circulating market cap may appear modest because only a portion of units are currently counted, while the same price multiplied by the potential future supply produces a much larger FDV. Neither number predicts what future demand or price will be.
+
+## Why Market Cap Is Not the Same as Money Invested
+
+A common misunderstanding is that a market capitalization of a certain size means that the same amount of money has flowed into the asset. Market cap is a valuation measure, not a cumulative capital account. If the latest marginal trade occurs at a higher price, the quoted market cap can rise because that price is applied to many units that did not change hands.
+
+This distinction becomes important in thin markets. A relatively small trade can move the observed price, after which the displayed market cap changes even though the amount traded was much smaller than the new valuation. Market depth and liquidity therefore provide useful context alongside market capitalization.
+
+## Data Sources and Methodology
+
+Crypto data providers can differ in exchange coverage, asset mapping, supply estimates, price selection, update frequency, and rules for excluding inactive or inaccessible units. Wrapped assets, bridged tokens, treasury holdings, lost coins, staked balances, and contract-controlled supplies can require special treatment.
+
+When a market-cap figure matters, record the provider, timestamp, asset identifier, and supply methodology. Two figures collected at different times can both be internally correct while no longer matching because the price or supply changed. Cross-provider differences are not automatically errors.
+
+## Market-Cap Rankings
+
+Rankings are useful for organizing a large asset universe, but they should not be interpreted as a quality ranking. A high market cap can result from a large supply, a high unit price, or both. It does not establish protocol security, regulatory status, decentralization, revenue, governance quality, or the usefulness of an application.
+
+For research, market cap works best as one dimension in a broader profile. Pair it with circulating supply, liquidity, trading activity, protocol usage, token rights, security history, and the methodology used to derive each metric.
+
+## Examples of Market-Cap Changes
+
+Suppose a token has a reported circulating supply of 100 million units and a market price of $2. The simple market-cap calculation is $200 million. If the quoted price rises to $2.50 while supply is unchanged, the reported market cap becomes $250 million. No additional 50 million dollars of cash necessarily entered the market; the calculation simply applies the new marginal price to the counted supply.
+
+The same principle works in reverse. A price decline can reduce market capitalization without a proportional amount of tokens leaving circulation. This is why market cap should not be described as cumulative investment, cash on hand, or the amount of liquidity available for selling.
+
+## Market Cap, Liquidity, and Volume
+
+Market capitalization answers a valuation question. Trading volume describes how much reported trading occurred during a selected period. Liquidity describes the ability to execute trades with limited price impact. These measures are related but fundamentally different.
+
+An asset can have a large market capitalization and relatively thin executable liquidity. Another asset can have lower market capitalization but active trading across multiple venues. Analysts should therefore avoid using market-cap rank as a substitute for market-depth analysis.
+
+## Why Live Figures Need Timestamps
+
+Crypto prices and supply estimates change continuously. A current market-cap number should therefore include the provider and retrieval time. For a static glossary page, a timeless explanation is generally more useful than a number that becomes stale after publication.
+
+When a current figure is necessary, place it in a dated article, market snapshot, or live data component and preserve the methodology. This keeps evergreen definitions stable while still allowing the site to publish current crypto market information separately.
+
 ### Does a larger market cap mean a cryptocurrency is safer?
 
 No. It can indicate a larger reported value, but security depends on the protocol, custody, market structure, software, governance, and many other factors.

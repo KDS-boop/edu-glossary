@@ -42,6 +42,44 @@ Public ledgers can be transparent, but addresses are usually pseudonymous rather
 
 Cryptocurrency networks can experience congestion, variable transaction fees, software defects, governance disputes, and chain reorganizations. Asset prices can be volatile, and market liquidity can vary widely. The legal and tax treatment of a cryptocurrency depends on jurisdiction and use. A protocol's cryptographic security also does not protect users from scams, compromised keys, faulty [Smart Contracts](/glossary/smart-contract), or misleading claims.
 
+## Transaction Finality and Network Differences
+
+Cryptocurrency systems do not all settle transactions in the same way. Some networks use probabilistic confirmation, where the practical confidence that a transaction will remain in the ledger increases as additional blocks are added. Others provide explicit or economic finality through their consensus rules. The meaning of a confirmation, the expected settlement time, and the cost of sending an asset therefore depend on the underlying network.
+
+The same token symbol can also appear on several blockchains. A user may hold a native asset on one network and a bridged or wrapped representation on another. These representations can have different contract addresses, liquidity conditions, and technical risks. Before sending an asset, users should verify the destination network, token contract where relevant, and receiving address. Sending an asset through an unsupported network can make recovery difficult or impossible.
+
+## Supply, Issuance, and Scarcity
+
+Cryptocurrency supply rules vary considerably. Some protocols specify a maximum supply, while others allow ongoing issuance, periodic burns, or governance-controlled changes. The important question is not only how many units exist today but also how supply is created, distributed, and removed over time.
+
+Circulating supply is an estimate of units considered available in the market under a provider's methodology. It can differ from total supply because some units may be locked, reserved, burned, or otherwise excluded. These definitions matter when comparing assets or calculating metrics such as market capitalization. A supply figure should therefore be read together with the source's methodology rather than treated as a universal accounting standard.
+
+## Security at Different Layers
+
+Cryptocurrency security has several distinct layers. Consensus protects the integrity of the shared ledger, cryptographic signatures protect authorization, and wallets protect or expose the keys used to sign transactions. Applications can add another layer through smart contracts, bridges, or exchange infrastructure.
+
+A secure consensus mechanism does not prevent a user from approving a malicious contract. Likewise, a well-designed wallet cannot guarantee that an exchange, bridge, or protocol will behave correctly. Security analysis should identify the exact failure boundary: key compromise, software vulnerability, consensus attack, oracle failure, service outage, or human error.
+
+## How to Research a Cryptocurrency
+
+A useful research workflow starts with the primary protocol documentation and identifies the asset's native network, supply model, consensus mechanism, and transaction rules. Next, examine the token contract or ledger data where applicable, the distribution and unlock schedule, governance arrangements, and major dependencies. Finally, compare independent data providers because supply, volume, holder counts, and other derived metrics can use different methodologies.
+
+Historical price charts alone cannot explain how a cryptocurrency works. A better technical description separates protocol facts from market observations, distinguishes on-chain records from off-chain claims, and dates any rapidly changing statistics. This approach makes an evergreen glossary definition more reliable than embedding a live market quote that becomes stale immediately.
+
+## Common Misconceptions
+
+Cryptocurrency is not synonymous with blockchain. Blockchain is a type of distributed-ledger technology, while cryptocurrency is an asset category that can use a blockchain or related ledger. Likewise, owning an asset on a blockchain is not the same as owning the underlying software project or the company that develops it.
+
+Cryptocurrency is also not automatically anonymous. Public-chain transactions can be permanently observable, and repeated address use can make activity easier to associate. Privacy properties vary by network and application, so descriptions should distinguish pseudonymity, confidentiality, and anonymity.
+
+Finally, cryptocurrency should not be treated as one uniform technology. Networks differ in consensus, execution environments, fee markets, transaction formats, security assumptions, and governance. A statement that is accurate for one network may be wrong for another.
+
+## Key Questions When Comparing Networks
+
+When comparing cryptocurrencies, start with the settlement model. Identify how blocks are produced, how finality is achieved, and what happens during competing transactions. Then examine execution: whether the network supports smart contracts, how fees are calculated, and what resources users compete for.
+
+The next questions concern economics and security. Check the supply schedule, validator or miner incentives, token distribution, concentration of control, upgrade mechanisms, and major dependencies. Finally, distinguish direct observations from provider-derived metrics. A price, market capitalization, or address count can be useful, but it should always be tied to a date and methodology.
+
 ### Is cryptocurrency the same as digital money?
 
 No. Digital money can mean any electronic representation of value, including bank balances and payment-provider balances. Cryptocurrency specifically refers to assets whose transfer and ownership are secured through cryptographic protocols and a distributed ledger.

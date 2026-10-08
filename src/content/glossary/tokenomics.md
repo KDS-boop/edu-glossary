@@ -50,6 +50,60 @@ Useful analysis separates facts from promises. Check the supply schedule, circul
 
 Tokenomics cannot guarantee adoption, security, or value. Market capitalization is only one measurement, and a token can have a high reported value while having weak liquidity or limited rights. No distribution chart or forecast removes technical, operational, legal, or market risk.
 
+## Circulating Supply and Unlocks
+
+A token's circulating supply is a methodology-driven estimate, not simply every unit ever created. Some units may be locked in vesting contracts, held by a treasury, reserved for future incentives, or excluded for other documented reasons. The definition should be checked before using circulating supply in a market-cap calculation.
+
+Unlock schedules are important because future releases can change the number of units available to holders. The effect depends on who receives the tokens, what rights they have, how quickly they can transfer them, and how the market absorbs additional supply. An unlock date is therefore a supply event, not an automatic forecast of a price movement.
+
+## Utility and Value Capture
+
+Token utility describes what participants can do with the token, while value capture asks whether activity in a system creates a mechanism that benefits token holders. These concepts are often conflated.
+
+A token may be required to pay network fees or participate in governance without giving holders a legal claim on protocol revenue. Another token may receive fee distributions under explicit rules. A protocol can also have substantial usage while its token has limited economic rights. Reviewing the actual mechanism is more reliable than assuming that "utility" means financial value flows to holders.
+
+## Incentive Design
+
+Tokens are frequently used to reward behaviors such as validating transactions, supplying liquidity, using an application, or participating in governance. Incentives can help a network bootstrap, but their economics should be examined over time.
+
+Questions include who funds the rewards, how quickly new units enter circulation, whether rewards are concentrated among a small group, and what happens when emissions are reduced. A system that depends heavily on continuous token rewards may behave differently after subsidies decline.
+
+## Treasury and Governance
+
+Treasuries can hold tokens, stablecoins, or other assets used to fund development and operations. Tokenomics analysis should consider who controls the treasury and what governance process can move or spend it. A large nominal treasury can also be volatile if much of its value is held in the project's own token.
+
+Governance rights deserve similar attention. Voting power may be weighted by token balance, delegated to representatives, modified by quorum rules, or constrained by a multisignature or administrator. Formal voting power and practical control are not always the same.
+
+## Contracts, Permissions, and Upgradeability
+
+Tokenomics exists partly in documentation and partly in software. A token contract may include mint, burn, pause, blacklist, transfer restrictions, upgrade, or administrator functions. Not every function is harmful; some are necessary for compliance, recovery, or system operations. The important question is who can invoke the function, under what conditions, and whether the permission can be changed.
+
+When evaluating a token, readers should distinguish the published economic design from the actual deployed contract. A discrepancy between the two is an important finding.
+
+## A Practical Tokenomics Checklist
+
+A complete review can record current supply, maximum or target supply, issuance schedule, burn rules, allocation by stakeholder, vesting and unlock dates, token utility, governance rights, treasury control, contract permissions, and major dependencies. It can then compare these facts with observed network usage and token-holder concentration.
+
+Tokenomics is most useful as a framework for understanding incentives and supply mechanics. It should not be treated as proof of future adoption, profitability, security, or price performance. Market conditions and protocol behavior can change, while legal rights depend on the specific arrangement and jurisdiction.
+
+## Reading a Token Allocation
+
+A token allocation chart is only useful when its categories are clearly defined. "Team," "community," "treasury," "investors," and "ecosystem" can have different vesting rules and transfer restrictions. An allocation percentage without a release schedule does not show when those units can actually enter circulation.
+
+A careful review combines allocation, vesting, unlock dates, and control rights. It should also identify whether insiders or large holders can influence governance or market liquidity. Concentration can matter even when the published allocation looks diversified.
+
+## Supply Metrics Should Be Consistent
+
+Circulating supply, total supply, maximum supply, and fully diluted valuation answer different questions. Mixing them in one calculation can create an incorrect impression of dilution.
+
+For example, a market-cap ranking based on circulating supply should not be compared directly with a valuation based on maximum supply without clearly labeling the difference. The underlying supply definitions should come from the same source or be reconciled before comparison.
+
+## Tokenomics and Real Usage
+
+Tokenomics should be evaluated alongside actual protocol behavior. A token may have sophisticated incentives but limited usage, while another may have simpler economics and substantial network activity. Metrics such as active addresses, transaction activity, fees, liquidity, or application usage can provide context, but they also require careful methodology.
+
+The strongest educational approach treats tokenomics as one layer of a broader system: protocol design, governance, security, user incentives, supply mechanics, and legal rights. No single metric can summarize the entire system.
+
 ### Is tokenomics the same as a token price forecast?
 
 No. Tokenomics describes design and incentives. It may help explain supply changes and participant behavior, but it cannot predict future prices.
