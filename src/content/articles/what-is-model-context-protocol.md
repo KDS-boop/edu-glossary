@@ -9,6 +9,7 @@ publishedDate: 2026-10-07
 updatedDate: 2026-10-07
 draft: false
 coverImage: "/images/articles/what-is-model-context-protocol.svg"
+coverImageAlt: 'Diagram showing an AI application using an MCP client and server to access tools, resources, and external data.'
 ---
 
 **Model Context Protocol (MCP)** is an open protocol that standardizes how AI applications connect to external tools, data, and other capabilities. Instead of creating a different integration pattern for every AI application and service, developers can use a common protocol for exposing capabilities to compatible AI clients.
