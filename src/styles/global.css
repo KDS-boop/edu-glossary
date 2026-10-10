@@ -12,17 +12,6 @@
 @import '@fontsource/inter/700.css';
 @import '@fontsource/inter/800.css';
 
-:root {
-  /* ── Pagefind UI Variables ── */
-  --pagefind-ui-scale: 0.85;
-  --pagefind-ui-primary: var(--color-primary);
-  --pagefind-ui-text: var(--color-text);
-  --pagefind-ui-background: var(--color-bg);
-  --pagefind-ui-border: var(--color-border);
-  --pagefind-ui-tag: var(--color-surface);
-  --pagefind-ui-border-radius: var(--radius-md);
-}
-
 /* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -474,7 +463,54 @@ article.prose {
   flex-shrink: 0;
 }
 
+/* Pagefind Component UI theme bridge: inherit EduGlossary light/dark design tokens. */
+.pagefind-theme {
+  --pf-text: var(--color-text);
+  --pf-text-secondary: var(--color-text-muted);
+  --pf-text-muted: var(--color-text-subtle);
+  --pf-background: var(--color-surface-elevated);
+  --pf-border: var(--color-border);
+  --pf-border-focus: var(--color-primary);
+  --pf-skeleton: var(--color-surface);
+  --pf-skeleton-shine: var(--color-surface-elevated);
+  --pf-hover: var(--color-primary-subtle);
+  --pf-mark: var(--color-primary-dark);
+  --pf-outline-focus: var(--color-primary);
+  --pf-outline-width: 2px;
+  --pf-outline-offset: 2px;
+  --pf-font: var(--font-sans);
+  --pf-input-height: 48px;
+  --pf-input-font-size: 16px;
+  --pf-summary-font-size: 12px;
+  --pf-result-title-font-size: 14px;
+  --pf-result-excerpt-font-size: 13px;
+  --pf-border-radius: var(--radius-lg);
+  --pf-searchbox-max-width: 260px;
+  --pf-searchbox-dropdown-max-height: 320px;
+  --pf-dropdown-max-height: 280px;
+  --pf-dropdown-z-index: 9999;
+}
+
+[data-theme="dark"] .pagefind-theme {
+  --pf-mark: var(--color-primary);
+}
+
 #search { flex-shrink: 0; min-width: 200px; max-width: 260px; }
+#search pagefind-searchbox {
+  display: block;
+  width: 100%;
+  --pf-searchbox-max-width: 260px;
+  --pf-searchbox-dropdown-max-height: min(65vh, 360px);
+}
+#hero-search pagefind-searchbox {
+  display: block;
+  width: 100%;
+  --pf-searchbox-max-width: min(680px, 100%);
+  --pf-input-height: 56px;
+  --pf-input-font-size: 18px;
+  --pf-result-title-font-size: 16px;
+  --pf-searchbox-dropdown-max-height: min(60vh, 420px);
+}
 
 #theme-toggle {
   display: inline-flex;
@@ -893,114 +929,56 @@ article.prose {
 .related-pill-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 .related-pill--article { border-style: dashed; }
 
-/* ═══════════════════════════════════════════════════════════════
-   PAGEFIND OVERRIDES
-   Note: !important required here because Pagefind loads its own
-   UI stylesheet externally. Without !important, our styles would
-   have lower specificity and be overridden.
-   ═══════════════════════════════════════════════════════════════ */
+/* Pagefind Component UI is themed via --pf-* tokens in this stylesheet. */
 
-.pagefind-ui__search-input {
-  height: 48px !important;
-  padding: 0 2.5rem 0 2.75rem !important;
-  font-size: 0.95rem !important; /* TODO(batch-3): increase to 1rem on mobile for iOS zoom fix */
-  font-weight: 500 !important;
-  border-color: var(--color-border) !important;
-  border-radius: var(--radius-lg) !important;
-  transition: all 0.2s ease !important;
-  box-shadow: var(--shadow-sm) !important;
-}
-.pagefind-ui__search-input:focus {
-  outline: none !important;
-  border-color: var(--color-primary) !important;
-  box-shadow: 0 0 0 3px var(--color-primary-muted) !important;
-}
-.pagefind-ui__search-input:focus-visible {
-  outline: 2px solid var(--color-primary) !important;
-  outline-offset: 2px !important;
-}
-.pagefind-ui__search-input::placeholder { opacity: 0.45 !important; font-weight: 400 !important; color: var(--color-text-muted) !important; }
-.pagefind-ui__search-input {
-  background-color: var(--color-surface) !important;
-  color: var(--color-text) !important;
-}
-.pagefind-ui__form:before { top: 14px !important; left: 14px !important; width: 18px !important; height: 18px !important; opacity: 0.4 !important; }
-.pagefind-ui__search-clear { top: 4px; right: 4px; height: 40px; padding: 0 12px; font-size: 0.8rem; color: var(--color-text-muted); }
-.pagefind-ui__message { font-size: 0.85rem; font-weight: 600; color: var(--color-text-muted); padding: 0.75rem 0; height: auto !important; }
-.pagefind-ui__results { padding: 0; }
-.pagefind-ui__result { padding: 1rem 0 !important; border-color: var(--color-border) !important; }
-.pagefind-ui__result-title { font-size: 1rem; }
-.pagefind-ui__result-link { color: var(--color-text) !important; text-decoration: none !important; transition: color 0.15s ease !important; }
-.pagefind-ui__result-link:hover { color: var(--color-primary) !important; text-decoration: none !important; }
-.pagefind-ui__result-link:focus-visible {
-  outline: 2px solid var(--color-primary) !important;
-  outline-offset: 2px !important;
-}
-.pagefind-ui__result-link:focus-visible {
-  outline: 2px solid var(--color-primary) !important;
-  outline-offset: 2px !important;
-}
-.pagefind-ui__result-excerpt { font-size: 0.85rem !important; color: var(--color-text-muted) !important; line-height: 1.55 !important; margin-top: 0.3rem !important; }
-.pagefind-ui__result-excerpt mark { background: var(--color-primary-subtle) !important; color: var(--color-text) !important; border-radius: 2px !important; padding: 0 2px !important; }
-.pagefind-ui__result-tag { font-size: 0.7rem !important; padding: 0.15rem 0.5rem !important; border-radius: var(--radius-full) !important; font-weight: 600 !important; }
-.pagefind-ui__button:focus-visible {
-  outline: 2px solid var(--color-primary) !important;
-  outline-offset: 2px !important;
-}
-.pagefind-ui__search-clear:focus-visible {
-  outline: 2px solid var(--color-primary) !important;
-  outline-offset: 2px !important;
-}
-.pagefind-ui__search-clear { top: 4px; right: 4px; height: 40px; padding: 0 12px; font-size: 0.8rem; color: var(--color-text-muted); }
-.pagefind-ui__button:focus-visible {
-  outline: 2px solid var(--color-primary) !important;
-  outline-offset: 2px !important;
-}
-
-/* Search result enrichment */
-.search-result-meta {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-top: var(--space-2);
-  font-size: var(--text-xs);
-  color: var(--color-text-subtle);
-}
+/* Keep content type cues from the previous EduGlossary search experience. */
 .search-result-type {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-1);
-  padding: var(--space-1) var(--space-2);
+  padding: 0.12rem 0.45rem;
+  margin-block: 0.12rem 0.28rem;
   border-radius: var(--radius-full);
-  font-weight: 600;
-  font-size: var(--text-xs);
+  font-size: 0.68rem;
+  line-height: 1.4;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
-.search-result-type--glossary { background: var(--color-primary); color: #ffffff; }
-.search-result-type--article { background: var(--color-accent); color: #ffffff; }
+.search-result-type--glossary {
+  background: var(--color-primary-subtle);
+  color: var(--color-primary-dark);
+}
+.search-result-type--article {
+  background: var(--color-accent-subtle);
+  color: var(--color-accent);
+}
+[data-theme="dark"] .search-result-type--glossary { color: var(--color-primary); }
+[data-theme="dark"] .search-result-type--article { color: var(--color-accent); }
 
-/* Empty state */
-.search-empty { text-align: center; padding: var(--space-8) var(--space-4); }
-.search-empty-icon { display: block; margin: 0 auto var(--space-4); color: var(--color-text-subtle); }
-.search-empty h3 { font-size: var(--text-md); margin-bottom: var(--space-2); color: var(--color-text); }
-.search-empty p { color: var(--color-text-muted); font-size: var(--text-sm); margin-bottom: var(--space-4); }
-.search-empty-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-3); }
+/* Give users a route forward when a search has no matches. */
+.search-empty-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
 .search-empty-actions a {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-1);
-  padding: var(--space-2) var(--space-4);
+  padding: 0.35rem 0.6rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
   font-weight: 600;
-  color: var(--color-primary);
+  color: var(--color-primary-dark);
   text-decoration: none;
-  transition: all 0.15s ease;
 }
-.search-empty-actions a:hover { border-color: var(--color-primary); background: var(--color-primary-subtle); text-decoration: none; }
+.search-empty-actions a:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-subtle);
+}
+[data-theme="dark"] .search-empty-actions a { color: var(--color-primary); }
 
 /* Search discovery */
 .search-discovery { margin-top: var(--space-8); padding-top: var(--space-6); border-top: 1px solid var(--color-border); }
@@ -1047,12 +1025,6 @@ article.prose {
 [data-theme="dark"] .card { background: var(--color-surface); border-color: var(--color-border); }
 [data-theme="dark"] .card:hover { box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4); }
 
-[data-theme="dark"] .pagefind-ui__search-input { background: var(--color-surface); border-color: var(--color-border); color: var(--color-text); }
-[data-theme="dark"] .pagefind-ui__result-link { color: var(--color-text); }
-[data-theme="dark"] .pagefind-ui__result-excerpt { color: var(--color-text-muted); }
-
-[data-theme="dark"] .search-empty-actions a { border-color: var(--color-border); color: var(--color-primary); }
-[data-theme="dark"] .search-empty-actions a:hover { background: var(--color-primary-subtle); }
 [data-theme="dark"] .footer-links a { color: var(--color-text-muted); }
 [data-theme="dark"] .footer-bottom { border-top-color: var(--color-border); }
 [data-theme="dark"] .search-discovery { border-top-color: var(--color-border); }
@@ -1061,8 +1033,6 @@ article.prose {
 [data-theme="dark"] .hub-home-link { background: var(--color-surface); }
 [data-theme="dark"] .category-card { background: var(--color-surface); }
 
-[data-theme="dark"] .search-result-type--glossary { background: var(--color-primary); color: #04524f; }
-[data-theme="dark"] .search-result-type--article { background: var(--color-accent); color: #04524f; }
 
 /* ═══════════════════════════════════════════════════════════════
    RESPONSIVE
@@ -1071,11 +1041,6 @@ article.prose {
   h1 { font-size: var(--text-xl); }
   h2 { font-size: var(--text-lg); }
   h3 { font-size: var(--text-md); }
-
-  /* iOS input zoom fix: prevent auto-zoom on inputs with font-size < 16px
-     Uses ID selector (1-0-0) for higher specificity than Pagefind's .pagefind-ui__search-input (0-2-0)
-     Target: #hero-search (where PagefindUI is actually mounted in index.astro) */
-  #hero-search .pagefind-ui__search-input { font-size: var(--text-base); }
 
   .grid { grid-template-columns: 1fr; }
   .container { padding: 0 var(--space-5); }
@@ -1157,17 +1122,9 @@ article.prose {
     max-width: min(180px, 100%);
     width: min(180px, 100%);
   }
-  #search .pagefind-ui__drawer {
-    max-width: calc(100vw - 2.5rem);
-    overflow-x: hidden;
-  }
-  #search .pagefind-ui__results-area,
-  #search .pagefind-ui__result,
-  #search .pagefind-ui__result-inner,
-  #search .pagefind-ui__result-excerpt {
-    max-width: 100%;
-    overflow-wrap: anywhere;
-    word-break: break-word;
+  #search pagefind-searchbox {
+    --pf-searchbox-max-width: 180px;
+    --pf-searchbox-dropdown-max-height: min(65vh, 320px);
   }
   .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));

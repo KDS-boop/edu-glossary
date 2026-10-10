@@ -137,16 +137,8 @@
   --z-modal: 500;
   --z-popover: 600;
   --z-tooltip: 700;
-
-  /* ── Pagefind UI Variables ── */
-  --pagefind-ui-scale: 0.85;
-  --pagefind-ui-primary: var(--color-primary);
-  --pagefind-ui-text: var(--color-text);
-  --pagefind-ui-background: var(--color-bg);
-  --pagefind-ui-border: var(--color-border);
-  --pagefind-ui-tag: var(--color-surface);
-  --pagefind-ui-border-radius: var(--radius-md);
 }
+
 
 /* ── Dark Mode Tokens ── */
 [data-theme="dark"] {

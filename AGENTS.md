@@ -24,14 +24,16 @@ Astro 4.16 static site (educational glossary + articles), deployed to Cloudflare
 - **Redirects**: old `/glossary/kategori/` URLs → `/glossary/categories/` (defined in `astro.config.mjs`)
 - **Data**: `src/data/hubs.ts`, `src/data/authors.ts` for home page sections
 
-## Search (Pagefind — Already Integrated)
+## Search (Pagefind Component UI)
 
-Pagefind search UI is **already wired up** across the site:
-- `Layout.astro` loads `/pagefind/pagefind-ui.css`, `/pagefind/pagefind-ui.js`, and `/search-utils.js`
-- `index.astro` initializes `window.__eduglossary.search.init('#hero-search')`
-- `Header.astro` initializes `window.__eduglossary.search.init('#search')`
-- `data-pagefind-body` attribute on `<main>` for body indexing
-- Build runs `pagefind --site dist` automatically
+Pagefind search uses the Component UI distributed by Pagefind 1.5.x:
+- `Layout.astro` loads `/pagefind/pagefind-component-ui.css`, `/pagefind/pagefind-component-ui.js`, and the optional `pagefind-enhancements.js` hook that labels content types and adds useful empty-state links
+- `Header.astro` mounts a `<pagefind-searchbox instance="header">` for global navigation search
+- `index.astro` mounts a separate `<pagefind-searchbox instance="hero">` for the homepage hero search
+- `pagefind-config` elements configure the `header` and `hero` instances independently, including a 15-word excerpt
+- Component appearance maps to the site's CSS color/font tokens through `--pf-*` variables in `global.css`; light/dark values inherit from `data-theme`
+- `data-pagefind-body` on `<main>` enables body indexing
+- Build runs `pagefind --site dist` automatically; Pagefind writes the Component UI bundle into `dist/pagefind/`
 
 ## Design System (Current State)
 
