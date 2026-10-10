@@ -79,6 +79,7 @@ const pageDescription = post.data.description;
   description={pageDescription}
   type="article"
   image={post.data.coverImage}
+  ogImageAlt={post.data.coverImageAlt || `Illustration for ${post.data.title}`}
   schema={schema}
   breadcrumbs={breadcrumbs}
   publishDate={post.data.publishedDate}
@@ -99,8 +100,12 @@ const pageDescription = post.data.description;
     <img
       class="article-hero-img"
       src={post.data.coverImage}
-      alt={`Cover image for article: ${post.data.title}`}
-      loading="lazy"
+      alt={post.data.coverImageAlt || `Illustration for ${post.data.title}`}
+      width="1200"
+      height="630"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
     />
   )}
 

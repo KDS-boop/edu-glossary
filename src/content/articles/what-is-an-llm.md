@@ -8,6 +8,7 @@ author: "eduglossary-team"
 publishedDate: 2026-10-05
 draft: false
 coverImage: "/images/articles/how-large-language-models-work.svg"
+coverImageAlt: 'Diagram illustrating how tokenized context enters a language model and produces output tokens after training.'
 ---
 
 **LLM** stands for **Large Language Model**. It is the core technology behind ChatGPT, Claude, Gemini, and most modern AI assistants.

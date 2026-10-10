@@ -8,6 +8,7 @@ author: "eduglossary-team"
 publishedDate: 2026-10-05
 draft: false
 coverImage: "/images/articles/what-is-an-ai-agent.svg"
+coverImageAlt: 'Flow diagram of an AI agent moving from a goal through reasoning, planning, tool use, and evaluation.'
 ---
 
 Every time you interact with a chatbot that books your flight, an AI system that writes code for you, or a research assistant that browses the web and summarizes findings — you are encountering an AI agent.

@@ -30,6 +30,7 @@ const articles = defineCollection({
     author: z.string(),
     authorAvatar: z.string().optional(),
     coverImage: z.string().optional(),
+    coverImageAlt: z.string().trim().min(10).max(250).optional(),
     publishedDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     draft: z.boolean().default(false),
