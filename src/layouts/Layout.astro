@@ -105,6 +105,36 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
     </script>
     <script is:inline src="/pagefind/pagefind-ui.js" defer></script>
     <script is:inline src="/search-utils.js" defer></script>
+    <script is:inline>
+      // Make scrollable regions keyboard-focusable for accessibility
+      function makeScrollableFocusable() {
+        const scrollableSelectors = [
+          '.prose pre',
+          '.astro-code',
+          '.expressive-code .frame',
+          '.expressive-code pre',
+          '[style*="overflow-x: auto"]',
+          '[style*="overflow: auto"]'
+        ];
+        scrollableSelectors.forEach(selector => {
+          document.querySelectorAll(selector).forEach(el => {
+            if (!el.hasAttribute('tabindex')) {
+              el.setAttribute('tabindex', '0');
+            }
+          });
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', makeScrollableFocusable, { once: true });
+      } else {
+        makeScrollableFocusable();
+      }
+
+      // Also run after a short delay to catch late-rendered content
+      setTimeout(makeScrollableFocusable, 100);
+      setTimeout(makeScrollableFocusable, 500);
+    </script>
 
     {gtmId && (
       <>

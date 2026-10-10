@@ -366,7 +366,7 @@ article.prose {
   color: var(--color-primary-dark);
   text-decoration: underline;
 }
-.footer-links h4 {
+.footer-links h3 {
   font-size: var(--text-xs);
   font-weight: 700;
   text-transform: uppercase;
@@ -629,14 +629,18 @@ article.prose {
   gap: var(--space-2);
   font-size: var(--text-xs);
   letter-spacing: 0.01em;
-  color: var(--color-primary);
-  background: var(--color-primary-subtle);
+  color: #ffffff;
+  background: var(--color-primary);
   padding: var(--space-1) var(--space-3);
   border-radius: var(--radius-full);
   font-weight: 600;
   text-decoration: none;
   transition: all 0.15s ease;
   min-height: 44px;
+}
+[data-theme="dark"] .badge {
+  color: #04524f;
+  background: var(--color-primary);
 }
 .badge:hover {
   filter: brightness(0.95);
@@ -823,7 +827,8 @@ article.prose {
   transform: translateY(-3px);
   text-decoration: none;
 }
-.category-card h3 { margin: var(--space-3) 0 var(--space-1); font-size: var(--text-md); color: var(--color-text); }
+.category-card h3 { margin: var(--space-3) 0 var(--space-1); font-size: var(--text-md); color: var(--color-primary-dark); }
+[data-theme="dark"] .category-card h3 { color: var(--color-primary); }
 
 /* ── Hub Links ── */
 .hub-home-grid {
@@ -973,8 +978,8 @@ article.prose {
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
-.search-result-type--glossary { background: var(--color-primary-subtle); color: var(--color-primary); }
-.search-result-type--article { background: var(--color-accent-subtle); color: var(--color-accent); }
+.search-result-type--glossary { background: var(--color-primary); color: #ffffff; }
+.search-result-type--article { background: var(--color-accent); color: #ffffff; }
 
 /* Empty state */
 .search-empty { text-align: center; padding: var(--space-8) var(--space-4); }
@@ -1024,28 +1029,28 @@ article.prose {
   --color-surface: #1e293b;
   --color-surface-elevated: #1e293b;
   --color-text: #f1f5f9;
-  --color-text-muted: #94a3b8;
-  --color-text-subtle: #64748b;
+  --color-text-muted: #cbd5e1;
+  --color-text-subtle: #b8c5d6;
   --color-border: #334155;
   --color-border-strong: #475569;
-  --color-primary: #2dd4bf;
-  --color-primary-light: #5eead4;
+  --color-primary: #5eead4;
+  --color-primary-light: #7eeedb;
   --color-primary-dark: #14b8a6;
-  --color-primary-subtle: rgba(45, 212, 191, 0.1);
-  --color-primary-muted: rgba(45, 212, 191, 0.15);
+  --color-primary-subtle: #0d3b38;
+  --color-primary-muted: #0f4a45;
   --color-accent: #fbbf24;
-  --color-accent-subtle: rgba(251, 191, 36, 0.1);
+  --color-accent-light: #fcd34d;
+  --color-accent-subtle: #422006;
 }
 
 [data-theme="dark"] .site-header { background: rgba(15, 23, 42, 0.95); }
 [data-theme="dark"] .card { background: var(--color-surface); border-color: var(--color-border); }
 [data-theme="dark"] .card:hover { box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4); }
-[data-theme="dark"] .badge { background: var(--color-primary-subtle); color: var(--color-primary); }
+
 [data-theme="dark"] .pagefind-ui__search-input { background: var(--color-surface); border-color: var(--color-border); color: var(--color-text); }
 [data-theme="dark"] .pagefind-ui__result-link { color: var(--color-text); }
 [data-theme="dark"] .pagefind-ui__result-excerpt { color: var(--color-text-muted); }
-[data-theme="dark"] .search-result-type--glossary { background: var(--color-primary-subtle); color: var(--color-primary); }
-[data-theme="dark"] .search-result-type--article { background: var(--color-accent-subtle); color: var(--color-accent); }
+
 [data-theme="dark"] .search-empty-actions a { border-color: var(--color-border); color: var(--color-primary); }
 [data-theme="dark"] .search-empty-actions a:hover { background: var(--color-primary-subtle); }
 [data-theme="dark"] .footer-links a { color: var(--color-text-muted); }
@@ -1055,6 +1060,9 @@ article.prose {
 [data-theme="dark"] .search-discovery-links a:hover { border-color: var(--color-primary); color: var(--color-primary); }
 [data-theme="dark"] .hub-home-link { background: var(--color-surface); }
 [data-theme="dark"] .category-card { background: var(--color-surface); }
+
+[data-theme="dark"] .search-result-type--glossary { background: var(--color-primary); color: #04524f; }
+[data-theme="dark"] .search-result-type--article { background: var(--color-accent); color: #04524f; }
 
 /* ═══════════════════════════════════════════════════════════════
    RESPONSIVE

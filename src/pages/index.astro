@@ -92,7 +92,7 @@ const siteSchema = {
       <div class="section-header">
         <h2 id="featured-glossary-heading" class="section-title">Featured Term</h2>
       </div>
-      <a class="card featured-card" href={`/glossary/${featuredGlossary.id}/`}>
+      <div class="card featured-card">
         <div class="card-accent" style={`background: linear-gradient(90deg, ${getCategoryColor(featuredGlossary.data.category).text}, ${getCategoryColor(featuredGlossary.data.category).bg});`}></div>
         <div class="card-body">
           <div class="featured-card-top">
@@ -102,7 +102,7 @@ const siteSchema = {
             </span>
             <span class="featured-card-letter" aria-label={`Letter ${featuredGlossary.data.letter}`}>{featuredGlossary.data.letter}</span>
           </div>
-          <h3 class="featured-card-title">{featuredGlossary.data.term}</h3>
+          <h3 class="featured-card-title"><a href={`/glossary/${featuredGlossary.id}/`}>{featuredGlossary.data.term}</a></h3>
           <p class="featured-card-def">{featuredGlossary.data.shortDefinition}</p>
           {featuredGlossary.data.relatedTerms.length > 0 && (
             <div class="featured-card-related" aria-label="Related terms">
@@ -120,12 +120,12 @@ const siteSchema = {
               )}
             </div>
           )}
-          <span class="card-readmore">
+          <a class="card-readmore" href={`/glossary/${featuredGlossary.id}/`}>
             View definition
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          </span>
+          </a>
         </div>
-      </a>
+      </div>
     </section>
   )}
 
@@ -144,7 +144,7 @@ const siteSchema = {
             <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
               <span style={`display: inline-flex; color: ${text}; font-size: 1.25rem;`} set:html={icon}></span>
             </div>
-            <h3 style={{ color: text }}>{category}</h3>
+            <h3 class="category-card-title">{category}</h3>
             <p class="muted" style="margin-top: 0.5rem; font-size: 0.85rem;">{count} terms</p>
           </a>
         );

@@ -105,6 +105,21 @@
     var container = document.querySelector(selector);
     watchForEmptyState(container);
     enrichResults(container);
+
+    // Add accessible label to Pagefind search input
+    var input = container?.querySelector('.pagefind-ui__search-input');
+    if (input && !input.id) {
+      input.id = 'pagefind-search-input';
+    }
+    if (input && !container.querySelector('label[for="pagefind-search-input"]')) {
+      var label = document.createElement('label');
+      label.htmlFor = 'pagefind-search-input';
+      label.textContent = 'Search';
+      label.className = 'sr-only';
+      label.style.cssText = 'position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;';
+      container.insertBefore(label, container.firstChild);
+    }
+
     return ui;
   }
 
