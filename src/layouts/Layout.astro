@@ -91,10 +91,10 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
       <script type="application/ld+json" set:html={JSON.stringify(s)} />
     ))}
     <link rel="alternate" type="application/rss+xml" title="EduGlossary RSS" href="/rss.xml" />
-    <link id="pagefind-styles" href="/pagefind/pagefind-ui.css" rel="stylesheet" media="print" />
+    <link id="pagefind-component-styles" href="/pagefind/pagefind-component-ui.css" rel="stylesheet" media="print" />
     <script is:inline defer>
       const loadPagefindStyles = () => {
-        const link = document.getElementById('pagefind-styles');
+        const link = document.getElementById('pagefind-component-styles');
         if (link) link.media = 'all';
       };
       if (document.readyState === 'loading') {
@@ -103,8 +103,8 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
         loadPagefindStyles();
       }
     </script>
-    <script is:inline src="/pagefind/pagefind-ui.js" defer></script>
-    <script is:inline src="/search-utils.js" defer></script>
+    <script is:inline type="module" src="/pagefind/pagefind-component-ui.js"></script>
+    <script is:inline src="/pagefind-enhancements.js" defer></script>
 
     {gtmId && (
       <>
@@ -119,6 +119,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     )}
   </head>
   <body>
+    <pagefind-config instance="header" base-url="/" excerpt-length="15"></pagefind-config>
     <a href="#main-content" class="skip-link">Skip to content</a>
     <Header />
     <main id="main-content" class="container" style="padding-block: 2.5rem;" data-pagefind-body>

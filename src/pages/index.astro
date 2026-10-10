@@ -71,7 +71,10 @@ const siteSchema = {
     <p class="hero-subtitle">
       A curated glossary of technology concepts — clear explanations, connected ideas, and articles to deepen your understanding.
     </p>
-    <div id="hero-search" style="margin-top: 1.75rem;"></div>
+    <pagefind-config instance="hero" base-url="/" excerpt-length="15"></pagefind-config>
+    <div id="hero-search" class="pagefind-theme" style="margin-top: 1.75rem;">
+      <pagefind-searchbox instance="hero" placeholder="Search terms, articles..." show-sub-results max-results="5" hide-shortcut></pagefind-searchbox>
+    </div>
     <div class="search-discovery" style="margin-top: 1.25rem;">
       <div class="search-discovery-links">
         {topCategories.slice(0, 4).map(([category]) => (
@@ -238,21 +241,3 @@ const siteSchema = {
     </section>
   )}
 </Layout>
-
-<script is:inline>
-  function initHeroSearch() {
-    if (window.__eduglossary && window.__eduglossary.search && window.PagefindUI) {
-      window.__eduglossary.search.init('#hero-search', {
-        showImages: false,
-        excerptLength: 15,
-        placeholder: 'Search terms, articles...'
-      });
-    }
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initHeroSearch, { once: true });
-  } else {
-    initHeroSearch();
-  }
-</script>

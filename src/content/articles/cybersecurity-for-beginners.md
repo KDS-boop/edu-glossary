@@ -8,6 +8,7 @@ author: "eduglossary-team"
 publishedDate: 2026-09-22
 draft: false
 coverImage: "/images/articles/cybersecurity-for-beginners.svg"
+coverImageAlt: 'Illustration of layered cybersecurity practices including prevention, detection, response, and recovery.'
 ---
 
 Cybersecurity is the practice of protecting computers, networks, applications, identities, and data from unauthorized access, disruption, alteration, or destruction. It is not only an enterprise concern. A personal email account, phone, home router, cloud storage account, and online payment service all contain assets worth protecting.

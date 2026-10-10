@@ -8,6 +8,7 @@ author: "eduglossary-team"
 publishedDate: 2026-10-05
 draft: false
 coverImage: "/images/articles/api-gateway-how-it-works.svg"
+coverImageAlt: 'Diagram showing an API gateway applying shared policies before routing client requests to backend services.'
 ---
 
 When you use a modern app — mobile, web, or AI-powered — your requests don't usually go directly to backend services. They pass through an **API gateway**.

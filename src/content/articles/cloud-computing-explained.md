@@ -8,6 +8,7 @@ author: "eduglossary-team"
 publishedDate: 2026-09-22
 draft: false
 coverImage: "/images/articles/cloud-computing-explained.svg"
+coverImageAlt: 'Diagram explaining cloud computing service models and deployment options.'
 ---
 
 Before cloud computing, launching a website or software application meant buying physical servers. You had to estimate how much traffic you might receive, purchase enough hardware to handle the peak load, rent space in a data center, plug the machines in, configure the networking, and maintain the hardware. If your site went viral, your servers crashed. If your site failed, you were left with expensive, useless hardware.

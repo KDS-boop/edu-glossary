@@ -8,6 +8,7 @@ author: "eduglossary-team"
 publishedDate: 2026-09-22
 draft: false
 coverImage: "/images/articles/proof-of-work-vs-proof-of-stake.svg"
+coverImageAlt: 'Comparison diagram of proof-of-work mining and proof-of-stake validator selection in blockchain consensus.'
 ---
 
 Every decentralized blockchain faces a fundamental engineering challenge: in a network where participants do not know or trust one another, how do thousands of independent computers agree on which transactions are valid?

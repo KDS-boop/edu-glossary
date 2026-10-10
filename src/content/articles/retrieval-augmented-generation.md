@@ -2,6 +2,8 @@
 title: "What Is Retrieval-Augmented Generation (RAG)? How It Works, Uses, and Limitations"
 description: "A beginner-friendly guide to Retrieval-Augmented Generation (RAG), including how retrieval works, common uses, key components, benefits, and limitations."
 category: "AI & Data"
+coverImage: "/images/articles/retrieval-augmented-generation.svg"
+coverImageAlt: "Diagram showing a user query retrieving relevant knowledge, adding it to an AI prompt, and generating a grounded response."
 tags:
   - "RAG"
   - "retrieval-augmented generation"

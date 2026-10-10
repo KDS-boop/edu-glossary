@@ -8,6 +8,7 @@ author: "eduglossary-team"
 publishedDate: 2026-10-05
 draft: false
 coverImage: "/images/articles/rest-api-request-response.svg"
+coverImageAlt: 'Diagram showing a client sending an HTTP request to a REST API and receiving a JSON response.'
 ---
 
 Every time you use a weather app, log into a website with Google, or pay for something online — a REST API is likely doing the work behind the scenes.

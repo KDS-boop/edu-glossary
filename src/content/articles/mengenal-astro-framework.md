@@ -8,6 +8,7 @@ author: "eduglossary-team"
 publishedDate: 2026-09-10
 draft: false
 coverImage: "/images/articles/mengenal-astro-framework.svg"
+coverImageAlt: 'Illustration of the Astro web framework and its static-first page rendering approach.'
 ---
 
 Astro is a modern web framework designed for content-driven websites such as blogs, documentation, marketing sites, and educational websites. Its central idea is simple: send useful HTML to the browser first, and add JavaScript only where a page actually needs interactivity.

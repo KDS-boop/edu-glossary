@@ -8,6 +8,7 @@ author: "eduglossary-team"
 publishedDate: 2026-10-05
 draft: false
 coverImage: "/images/articles/vector-database-rag.svg"
+coverImageAlt: 'Diagram showing documents converted into embeddings and stored for similarity search in a vector database.'
 ---
 
 When you ask an AI assistant a question about your company's private documents, or when a recommendation system suggests a movie you might like — a **vector database** is often working behind the scenes.
