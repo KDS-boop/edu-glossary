@@ -10,8 +10,6 @@ imageAlt: "Physical AI concept illustration showing an intelligent robot interac
 relatedTerms: ["Machine Learning", "Deep Learning", "World Model", "Training Data"]
 ---
 
-# Physical AI
-
 Physical AI refers to AI systems that perceive, reason about and act in the physical world.
 
 Robots, autonomous vehicles, industrial machines, drones and intelligent edge devices are common examples. A typical system combines perception, planning, control and feedback.

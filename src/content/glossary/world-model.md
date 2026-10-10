@@ -10,8 +10,6 @@ imageAlt: "World model concept illustration showing an internal model representi
 relatedTerms: ["Machine Learning", "Deep Learning", "Physical AI", "Predictive Analytics"]
 ---
 
-# World Model
-
 A world model is a learned or constructed representation of an environment that can model important states and, in many systems, predict how those states may change.
 
 World models are useful when an AI system needs to reason about actions and consequences rather than only react to the current observation.

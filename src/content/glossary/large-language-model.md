@@ -10,8 +10,6 @@ imageAlt: "Large Language Model concept illustration showing a layered Transform
 relatedTerms: ["Small Language Model (SLM)", "Machine Learning", "Natural Language Processing", "Deep Learning", "Training Data", "Prompt Engineering", "Model Context Protocol (MCP)", "AI-Native Development", "Chatbot"]
 ---
 
-# Large Language Model (LLM)
-
 A **Large Language Model (LLM)** is a neural network with billions to trillions of learned parameters, trained on massive text corpora using the **Transformer architecture**, that understands and generates human language through **next-token prediction**. LLMs are the foundational technology behind ChatGPT, Claude, Gemini, Llama, and most modern AI assistants.
 
 "Large" refers to both the model size (parameters) and the training data scale (terabytes of text). There is no universal parameter threshold — a 7B model is large compared to traditional NLP models but small compared to frontier proprietary models whose exact parameter counts are often undisclosed.

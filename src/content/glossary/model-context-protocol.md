@@ -10,8 +10,6 @@ imageAlt: "Model Context Protocol concept illustration showing standardized conn
 relatedTerms: ["API", "Prompt Engineering", "Natural Language Processing"]
 ---
 
-# Model Context Protocol (MCP)
-
 Model Context Protocol (MCP) is an open protocol for connecting AI applications to external tools and contextual data.
 
 MCP standardizes interaction patterns between an AI host or client and servers that expose **tools**, **resources** and **prompts**.

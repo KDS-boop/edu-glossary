@@ -10,8 +10,6 @@ imageAlt: "Prompt engineering concept illustration showing structured instructio
 relatedTerms: ["Natural Language Processing", "Machine Learning", "Deep Learning"]
 ---
 
-# Prompt Engineering
-
 Prompt engineering is the structured design and refinement of instructions given to an AI model. A useful prompt defines the objective, relevant context, constraints, examples and expected output.
 
 It is better treated as an engineering discipline than as a search for a "magic prompt": model behavior changes with model family, version, system instructions, context and available tools.

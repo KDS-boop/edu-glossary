@@ -10,8 +10,6 @@ imageAlt: "Ransomware concept illustration: cracked shield with padlock chain, r
 relatedTerms: ["Firewall", "Brute Force Attack", "Symmetric Encryption", "End-to-End Encryption", "Preemptive Cybersecurity", "VPN"]
 ---
 
-# Ransomware
-
 Ransomware is malicious software that denies an organization access to its own data or systems until money changes hands. The classic form encrypts files with strong cryptography and holds the decryption key as the bargaining chip; the increasingly common second form exfiltrates data and threatens to publish or sell it. In modern campaigns the two often appear together. What follows the attack is the ransom note: a demand for payment, typically in hard-to-trace digital assets, with a deadline.
 
 The note is itself engineered for pressure. Short deadlines, escalating threats, and plausible consequences are designed to remove the time a victim needs to think calmly. That is why experienced responders treat the moment-of-crisis decision as the outcome of decisions made earlier: what backups exist, which data actually matters, and who has been pre-authorized to talk to whom.

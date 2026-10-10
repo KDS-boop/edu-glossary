@@ -10,8 +10,6 @@ imageAlt: "Confidential computing concept illustration showing protected data in
 relatedTerms: ["End-to-End Encryption", "Hash Function", "Sovereign Cloud"]
 ---
 
-# Confidential Computing
-
 Confidential computing protects **data in use** by processing workloads inside hardware-backed isolation mechanisms commonly called Trusted Execution Environments (TEEs).
 
 Encryption at rest protects stored data and encryption in transit protects network traffic. Confidential computing extends protection to sensitive data while it is actively processed.

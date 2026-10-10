@@ -10,8 +10,6 @@ imageAlt: "Preemptive cybersecurity concept illustration showing proactive prote
 relatedTerms: ["Firewall", "VPN", "Brute-Force Attack", "Post-Quantum Cryptography"]
 ---
 
-# Preemptive Cybersecurity
-
 Preemptive cybersecurity describes a proactive strategy for reducing security exposure before an attacker successfully exploits it.
 
 The phrase is used in industry rather than as one universal security standard. Its practices overlap with asset discovery, vulnerability management, secure configuration, identity hardening, attack-surface management and exposure management.

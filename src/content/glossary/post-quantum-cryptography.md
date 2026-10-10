@@ -10,8 +10,6 @@ imageAlt: "Post-quantum cryptography concept illustration showing quantum-resist
 relatedTerms: ["Symmetric Encryption", "Hash Function", "Confidential Computing"]
 ---
 
-# Post-Quantum Cryptography (PQC)
-
 Post-quantum cryptography (PQC) is a family of algorithms designed to protect communications and data against both classical computers and future large-scale quantum computers. PQC runs on conventional computers; it does not require quantum hardware.
 
 The main concern is that sufficiently capable quantum computers could break some public-key cryptography used today. PQC therefore focuses primarily on quantum-resistant key establishment and digital signatures.

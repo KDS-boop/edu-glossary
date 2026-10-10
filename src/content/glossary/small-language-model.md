@@ -10,8 +10,6 @@ imageAlt: "Small language model concept illustration showing an efficient specia
 relatedTerms: ["Natural Language Processing", "Machine Learning", "Training Data", "Prompt Engineering"]
 ---
 
-# Small Language Model (SLM)
-
 A Small Language Model (SLM) is a language model designed to operate with lower compute, memory or storage requirements than much larger general-purpose language models.
 
 There is no universal parameter threshold. "Small" is relative to the model family and workload.

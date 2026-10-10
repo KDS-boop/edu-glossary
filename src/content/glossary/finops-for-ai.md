@@ -10,8 +10,6 @@ imageAlt: "FinOps for AI concept illustration showing AI infrastructure costs, u
 relatedTerms: ["Cloud Service Provider", "Sovereign Cloud", "Virtualization Software"]
 ---
 
-# FinOps for AI
-
 FinOps for AI applies FinOps practices to the economics of AI workloads.
 
 AI introduces highly granular and sometimes volatile costs: GPU training and inference, model API requests, input and output tokens, storage, data processing, vector retrieval, networking, evaluation and experimentation.

@@ -10,8 +10,6 @@ imageAlt: "AI-native development concept illustration showing software developme
 relatedTerms: ["Version Control", "Continuous Integration", "Prompt Engineering", "Machine Learning"]
 ---
 
-# AI-Native Development
-
 AI-native development is an emerging approach in which AI systems are first-class participants in specification, implementation, testing, debugging, documentation and review.
 
 There is no single standardized definition. The important distinction is broader workflow integration rather than code autocomplete alone.

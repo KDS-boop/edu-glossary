@@ -10,8 +10,6 @@ imageAlt: "Sovereign AI concept illustration showing AI systems governed by loca
 relatedTerms: ["Sovereign Cloud", "Training Data", "Confidential Computing", "Digital Provenance"]
 ---
 
-# Sovereign AI
-
 Sovereign AI is an emerging term for AI systems developed, trained, deployed and governed with strong control over data, compute, models, operations and the jurisdictions affecting them.
 
 It is broader than simply running an AI model locally. A sovereignty assessment asks who controls the data, infrastructure, model lifecycle, administrative access and important dependencies.

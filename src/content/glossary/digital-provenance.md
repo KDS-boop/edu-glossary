@@ -10,8 +10,6 @@ imageAlt: "Digital provenance concept illustration showing an asset record, meta
 relatedTerms: ["Hash Function", "Blockchain", "Post-Quantum Cryptography", "Training Data"]
 ---
 
-# Digital Provenance
-
 Digital provenance is information about the history of a digital asset: where it came from, who created or modified it, what transformations occurred and how it relates to other assets.
 
 It can be applied to images, video, audio, documents, datasets and software artifacts.

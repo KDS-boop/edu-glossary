@@ -10,8 +10,6 @@ imageAlt: "Sovereign cloud concept illustration showing cloud infrastructure wit
 relatedTerms: ["Cloud Service Provider", "Confidential Computing", "Sovereign AI"]
 ---
 
-# Sovereign Cloud
-
 A sovereign cloud is a cloud environment designed to satisfy stronger requirements for control over data, infrastructure operations, jurisdiction and technology dependencies.
 
 There is no single universal definition. Requirements can include data residency, jurisdictional control, restricted privileged access, local operational personnel, customer-controlled keys, approved subprocessors and portability.
