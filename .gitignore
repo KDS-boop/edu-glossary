@@ -36,3 +36,11 @@ __pycache__/
 .mcp.json
 .vscode/
 google-chrome-stable_current_arm64.deb
+
+# Local GTM/API credentials and helper scripts (never commit)
+/credentials.json
+/gtm-impersonate.js
+/GTM.js
+/login-gtm.js
+/scripts/
+/deno.lock
