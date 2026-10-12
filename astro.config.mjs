@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import expressiveCode from 'astro-expressive-code';
-import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { readdir, readFile, writeFile } from 'node:fs/promises';
@@ -55,7 +54,6 @@ export default defineConfig({
   },
   integrations: [
     expressiveCode(),
-    partytown({ config: { forward: ['dataLayer.push'] } }),
     sitemap(),
     accessibleCodeBlocks,
   ],

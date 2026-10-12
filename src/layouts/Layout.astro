@@ -53,7 +53,7 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script is:inline data-cfasync="false">
+    <script is:inline data-cfasync="false" data-gtm-id={gtmId}>
       window.dataLayer = window.dataLayer || [];
       function gtag() { window.dataLayer.push(arguments); }
 
@@ -68,7 +68,107 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
         wait_for_update: 2000,
       });
       gtag('set', 'ads_data_redaction', true);
+
+      // Basic Consent Mode: do not load GTM until CookieYes explicitly grants
+      // analytics or advertising consent. Individual tags remain consent-gated.
+      (function () {
+        const containerId = document.currentScript && document.currentScript.getAttribute('data-gtm-id');
+        if (!containerId) return;
+
+        let gtmLoaded = false;
+        let lastConsent = null;
+
+        function applyConsent(categories) {
+          if (!categories || typeof categories !== 'object') return;
+
+          const isGranted = (value) => value === true || value === 1 || (typeof value === 'string' && ['yes', 'true', 'granted'].includes(value.toLowerCase()));
+          const analytics = isGranted(categories.analytics);
+          const advertising = isGranted(categories.advertisement);
+          const functional = isGranted(categories.functional);
+
+          const permitted = analytics || advertising;
+          const consentChanged = lastConsent !== null && (
+            lastConsent.analytics !== analytics ||
+            lastConsent.advertising !== advertising ||
+            lastConsent.functional !== functional
+          );
+
+          window.gtag('consent', 'update', {
+            analytics_storage: analytics ? 'granted' : 'denied',
+            ad_storage: advertising ? 'granted' : 'denied',
+            ad_user_data: advertising ? 'granted' : 'denied',
+            ad_personalization: advertising ? 'granted' : 'denied',
+            functionality_storage: functional ? 'granted' : 'denied',
+            personalization_storage: functional ? 'granted' : 'denied'
+          });
+
+          // Reinitialize the page after any consent change so tags that were
+          // previously blocked or allowed are evaluated against the new state.
+          if (gtmLoaded && consentChanged) {
+            window.location.reload();
+            return;
+          }
+
+          if (permitted && !gtmLoaded) {
+            gtmLoaded = true;
+            window.dataLayer.push({
+              'gtm.start': new Date().getTime(),
+              event: 'gtm.js'
+            });
+            const firstScript = document.getElementsByTagName('script')[0];
+            const script = document.createElement('script');
+            script.async = true;
+            script.setAttribute('data-cfasync', 'false');
+            script.src = 'https://www.googletagmanager.com/gtm.js?id=' +
+              encodeURIComponent(containerId) + '&l=dataLayer';
+            firstScript.parentNode.insertBefore(script, firstScript);
+          }
+
+          lastConsent = { analytics, advertising, functional };
+        }
+
+        function onBannerLoad(event) {
+          const detail = event && event.detail;
+          if (detail && detail.categories) applyConsent(detail.categories);
+        }
+
+        function onConsentUpdate(event) {
+          const detail = event && event.detail;
+          if (!detail) return;
+          if (detail.categories) {
+            applyConsent(detail.categories);
+          } else if (Array.isArray(detail.accepted)) {
+            applyConsent({
+              analytics: detail.accepted.includes('analytics'),
+              advertisement: detail.accepted.includes('advertisement'),
+              functional: detail.accepted.includes('functional')
+            });
+          }
+        }
+
+        document.addEventListener('cookieyes_banner_load', onBannerLoad);
+        document.addEventListener('cookieyes_consent_update', onConsentUpdate);
+
+        // Fallback for a returning visitor if the CMP load event fired before
+        // these listeners were registered. No cookie or unknown state fails closed.
+        try {
+          const match = document.cookie.match(/(?:^|;\s*)cookieyes-consent=([^;]*)/);
+          if (match) {
+            const state = {};
+            decodeURIComponent(match[1]).split(',').forEach(function (item) {
+              const parts = item.split(':');
+              if (parts.length === 2) {
+                state[parts[0].trim()] = parts[1].trim().toLowerCase() === 'yes';
+              }
+            });
+            if (state.consent === true) applyConsent(state);
+          }
+        } catch (_) {
+          // Consent parsing failures intentionally leave GTM blocked.
+        }
+      })();
     </script>
+    <script is:inline async data-cfasync="false" src="https://cdn-cookieyes.com/client_data/ce98d11434507f560f9a482b3f1d9796/script.js"></script>
     <title>{title} | {siteName}</title>
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
@@ -122,18 +222,6 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
     <script is:inline type="module" src="/pagefind/pagefind-component-ui.js"></script>
     <script is:inline src="/pagefind-enhancements.js" defer></script>
     <script is:inline src="/pagefind-analytics.js" defer></script>
-
-    {gtmId && (
-      <>
-        <!-- Google Tag Manager (Partytown) -->
-        <script type="text/partytown" set:html={`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','${gtmId}');`} />
-        <!-- End Google Tag Manager -->
-      </>
-    )}
   </head>
   <body>
     <pagefind-config instance="header" base-url="/" excerpt-length="15"></pagefind-config>
@@ -145,3 +233,5 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <Footer />
   </body>
 </html>
+
+[executed on device: localhost (4b206ee5-6562-4b70-9e36-755e9461bb8a)]
