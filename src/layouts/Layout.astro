@@ -35,6 +35,7 @@ const documentTitle = title.endsWith(` | ${siteName}`) ? title : `${title} | ${s
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = image ? new URL(image, Astro.site) : new URL('/images/og-default.svg', Astro.site);
 const gtmId = import.meta.env.PUBLIC_GTM_ID;
+const googleTagId = 'GT-PJ46S7C5';
 const ga4MeasurementId = 'G-F3Z7H2NXEG';
 const clarityProjectId = 'ymmigfd0w2';
 
@@ -119,7 +120,7 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
           ga4Loaded = true;
           window.gtag('js', new Date());
           // Disable implicit fan-out/pageviews; explicitly route page_view to GA4 only.
-          window.gtag('config', analyticsMeasurementId, { send_page_view: false });
+          window.gtag('config', googleTagId, { send_page_view: false });
           window.gtag('event', 'page_view', {
             send_to: analyticsMeasurementId,
             page_path: window.location.pathname
@@ -128,7 +129,7 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
           const script = document.createElement('script');
           script.async = true;
           script.setAttribute('data-cfasync', 'false');
-          script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(analyticsMeasurementId);
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(googleTagId);
           (document.head || document.documentElement).appendChild(script);
         }
 
