@@ -385,6 +385,26 @@ article.prose {
   color: var(--color-primary);
   transform: translateX(3px);
 }
+.footer-links .footer-cookie-settings {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  font: inherit;
+  font-size: 0.875rem;
+  min-height: 44px;
+  padding: 0.2rem 0;
+  text-align: left;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+.footer-links .footer-cookie-settings:hover,
+.footer-links .footer-cookie-settings:focus-visible {
+  color: var(--color-primary);
+  transform: translateX(3px);
+}
 .footer-bottom {
   border-top: 1px solid var(--color-border);
   padding: var(--space-6) 0;

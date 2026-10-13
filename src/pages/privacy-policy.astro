@@ -1,0 +1,149 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Privacy Policy",
+  description: "How EduGlossary handles data, cookies, analytics, and advertising.",
+};
+
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "Privacy Policy", href: "/privacy-policy/" },
+];
+---
+
+<Layout
+  title="Privacy Policy"
+  description="How EduGlossary handles data, cookies, analytics, and advertising."
+  schema={schema}
+  breadcrumbs={breadcrumbs}
+>
+  <div class="prose">
+    <h1>Privacy Policy</h1>
+    <p><em>Last updated: October 13, 2026</em></p>
+
+    <p>
+      This policy explains what information EduGlossary (eduglossary.my.id) collects when you
+      visit the site, why, and the choices you have. The site is operated by the
+      <a href="/authors/eduglossary-team/">EduGlossary Team</a>. You can reach us at
+      <a href="mailto:admin@eduglossary.my.id">admin@eduglossary.my.id</a>.
+    </p>
+
+    <h2>Information we collect</h2>
+    <p>
+      EduGlossary has no user accounts, no comments, and no forms that collect personal details.
+      We do not ask you for your name or email address to read the site. If you email us, we
+      receive the address and the content of your message and use them only to reply.
+    </p>
+    <p>
+      As with most websites, your browser sends technical information when it loads a page, such
+      as your IP address, browser type, device type, referring page, and the pages you view. Some
+      of this is processed by the third-party services listed below.
+    </p>
+
+    <h2>Cookies and similar technologies</h2>
+    <p>
+      CookieYes displays a consent banner that lets you choose whether to allow non-essential
+      cookies and similar technologies. Your choice is stored by the consent-management service.
+      Strictly necessary technologies may operate without consent where permitted by applicable
+      law. Analytics and advertising technologies should remain blocked unless the relevant
+      consent has been granted. You can reopen the consent choices using the Cookie Settings
+      control in the site footer.
+    </p>
+
+    <h2>Third-party services</h2>
+    <ul>
+      <li>
+        <strong>Google tag and Google Analytics 4 (GA4)</strong> measure how visitors use the
+        site (pages viewed, approximate location, device and browser). The site loads the Google tag
+        directly after consent; it does not use a Google Tag Manager container. Cookies such as
+        <code>_ga</code> and <code>_ga_*</code> are used after you consent.
+      </li>
+      <li>
+        <strong>Microsoft Clarity</strong> provides usage insights such as heatmaps and session
+        replays to help us improve the site. Cookies such as <code>_clck</code> and
+        <code>_clsk</code> are used after you consent. See the
+        <a href="https://privacy.microsoft.com/privacystatement" rel="noopener">Microsoft Privacy Statement</a>.
+      </li>
+      <li>
+        <strong>Google AdSense</strong> may show advertising on the site. Google and its partners
+        may use cookies and similar technologies to serve and measure ads and, with your consent,
+        to personalize them. Without consent, ads may be limited or non-personalized. Learn more at
+        <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">How Google uses information from sites that use its services</a>
+        and manage ad settings at
+        <a href="https://adssettings.google.com" rel="noopener">adssettings.google.com</a>.
+      </li>
+      <li>
+        <strong>CookieYes</strong> provides the consent banner and stores your consent choice. See
+        the <a href="https://www.cookieyes.com/privacy-policy/" rel="noopener">CookieYes Privacy Policy</a>.
+      </li>
+      <li>
+        <strong>Cloudflare</strong> delivers and protects the site (content delivery, security,
+        and bot protection) and may set a security cookie such as <code>cf_clearance</code>. See the
+        <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">Cloudflare Privacy Policy</a>.
+      </li>
+    </ul>
+
+    <h2>How we use information</h2>
+    <p>
+      We use this information to operate and secure the site, understand which content is useful,
+      improve the site, and support advertising that helps cover its costs. We do not sell your
+      personal information.
+    </p>
+
+    <h2>Your choices</h2>
+    <ul>
+      <li>
+        Reject non-essential cookies in the consent banner, or select <strong>Cookie Settings</strong>
+        in the site footer to reopen the consent choices and change or withdraw your selection.
+      </li>
+      <li>Delete or block cookies in your browser settings. Some features may stop working.</li>
+      <li>
+        Opt out of personalized advertising through
+        <a href="https://adssettings.google.com" rel="noopener">Google Ad Settings</a>
+        or <a href="https://www.aboutads.info" rel="noopener">aboutads.info</a>.
+      </li>
+      <li>
+        Depending on where you live, you may have rights over your personal data, such as access,
+        correction, or deletion. To make a request, email us at
+        <a href="mailto:admin@eduglossary.my.id">admin@eduglossary.my.id</a>.
+      </li>
+    </ul>
+
+    <h2>Data retention</h2>
+    <p>
+      We do not keep personal data ourselves beyond emails you send us. Data processed by the
+      third-party services above is kept according to each service's own policy and settings.
+    </p>
+
+    <h2>Children</h2>
+    <p>
+      EduGlossary is an educational website for a general audience. Visitors do not need to
+      provide personal information to read the site, and we do not knowingly collect personal
+      information directly from children under 13. If you believe a child has provided personal
+      information to us, please contact
+      <a href="mailto:admin@eduglossary.my.id">admin@eduglossary.my.id</a> so we can review the
+      matter and take appropriate steps.
+    </p>
+
+    <h2>External links</h2>
+    <p>
+      The site may link to other websites. We are not responsible for their privacy practices.
+    </p>
+
+    <h2>Changes to this policy</h2>
+    <p>
+      We may update this Privacy Policy from time to time. The date at the top indicates when it
+      was last updated. We encourage you to review this page periodically to stay informed about
+      our privacy practices.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Questions about this policy? See our <a href="/contact/">Contact</a> page or email
+      <a href="mailto:admin@eduglossary.my.id">admin@eduglossary.my.id</a>.
+    </p>
+  </div>
+</Layout>

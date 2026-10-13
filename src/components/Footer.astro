@@ -8,6 +8,8 @@ const navMain = [
   { label: 'Articles', href: '/articles/' },
   { label: 'About', href: '/about/' },
   { label: 'Disclaimer', href: '/disclaimer/' },
+  { label: 'Privacy Policy', href: '/privacy-policy/' },
+  { label: 'Contact', href: '/contact/' },
 ];
 
 const topics = [
@@ -37,6 +39,7 @@ const topics = [
           {navMain.map((item) => (
             <li><a href={item.href}>{item.label}</a></li>
           ))}
+          <li><button type="button" class="cky-banner-element footer-cookie-settings">Cookie Settings</button></li>
         </ul>
       </div>
 

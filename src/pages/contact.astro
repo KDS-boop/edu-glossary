@@ -1,0 +1,55 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Contact EduGlossary",
+  description: "How to contact the EduGlossary team for corrections, feedback, and privacy requests.",
+};
+
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "Contact", href: "/contact/" },
+];
+---
+
+<Layout
+  title="Contact"
+  description="How to contact the EduGlossary team for corrections, feedback, and privacy requests."
+  schema={schema}
+  breadcrumbs={breadcrumbs}
+>
+  <div class="prose">
+    <h1>Contact</h1>
+
+    <p>
+      EduGlossary is run by the <a href="/authors/eduglossary-team/">EduGlossary Team</a>.
+      The best way to reach us is by email:
+      <a href="mailto:admin@eduglossary.my.id">admin@eduglossary.my.id</a>.
+    </p>
+
+    <h2>What you can contact us about</h2>
+    <ul>
+      <li>Corrections: an error, outdated information, or a definition that could be clearer.</li>
+      <li>Feedback and suggestions: topics, terms, or articles you would like to see.</li>
+      <li>Privacy requests: questions about how data is handled, as described in our
+        <a href="/privacy-policy/">Privacy Policy</a>.</li>
+      <li>Other enquiries, including collaboration or content licensing.</li>
+    </ul>
+
+    <h2>Response time</h2>
+    <p>
+      We read every message and reply as soon as we reasonably can. Please include the
+      page address (URL) when reporting a correction so we can find it quickly.
+    </p>
+
+    <h2>Elsewhere</h2>
+    <ul>
+      <li><a href="https://github.com/KDS-boop" rel="noopener">GitHub</a></li>
+      <li><a href="https://x.com/EduGlossary" rel="noopener">X (Twitter)</a></li>
+      <li><a href="https://www.tiktok.com/@eduglossary" rel="noopener">TikTok</a></li>
+      <li><a href="https://t.me/EduGlossary" rel="noopener">Telegram</a></li>
+    </ul>
+  </div>
+</Layout>
