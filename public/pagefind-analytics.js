@@ -39,6 +39,7 @@
 
     const { event, ...parameters } = payload;
     window.gtag('event', event, {
+      send_to: 'G-F3Z7H2NXEG',
       ...parameters,
       page_path: window.location.pathname,
     });

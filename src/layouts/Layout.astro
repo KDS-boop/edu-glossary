@@ -118,7 +118,12 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
           if (!analyticsMeasurementId || ga4Loaded) return;
           ga4Loaded = true;
           window.gtag('js', new Date());
-          window.gtag('config', analyticsMeasurementId);
+          // Disable implicit fan-out/pageviews; explicitly route page_view to GA4 only.
+          window.gtag('config', analyticsMeasurementId, { send_page_view: false });
+          window.gtag('event', 'page_view', {
+            send_to: analyticsMeasurementId,
+            page_path: window.location.pathname
+          });
 
           const script = document.createElement('script');
           script.async = true;
