@@ -9,11 +9,37 @@
     return 'other';
   };
 
+  const hasAnalyticsConsent = () => {
+    try {
+      const entry = document.cookie
+        .split(';')
+        .map((part) => part.trim())
+        .find((part) => part.startsWith('cookieyes-consent='));
+      if (!entry) return false;
+
+      const value = decodeURIComponent(entry.slice('cookieyes-consent='.length));
+      const consent = {};
+      for (const item of value.split(',')) {
+        const separator = item.indexOf(':');
+        if (separator < 0) continue;
+        const key = item.slice(0, separator).trim();
+        consent[key] = item.slice(separator + 1).trim().toLowerCase();
+      }
+
+      return consent.consent === 'yes' && consent.analytics === 'yes';
+    } catch {
+      // A missing or malformed consent signal must fail closed.
+      return false;
+    }
+  };
+
   const pushAnalyticsEvent = (payload) => {
-    // Keep the existing GTM dataLayer instance; never overwrite it.
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      ...payload,
+    // Send events directly to GA4; never queue pre-consent interactions.
+    if (!hasAnalyticsConsent() || typeof window.gtag !== 'function') return;
+
+    const { event, ...parameters } = payload;
+    window.gtag('event', event, {
+      ...parameters,
       page_path: window.location.pathname,
     });
   };
