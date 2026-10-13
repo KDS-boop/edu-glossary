@@ -73,9 +73,9 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
       });
       gtag('set', 'ads_data_redaction', true);
 
-      // Load GTM only after at least one relevant CookieYes category is granted.
-      // Tags may still emit cookieless Consent Mode pings for denied categories;
-      // strict blocking of individual tags must also be configured in the GTM container.
+      // GTM is retained for advertising tags only; GA4 loads directly after Analytics consent.
+      // Never load the GTM container for Analytics-only consent, because advertising
+      // tags can still emit cookieless Google Ads pings even when ad_storage is denied.
       (function () {
         const currentScript = document.currentScript;
         const containerId = currentScript && currentScript.getAttribute('data-gtm-id');
@@ -135,7 +135,6 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
           const advertising = isGranted(categories.advertisement);
           const functional = isGranted(categories.functional);
 
-          const permitted = analytics || advertising;
           const consentChanged = lastConsent !== null && (
             lastConsent.analytics !== analytics ||
             lastConsent.advertising !== advertising ||
@@ -169,7 +168,7 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
             return;
           }
 
-          if (containerId && permitted && !gtmLoaded) {
+          if (containerId && advertising && !gtmLoaded) {
             gtmLoaded = true;
             window.dataLayer.push({
               'gtm.start': new Date().getTime(),
