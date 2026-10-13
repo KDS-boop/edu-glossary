@@ -131,3 +131,20 @@ The most durable knowledge is therefore the architecture principle: identify the
 ## Further reading
 
 The primary sources listed in this entry should be treated as the authoritative starting point for standards, specifications and regulatory interpretation. Product documentation and implementation guidance should be checked separately because vendor capabilities can change faster than the underlying concept.
+
+<!-- content-audit-expansion-v2 -->
+
+
+## Distinguishing AI-native from AI-assisted software
+
+An AI-assisted product adds a model to an existing workflow; an AI-native product is designed around model capabilities and their limitations from the start. The distinction is practical rather than a marketing label. In an AI-assisted editor, a person may still perform the main task and use suggestions as an optional shortcut. In an AI-native support platform, the workflow may begin with model-based classification, retrieve supporting records, propose a response, and route uncertain or high-impact cases to a person. The latter must design confidence handling, evidence, review, and fallbacks as core behavior.
+
+## Architecture questions for a production system
+
+Identify which parts require deterministic software and which benefit from probabilistic output. Keep authorization, payment execution, access checks, and irreversible changes under explicit application controls rather than asking a model to decide whether it is allowed to perform them. If the model can call tools, constrain each tool's schema and permissions, validate outputs, and require confirmation for sensitive actions. Treat retrieved documents, tool responses, and user-provided files as input data, not trusted instructions.
+
+Measure end-to-end task success, not just whether the model generates a fluent answer. Track latency, retries, cost per completed task, human correction rate, unsupported claims, and failure recovery. Build evaluations from representative workflows and update them when prompts, models, tools, or product behavior changes.
+
+## Avoiding fragile dependence
+
+AI-native design can create a hidden dependency on a model provider, inference endpoint, embedding model, or proprietary data format. Document the expected model capabilities and define what happens when a provider is unavailable, a rate limit is reached, or output quality degrades. For critical workflows, consider a human-operated mode or a simpler fallback that preserves essential functionality. Keep prompts, evaluation sets, tool definitions, and safety policy versioned. The useful measure of AI-native maturity is not how many model calls a product makes; it is whether AI meaningfully improves the user outcome while its uncertainty and operational cost are controlled.

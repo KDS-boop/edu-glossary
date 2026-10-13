@@ -6,6 +6,8 @@ category: "Cybersecurity"
 letter: "F"
 updatedDate: 2026-09-27
 relatedTerms: ["Brute Force Attack", "End-to-End Encryption", "API Gateway", "VPN", "Intrusion Detection System", "DDoS Protection", "Next-Generation Firewall"]
+image: './images/firewall.svg'
+imageAlt: 'Firewall concept illustration: A network security system that monitors and controls incoming and outgoing data traffic based on predetermined security rules.'
 ---
 
 A firewall is the first line of defense in network security infrastructure. This component acts as a gateway that determines which data packets are allowed to pass and which are blocked, based on a set of rules configured by the administrator. Firewalls are essential for protecting networks from unauthorized access while allowing legitimate communication.

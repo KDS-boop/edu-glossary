@@ -6,6 +6,8 @@ category: "AI & Data"
 letter: "N"
 updatedDate: 2026-09-27
 relatedTerms: ["Machine Learning", "Chatbot", "Deep Learning", "Training Data", "Predictive Analytics", "LLM"]
+image: './images/natural-language-processing.svg'
+imageAlt: 'Natural Language Processing concept illustration: A field of artificial intelligence that enables computers to understand, interpret, generate, and respond to human language.'
 ---
 
 Natural Language Processing (NLP) is a branch of artificial intelligence focused on enabling computers to work with human language in its natural form — text and speech. Unlike structured data (databases, spreadsheets) that computers handle natively, human language is ambiguous, context-dependent, and full of implicit meaning. NLP bridges this gap, allowing machines to read documents, understand conversations, translate between languages, and generate coherent text.
@@ -121,3 +123,31 @@ Modern NLP can translate between thousands of language pairs, though quality var
 
 ### What is the difference between NLP and natural language understanding (NLU)?
 NLP is the broader field. NLU specifically refers to the understanding component — extracting meaning from text. Some use the terms interchangeably.
+
+<!-- content-audit-expansion-v1 -->
+
+
+## Preparing language data and evaluating outputs
+
+NLP quality depends heavily on the language and domain represented in the data. A classifier trained on formal news may struggle with informal support chat, regional spellings, code-switching, or specialist vocabulary. For multilingual systems, aggregate accuracy can conceal poor performance on a lower-resource language. Evaluation should report results by language, domain, and relevant user group where doing so is appropriate and privacy-preserving.
+
+Data preparation can include language identification, tokenization, normalization, sentence segmentation, and annotation. Each step can introduce errors. Normalization might help match spelling variants but can also erase distinctions that matter for names, legal references, or code. Human labels can disagree, so annotation guidelines should define ambiguous cases and measure agreement instead of assuming that every example has one obvious answer.
+
+## Choosing metrics that match the task
+
+A sentiment classifier, search system, translation model, summarizer, and named-entity recognizer do not share one universal quality metric. For imbalanced classification, precision and recall may reveal failure that accuracy hides. Search systems should test whether relevant results appear near the top. Summaries need checks for factual support and omission, not only fluency. Machine translation requires evaluation across language pairs and use cases, with human review for high-consequence material.
+
+## Responsible deployment
+
+Language systems can reproduce bias present in the training material, expose sensitive text through logs, or confidently generate incorrect information. Minimize collected text, define retention, protect annotated datasets, and ensure that users can report harmful or incorrect output. Where the output drives a consequential decision, keep a human review path and document the limits of the model.
+
+NLP is a collection of tasks and techniques rather than a guarantee of understanding. A fluent sentence does not prove that a model has interpreted the intent correctly. Measure the specific outcome the application needs, test difficult examples before release, and monitor how performance changes as language, products, and user behavior evolve.
+
+<!-- content-audit-margin-v1 -->
+## Document task boundaries and language coverage
+
+An NLP product should state which languages, dialects, domains, and input formats it has been evaluated on. A model that performs well on standard written English may behave differently on Indonesian code-switching, regional expressions, abbreviations, or domain-specific text. If coverage is uneven, expose that limitation in the interface and avoid implying equivalent quality across unsupported conditions.
+
+Human review should focus on the consequences of error. A typo correction system can often present suggestions for the user to accept, while a system that extracts legal obligations or routes safety incidents requires stronger validation. Keep a path for people to correct results and feed approved corrections into a reviewed dataset rather than automatically assuming every edit is a reliable label.
+
+Track model and data versions, evaluate representative edge cases, and monitor shifts in vocabulary as products or policies change. Where text includes personal or confidential information, restrict log access and retention. This makes NLP deployment more accountable and helps teams identify whether poor results come from the model, preprocessing, labels, or an unsupported language pattern.

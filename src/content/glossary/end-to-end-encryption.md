@@ -6,6 +6,8 @@ category: "Cybersecurity"
 letter: "E"
 updatedDate: 2026-09-27
 relatedTerms: ["Brute Force Attack", "Firewall", "SHA-256", "Symmetric Encryption", "VPN", "Public Key Cryptography"]
+image: './images/end-to-end-encryption.svg'
+imageAlt: 'End-to-End Encryption concept illustration: An encryption method where only the sender and the recipient can read a message, with no access granted to third parties including the service provider.'
 ---
 
 End-to-end encryption (E2EE) is a communication method where data is encrypted on the sender's device and only decrypted on the intended recipient's device. Throughout the data's journey — across servers, networks, or the service provider's infrastructure — the ciphertext remains encrypted and cannot be read by anyone other than the two endpoints of the communication.
@@ -103,3 +105,35 @@ Check safety numbers or fingerprints within the app. These verify the recipient'
 
 ### What about group chats?
 E2EE in group chats is more complex. Each message must be encrypted separately for each participant. This works well for small groups but becomes computationally expensive for large groups.
+
+<!-- content-audit-expansion-v1 -->
+
+
+## What an implementation review should verify
+
+End-to-end encryption (E2EE) is a property of the full message flow, not just a label on an application. Identify which endpoints hold the decryption keys, where messages are encrypted and decrypted, and whether the service provider can access plaintext through backups, diagnostics, account recovery, or optional cloud synchronization. Encryption between a device and a server protects the network connection, but it is not end-to-end if the server decrypts the message before forwarding it.
+
+Key verification is another important layer. Many systems establish keys automatically, which improves usability, but users may have limited visibility into an unexpected key change. Safety numbers, key fingerprints, QR verification, or similar mechanisms can help people confirm that they are communicating with the intended contact. Explain what the application does when a contact reinstalls an app, adds a device, or loses a key, since those events can change the trust relationship.
+
+## Backups, metadata, and group conversations
+
+E2EE does not necessarily conceal all metadata. A service may still process account identifiers, delivery times, device information, group membership, or connection records. A message can also be exposed at an endpoint through screenshots, notification previews, malware, or someone with access to an unlocked device. Users should understand these boundaries instead of interpreting encryption as total anonymity.
+
+Backups need separate scrutiny. If a backup is decrypted by the provider, the protection may not cover that copy. If the user controls a backup key, losing it may mean losing the backup permanently. Group messaging introduces membership changes and key rotation: removing a person should prevent access to future messages, but it cannot erase copies of messages that person has already received.
+
+## Choosing the right controls
+
+A deployment checklist should include the threat model, protocol documentation, independent security reviews, key-change notifications, multi-device behavior, backup design, recovery process, and supported client versions. Organizations should also consider retention obligations and user training. Do not design custom cryptography when a well-reviewed protocol and maintained implementation can meet the requirements. The central question is not simply whether encryption is enabled, but which actors can read which data, under which conditions, and how users can verify that promise.
+
+<!-- content-audit-expansion-v3 -->
+
+
+## Example threat model for a messaging service
+
+Consider a service that promises message confidentiality between two phones. The review should verify that encryption takes place on the sender's device and decryption on the recipient's device, that the provider cannot silently substitute its own key without detection, and that attachments follow the same protection model as message text. If web clients or linked desktop devices are supported, they introduce additional endpoints that need key management and revocation.
+
+Define what happens when a device is lost. The user may need to revoke the device, re-enrol a replacement, and decide whether encrypted history can be restored. A service that can recover all message contents for any user may have a different trust model from one where only the user holds recovery material. Neither design should be described vaguely as equally end-to-end encrypted without explaining the backup and recovery conditions.
+
+Security testing should include a changed contact key, a removed group member, a linked device that remains active, a cloud backup, notification previews, and a compromised endpoint. These cases are easy to overlook because the normal message flow works.
+
+E2EE is strongest when its claims are specific and testable: which data is protected, from which operators, on which devices, and with which exceptions. Clear product documentation helps users choose the right tool for highly sensitive communication and avoid assuming that every feature in an encrypted application has identical protections.

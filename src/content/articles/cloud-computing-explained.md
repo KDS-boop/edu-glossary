@@ -130,3 +130,12 @@ For IaaS (virtual machines), basic Linux skills are often necessary. For PaaS, S
 Yes, but it requires planning. Applications built on open standards (containers, Kubernetes, Terraform, SQL, object storage APIs) are more portable than those using provider-specific managed services. Multi-cloud strategies increase flexibility but add complexity.
 
 Cloud computing shifts infrastructure from a capital expense to an operational one, giving teams of any size access to global-scale computing power. Understanding the service models, deployment types, and shared responsibilities enables better architectural decisions from day one.
+
+<!-- content-audit-margin-v1 -->
+## A practical cloud migration sequence
+
+A migration should begin with an inventory of applications, databases, identity dependencies, network connections, storage needs, licenses, and recovery objectives. Classify workloads by business criticality and complexity, then select a suitable approach: move with minimal change, modernize selected components, replace a service with a managed alternative, retain a workload temporarily, or retire it. A single strategy rarely fits every application in a portfolio.
+
+Before moving production data, test network connectivity, authentication, observability, backup restoration, performance, and cost under representative usage. Establish a rollback point and define success criteria for the cutover. A migration is not complete merely because a virtual machine starts in the new environment; the application must behave correctly, the data must be consistent, and operators must be able to support it.
+
+After migration, review usage and right-size resources instead of assuming the first configuration is optimal. Cloud elasticity helps when scaling policies and budgets are understood, but uncontrolled resources, data transfers, or oversized instances can create unexpected costs. Treat security posture, cost allocation, resilience, and service ownership as ongoing operational work.

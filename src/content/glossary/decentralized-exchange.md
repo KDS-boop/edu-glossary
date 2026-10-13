@@ -99,3 +99,22 @@ No. A trade may include a protocol fee, a liquidity-provider fee, a network tran
 ### Does a DEX guarantee the best price?
 
 No. Price quality depends on liquidity, routing, fees, transaction timing, and execution conditions. Aggregators can compare venues, but they also introduce additional dependencies.
+
+<!-- content-audit-expansion-v2 -->
+
+
+## Understanding execution quality
+
+A quoted swap price is an estimate until the transaction executes. In an automated market maker, the requested trade changes the ratio of assets in a pool, so larger trades relative to pool depth cause greater price impact. Slippage tolerance sets how much the execution may differ from the quoted outcome before the transaction reverts; it is not a promise that the trade will fill at the displayed price. A user should compare the expected output, minimum output, network fee, protocol fee, and any route that crosses several pools.
+
+A routing aggregator may split a swap across pools or venues to improve the result, but extra hops introduce more contracts, fees, and failure points. Price quotes also change as other transactions are submitted. Transaction ordering can expose a trade to sandwiching or other forms of MEV, especially when slippage tolerance is set too loosely. Private transaction routes may reduce some exposure, but they introduce their own trust and availability considerations.
+
+## Liquidity-provider risk
+
+Liquidity providers earn fees under the pool's rules but take exposure to price changes between deposited assets. Impermanent loss describes how a pool position can underperform simply holding the same assets when relative prices move; it can become a realized loss when the position is withdrawn. Fees may or may not offset that effect. Pool incentives, token emissions, and high displayed APRs should be evaluated separately from sustainable trading demand.
+
+## A safer trade checklist
+
+Verify the chain, token contract address, token approval, recipient address, and the minimum output before signing. Review whether a token has transfer restrictions, upgrade permissions, or unusual taxes. Revoke unused spending approvals where practical, using trusted tools and after checking which network they operate on. Never assume that a DEX listing means a token has been audited or is legitimate.
+
+DEXs reduce reliance on a central exchange operator for the swap itself, but they do not remove smart-contract, oracle, interface, wallet, bridge, liquidity, or regulatory risk. Evaluate the pool and the transaction rather than treating decentralization as a blanket safety guarantee.

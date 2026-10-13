@@ -6,6 +6,8 @@ category: "Blockchain"
 letter: "M"
 updatedDate: 2026-09-27
 relatedTerms: ["Blockchain", "SHA-256", "Decentralization", "Proof of Work", "Hash Function", "Light Client", "SPV"]
+image: './images/merkle-tree.svg'
+imageAlt: 'Merkle Tree concept illustration: A cryptographic tree data structure that optimizes data integrity verification in blockchain.'
 ---
 
 Merkle Tree (named after computer scientist Ralph Merkle, who invented the concept in 1979) is a hierarchical binary tree data structure where each leaf node contains the hash of a single data block, and each internal node contains the hash of the combination of its two child nodes. The topmost node, called the root, represents a compact hash of all the data beneath it — a single root hash that summarizes thousands or millions of transactions in a single value.

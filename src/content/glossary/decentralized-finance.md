@@ -105,3 +105,12 @@ No. Many protocols are designed so users keep control of keys, but interfaces, b
 ### Does DeFi eliminate financial risk?
 
 No. It changes how services are implemented and where risks appear. Code, collateral, liquidity, governance, market structure, and legal arrangements all still matter.
+
+<!-- content-audit-margin-v1 -->
+## Evaluating a DeFi position as a system of dependencies
+
+A decentralized-finance position can depend on more than the protocol where a deposit appears. A lending position may rely on collateral pricing from an oracle, a stablecoin issuer, a bridge, a liquidation bot market, and a governance process that can change parameters. Map these dependencies before comparing yield. Ask what happens if the collateral loses liquidity, the oracle stops updating, the stablecoin depegs, or a contract is paused.
+
+Separate protocol fees from token incentives and distinguish gross yield from the risks and costs required to earn it. High returns may depend on temporary emissions, leverage, or taking exposure to a more volatile asset. A displayed APY can change quickly and should not be treated as a promised return.
+
+Before interacting, verify the network and contract addresses from trusted project documentation, review token approvals, estimate transaction fees, and understand whether the position can be exited during congestion. Audits and formal verification can reduce some risks but do not guarantee that every component or economic assumption is safe. DeFi removes some intermediaries while introducing smart-contract, governance, liquidity, oracle, and user-operation risks that deserve separate assessment.

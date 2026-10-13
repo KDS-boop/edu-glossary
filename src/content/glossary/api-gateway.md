@@ -6,6 +6,8 @@ category: "Software Development"
 letter: "A"
 updatedDate: 2026-09-27
 relatedTerms: ["API", "REST API", "Microservices", "Cloud Service Provider", "Rate Limiting", "Service Mesh", "Backend for Frontend"]
+image: './images/api-gateway.svg'
+imageAlt: 'API Gateway concept illustration: Central API traffic management that acts as a single entry point for all client requests to backend microservices.'
 ---
 
 An API Gateway is an infrastructure layer that acts as a single entry point for all client requests to a collection of backend microservices. Instead of clients needing to know the address and protocol of each microservice directly, all requests are forwarded, converted, and routed through the gateway. This pattern simplifies client code and provides a centralized point for cross-cutting concerns that would otherwise need to be implemented in every service.

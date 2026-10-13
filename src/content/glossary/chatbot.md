@@ -6,6 +6,8 @@ category: "AI & Data"
 letter: "C"
 updatedDate: 2026-09-27
 relatedTerms: ["Machine Learning", "Training Data", "Predictive Analytics", "Natural Language Processing", "Large Language Model"]
+image: './images/chatbot.svg'
+imageAlt: 'Chatbot concept illustration: A computer program that uses natural language processing to carry on conversations with users via text or voice.'
 ---
 
 A chatbot is software that simulates human conversation with users, either through text in a chat interface or via voice. Early-generation chatbots were rule-based with simple decision trees — they could only handle predefined paths and failed when users phrased things unexpectedly. Modern chatbots leverage large language models (LLMs) trained on billions of text tokens, enabling them to generate contextual and coherent responses to a much wider range of inputs. The shift from rule-based to LLM-based chatbots represents one of the most significant transitions in conversational AI.
@@ -107,3 +109,29 @@ Reputable chatbot providers implement encryption, access controls, and complianc
 
 ### Will chatbots replace human jobs?
 Chatbots automate routine tasks, changing rather than eliminating jobs. Customer service roles shift toward handling complex issues, while new positions emerge in chatbot design, training, and oversight. Adaptation and reskilling are essential.
+
+<!-- content-audit-expansion-v1 -->
+
+
+## Designing a chatbot for a real service
+
+A chatbot should begin with a bounded job, not with a decision to automate every conversation. A returns assistant, for example, can answer policy questions, collect an order number, check whether an item is eligible, and route an exception to a person. It should not invent an order status or promise a refund when the connected system has not confirmed the result. The design therefore needs to state which questions can be answered from approved content, which actions require an authenticated tool, and which cases must be escalated.
+
+The knowledge source matters as much as the conversational interface. Static frequently asked questions can be maintained as reviewed articles; live order status requires an authorized API and current data. If retrieval is used, store document ownership and update dates, retrieve the relevant passages, and make the assistant distinguish sourced facts from an inability to find an answer. A model-generated response is not proof that the underlying answer is correct.
+
+## A practical evaluation plan
+
+Build a test set from real, anonymized questions and include misspellings, short messages, ambiguous requests, multilingual wording, attempts to obtain another customer's data, and requests outside the service's scope. Evaluate task completion, factual accuracy, correct escalation, time to resolution, and the rate of unsupported answers. Review failures by category instead of relying only on a single satisfaction score.
+
+Before release, check conversation retention, data minimization, access control, logging, and whether sensitive information is sent to an external model provider. Tell users when they are interacting with an automated system, and make a human path visible. Monitor changes after launch because new policies, products, and user vocabulary can make a previously reliable bot stale. A safe chatbot is a maintained service with clearly defined limits, not a one-time prompt.
+
+<!-- content-audit-expansion-v3 -->
+
+
+## Conversation design and graceful handoff
+
+Map a conversation as a sequence of user goals, required information, and possible outcomes. A bot should ask for only the information needed for the task, confirm critical details before submitting an action, and explain when a request cannot be completed. For example, a billing assistant can summarize a policy from an approved source, but changing a payment method requires authentication and confirmation through a protected account workflow.
+
+Provide a recovery path for misunderstood messages: offer a small set of clarifying choices, let the user restate the request, and avoid cycling through the same failed answer. Measure how often users repeat themselves, abandon the conversation, or ask for a person. These signals often reveal a broken dialogue flow better than the number of messages handled.
+
+The bot's voice and disclosure should be consistent with the service. Avoid implying that it has performed an action until a connected system confirms success. When handing off, pass the minimum relevant context to the human agent and tell the user what will happen next. This reduces repetition without quietly retaining more conversation history than necessary.

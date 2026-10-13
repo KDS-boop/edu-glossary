@@ -127,3 +127,22 @@ The most durable knowledge is therefore the architecture principle: identify the
 ## Further reading
 
 The primary sources listed in this entry should be treated as the authoritative starting point for standards, specifications and regulatory interpretation. Product documentation and implementation guidance should be checked separately because vendor capabilities can change faster than the underlying concept.
+
+<!-- content-audit-expansion-v2 -->
+
+
+## The physical environment changes the risk model
+
+A language model can produce a wrong sentence; a physical AI system can produce a wrong motion. Perception errors, delayed sensors, blocked cameras, changes in lighting, unexpected contact, wheel slip, actuator faults, and network interruption can all affect behavior. A controller should have defined safe states, operating envelopes, and limits on force, speed, reach, or workspace as appropriate to the machine. Critical protections should not depend solely on a generative model following an instruction.
+
+Simulation is useful for generating repeatable scenarios and exploring rare events, but it can omit real-world friction, sensor noise, mechanical wear, and human behavior. Validate in stages: software tests, simulation, controlled hardware trials, limited supervised deployment, and monitored operation. Use explicit stop conditions and a rollback or recovery plan before expanding the deployment area.
+
+## Data and evaluation
+
+Training data should represent expected environments, object variation, viewpoints, and failure conditions. A robot trained in a clean laboratory may struggle in a cluttered site. Evaluate task success, collision or near-miss events, recovery behavior, latency, and performance under distribution shift. Collecting camera, audio, or location data can create privacy concerns; establish notice, retention, access, and masking rules before recording real environments.
+
+## Human oversight and lifecycle
+
+Define which decisions are autonomous, which require operator confirmation, and who can stop the system. Operators need understandable status information and a clear path to intervene. Maintain records of model, firmware, sensors, and control-policy versions so an incident can be reconstructed. Changes to hardware, software, payload, or environment may alter the risk profile and should trigger renewed testing.
+
+Physical AI combines AI with sensing, planning, and actuation, but safe operation depends on the complete system: mechanics, control software, environment, human procedures, and maintenance. A successful demonstration is not sufficient evidence for broad deployment.

@@ -6,6 +6,8 @@ category: "AI & Data"
 letter: "D"
 updatedDate: 2026-09-27
 relatedTerms: ["Machine Learning", "Neural Networks", "Training Data", "Chatbot", "Predictive Analytics", "Natural Language Processing"]
+image: './images/deep-learning.svg'
+imageAlt: 'Deep Learning concept illustration: A subset of machine learning that uses neural networks with many layers to learn complex patterns from large amounts of data.'
 ---
 
 Deep learning is a branch of machine learning that uses artificial neural networks with multiple layers (hence "deep") to progressively extract higher-level features from raw input data. Where traditional machine learning often requires engineers to manually define which features the model should look at, deep learning models learn relevant features automatically from the data itself.
@@ -94,3 +96,22 @@ It depends on the task and model size. Simple CNNs for image classification can 
 
 ### What are common deep learning frameworks?
 **PyTorch** (Meta) and **TensorFlow/Keras** (Google) are the two dominant frameworks. PyTorch is preferred for research and dynamic models; TensorFlow has stronger production deployment tooling. **JAX** (Google) is gaining traction for high-performance research. **Hugging Face Transformers** provides pre-trained models and utilities that work with both PyTorch and TensorFlow.
+
+<!-- content-audit-expansion-v2 -->
+
+
+## Designing a reproducible training experiment
+
+Deep-learning results depend on data preparation, model architecture, initialization, optimization settings, hardware, and random variation. Keep a record of the dataset version, preprocessing steps, model configuration, training code, libraries, checkpoint, and evaluation split. Without this information, a reported metric may be difficult to reproduce or compare. Use a held-out test set only after choices have been made using the training and validation data; repeatedly tuning against the test set gradually turns it into another validation set.
+
+Training cost also depends on more than parameter count. Sequence length, batch size, model architecture, precision, memory use, and data-loading efficiency affect throughput. A smaller model trained well can outperform a larger model on a narrow task, while a larger model may generalize better when the data and compute support it. Benchmark the workload that matters rather than assuming that model size alone predicts latency or quality.
+
+## Diagnosis: underfitting, overfitting, and data problems
+
+If both training and validation performance are poor, the model may be underfitting, the labels may be noisy, or the task may be poorly specified. If training performance improves while validation performance degrades, overfitting is one possibility. More data, regularization, augmentation, transfer learning, or a simpler architecture may help, but the correct response depends on the source of the error. Inspect mistakes and data examples instead of changing hyperparameters blindly.
+
+## Responsible deployment
+
+A deep-learning model can be computationally expensive, opaque to users, or brittle when deployment inputs differ from training data. Monitor latency, resource use, error patterns, and data drift. Evaluate performance across relevant groups and edge cases, and document where human review is required. Protect training datasets, model artifacts, and inference endpoints from unauthorized access. Model updates should have acceptance criteria, canary or staged rollout where appropriate, and a rollback path.
+
+Deep learning is powerful for complex patterns in images, language, audio, and structured data, but it does not remove the need for data quality, domain knowledge, interpretability appropriate to the task, and operational controls.

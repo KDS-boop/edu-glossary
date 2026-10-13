@@ -428,3 +428,12 @@ Consider: scale, latency requirements, team expertise, cloud vs on-prem, open-so
 
 - [What is Amazon API Gateway? — AWS](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html)
 - [Amazon API Gateway — AWS](https://aws.amazon.com/api-gateway/)
+
+<!-- content-audit-margin-v1 -->
+## Operating an API gateway in production
+
+Place only the controls that benefit from a shared enforcement point at the gateway, and keep business authorization close enough to the service that it can validate the requested resource and action. A gateway can authenticate a client, apply quotas, route traffic, and standardize telemetry, but it should not become a single oversized service that contains every business rule. If the gateway is unavailable or misconfigured, many downstream APIs may be affected at once.
+
+Define timeout and retry behavior carefully. Retrying a read request may be safe, while retrying a non-idempotent write can duplicate an action unless the end-to-end API supports deduplication. Rate limits should consider tenant or client identity and should return a documented response that consumers can handle.
+
+Monitor gateway latency separately from upstream service latency, along with route errors, rejected requests, quota events, and configuration changes. Use staged configuration releases and validate routing, TLS, authentication, and header handling before promotion. Keep request logs useful for troubleshooting but redact credentials, tokens, and sensitive payloads. The gateway is a critical security and reliability boundary, so it needs the same change control, monitoring, and recovery planning as the APIs it fronts.

@@ -6,6 +6,8 @@ category: "Blockchain"
 letter: "H"
 updatedDate: 2026-09-27
 relatedTerms: ["SHA-256", "Blockchain", "Merkle Tree", "Digital Signature", "Password Security", "Collision Resistance"]
+image: './images/hash-function.svg'
+imageAlt: 'Hash Function concept illustration: A mathematical algorithm that converts any input data into a fixed-length string of characters, used for data integrity verification, security, and indexing.'
 ---
 
 A hash function is a mathematical algorithm that takes an input of any length and produces a fixed-length output called a hash, digest, or fingerprint. The output appears random but is entirely determined by the input — the same input always produces the same hash.
@@ -131,3 +133,35 @@ A collision occurs when two different inputs produce the same hash output. Secur
 
 ### How long should a hash be?
 Longer hashes provide more security but use more storage. SHA-256 (256 bits) is the current standard. SHA-3 offers flexibility in output length. Avoid MD5 (128 bits) and SHA-1 (160 bits) for security applications.
+
+<!-- content-audit-expansion-v1 -->
+
+
+## Selecting the correct hash construction
+
+The word *hash* describes a family of constructions, not a guarantee that any output is secure for any purpose. For general integrity fingerprints and content identifiers, a modern cryptographic hash such as SHA-256 may be appropriate. For password storage, a fast general-purpose hash is the wrong default because attackers can test guesses rapidly after obtaining a password database. Use a password-hashing function designed to be tunable and resistant to large-scale guessing, such as Argon2id, scrypt, or an appropriately configured bcrypt implementation.
+
+For message authentication, a plain hash is not a substitute for a keyed construction. HMAC combines a cryptographic hash with a secret key to authenticate data. For encryption, use a vetted authenticated-encryption scheme rather than hashing data and assuming that it is confidential. The application goal—integrity, password verification, authentication, deduplication, or content addressing—determines the suitable primitive.
+
+## Encoding and verification mistakes
+
+A digest is computed over bytes, so two visually identical strings may hash differently if they use different character encodings, newline conventions, Unicode normalization, or file metadata. When comparing downloaded artifacts, use the exact checksum published through a trusted channel and be sure the checksum itself has not been replaced. A checksum can detect accidental corruption; it does not authenticate an attacker-controlled file if the attacker can also replace the checksum.
+
+Collision resistance means it should be computationally infeasible to find different inputs with the same digest. Preimage resistance means it should be infeasible to recover an input for a given digest, while second-preimage resistance concerns finding another input matching a chosen input's digest. These properties are related but not interchangeable.
+
+## Implementation checklist
+
+Prefer maintained libraries and standard algorithms. Do not invent a custom hash function, truncate digests without a defined security analysis, or use predictable salts. When verifying a MAC or password-derived value, use library verification functions and follow their constant-time comparison guidance. Record the algorithm and format alongside stored values so future migrations are possible. If a security policy changes, plan a controlled migration rather than silently changing the meaning of an existing digest field.
+
+<!-- content-audit-expansion-v4 -->
+## Algorithm agility and long-lived records
+
+Systems that store checksums or rely on digital signatures should record the algorithm and format explicitly. This allows maintainers to identify affected records if a standard is deprecated or an implementation has a vulnerability. A digest may remain useful as a non-security identifier after it is no longer suitable for collision-sensitive security use, but the system must not silently treat those purposes as equivalent. Plan how to regenerate digests from available source data and how to verify older signatures during a migration.
+
+For signed artifacts, the hash function is usually part of a larger signature scheme and protocol. Replacing the digest alone may not be enough: certificate profiles, file formats, trust stores, and verification clients also need compatible updates. Use standard libraries and documented migration procedures, and test old and new artifacts during a transition.
+
+## A concrete review checklist
+
+When reviewing a hash-based feature, ask what property it needs to provide: accidental corruption detection, collision-resistant identity, password verification, message authentication, or digital signatures. Confirm that the selected construction matches that property. Check how raw bytes are serialized, whether all participants normalize input identically, and whether the digest or verification key is obtained from a trusted source. Include negative tests for modified content, invalid encodings, missing metadata, and unsupported algorithms.
+
+If the hash is used in a security protocol, document assumptions and threat models instead of relying only on a library's default output. The hash function may be mathematically sound while the application uses it in the wrong place, authenticates the wrong data, or trusts an attacker-controlled digest. Security depends on the complete composition.

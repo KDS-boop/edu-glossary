@@ -132,3 +132,22 @@ The most durable knowledge is therefore the architecture principle: identify the
 ## Further reading
 
 The primary sources listed in this entry should be treated as the authoritative starting point for standards, specifications and regulatory interpretation. Product documentation and implementation guidance should be checked separately because vendor capabilities can change faster than the underlying concept.
+
+<!-- content-audit-expansion-v2 -->
+
+
+## Build an inventory before migrating algorithms
+
+Post-quantum cryptography (PQC) migration begins with cryptographic discovery. Identify where public-key encryption, key agreement, digital signatures, certificates, secure boot, VPNs, software signing, device provisioning, and long-lived archives rely on algorithms that may need replacement. Include embedded products and third-party dependencies because a system may contain cryptography that is not visible in the main application repository. Record algorithm, protocol, library, key size, certificate lifetime, data sensitivity, and the person responsible for the dependency.
+
+Prioritize systems using the expected confidentiality lifetime, exposure to captured traffic, migration lead time, and difficulty of updating deployed devices. Data that must remain secret for many years deserves early attention even if the system is not the most visible. A cryptographic inventory should be maintained as software changes rather than treated as a one-time spreadsheet.
+
+## Hybrid deployment and interoperability
+
+A transition may combine conventional and post-quantum mechanisms so that compatible participants can establish protection while implementations are evaluated. Hybrid designs can increase message sizes, computational requirements, and protocol complexity, so test certificate chains, handshake limits, network devices, storage formats, and constrained clients. Do not invent an ad hoc combination of algorithms; follow standardized protocol guidance and the security properties it claims.
+
+## Testing and governance
+
+The migration plan should track standards status, supported library versions, vendor roadmaps, and the ability to revoke or replace cryptographic components. Test performance on actual target hardware and measure handshake latency, memory, signature size, bandwidth, and compatibility. Software signing and certificate management deserve particular attention because a failed update can leave devices stranded.
+
+PQC protects against a class of future cryptanalytic capability; it does not fix weak authentication, stolen private keys, poor random-number generation, vulnerable endpoints, or implementation flaws. Keep the broader cryptographic hygiene program active, document exceptions, and define dates or events that trigger reassessment. The objective is a controlled transition with evidence of interoperability and security, not simply changing an algorithm name in configuration.

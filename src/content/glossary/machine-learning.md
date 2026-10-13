@@ -6,6 +6,8 @@ category: "AI & Data"
 letter: "M"
 updatedDate: 2026-09-27
 relatedTerms: ["Chatbot", "Training Data", "Predictive Analytics", "Deep Learning", "Natural Language Processing", "Neural Network"]
+image: './images/machine-learning.svg'
+imageAlt: 'Machine Learning concept illustration: A branch of artificial intelligence that enables systems to learn from data and improve their performance without being explicitly programmed.'
 ---
 
 Machine Learning (ML) is an approach within artificial intelligence where computers learn to recognize patterns from data and make decisions or predictions without explicit rule-based instructions. Instead of being manually written by a programmer, an ML model learns the relationship between inputs and outputs from historical data examples, then applies those patterns to new, unseen data.
@@ -169,3 +171,22 @@ Transfer learning uses a model pre-trained on a large dataset (e.g., ImageNet fo
 
 ### Can machine learning make mistakes?
 Yes, ML models can make errors. They learn from data, so biased or incomplete data leads to biased predictions. Understanding model limitations and implementing human oversight for critical decisions is essential.
+
+<!-- content-audit-expansion-v2 -->
+
+
+## Evaluating a model against the actual decision
+
+Model evaluation should reflect the cost of different errors. In a fraud-screening system, a false negative may allow abuse while a false positive can block a legitimate customer. In a maintenance forecast, missing an imminent failure can be more costly than raising an extra inspection alert. Select metrics and decision thresholds with the people who understand those consequences, and document the expected workload created by the model's recommendations.
+
+A baseline is essential. Compare the model to a simple rule, existing process, or previous-period forecast. Use an evaluation split that reflects how predictions will be used; for future-facing problems, time-based testing is often more realistic than a random split. Prevent leakage by ensuring that features do not contain information derived from the target or unavailable at prediction time. Check whether duplicated or related examples leak across train and test data.
+
+## From prototype to production
+
+A model in a notebook is not yet a reliable service. Production needs a repeatable pipeline for data validation, training, evaluation, packaging, deployment, logging, and rollback. Version the dataset, feature transformations, model, and configuration so a prediction can be traced to the version that produced it. Monitor latency, input distributions, missing values, prediction distributions, and delayed outcome labels.
+
+Retraining should have a reason and acceptance criteria rather than happen automatically on an arbitrary schedule. New data can improve coverage, but it can also encode a temporary anomaly or new bias. Compare a candidate model with the current production model before promoting it.
+
+## Privacy and explainability
+
+Consider whether the feature set includes sensitive or proxy variables, whether data retention is justified, and whether users can contest a consequential decision. Explainability techniques can help diagnose or communicate model behavior, but a simplified explanation should not be presented as a complete account of every internal computation. Keep a human decision-maker responsible when errors can materially affect rights, safety, or access to essential services. Machine learning is a modeling approach; trustworthy use requires engineering and governance around the model.

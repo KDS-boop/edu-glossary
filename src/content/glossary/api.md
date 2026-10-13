@@ -6,6 +6,8 @@ category: "Software Development"
 letter: "A"
 updatedDate: 2026-09-27
 relatedTerms: ["API Gateway", "Full Stack", "Codebase", "Continuous Integration", "REST API", "GraphQL"]
+image: './images/api.svg'
+imageAlt: 'API concept illustration: Application Programming Interface, the way two applications communicate with each other.'
 ---
 
 An API (Application Programming Interface) is a set of rules and protocols that enable one software application to communicate with another. APIs define the methods, data formats, and conventions that applications use to request and exchange information — without needing to know how the other side is implemented internally.
@@ -171,3 +173,18 @@ Synchronous APIs wait for a response before continuing. Asynchronous APIs return
 **For a comprehensive beginner guide:** [What is an API? A Complete Beginner's Guide](/articles/what-is-an-api-beginners-guide/)
 **For REST-specific details:** [REST API](/glossary/rest-api/)
 **For broader context:** [Software Development hub](/learn/software-development/)
+
+<!-- content-audit-expansion-v2 -->
+
+
+## Security boundaries in an API integration
+
+An API is a contract, but a contract does not automatically make a service secure. Every endpoint that reads or changes data must authenticate the caller where required and authorize access to the specific object and action. Checking that a user is signed in is not enough if the caller can change an identifier in the URL and retrieve another user's record. This class of failure is often called broken object-level authorization. Test permissions with multiple accounts and roles.
+
+Treat incoming data as untrusted. Validate type, length, allowed values, and relationships on the server; reject unexpected fields when practical; and apply sensible request-size and rate limits. Never place long-lived secret keys in browser or mobile application bundles because users can inspect those clients. Use the authentication approach appropriate to the trust relationship, such as a server-held API key for a private service integration or an established OAuth flow for delegated user access.
+
+## Compatibility and operations
+
+An API can be technically valid but difficult to operate if the contract is unclear. Document required fields, optional fields, null behavior, pagination, rate limits, error formats, authentication, and deprecation policy. Avoid silently changing the meaning of an existing field. Additive changes are often easier for clients to adopt, but even adding a required response assumption can break consumers that validate schemas strictly. Use automated contract tests and monitor the clients that depend on the service.
+
+Measure latency and failures by endpoint and dependency, and avoid logging tokens or sensitive payloads. For a client integration, design bounded retries with backoff and handle timeouts explicitly. A timeout does not prove the server did not perform the operation, so state-changing requests need a defined retry strategy. Good API design makes expected behavior clear in success paths, errors, and partial failures.

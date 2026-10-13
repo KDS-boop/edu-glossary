@@ -138,3 +138,16 @@ The most durable knowledge is therefore the architecture principle: identify the
 ## Further reading
 
 The primary sources listed in this entry should be treated as the authoritative starting point for standards, specifications and regulatory interpretation. Product documentation and implementation guidance should be checked separately because vendor capabilities can change faster than the underlying concept.
+
+<!-- content-audit-expansion-v4 -->
+## Preserving provenance across a publishing workflow
+
+A provenance record is only useful if it survives the stages where content is created, edited, exported, uploaded, and redistributed. A newsroom might record the original capture device, editing software, time of creation, and subsequent modifications, but an export tool may remove that information or fail to carry it into a new format. Organizations should test the complete workflow with the tools their staff actually use, including common crop, compression, re-encoding, and content-management steps.
+
+A provenance verifier should distinguish a valid signature from a trustworthy claim. A signature may show that a credential associated with a publisher signed a record, but users still need to know who issued the credential, how it was validated, and whether the signer is accountable for the claim. A record that reports AI editing also does not necessarily indicate whether the resulting content is accurate, misleading, or harmful.
+
+## Building a usable verification experience
+
+Provide readers with a clear indication of what was verified, which parts of the chain are missing, and whether the source has been altered since signing. Avoid presenting a binary green check as a universal truth score. If provenance is absent, the correct conclusion is often that the origin cannot be verified through that mechanism—not that the content is necessarily fake.
+
+For software and datasets, connect provenance to version identifiers, release signatures, build metadata, and reproducible procedures where available. Keep records of tool versions and transformation steps, and define how corrections or revoked credentials are represented. Provenance creates more value when receiving systems can validate it consistently and when users understand the limits of the evidence.

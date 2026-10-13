@@ -136,3 +136,22 @@ The most durable knowledge is therefore the architecture principle: identify the
 ## Further reading
 
 The primary sources listed in this entry should be treated as the authoritative starting point for standards, specifications and regulatory interpretation. Product documentation and implementation guidance should be checked separately because vendor capabilities can change faster than the underlying concept.
+
+<!-- content-audit-expansion-v2 -->
+
+
+## Deploying MCP with a clear trust boundary
+
+A Model Context Protocol (MCP) integration connects an AI application to tools or context supplied by an MCP server. The fact that a tool is exposed through a standard protocol does not mean it is safe to call. Each server should declare a narrow set of capabilities, and the client should present them in a way that makes their effects understandable. A read-only search tool has a different risk profile from a tool that writes files, sends messages, changes permissions, or runs commands.
+
+Treat the server identity and tool descriptions as security-sensitive inputs. A misleading description can cause a model to choose the wrong action, while an overly broad tool can expose data or operations beyond the user's intent. Require authorization at the application and tool boundary, validate arguments against a schema, and check permissions again when executing an action. Do not rely on the model to enforce access policy.
+
+## Handling prompt injection and untrusted results
+
+A retrieved document, web page, issue comment, or tool result can contain hostile instructions. The client should separate trusted control instructions from external content, limit which tools can act on that content, and ask for confirmation before consequential changes. Keep secrets out of tool outputs where possible, and never provide a general shell or filesystem capability to an untrusted context unless the environment is deliberately sandboxed and scoped.
+
+## Operational controls
+
+Inventory servers and their versions, owners, permissions, data sources, and network destinations. Review package provenance and update practices, pin approved versions where appropriate, and test compatibility before upgrades. Log tool invocation metadata sufficient for auditing while avoiding unnecessary storage of sensitive arguments or results. Provide clear errors when a server is unavailable and a safe fallback when a tool cannot be trusted.
+
+MCP standardizes an integration pattern; it does not guarantee interoperability in every implementation or remove the need for threat modeling. Evaluate each server based on the capabilities it exposes, the data it can reach, and the actions it can perform. Standard protocols make integrations easier to reason about only when permission, validation, and lifecycle controls are applied consistently.

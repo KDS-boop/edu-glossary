@@ -128,3 +128,22 @@ The most durable knowledge is therefore the architecture principle: identify the
 ## Further reading
 
 The primary sources listed in this entry should be treated as the authoritative starting point for standards, specifications and regulatory interpretation. Product documentation and implementation guidance should be checked separately because vendor capabilities can change faster than the underlying concept.
+
+<!-- content-audit-expansion-v2 -->
+
+
+## Mapping the trust boundary
+
+A confidential-computing design should name the party the organization is trying to protect data from. The goal may be to reduce exposure to a cloud operator, a host administrator, another workload sharing a machine, or a service provider operating an inference environment. The answer determines whether the design needs a trusted execution environment, remote attestation, customer-controlled key release, or a combination of controls. It also clarifies which components remain trusted, such as the processor vendor, firmware, application code, and identity service.
+
+Remote attestation can provide evidence about the measured software and platform state, but a measurement is only useful when the verifier checks it against a trusted policy. Define which measurements are accepted, who maintains the reference values, how revocation works, and what happens when a platform update changes the measurement. Do not treat a successful attestation as a guarantee that the application logic is correct or that all side channels are eliminated.
+
+## Data and key release lifecycle
+
+A typical workflow protects data before it enters the protected environment, establishes the execution environment, verifies attestation, releases a limited-use key, and processes data inside the trust boundary. The policy should bind key release to the intended workload and prevent an unrelated or modified workload from receiving the same secrets. Minimize the plaintext lifetime, constrain outbound data, and log policy decisions without exposing the protected content.
+
+## Practical limitations and operations
+
+Hardware-backed isolation can reduce some host-level risks but introduces dependencies on supported processors, firmware, vendor advisories, and compatible software. Threats can remain in application vulnerabilities, malicious inputs, compromised endpoints, untrusted output handling, and some side-channel conditions. Benchmark workloads with the protection enabled because memory encryption, enclave boundaries, or restricted interfaces may change performance.
+
+Before adoption, test upgrade and recovery paths, define a response for revoked or vulnerable platform versions, and verify that the team can rotate keys without interrupting critical work. Compare the resulting trust model with simpler controls such as confidential data minimization, dedicated tenancy, encryption, and access restrictions. Confidential computing is most useful when it addresses a clearly defined trust gap, with a threat model that states what it does and does not protect.

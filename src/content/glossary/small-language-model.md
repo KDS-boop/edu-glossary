@@ -129,3 +129,22 @@ The most durable knowledge is therefore the architecture principle: identify the
 ## Further reading
 
 The primary sources listed in this entry should be treated as the authoritative starting point for standards, specifications and regulatory interpretation. Product documentation and implementation guidance should be checked separately because vendor capabilities can change faster than the underlying concept.
+
+<!-- content-audit-expansion-v2 -->
+
+
+## Measure the total system, not only the model size
+
+A small language model (SLM) can reduce inference cost and make local deployment practical, but parameter count is only one dimension. Quantization, context length, batch size, runtime implementation, memory bandwidth, and hardware accelerators affect latency and capacity. A small model may also need extra retrieval, routing, or human review to reach the quality level of a larger model. Compare the end-to-end cost of completing a task rather than the model's per-token price alone.
+
+Build an evaluation set that reflects the actual domain and languages. Test factual accuracy, instruction following, tool selection, refusal behavior, robustness to unusual input, and performance on longer contexts. A model can score well on general benchmarks yet fail on company-specific terminology or rare edge cases. Keep examples representative and protect sensitive data used for evaluation.
+
+## Local inference and data governance
+
+Running a model locally can reduce the need to send prompts to an external provider, but privacy depends on the full setup. Logs, crash dumps, telemetry, model downloads, retrieval stores, and application integrations can still expose information. Restrict model access, verify artifact provenance, patch runtimes, and isolate untrusted inputs. Local deployment also transfers responsibility for capacity planning, updates, monitoring, and incident response to the operator.
+
+## A routing strategy
+
+Some systems route straightforward classification, extraction, or summarization tasks to a small model and escalate difficult cases to a larger model or a person. Define the routing signal using measurable task characteristics, uncertainty indicators, or validation outcomes, then evaluate the cost and error rates of the whole pathway. Avoid assuming that a model's self-reported confidence is calibrated without evidence.
+
+SLMs are particularly attractive when the task is bounded, the response format is constrained, or data locality is important. They are less suitable when the task requires broad knowledge, long reasoning chains, or high reliability without sufficient evaluation. Select the smallest model that consistently meets the stated requirement, with a defined fallback for cases outside its capability.

@@ -6,6 +6,8 @@ category: "Blockchain"
 letter: "S"
 updatedDate: 2026-09-27
 relatedTerms: ["Blockchain", "Decentralization", "Consensus Mechanism", "Ethereum", "DeFi", "Solidity"]
+image: './images/smart-contract.svg'
+imageAlt: 'Smart Contract concept illustration: Self-executing code stored on a blockchain that automatically enforces the terms of an agreement when predefined conditions are met.'
 ---
 
 A smart contract is a program stored on a blockchain that executes automatically when predefined conditions are satisfied. Unlike traditional contracts that rely on legal enforcement and human intermediaries, smart contracts enforce their terms through code — the blockchain network itself guarantees execution.
@@ -161,3 +163,22 @@ Gas is the fee paid for executing contract operations. It compensates validators
 
 ### Can smart contracts access the internet?
 Not directly. They need oracles to fetch external data. This maintains blockchain determinism but introduces trust assumptions.
+
+<!-- content-audit-expansion-v2 -->
+
+
+## Treat deployment as a security-critical release
+
+A smart contract can preserve programmed rules while still implementing the wrong rules. Before deployment, write down the intended invariants—for example, who may transfer an asset, how balances must reconcile, whether withdrawals can be paused, and what must remain true after an upgrade. Use unit tests, integration tests, property-based tests, static analysis, and adversarial review to examine both expected paths and unusual sequences of calls. A successful test suite is evidence, not a guarantee that every possible execution has been considered.
+
+Review access-control functions, administrator privileges, upgrade keys, external calls, arithmetic assumptions, and any dependency on an oracle or bridge. Reentrancy and incorrect authorization are examples of classes of bugs that can produce serious consequences. Prefer well-reviewed libraries and standard patterns over custom implementations when possible. A pause mechanism may help contain an incident, but it creates an authority that must be governed and protected; document who can invoke it and under what conditions.
+
+## Oracles and off-chain reality
+
+A contract cannot directly know an external fact such as a shipment arriving, a stock price, or a weather reading. It relies on a trusted reporter or oracle mechanism. If the input is wrong, a contract can execute exactly as designed and still produce a harmful result. Evaluate the oracle's data sources, update frequency, manipulation resistance, and failure behavior.
+
+## Upgrade and incident planning
+
+Immutable code reduces some kinds of unauthorized change but makes a bug difficult to repair. Upgradeable contracts allow controlled changes but introduce governance and key-compromise risk. Document the upgrade authority, review and delay process, storage-layout constraints, user notification, and emergency response. Monitor contract events and unusual flows after launch, and keep a communication plan for users.
+
+A smart contract is one component of an application that can also include wallets, interfaces, servers, bridges, and legal agreements. Security review must cover these dependencies together. Code can automate enforceable rules, but it cannot automatically settle every legal, organizational, or real-world dispute.

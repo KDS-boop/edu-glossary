@@ -6,6 +6,8 @@ category: "Blockchain"
 letter: "B"
 updatedDate: 2026-09-27
 relatedTerms: ["Consensus Mechanism", "Decentralization", "Merkle Tree", "Proof of Work", "SHA-256", "Proof of Stake", "Smart Contract", "Hash Function"]
+image: './images/blockchain.svg'
+imageAlt: 'Blockchain concept illustration: A decentralized digital ledger that records transactions across many computers simultaneously.'
 ---
 
 Blockchain is a data structure that stores transaction records in the form of "blocks" that are linked together chronologically and cryptographically secured. Each block contains the hash (a fixed-length digital fingerprint) of the previous block, creating a chain where altering any historical record would require recomputing every subsequent block — a task that is computationally infeasible on a sufficiently large network.
@@ -203,3 +205,27 @@ A smart contract is self-executing code stored on a blockchain that automaticall
 
 ### Why do public blockchains need tokens/coins?
 Tokens provide economic incentives for network security. In PoW, miners earn block rewards and fees. In PoS, validators stake tokens and earn rewards for honest behavior; dishonest behavior risks slashing (losing staked tokens). The token aligns economic incentives with protocol integrity — without it, there's no reason for participants to secure the network.
+
+<!-- content-audit-expansion-v2 -->
+
+
+## Evaluating whether blockchain is necessary
+
+A blockchain is useful when several parties need to share a state transition history and cannot or do not want to rely entirely on one operator. It is often a poor fit when one trusted organization controls all writers and can meet the audit requirement with a conventional database. Distributed consensus introduces latency, fees, key-management obligations, and governance complexity. Start by documenting the trust relationships, the parties who can write data, and the consequences of conflicting records.
+
+A blockchain also stores only what the protocol and applications actually submit. Recording a hash can help later verification, but it does not make the underlying document true or prevent the original document from being deleted. If personal or confidential information is published to an immutable public network, it may be impossible to remove it later. Store sensitive data off-chain where appropriate and carefully consider whether a public commitment or pointer itself reveals information.
+
+## Application and infrastructure risks
+
+The user experience depends on wallet software, signing keys, node providers, RPC endpoints, bridges, oracles, indexers, and smart contracts. A chain may remain available while a hosted interface fails or a bridge is exploited. Review each dependency and distinguish protocol-level security from the security of an application built on top of it. For valuable transactions, use tested contracts, explicit permission controls, event monitoring, and an incident plan.
+
+## Questions for a project review
+
+Ask who can upgrade the software, pause a contract, freeze assets, change validator rules, or recover from a bug. Determine whether the network is permissioned, how participants are selected, what fees users pay, and how congestion affects confirmation time. Define the finality policy for the intended transaction size. For a supply-chain use case, also verify how real-world events are entered and audited; consensus can agree on a false input just as efficiently as a true one. Blockchain should be selected for a specific coordination and verification need, not merely because a record is digital or valuable.
+
+<!-- content-audit-margin-v1 -->
+## Data governance beyond the ledger
+
+Before writing a record to a public or shared chain, decide whether the data should be public indefinitely. Personal information, commercially sensitive records, and secrets should generally not be placed directly into an immutable public data structure. Hashes and pointers can still leak information when the underlying data is predictable or can be correlated with other records. A safer design defines what belongs on-chain, what remains in controlled storage, who can correct the off-chain record, and how users verify that the pointer has not changed.
+
+For enterprise use, establish who is allowed to submit events and how those events are connected to real-world evidence. A ledger can preserve the sequence of submissions, but it cannot independently determine whether a warehouse scan, sensor reading, or human attestation is accurate. Require identity, validation, and audit controls at the point where the data enters the system. This separation helps teams avoid confusing tamper-evident recording with factual truth.

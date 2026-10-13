@@ -132,3 +132,22 @@ The most durable knowledge is therefore the architecture principle: identify the
 ## Further reading
 
 The primary sources listed in this entry should be treated as the authoritative starting point for standards, specifications and regulatory interpretation. Product documentation and implementation guidance should be checked separately because vendor capabilities can change faster than the underlying concept.
+
+<!-- content-audit-expansion-v2 -->
+
+
+## Treat prompts as versioned software artifacts
+
+Prompts change model behavior, so they should be reviewed and versioned like other production configuration. Store the instruction text, intended model family, input schema, tool definitions, output format, evaluation set, and known limitations together. A change that looks like a wording improvement can alter refusal behavior, extraction accuracy, or tool selection, so compare the candidate against a stable test set before deployment.
+
+For structured tasks, define an output contract such as a JSON schema, enum list, or required fields, and validate the model response in application code. A prompt asking for valid JSON does not guarantee valid JSON. Retry behavior should be bounded, and malformed output should lead to a controlled error or fallback rather than an unchecked downstream action. If facts must come from documents, require evidence references where feasible and test whether the output stays within the retrieved material.
+
+## Evaluation beyond a few demonstrations
+
+Build examples from real task variation: short and long input, ambiguous requests, missing fields, conflicting evidence, multilingual phrasing, adversarial content, and rare but important cases. Measure task success and failure type, not merely whether a response sounds polished. Run regression tests when changing models because the same prompt may behave differently across versions. Include human review for high-impact outputs and establish an escalation path when the model cannot answer confidently.
+
+## Injection resistance and permissions
+
+Prompt wording is not a reliable security boundary. Treat user content, retrieved webpages, uploaded files, and tool results as potentially hostile. Keep credentials outside the prompt, limit tool permissions, validate tool arguments, isolate execution environments, and require confirmation for actions with external consequences. The application must enforce access rules independently of what the model says.
+
+Finally, balance instruction detail against context length, latency, and maintainability. Remove contradictory rules, place critical constraints clearly, and test that examples do not accidentally bias the expected output. Good prompt engineering is an iterative cycle of specification, testing, measurement, review, and controlled release—not a search for one universal prompt that eliminates model limitations.

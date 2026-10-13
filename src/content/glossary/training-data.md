@@ -6,6 +6,8 @@ category: "AI & Data"
 letter: "T"
 updatedDate: 2026-09-27
 relatedTerms: ["Machine Learning", "Chatbot", "Predictive Analytics", "Deep Learning", "Neural Networks"]
+image: './images/training-data.svg'
+imageAlt: 'Training Data concept illustration: A labeled dataset used to train machine learning models to recognize patterns and make predictions.'
 ---
 
 Training data is a collection of inputs and outputs used to teach a machine learning model to recognize patterns. The quality, volume, and representativeness of training data directly determine model performance — the principle of "garbage in, garbage out" applies with particular rigor in this field.
@@ -89,3 +91,44 @@ Data drift occurs when the statistical properties of the input data change over 
 
 ### How do I handle imbalanced datasets?
 Techniques include oversampling the minority class, undersampling the majority class, using synthetic data generation (SMOTE), adjusting class weights in the loss function, or using ensemble methods designed for imbalanced data.
+
+<!-- content-audit-expansion-v1 -->
+
+
+## Build a dataset that matches the intended use
+
+Training-data design begins by defining the population and task the model is expected to handle. Data collected from one website, region, language, device, or customer group may not represent the eventual users. Sampling decisions should be documented because data gaps can become predictable blind spots. For supervised learning, the label definition matters: two reviewers may classify the same borderline example differently unless the annotation rules provide clear criteria and escalation for ambiguous cases.
+
+Keep data provenance with the dataset. Useful metadata includes collection method, creation date, source, license or permission, transformation history, labeling instructions, known limitations, and the person or team responsible. Preserve enough lineage to explain why an example is present and to remove it when a valid deletion or correction request applies. Dataset versions make it possible to reproduce training and compare model changes fairly.
+
+## Splits, leakage, and evaluation
+
+Training, validation, and test sets serve different purposes. The test set should represent cases the model did not use for fitting or routine tuning. If records from one person, device, organization, or time period appear across multiple splits, performance may look better than it will in deployment. Grouped or time-based splits can be necessary when observations are related. Preprocessing and feature selection must also be fitted using training data only.
+
+Check class balance, missing values, duplicates, mislabeled examples, sensitive fields, and outliers before training. Synthetic or augmented data can fill a gap, but it can also replicate artifacts or errors from the original source. Document when such data is introduced and test whether it changes the behavior that matters.
+
+## Privacy, rights, and ongoing maintenance
+
+Collect only data needed for the stated purpose, protect it according to its sensitivity, limit access, and define retention periods. Public availability does not automatically mean a dataset has no privacy, copyright, contractual, or ethical constraints. Review the source terms and applicable law before use, especially for personal, biometric, health, or children's data. Remove direct identifiers where possible, while recognizing that de-identification may not eliminate re-identification risk.
+
+Data quality changes over time. Monitor shifts in inputs and outcomes, refresh labels where appropriate, and retain a clear process for suspending a dataset when an issue is discovered. High model quality begins with data that is relevant, lawful, representative, documented, and testable.
+
+<!-- content-audit-expansion-v3 -->
+
+
+## Example: reviewing a customer-support dataset
+
+A support dataset might contain tickets, agent responses, account identifiers, and resolution labels. Before using it for model training, remove or transform unnecessary identifiers, determine whether customers were informed about the intended use, and check applicable contractual and legal restrictions. A dataset can contain personal information inside free-text messages even when structured identifier columns have been removed, so privacy review needs to inspect both.
+
+Create clear label guidelines for categories such as billing, technical support, account access, and complaint. Review disagreement cases and samples from each category. If most examples are routine billing tickets, a model can appear accurate while performing poorly on rare account-security incidents. Report performance by meaningful category and keep a protected test set for comparison after new data arrives.
+
+When feedback is incorporated, avoid automatically treating every production prediction as a correct training label. User behavior, agent decisions, and historical outcomes may contain mistakes or policy differences. Review samples, track provenance, and version each curated release. Define who can approve data inclusion and how to remove records if a source is found to be inappropriate. Dataset governance is part of model quality and should be maintained alongside the training code.
+
+<!-- content-audit-margin-v1 -->
+## Make dataset changes auditable
+
+A dataset release should have a version identifier, a documented schema, quality checks, and a record of transformations. Useful checks include duplicate detection, field-type validation, missing-value thresholds, label-distribution summaries, and scans for sensitive information. A failed check should stop a high-risk pipeline or require an explicit review rather than being silently ignored. Keep a representative validation set stable enough to compare releases over time, while maintaining a separate process to update it when the task itself changes.
+
+For data gathered from multiple sources, record the source and permitted purpose at row or dataset level where feasible. This makes it easier to investigate a problematic subset or honor a removal requirement. Preserve the difference between raw source material, cleaned examples, annotations, and derived features, because each stage can introduce its own errors.
+
+When training data is refreshed, compare the resulting model with the previous version on both current and historical challenge sets. Improvements on the new dataset can coincide with regressions on important edge cases. Dataset governance therefore supports reproducibility, privacy, and model reliability at the same time.

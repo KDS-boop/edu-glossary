@@ -91,3 +91,20 @@ Usually not. Holding a token may provide no ownership, voting, or claim on an is
 ### Is cryptocurrency an investment recommendation?
 
 No. This entry explains the technology and common uses. Whether an asset is suitable for a person requires independent research and consideration of legal, financial, security, and tax circumstances.
+
+<!-- content-audit-expansion-v2 -->
+
+
+## Following a cryptocurrency transaction end to end
+
+A user generally signs a transaction with a wallet, broadcasts it through a node or service, and waits for the network to validate and include it. The wallet interface may show a pending transaction before the network considers it final. Fees, confirmation time, replacement rules, and finality differ among networks, so users should verify the destination network and any memo or tag required by a receiving service. Sending an asset to an incompatible address or network can make recovery difficult or impossible.
+
+Wallets usually manage keys rather than physically storing coins. A custodial service controls the keys on the user's behalf; a self-custody wallet gives the user more direct control but also responsibility for securing recovery material. A seed phrase should not be sent to support staff, entered into an unfamiliar website, or stored in an exposed cloud document. Hardware wallets can reduce some key-exposure risks but cannot prevent a user from approving a malicious transaction or visiting a phishing site.
+
+## Token supply and economic design
+
+A project's stated use case should be distinguished from the rights a token actually provides. Holding a token does not necessarily represent equity, a claim on revenue, voting power, or a right to redeem it for a real-world asset. Review the issuance schedule, distribution, vesting, permissions to mint or freeze tokens, and the role of the token in the system. A fixed maximum supply does not remove demand risk, contract risk, governance risk, or concentration among holders.
+
+## Research and risk assessment
+
+Read primary protocol documentation and inspect the deployed contract or network data where possible. Verify which chain the asset is on, whether an address is the official contract, how upgrades work, and which bridges or custodians are involved. Look for independent audits, but remember an audit is scoped to a particular version and does not guarantee safety. Consider market liquidity, custody, legal treatment, and the possibility of total loss. Avoid relying exclusively on promotional claims, social media activity, or a chart of past returns. Cryptocurrency can be used for transfer, access, governance, or settlement, but its properties and risks depend on the specific asset and system.

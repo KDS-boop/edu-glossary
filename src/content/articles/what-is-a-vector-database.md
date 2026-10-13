@@ -308,3 +308,20 @@ No. They're useful anywhere similarity matters: recommendation systems, fraud de
 - [Vector database choices in RAG Engine — Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/vector-db-choices)
 - [Use embedding models with RAG Engine — Google Cloud](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/rag-engine/use-embedding-models)
 - [Retrievers for RAG workflows — AWS Prescriptive Guidance](https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/rag-custom-retrievers.html)
+
+<!-- content-audit-expansion-v1 -->
+
+
+## Evaluating retrieval quality in a real application
+
+A vector database should be evaluated against the questions users actually ask. Build a small benchmark with representative queries, relevant passages, difficult near-matches, and examples where the correct result is that no document is relevant. Measure whether the useful passage appears near the top of the results, then inspect cases where semantically similar but factually irrelevant chunks are retrieved. The embedding model, chunk size, overlap, metadata filters, distance metric, and index settings can all affect the outcome. Change one variable at a time where practical so that improvements can be explained rather than guessed.
+
+## Freshness, deletion, and access control
+
+When a source document changes, its chunks and vectors need an update or removal process. Otherwise, the retrieval layer can surface superseded guidance even after the primary document has been corrected. Track source identifiers and versions with each indexed chunk, and test the full delete path, including backups or replicas where applicable. For multi-tenant applications, enforce tenant and document permissions before returning retrieved content; filtering by similarity alone is not an authorization mechanism.
+
+## Production observability and failure handling
+
+Log operational metadata such as query latency, number of candidates, filter outcome, and index version while minimizing retention of sensitive query text. Watch for empty result sets, unusually broad retrieval, indexing delays, and changes in embedding-model behavior. If the vector service is unavailable, define whether the application falls back to keyword search, returns a clear temporary error, or asks a human to review the request. The fallback should not silently answer using stale or unrelated context.
+
+A vector database is one component in a retrieval pipeline. Overall quality depends on source-document quality, parsing, chunking, embeddings, filtering, ranking, generation, and evaluation. Treat the database choice as an architectural decision to validate with realistic data, security requirements, and lifecycle tests rather than assuming that semantic similarity alone produces correct answers.

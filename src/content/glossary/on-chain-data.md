@@ -107,3 +107,22 @@ No. It excludes or only partially represents many centralized-exchange, custodia
 ### Can on-chain data predict prices?
 
 It can describe historical activity and observable conditions, but it cannot guarantee future prices or outcomes. Interpretation remains uncertain and market conditions can change quickly.
+
+<!-- content-audit-expansion-v2 -->
+
+
+## From raw records to defensible metrics
+
+Raw blockchain data consists of blocks, transactions, logs, and state changes, but most business questions require derived metrics. A metric may depend on the way addresses are grouped, the assets included, the pricing source, the treatment of internal transfers, and the block timestamp used. Document each transformation so another analyst can reproduce the result. Keep raw data separate from labels and estimates to make corrections traceable.
+
+Address clustering can be useful, but it is an inference, not a direct identity record. Heuristics that connect addresses may produce false positives, and a wallet may be used by multiple people or services. Avoid describing an address as a named individual without reliable evidence and a legitimate reason. Published labels should include provenance, confidence, and update date where practical.
+
+## Handling reorganizations and stale sources
+
+Some chains can replace recent blocks before a transaction reaches the required finality. An indexer may initially expose a transaction and later revise the record after a reorganization. Data pipelines should define confirmation policies, support corrections, and make freshness visible. Compare the block height and timestamp with the data provider's ingestion time; a recent-looking dashboard can still be based on delayed indexing.
+
+Cross-chain comparisons need particular care. Native assets, wrapped tokens, bridged assets, and protocol representations can refer to the same underlying economic value. Counting every representation as independent activity can double-count value. Token decimals, symbol collisions, chain identifiers, and contract addresses must be treated explicitly rather than relying only on token names.
+
+## Responsible analysis
+
+On-chain transparency does not make every inference reliable or ethical. Public addresses can sometimes be linked to people through exchange records, public statements, or behavioral patterns. Limit access to sensitive investigative datasets, document uncertainty, and avoid exposing individuals through speculative labeling. Use external prices and off-chain information with timestamps and stated methodology. On-chain data is powerful for auditing network activity and forming hypotheses, but price forecasts and claims about human intent require evidence beyond transaction counts alone.

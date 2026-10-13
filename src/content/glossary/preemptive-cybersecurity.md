@@ -144,3 +144,22 @@ The most durable knowledge is therefore the architecture principle: identify the
 ## Further reading
 
 The primary sources listed in this entry should be treated as the authoritative starting point for standards, specifications and regulatory interpretation. Product documentation and implementation guidance should be checked separately because vendor capabilities can change faster than the underlying concept.
+
+<!-- content-audit-expansion-v2 -->
+
+
+## Turning signals into controlled action
+
+A preemptive security program is only useful when it connects a signal to a validated action. A suspicious identity pattern might justify stronger authentication, while a confirmed malicious hash might justify blocking an artifact; each action has a different risk of disrupting legitimate work. Define the confidence required for automated blocking, who can approve a high-impact response, and how a false positive is reversed. Keep detections explainable enough that analysts can trace the evidence behind an action.
+
+Threat intelligence should be evaluated for source reliability, freshness, context, and applicability. A technique observed in one environment may not indicate that every organization is under the same threat. Correlate external indicators with asset inventory, identity telemetry, vulnerability exposure, and local behavior before prioritizing. Record confidence and expiration, since old indicators can become ineffective or produce unnecessary blocks.
+
+## Prioritizing by exposure and impact
+
+Combine vulnerability severity with exploitability, whether the affected asset is exposed, the privilege it holds, business criticality, available mitigations, and evidence of active exploitation. A raw list of thousands of alerts does not create prevention. Focus on attack paths that allow access to sensitive systems and close the relevant control gaps. Verify that patches, configuration changes, identity restrictions, or network rules have actually taken effect.
+
+## Measuring value without overstating prediction
+
+Useful measures include time to validate a signal, time to contain an incident, recurrence of the same attack path, coverage of critical assets, and false-positive rates. The number of alerts blocked or threats predicted can be misleading if the organization cannot establish that the intervention prevented harm. Maintain a record of the evidence and counterfactual assumptions for high-profile claimed preventions.
+
+Preemptive cybersecurity should complement—not replace—basic hygiene such as asset discovery, secure configuration, identity controls, backups, patching, logging, and incident response. Human analysts remain important for ambiguous cases, and automated controls need monitoring for drift and unintended consequences. The goal is to reduce the time and opportunity an attacker has to succeed while preserving reliable business operations.

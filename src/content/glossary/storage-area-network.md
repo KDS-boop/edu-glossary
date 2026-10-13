@@ -6,6 +6,8 @@ category: "Cloud Computing"
 letter: "S"
 updatedDate: 2026-09-27
 relatedTerms: ["Cloud Service Provider", "Hybrid Cloud Storage", "Virtualization Software", "Network Attached Storage", "Fibre Channel", "iSCSI"]
+image: './images/storage-area-network.svg'
+imageAlt: 'Storage Area Network concept illustration: A dedicated network that connects servers to high-speed data storage devices (disk arrays).'
 ---
 
 A Storage Area Network (SAN) is a specialized network infrastructure that connects multiple servers with shared storage devices such as disk arrays, tape libraries, and solid-state storage. Unlike Network Attached Storage (NAS), which is file-based, SAN provides block-level access to storage, delivering higher performance and flexibility for enterprise applications.
@@ -114,3 +116,31 @@ FC provides dedicated high-speed storage networking with lower latency but requi
 ---
 
 **Related concepts:** [Cloud Service Provider](/glossary/cloud-service-provider/), [Hybrid Cloud Storage](/glossary/hybrid-cloud-storage/), [Virtualization Software](/glossary/virtualization-software/), [Cloud Computing hub](/learn/cloud-computing/)
+
+<!-- content-audit-expansion-v1 -->
+
+
+## Designing a SAN around availability requirements
+
+A storage area network connects servers to shared block storage so that operating systems and applications can use volumes as if they were locally attached. A SAN design should start with application I/O patterns, latency limits, throughput, capacity, and recovery requirements. Database workloads often care about predictable latency and write behavior; large sequential workloads may prioritize bandwidth. Average utilization alone can hide short but damaging latency spikes, so monitoring should include percentiles, queue depth, path errors, and saturation.
+
+Fibre Channel and iSCSI differ in transport and operational requirements. Fibre Channel uses a dedicated fabric and specialized interfaces and switches; iSCSI carries SCSI commands over IP networks and may reuse Ethernet infrastructure when designed carefully. Neither choice automatically determines performance or security. Network congestion, multipathing, queue configuration, switch topology, and array behavior are also important.
+
+## Resilience and access control
+
+Redundant controllers and paths protect against specific component failures, but only if the paths do not share the same critical switch, power source, or configuration risk. Multipathing software must be configured and tested for failover. Zoning and logical unit number masking limit which initiators can reach which storage resources; keep those rules explicit and review them as hosts change. Storage management interfaces should be isolated and strongly authenticated.
+
+A snapshot on the same array can speed up recovery from some mistakes, but it does not replace an independent backup. Ransomware or a privileged compromise may affect accessible snapshots. Define separate recovery copies, immutable or offline options where warranted, and a tested process for rebuilding hosts and restoring data. Verify application consistency, not only whether the volume mounted.
+
+## Capacity and lifecycle planning
+
+Plan beyond raw capacity: account for snapshots, replication, metadata, spare capacity, growth, and rebuild overhead. Track the support lifecycle of host adapters, switches, firmware, operating systems, and storage arrays. A migration should include compatibility validation, rollback criteria, and an application-level acceptance test. Choose SAN when shared block storage and predictable centralized management justify the complexity; file-oriented collaboration or object archives may be better served by NAS or object storage.
+
+<!-- content-audit-margin-v1 -->
+## Operational signals worth monitoring
+
+A SAN team should monitor more than remaining terabytes. Important signals include read and write latency, queue depth, throughput, cache pressure, path failures, controller failover events, rebuild progress, and capacity reserved for snapshots or replication. Baseline these values during normal and peak load so that an incident can be recognized before users report application timeouts. Correlate storage events with host and application logs to determine whether a slowdown originates in the fabric, array, server, or workload.
+
+Plan firmware and compatibility changes across all connected components. A host adapter, switch, multipathing driver, operating system, and array can each be supported individually but still require a validated combination. Use staged updates and maintain a rollback path. Test a path failure and controller failover during a maintenance window so the team understands the observed behavior.
+
+The operational objective is predictable access and recoverability, not simply maximum utilization. Preserve enough headroom for peak load and rebuild operations, and rehearse the process of restoring application-consistent data from an independent backup.

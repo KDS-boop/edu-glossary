@@ -6,6 +6,8 @@ category: "Software Development"
 letter: "C"
 updatedDate: 2026-09-27
 relatedTerms: ["API", "Continuous Integration", "Full Stack", "Version Control", "Monorepo", "Technical Debt"]
+image: './images/codebase.svg'
+imageAlt: 'Codebase concept illustration: The complete collection of source code that forms a software project or application, typically stored in a single repository.'
 ---
 
 A codebase (code base) is the entirety of raw source code — all files, modules, libraries, and configuration that collectively constitute a software application or project. A codebase lives inside a version control repository such as Git, where every change is recorded historically and can be rolled back if needed.
@@ -156,3 +158,31 @@ Consider splitting when a repository becomes too large to build efficiently, whe
 
 ### How do I handle legacy code?
 Approach legacy code with understanding, not judgment. Document what you learn, add tests around existing behavior, refactor incrementally, and avoid big-bang rewrites when possible.
+
+<!-- content-audit-expansion-v2 -->
+
+
+## Diagnosing codebase health with evidence
+
+A large codebase is not automatically unhealthy, and a small one is not automatically maintainable. Look for signals that make change risky: frequently modified modules with many dependencies, duplicated business rules, flaky tests, long build times, inconsistent naming, undocumented data contracts, and repeated production incidents. Combine quantitative measures with developer and incident evidence. A line-count target by itself can encourage unhelpful refactoring without improving how safely the system changes.
+
+When entering legacy code, first map the important execution paths and preserve current behavior with characterization tests. Add tests around a bug before changing a complicated component, and refactor in small steps that are easy to review. Rewriting a subsystem may be justified when constraints have changed substantially, but it should include a migration plan and measurable acceptance criteria instead of relying on the assumption that new code will automatically be better.
+
+## Repository boundaries and architecture
+
+A monorepo can make coordinated changes and shared tooling easier, while a multi-repo approach can offer clearer ownership and independent releases. The decision affects build times, dependency governance, permissions, testing, and how versioned interfaces are managed. Teams should choose boundaries based on collaboration and release needs rather than treating either style as universally superior.
+
+Make important architectural decisions discoverable. Record why a technology was selected, which constraints matter, and what would justify revisiting the choice. Keep setup instructions current and automate repetitive quality checks. Avoid hidden coupling through shared mutable state, undocumented environment variables, or database assumptions.
+
+## Maintenance as a continuous process
+
+Review dependencies and runtime support regularly, classify security and reliability risks, and prioritize debt that blocks delivery or increases incident impact. Use issue tracking to make trade-offs explicit; not every old pattern must be replaced immediately. A useful definition of codebase health is whether maintainers can understand, test, change, deploy, and recover the software at an acceptable cost and level of risk.
+
+<!-- content-audit-margin-v1 -->
+## Code ownership and knowledge transfer
+
+A maintainable codebase makes it clear where a behavior belongs and who can explain it. Assign ownership to critical modules and services, document interfaces between teams, and keep setup instructions close to the code they describe. Ownership should support review and accountability rather than make one person a permanent bottleneck. Pairing, code review, runbooks, and small architecture notes help spread knowledge before a key maintainer becomes unavailable.
+
+When a module is difficult to change, identify the reason before rewriting it. The problem may be missing tests, unclear requirements, tangled dependencies, unstable data contracts, or a lack of operational visibility. Each cause requires a different remedy. A targeted seam, characterization test, or interface boundary may reduce risk more quickly than a large redesign.
+
+Measure improvement through outcomes such as fewer regressions, shorter review cycles, reduced build time, and more predictable releases. Treat these measures as diagnostic signals, not targets to optimize in isolation. Healthy codebases support safe change and recovery while preserving the context future maintainers need.

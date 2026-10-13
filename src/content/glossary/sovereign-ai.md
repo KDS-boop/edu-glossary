@@ -142,3 +142,16 @@ The most durable knowledge is therefore the architecture principle: identify the
 ## Further reading
 
 The primary sources listed in this entry should be treated as the authoritative starting point for standards, specifications and regulatory interpretation. Product documentation and implementation guidance should be checked separately because vendor capabilities can change faster than the underlying concept.
+
+<!-- content-audit-expansion-v4 -->
+## Evaluating the complete AI supply chain
+
+A sovereignty assessment for AI should cover more than the location of the inference server. Map where prompts, uploaded files, retrieval passages, embeddings, fine-tuning data, model weights, evaluation results, telemetry, and backups are processed. Each layer may be operated by a different vendor or rely on different contractual terms. Identify which components can access plaintext, which organizations can administer them, and what happens when a model or platform is updated.
+
+For a locally hosted model, verify the provenance of the weights and runtime, license conditions, update channel, vulnerability response process, and any outbound telemetry. Local hosting may increase control over processing but also shifts patching, capacity management, monitoring, and incident response to the operating organization. For a hosted model, review retention terms, training use, processing regions, subprocessors, access support, and the mechanism for deleting or exporting information.
+
+## Governance and model portability
+
+Create a register of models, versions, datasets, prompts, external APIs, vector indexes, and tools that are critical to each workload. Record the fallback or exit option and the evidence needed to approve a replacement. Switching a model may change output format, quality, refusal behavior, latency, and cost, so portability should be demonstrated through repeatable evaluation rather than assumed from an API-compatible interface.
+
+A sovereignty requirement should result in testable controls and evidence—for example, a verified processing boundary, defined key access, documented administrative authority, or tested data export. No single hosting label proves that an entire AI system is sovereign. The right design depends on the threat model, legal obligations, organizational capabilities, and acceptable dependencies.

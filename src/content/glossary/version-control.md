@@ -6,6 +6,8 @@ category: "Software Development"
 letter: "V"
 updatedDate: 2026-09-21
 relatedTerms: ["Codebase", "Continuous Integration", "Full Stack", "API", "REST API"]
+image: './images/version-control.svg'
+imageAlt: "Version Control concept illustration: A system that records changes to files over time, allowing developers to recall specific versions, compare changes, and collaborate without overwriting each other's work."
 ---
 
 Version control is a system that tracks changes to files over time, enabling developers to recall previous versions, compare differences between versions, and collaborate on shared projects without conflicts. It is the foundational tool of modern software development — no serious software project operates without it.
@@ -100,3 +102,33 @@ This happens when you check out a specific commit (not a branch), e.g., `git che
 
 ### How do I resolve merge conflicts?
 When Git cannot auto-merge (both branches changed the same lines), it marks the conflicted files with conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`). Edit the files to resolve the conflict (keep one side, combine, or write new code), then `git add <file>` to mark as resolved, and `git commit` to complete the merge. Tools like `git mergetool` or VS Code's merge editor can help visualize conflicts.
+
+<!-- content-audit-expansion-v1 -->
+
+
+## Choosing a workflow for the team
+
+A version-control workflow should help contributors make small, reviewable changes and recover from mistakes. Short-lived branches and focused commits make review easier than one branch that accumulates unrelated work for weeks. A commit message should explain the intent of the change, while the diff shows what actually changed. Before sharing a branch, run the checks that protect the project, and do not commit generated secrets, local environment files, or large build artifacts unless the repository explicitly requires them.
+
+Merging and rebasing solve related but different problems. Merge records how two histories were combined; rebase replays commits on a new base and changes their identifiers. Rebasing private local work can produce a tidy linear history, but rewriting commits that other people already depend on can disrupt collaboration. Agree on team conventions and avoid force-pushing shared branches without coordination.
+
+## Recovering safely from common mistakes
+
+Before undoing a change, inspect the status and diff. A working-tree modification, staged change, local commit, and pushed commit require different recovery steps. `git restore` can discard uncommitted changes, so it should be used only when those changes are known to be unwanted. `git reset` can move the current branch pointer; `git revert` creates a new commit that reverses another commit and is often safer for shared history. A detached HEAD is not necessarily data loss: create a branch if the commit must be retained.
+
+Conflicts are a request for a human decision, not evidence that one side is always correct. Read both versions, understand the intent, resolve the file, and run tests after the merge. Do not blindly accept one side for configuration, migrations, or lockfiles.
+
+## Repository hygiene and release confidence
+
+Use ignore rules for local build output and machine-specific files, but verify that an important file is not accidentally ignored. Review the staged diff before committing and use `git status` again after a commit or push. Tags and releases should correspond to known commits. When several contributors work in parallel, document ownership of sensitive files and keep secrets in an approved secret store rather than version control. Version control preserves history; it does not replace backups, access control, testing, or release discipline.
+
+<!-- content-audit-expansion-v3 -->
+
+
+## A safe release sequence
+
+Before a release, fetch the expected branch, inspect the working tree, run tests, review the staged diff, and confirm which commit will be published. A successful push means the repository accepted the commit; it does not prove that a deployment ran or that production serves the new version. Check the CI or deployment record and perform a small production smoke test when the risk justifies it.
+
+Keep each commit focused enough to understand and revert. If unrelated work appears in the diff, separate it rather than committing everything with a broad message. A clean working tree is a useful checkpoint because it makes it easier to know exactly what was shipped, but it is not evidence that the code itself is correct.
+
+For sensitive or regulated repositories, use branch protections, review requirements, signed releases where appropriate, and least-privilege access. Ensure secrets are not present in commits, including old history; deleting a file in a later commit does not erase it from previous commits. If a credential has been committed or exposed, revoke or rotate it and follow the incident process rather than relying on file deletion alone.

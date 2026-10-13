@@ -103,3 +103,22 @@ No. Withdrawal ability depends on the contract, pool liquidity, collateral rules
 ### Why can TVL differ between dashboards?
 
 Providers can use different contract lists, price sources, token classifications, bridge rules, and double-counting controls. Always check the methodology before comparing figures.
+
+<!-- content-audit-expansion-v2 -->
+
+
+## Comparing TVL without double-counting
+
+TVL dashboards can disagree because they use different asset prices, contract lists, inclusion rules, update times, and treatment of borrowed or derivative positions. A protocol may count deposits in a vault while an upstream lending protocol also counts the same collateral, causing aggregate ecosystem totals to exceed unique underlying capital. Cross-chain representations and bridged assets can create similar duplication. Before comparing figures, read the provider methodology and determine whether the measure is protocol-level, chain-level, or intended to represent unique assets.
+
+TVL can increase because an asset's market price rises even when no new tokens are deposited. It can fall because prices decline, users withdraw, a protocol migrates contracts, or the indexer changes its coverage. When possible, examine token quantities and price effects separately, compare net deposits, and align timestamps. A single USD figure hides these drivers.
+
+## Why TVL is not a safety rating
+
+A high TVL can indicate that users have deposited substantial assets, but it does not prove that a protocol's code is secure, that withdrawals will always work, or that liquidity is available at a fair price. Assets may be concentrated in a small number of wallets, depend on incentives, or be exposed to correlated collateral. Smart-contract exploits and governance failures can affect large and small protocols alike.
+
+## A more complete monitoring view
+
+Pair TVL with net flows, utilization, borrow rates, collateral quality, liquidation activity, contract permissions, audit scope, oracle design, and concentration. Separate externally owned deposits from protocol-owned incentives when possible. Identify whether an apparent rise reflects organic usage or a temporary reward campaign, and note any major contract or chain migration.
+
+For research and reporting, include source, timestamp, currency, calculation method, and caveats. TVL is a useful descriptive input when its methodology is understood; it should not be used alone to rank protocol safety, user adoption, revenue quality, or investment value.

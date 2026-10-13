@@ -115,3 +115,12 @@ No. Demand, utility, distribution, liquidity, governance, and substitutes also m
 ### Are token holders shareholders?
 
 Usually not. Token rights vary, and ownership of a token generally does not automatically provide equity, dividends, or legal control over an issuer.
+
+<!-- content-audit-margin-v1 -->
+## Reading allocation and unlock schedules
+
+Token allocation tables should distinguish initial allocation, circulating supply, vesting, future emissions, treasury holdings, and units subject to special transfer or burn rules. A percentage assigned to a team or investor does not reveal when those units become transferable; the unlock schedule and any on-chain restrictions are equally important. Compare the published schedule with contract behavior and on-chain events where possible, and date the snapshot because circulating supply can change.
+
+Governance rights and economic rights should also be separated. A token may vote on parameters without giving holders a claim on protocol revenue; another may be required for fees or collateral but provide no formal governance vote. Avoid assuming that a token's stated utility automatically creates demand or value.
+
+A transparent tokenomics review should test the incentives at different stages: launch, periods of high issuance, falling demand, low liquidity, and changes to governance. Identify who can change emissions, mint additional units, pause transfers, or alter fee flows. These permissions and dependencies are more informative than a simple maximum-supply figure. Model scenarios transparently and label assumptions rather than presenting projected supply or price outcomes as facts.

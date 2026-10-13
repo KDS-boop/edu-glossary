@@ -133,3 +133,22 @@ The most durable knowledge is therefore the architecture principle: identify the
 ## Further reading
 
 The primary sources listed in this entry should be treated as the authoritative starting point for standards, specifications and regulatory interpretation. Product documentation and implementation guidance should be checked separately because vendor capabilities can change faster than the underlying concept.
+
+<!-- content-audit-expansion-v2 -->
+
+
+## Turning sovereignty goals into procurement requirements
+
+A sovereignty requirement should be expressed as testable controls rather than a broad promise. Specify where each data class may be stored and processed, which entities can access it, who holds encryption keys, where administrative support is located, what logs are available, and which subprocessors participate. Clarify whether the requirement concerns legal jurisdiction, operational control, data residency, supply-chain independence, or some combination. These are related but not interchangeable properties.
+
+Ask the provider for a service-specific architecture and evidence that matches the intended configuration, not a generic statement about its region. Review key-management options, privileged-access controls, remote support, incident notification, audit rights, deletion behavior, backup locations, and data export. A local region alone may not answer questions about foreign parent companies, software dependencies, or remote administration. Likewise, using a foreign supplier does not by itself establish that a particular workload violates a law; legal analysis depends on the data, transfer, safeguards, and applicable provisions.
+
+## AI adds more data flows
+
+An AI workload can send prompts, retrieved passages, embeddings, telemetry, model outputs, evaluation data, and support logs to different services. Map these paths separately. Determine whether provider terms allow retention or training on submitted content, whether an external model API is used, and where vector indexes and backups are located. The deployment model should make it possible to disable or change an external dependency when the requirement demands it.
+
+## Testing ongoing control
+
+Sovereignty is not a one-time procurement status. Reassess when the provider changes corporate structure, support locations, service architecture, subprocessors, or contract terms. Maintain a dependency register and an exit plan, including export tests for data and configuration. Review exceptions and define who can approve them.
+
+For Indonesian organizations, align architectural decisions with the relevant legal requirements and a documented legal assessment rather than assuming that every workload must always stay within national borders. The useful outcome is a clear mapping between legal and business obligations, technical controls, evidence, and residual risks.

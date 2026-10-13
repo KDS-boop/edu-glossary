@@ -133,3 +133,22 @@ The most durable knowledge is therefore the architecture principle: identify the
 ## Further reading
 
 The primary sources listed in this entry should be treated as the authoritative starting point for standards, specifications and regulatory interpretation. Product documentation and implementation guidance should be checked separately because vendor capabilities can change faster than the underlying concept.
+
+<!-- content-audit-expansion-v2 -->
+
+
+## Evaluating a world model for planning
+
+A world model should be tested on whether its predicted consequences help an agent choose better actions, not only on whether generated frames look convincing. Choose representative tasks and measure prediction error over multiple time steps, planning success, recovery from unexpected events, and the tendency to exploit errors in the learned model. Short-horizon accuracy can hide compounding errors: a small mismatch at every step may become a large divergence after a long imagined rollout.
+
+Model quality depends on coverage of relevant states and actions. A system trained mostly on common situations can fail when objects, lighting, weather, friction, or other conditions differ from the training environment. Test distribution shifts and rare but safety-relevant scenarios, and record where the model should defer to a conservative controller or request more information.
+
+## Simulation and real-world validation
+
+A learned world model can support planning or synthetic training data, but its outputs are predictions rather than observations. An agent that repeatedly plans inside the same imperfect model may learn to exploit model errors. Compare predicted outcomes with real observations and use uncertainty estimates or ensembles where appropriate to identify poorly understood states. For robotics, simulation-to-real tests should include sensor noise, actuation limits, timing, and environmental variation.
+
+## Resource and governance considerations
+
+Long sequences and high-resolution observations can make world-model training and inference expensive. Evaluate whether the added planning ability justifies latency, compute, and data-collection cost. Record model versions and training-data provenance so behavior changes can be traced. When the model is used in consequential settings, define human oversight, operational limits, fallback behavior, and procedures for reporting unexpected actions.
+
+World models are one approach to representing how an environment changes after actions. They do not guarantee that an agent has a complete or correct understanding of the world. Their value depends on the task, the fidelity of the learned dynamics, the quality of planning, and the safety mechanisms surrounding real-world action.

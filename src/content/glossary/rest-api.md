@@ -6,6 +6,8 @@ category: "Software Development"
 letter: "R"
 updatedDate: 2026-09-21
 relatedTerms: ["API", "API Gateway", "Full Stack", "Codebase", "Continuous Integration"]
+image: './images/rest-api.svg'
+imageAlt: 'REST API concept illustration: An API that follows the REST architectural style, using standard HTTP methods and stateless requests to interact with resources identified by URLs.'
 ---
 
 A REST API (Representational State Transfer Application Programming Interface) is an API that adheres to the REST architectural principles defined by Roy Fielding in his 2000 doctoral dissertation. REST APIs use standard HTTP methods, stateless communication, and resource-oriented URLs, making them the most widely implemented API style on the web.
@@ -128,3 +130,42 @@ Two main patterns: **Offset-based** (`?page=2&limit=20`) — simple but slow on 
 **For a beginner-friendly overview:** [What is an API? A Complete Beginner's Guide](/articles/what-is-an-api-beginners-guide/)
 **For general API concepts:** [API](/glossary/api/)
 **For broader context:** [Software Development hub](/learn/software-development/)
+
+<!-- content-audit-expansion-v1 -->
+
+
+## Designing predictable REST interfaces
+
+A good REST API makes resource identity and state changes clear. Choose stable resource paths, use HTTP methods consistently, validate input at the server, and return status codes that reflect the outcome. Clients should not have to infer whether a request succeeded from a human-readable message. An error response should provide a stable machine-readable code and enough context to correct the problem without exposing stack traces, secrets, or internal implementation details.
+
+Pagination is essential for collections that can grow. Cursor pagination often behaves more predictably than offset pagination when new records are inserted between requests, but the cursor must be opaque and validated. Document maximum page sizes, sorting rules, filters, and what happens when a requested sort field is not allowed. Never assume a client will obey a suggested limit.
+
+## Idempotency, retries, and concurrency
+
+Networks fail, so clients retry requests. A GET can generally be repeated without changing server state. For a payment or order-creation endpoint, a repeated POST may create duplicates unless the service supports an idempotency key or equivalent deduplication strategy. Define how long such keys remain valid and how the server responds when a key is reused with a different payload. PUT is intended to replace a resource representation, while PATCH applies a partial update; the server should document how missing, null, and invalid fields are interpreted.
+
+Concurrent updates need an explicit strategy. Optimistic concurrency controls such as ETags and conditional requests can help prevent a client from overwriting a newer change. For long-running work, return a job resource or another documented mechanism rather than leaving an HTTP request open indefinitely.
+
+## Secure and observable APIs
+
+Authentication proves who or what is calling; authorization decides what that caller may do. Check permissions on every resource and action, rate-limit abuse-prone endpoints, validate content types and payload size, and avoid logging credentials or personal data. Monitor latency percentiles, error rates, throttling, and dependency failures. API versioning should be driven by compatibility needs, with a published deprecation window and migration guidance. Before release, run contract tests and verify behavior for expired credentials, missing fields, duplicate requests, large responses, and upstream outages.
+
+<!-- content-audit-expansion-v3 -->
+
+
+## Example: creating an order safely
+
+Suppose a client sends a request to create a purchase. The API should authenticate the caller, verify that the caller can buy the requested item, validate quantities and prices on the server, and calculate the total using trusted data instead of accepting a client-supplied total. It should define how duplicate requests are handled and how the caller learns whether the order was created if the network drops before the response arrives. A payment should not be charged twice because the client retried after a timeout.
+
+A robust design separates validation errors from authorization failures and temporary dependency errors. Responses should avoid exposing whether sensitive records exist to an unauthorized caller. For long-running work, return a status resource or another documented mechanism to let the client poll or receive completion notification.
+
+Contract tests should cover valid and invalid payloads, expired credentials, permission boundaries, rate limits, pagination, and compatibility with older clients. Observe p95/p99 latency, timeout rate, error codes, and upstream dependency behavior. These operational signals help distinguish a faulty API from a healthy endpoint whose database or external service is degraded.
+
+<!-- content-audit-margin-v1 -->
+## Design for clients that evolve independently
+
+An API provider usually cannot update every consumer at the same moment. Make compatibility rules explicit: which fields are required, how unknown fields are handled, whether enum values may expand, and how errors are represented. Avoid changing the meaning of an existing field or silently changing units. When a breaking change is unavoidable, publish migration guidance, run both versions where practical, and collect evidence that active clients have moved before removing the old endpoint.
+
+A well-designed API also controls resource usage. Enforce upper bounds on pagination, payload size, query complexity, and expensive actions. Apply authorization after resolving the resource and before returning sensitive fields. Protect idempotency records and ensure retries cannot trigger duplicate payments, messages, or jobs.
+
+Finally, document service objectives and degradation behavior. A client should know whether a rate-limit response can be retried, how long an operation may take, and where to obtain a request identifier for support. These details reduce accidental overload and make integrations more resilient as different teams deploy on different schedules.

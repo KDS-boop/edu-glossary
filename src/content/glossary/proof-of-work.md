@@ -6,6 +6,8 @@ category: "Blockchain"
 letter: "P"
 updatedDate: 2026-09-27
 relatedTerms: ["Blockchain", "Consensus Mechanism", "SHA-256", "Merkle Tree", "Proof of Stake", "Mining"]
+image: './images/proof-of-work.svg'
+imageAlt: 'Proof of Work concept illustration: A blockchain consensus mechanism that requires miners to solve computationally intensive cryptographic puzzles to validate blocks.'
 ---
 
 Proof of Work (PoW) is the first consensus mechanism used by Bitcoin and has been the gold standard of blockchain security for over a decade. In this system, miners compete to solve a mathematical puzzle that requires finding a specific nonce — a number that, when combined with block data and hashed, produces a value below the target set by the network.
@@ -134,3 +136,42 @@ Yes. The original concept was for **spam prevention**. Modern uses include captc
 
 ### What happens when all Bitcoin is mined?
 Bitcoin's block reward halves every 210,000 blocks (~4 years). Eventually, miners will be compensated **entirely by transaction fees**. The security model remains the same.
+
+<!-- content-audit-expansion-v1 -->
+
+
+## Understanding mining economics and network incentives
+
+Proof of work makes block production costly by requiring miners to search for a value that satisfies a difficulty target. The work is easy for other nodes to verify but expensive to discover. Difficulty adjustment helps a network keep block production near its intended pace as total hash power changes, although the exact adjustment rule differs between protocols. A nonce is one input miners vary, but modern mining also changes other block-header fields or transaction selections when searching for a valid block.
+
+The security model is economic as well as computational. An attacker with substantial hash power may attempt to reorganize recent blocks or censor transactions, but the cost and practical effect depend on the chain's total hash rate, hardware access, energy prices, mining-pool structure, confirmation depth, and attacker incentives. Hash rate is a useful indicator, not a complete guarantee; software bugs, custody failures, and social coordination can still cause losses.
+
+## Energy, hardware, and concentration
+
+Mining consumes electricity and specialized hardware, so operators compare expected rewards with power cost, cooling, equipment depreciation, and the probability of earning a block. This creates incentives to seek efficient energy and scale, but low-cost locations and large facilities can concentrate production. Pools reduce the variance of miner income, yet a pool can become a coordination point with influence over transaction selection. The distinction between individual hardware owners and pool operators matters when assessing concentration.
+
+Energy analysis should specify what is being measured and the time period. Estimates based on network-wide hardware and electricity assumptions carry uncertainty. Electricity consumption alone does not establish environmental impact; energy source, location, timing, and alternative uses of the power also matter. Avoid treating a single estimate as a permanent property of a network.
+
+## Practical confirmation policy
+
+A payment recipient should decide how much reorganization risk is acceptable. Low-value transfers may require fewer confirmations than large, irreversible settlements. Exchanges and merchants should model the cost of a double-spend relative to the value and speed of the transaction. Miners should also consider pool policies and key security, not just advertised payout rates. Proof of work provides a specific way to order transactions under an economic threat model; it does not replace application-level security, safe wallet practices, or operational monitoring.
+
+<!-- content-audit-expansion-v3 -->
+
+
+## Example: interpreting a confirmation for a payment
+
+A merchant accepting a proof-of-work cryptocurrency should define a confirmation policy based on the payment amount, the cost of a double-spend, transaction replacement rules, and network conditions. A zero-confirmation transaction is not equivalent to a transaction buried under additional blocks. A large payment may warrant more confirmations or a separate risk review, while a low-value payment may use a different policy. The policy should be explicit and consistently enforced.
+
+Monitor network congestion, fee levels, block intervals, pool concentration, and relevant software changes. Sudden changes may affect settlement times or the confidence a recipient should place in a recent block. Wallet software may display a transaction as pending or confirmed according to its own rules, so high-value workflows should verify the intended chain and transaction status rather than trusting a screenshot from the sender.
+
+Mining economics can shift when rewards, prices, electricity costs, or hardware efficiency change. These changes influence who can remain profitable and may change the distribution of hash power. They do not directly reveal every attack risk, but they are useful context alongside protocol rules, observed hash rate, and independent operational evidence.
+
+<!-- content-audit-margin-v1 -->
+## Separate mining-pool influence from hardware ownership
+
+Hash-rate concentration can be hard to interpret because individual miners may direct work through a pool, while the pool operator coordinates block construction. The operator's influence is not identical to owning all underlying hardware, but it can still affect transaction selection and coordination. Review both pool distribution and the practical ability of miners to switch pools. Also consider whether a small number of equipment suppliers, energy sources, or hosting providers create common points of failure.
+
+Changes to fees, reward schedules, and electricity prices can shift miner participation. A change in economic incentives may affect network security over time, but a single price movement is not enough to quantify attack cost. Reports should state the time window, data source, and assumptions used.
+
+For application designers, the relevant outcome is how much settlement confidence a transaction needs and what evidence supports that decision. Use a risk-based confirmation policy and watch for abnormal reorganizations or network disruptions. Proof of work's security properties depend on protocol rules and the distribution and cost of resources, not solely on the fact that miners perform computation.

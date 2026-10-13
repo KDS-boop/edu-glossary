@@ -6,6 +6,8 @@ category: "Cybersecurity"
 letter: "B"
 updatedDate: 2026-09-27
 relatedTerms: ["End-to-End Encryption", "Firewall", "SHA-256", "Multi-Factor Authentication", "Password Policy", "Credential Stuffing"]
+image: './images/brute-force-attack.svg'
+imageAlt: 'Brute Force Attack concept illustration: An attack technique that tries every possible combination of passwords or keys until the correct one is found.'
 ---
 
 A brute force attack is a cryptographic attack method that relies on massive trial-and-error attempts of key combinations, passwords, or credentials until a valid pair is found. This approach does not exploit technical vulnerabilities in the system, but rather leverages the weakness of short or easily guessable passwords.
@@ -124,3 +126,18 @@ Yes, through monitoring for rapid failed login attempts from single IPs, impossi
 
 ### What should I do if my password was brute-forced?
 Change the password immediately, enable MFA if not already active, check for unauthorized activity, and review other accounts that may share the same password. Use a breach checking service to verify your credentials haven't been compromised elsewhere.
+
+<!-- content-audit-expansion-v2 -->
+
+
+## Prioritizing defenses by attack path
+
+A brute-force defense should address both the account and the underlying password store. For online login endpoints, rate limiting, progressive delays, bot detection, multifactor authentication, breached-password screening, and alerts can make repeated guesses harder. Avoid lockout policies that let an attacker permanently deny service to a victim; combine throttling with risk-based challenges and carefully designed recovery. Monitor distributed attempts, because an attacker can spread guesses across many IP addresses and rotate usernames.
+
+For stored password hashes, the threat is different: the attacker may guess offline without contacting the service, so online rate limiting does not help. Use a password-hashing scheme with a unique random salt and a cost parameter selected for the system's hardware and user experience. Protect the database and any pepper or key material separately. If old records use weak hashing, plan a migration that rehashes passwords after successful authentication or forces a safe reset, rather than assuming a change affects existing hashes automatically.
+
+## Detection and response
+
+Useful signals include bursts of failures for one account, low-and-slow attempts across many accounts, repeated use of known leaked credentials, unusual geography or devices, and successful logins immediately after a long failure sequence. No single signal proves an attack, so correlate identity, application, and infrastructure telemetry. Avoid collecting excess personal data and define alert thresholds that do not overwhelm staff during normal user mistakes.
+
+If an account may have been compromised, revoke active sessions, rotate relevant credentials, review account changes, and check whether the attacker created new recovery methods or API tokens. Resetting the password alone may leave a stolen session active. Notify affected users according to the incident policy, preserve relevant logs, and fix the path that allowed the attack. Password length, unique passwords, password managers, and phishing-resistant multifactor authentication work together; any one control should not be treated as the entire defense.

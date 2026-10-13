@@ -93,3 +93,22 @@ No. A stablecoin is generally issued by a private organization or protocol, whil
 ### Are stablecoins always safer than other cryptocurrencies?
 
 They may have less price volatility against their reference asset, but they add reserve, issuer, redemption, smart contract, and regulatory risks. Lower price volatility does not remove those risks.
+
+<!-- content-audit-expansion-v2 -->
+
+
+## What to examine in a stablecoin's backing
+
+A claim that a token is backed by cash, government securities, crypto collateral, or another asset should be evaluated against the actual redemption model and evidence. Ask who holds the reserves, which liabilities they support, how frequently reserve information is reported, whether the report is an attestation or a fuller audit, and what legal claim a holder has if the issuer becomes insolvent. A reserve statement is a snapshot under a defined scope, not a guarantee that every holder can redeem immediately during stress.
+
+Fiat-referenced stablecoins depend on banking access, counterparties, custody, liquidity, and the issuer's ability to process creation and redemption. Crypto-collateralized designs add collateral-price and liquidation risk; algorithmic mechanisms may rely heavily on market incentives and can fail when confidence collapses. Even a sound reserve profile cannot eliminate secondary-market price deviations or technical risks in contracts and bridges.
+
+## Pegs, liquidity, and redemption
+
+A token trading below its target can reflect redemption friction, uncertainty about reserves, market panic, venue-specific liquidity, or a technical incident. The gap between the price on one exchange and the target does not by itself identify the cause. Examine order-book depth, redemption eligibility, settlement time, fees, and whether the market is operating normally. A redemption path available only to approved institutions may not be directly available to every retail holder.
+
+## Cross-chain and contract risks
+
+A native token issued by an issuer differs from a bridged representation locked or minted by a bridge. The wrapped representation introduces bridge and custody assumptions even when the original asset is designed to be stable. Verify the chain, contract address, issuer documentation, and whether transfers are subject to freezing or blacklist controls.
+
+Stablecoins can be useful for payments, trading, and settlement, but they are not the same as insured bank deposits or central-bank digital currency. Assess the legal issuer, reserve reporting, redemption terms, operational dependencies, and potential loss modes before relying on them for treasury or payment workflows.

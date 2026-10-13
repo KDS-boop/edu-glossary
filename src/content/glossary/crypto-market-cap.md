@@ -97,3 +97,22 @@ They may use different prices, supply estimates, exchange coverage, update times
 ### What is market-cap dominance?
 
 Dominance is an asset's reported market cap divided by the total market cap of the selected asset set. The result depends on both the asset's data and the provider's definition of the total market.
+
+<!-- content-audit-expansion-v2 -->
+
+
+## A consistent way to compare market-cap figures
+
+Before comparing two assets or data providers, align the definition of circulating supply, the price source, the timestamp, and the treatment of wrapped or bridged tokens. A market-cap display typically multiplies a quoted price by an estimated circulating supply, but both inputs can differ across providers. Some assets have uncertain unlock schedules, lost coins, treasury holdings, or tokens with restrictions that affect what a source considers circulating. Comparisons are only meaningful when the methodology is understood.
+
+Market capitalization is a mark-to-market estimate, not a statement that the same amount of cash has been invested or can be withdrawn. The last traded price is applied to the supply figure even when only a small fraction of all units traded at that price. Thin liquidity can make the displayed value highly sensitive to a few transactions. A large market cap therefore does not guarantee a deep order book, stable price, low volatility, or low counterparty risk.
+
+## Interpreting changes over time
+
+A change can result from price movement, new issuance, a token unlock, a supply reclassification, a change in the provider's methodology, or a correction to stale data. When supply and price update at different times, a dashboard may show a temporary mismatch. Record the timestamp and source when using figures in a report, and avoid comparing one provider's live estimate with another provider's historical snapshot without noting the difference.
+
+Fully diluted valuation attempts to apply a current price to a broader future or maximum supply assumption. It is useful for understanding potential dilution but is not a forecast that all units will be issued or valued at that price. Trading volume measures activity over a period and liquidity describes the ability to trade without excessive price impact; neither is interchangeable with market cap.
+
+## A reporting checklist
+
+State the price source, supply definition, calculation time, currency, and any material exclusions. When ranking assets, consider circulating supply alongside liquidity, volume quality, ownership concentration, unlock schedules, contract permissions, and the reliability of the issuer or protocol. Market cap is a descriptive metric, not a safety rating or an investment recommendation.

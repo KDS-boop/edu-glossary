@@ -138,3 +138,22 @@ The most durable knowledge is therefore the architecture principle: identify the
 ## Further reading
 
 The primary sources listed in this entry should be treated as the authoritative starting point for standards, specifications and regulatory interpretation. Product documentation and implementation guidance should be checked separately because vendor capabilities can change faster than the underlying concept.
+
+<!-- content-audit-expansion-v2 -->
+
+
+## Establishing useful AI cost signals
+
+AI cost is difficult to manage when infrastructure bills cannot be connected to a product, team, model, or completed business task. Track usage with consistent metadata: model and version, environment, workload, team or tenant, input and output tokens where relevant, GPU time, storage, data transfer, and retry volume. Avoid collecting sensitive prompt content solely for cost allocation; structured counts and identifiers are often sufficient. Make shared infrastructure costs visible rather than allocating them invisibly to a single team.
+
+Unit economics are more actionable than a total bill alone. Depending on the application, a unit might be cost per successfully resolved support case, document processed, developer task completed, or active user served. Include failed calls, retries, human corrections, retrieval infrastructure, monitoring, and idle capacity so that the figure reflects the real system. Compare cost with quality and latency; a cheaper model that produces more errors can increase total operating cost.
+
+## Controls that protect quality
+
+Use budget alerts, quota limits, rate limits, caching when semantically safe, batching for suitable workloads, and automatic shutdown or scaling policies for temporary environments. Set limits that prevent runaway usage without abruptly breaking essential service. Model-routing rules can send simple requests to a smaller model and reserve expensive models for tasks that justify them, but routing itself needs evaluation for quality and reliability.
+
+## Governance and continuous review
+
+Assign owners to high-spend workloads and review changes after model upgrades, prompt changes, context-window increases, and new features. A shift from short answers to long-context analysis can raise costs even if request volume stays flat. Forecasting should show assumptions and uncertainty, especially for a product whose adoption is still changing.
+
+A useful FinOps review brings engineering, finance, procurement, and product owners together to evaluate spend against outcomes. It should distinguish avoidable waste from deliberate investment, and record trade-offs among cost, performance, privacy, and reliability. AI cost optimization is not simply minimizing tokens; it is achieving the required user outcome sustainably and with transparent ownership.
