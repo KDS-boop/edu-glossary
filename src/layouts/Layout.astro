@@ -119,9 +119,8 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
             const script = document.createElement('script');
             script.async = true;
             script.setAttribute('data-cfasync', 'false');
-            // Use Cloudflare Google Tag Gateway's first-party endpoint. This script
-            // is inserted only after CookieYes grants analytics or advertising consent.
-            script.src = '/wssc/';
+            script.src = 'https://www.googletagmanager.com/gtm.js?id=' +
+              encodeURIComponent(containerId) + '&l=dataLayer';
             firstScript.parentNode.insertBefore(script, firstScript);
           }
 
