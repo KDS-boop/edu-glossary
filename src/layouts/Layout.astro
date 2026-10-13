@@ -34,7 +34,6 @@ const siteName = 'EduGlossary';
 const documentTitle = title.endsWith(` | ${siteName}`) ? title : `${title} | ${siteName}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = image ? new URL(image, Astro.site) : new URL('/images/og-default.svg', Astro.site);
-const gtmId = import.meta.env.PUBLIC_GTM_ID;
 const googleTagId = 'GT-PJ46S7C5';
 const ga4MeasurementId = 'G-F3Z7H2NXEG';
 const clarityProjectId = 'ymmigfd0w2';
@@ -58,7 +57,7 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="google-adsense-account" content="ca-pub-4202775507431567" />
-    <script is:inline data-cfasync="false" data-gtm-id={gtmId} data-ga4-id={ga4MeasurementId} data-clarity-id={clarityProjectId}>
+    <script is:inline data-cfasync="false" data-google-tag-id={googleTagId} data-ga4-id={ga4MeasurementId} data-clarity-id={clarityProjectId}>
       window.dataLayer = window.dataLayer || [];
       function gtag() { window.dataLayer.push(arguments); }
 
@@ -74,17 +73,13 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
       });
       gtag('set', 'ads_data_redaction', true);
 
-      // GTM is retained for advertising tags only; GA4 loads directly after Analytics consent.
-      // Never load the GTM container for Analytics-only consent, because advertising
-      // tags can still emit cookieless Google Ads pings even when ad_storage is denied.
+      // Analytics and Clarity load directly only after the corresponding consent.
       (function () {
         const currentScript = document.currentScript;
-        const containerId = currentScript && currentScript.getAttribute('data-gtm-id');
+        const googleTagId = currentScript && currentScript.getAttribute('data-google-tag-id');
         const analyticsMeasurementId = currentScript && currentScript.getAttribute('data-ga4-id');
         const clarityId = currentScript && currentScript.getAttribute('data-clarity-id');
 
-        let gtmLoaded = false;
-        let lastConsent = null;
         let clarityLoaded = false;
 
         function syncClarityConsent(analytics, advertising) {
@@ -141,12 +136,6 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
           const advertising = isGranted(categories.advertisement);
           const functional = isGranted(categories.functional);
 
-          const consentChanged = lastConsent !== null && (
-            lastConsent.analytics !== analytics ||
-            lastConsent.advertising !== advertising ||
-            lastConsent.functional !== functional
-          );
-
           window.gtag('consent', 'update', {
             analytics_storage: analytics ? 'granted' : 'denied',
             ad_storage: advertising ? 'granted' : 'denied',
@@ -156,7 +145,7 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
             personalization_storage: functional ? 'granted' : 'denied'
           });
 
-          // GA4 is loaded directly only after Analytics consent; do not rely on GTM.
+          // Load GA4 directly only after Analytics consent.
           if (analytics) loadGA4();
 
           // Sync Clarity's current consent before any reload. This also lets
@@ -167,29 +156,6 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
             loadClarity(analytics, advertising);
           }
 
-          // Reinitialize the page after any consent change so tags that were
-          // previously blocked or allowed are evaluated against the new state.
-          if (gtmLoaded && consentChanged) {
-            window.location.reload();
-            return;
-          }
-
-          if (containerId && advertising && !gtmLoaded) {
-            gtmLoaded = true;
-            window.dataLayer.push({
-              'gtm.start': new Date().getTime(),
-              event: 'gtm.js'
-            });
-            const firstScript = document.getElementsByTagName('script')[0];
-            const script = document.createElement('script');
-            script.async = true;
-            script.setAttribute('data-cfasync', 'false');
-            script.src = 'https://www.googletagmanager.com/gtm.js?id=' +
-              encodeURIComponent(containerId) + '&l=dataLayer';
-            firstScript.parentNode.insertBefore(script, firstScript);
-          }
-
-          lastConsent = { analytics, advertising, functional };
         }
 
         function onBannerLoad(event) {
@@ -229,7 +195,7 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
             if (state.consent === true) applyConsent(state);
           }
         } catch (_) {
-          // Consent parsing failures intentionally leave GTM blocked.
+          // Consent parsing failures leave optional analytics blocked.
         }
       })();
     </script>
