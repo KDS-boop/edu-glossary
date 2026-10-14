@@ -74,7 +74,8 @@ const nav = [
   }
   
   if (toggle && menu) {
-    toggle.addEventListener('click', () => {
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       const isOpen = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!isOpen));
       toggle.classList.toggle('active');
@@ -104,17 +105,3 @@ const nav = [
     }
   }, { passive: true });
 </script>
-
-<style>
-  /* Default: sun visible, moon hidden */
-  .icon-sun { display: block; }
-  .icon-moon { display: none; }
-
-  /* In dark mode: hide sun, show moon */
-  :global([data-theme='dark']) .icon-sun { display: none !important; }
-  :global([data-theme='dark']) .icon-moon { display: block !important; }
-
-  /* In light mode: ensure sun is visible and moon is hidden */
-  :global([data-theme='light']) .icon-moon { display: none !important; }
-  :global([data-theme='light']) .icon-sun { display: block !important; }
-</style>

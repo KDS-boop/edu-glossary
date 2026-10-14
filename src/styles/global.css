@@ -556,6 +556,17 @@ article.prose {
   outline-offset: 2px;
 }
 
+/* ── Theme Toggle Icons ── */
+/* Sun shown by default (light mode), moon hidden */
+.icon-sun { display: block; }
+.icon-moon { display: none; }
+/* Dark mode: hide sun, show moon */
+[data-theme="dark"] .icon-sun { display: none; }
+[data-theme="dark"] .icon-moon { display: block; }
+/* Light mode: explicit (in case JS sets it) */
+[data-theme="light"] .icon-sun { display: block; }
+[data-theme="light"] .icon-moon { display: none; }
+
 /* ── Mobile Menu ── */
 .menu-toggle {
   display: none;
