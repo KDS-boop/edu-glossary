@@ -127,8 +127,7 @@ const pageDescription = entry.data.metaDescription || entry.data.shortDefinition
   ogImageAlt={entry.data.imageAlt || (entry.data.term + ' concept illustration')}
 >
   <Breadcrumb items={breadcrumbs} />
-  
-  <span class="badge" style={`background: ${getCategoryColor(entry.data.category).bg}; color: ${getCategoryColor(entry.data.category).text}; display: inline-flex; align-items: center; gap: 0.3rem;`}><span style="display: inline-flex;" set:html={getCategoryIcon(entry.data.category)}></span><a href={`/glossary/categories/${slugify(entry.data.category)}/`} style="color: inherit; text-decoration: none;">{entry.data.category}</a></span>
+  <span class="badge" style={`--cat-bg: ${getCategoryColor(entry.data.category).bg}; --cat-text: ${getCategoryColor(entry.data.category).text}; --cat-dark-bg: ${getCategoryColor(entry.data.category).darkBg}; --cat-dark-text: ${getCategoryColor(entry.data.category).darkText}; display: inline-flex; align-items: center; gap: 0.3rem;`}><span style="display: inline-flex;" set:html={getCategoryIcon(entry.data.category)}></span><a href={`/glossary/categories/${slugify(entry.data.category)}/`} style="color: inherit; text-decoration: none;">{entry.data.category}</a></span>
   <h1>{entry.data.term}</h1>
   <p class="muted">Updated: {entry.data.updatedDate.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
 

@@ -87,8 +87,7 @@ const pageDescription = post.data.description;
   author={authorName}
 >
   <Breadcrumb items={breadcrumbs} />
-  
-  <span class="badge" style={`background: ${getCategoryColor(post.data.category).bg}; color: ${getCategoryColor(post.data.category).text}; display: inline-flex; align-items: center; gap: 0.3rem;`}><span style="display: inline-flex;" set:html={getCategoryIcon(post.data.category)}></span><a href={`/articles/categories/${slugify(post.data.category)}/`} style="color: inherit; text-decoration: none;">{post.data.category}</a></span>
+  <span class="badge" style={`--cat-bg: ${getCategoryColor(post.data.category).bg}; --cat-text: ${getCategoryColor(post.data.category).text}; --cat-dark-bg: ${getCategoryColor(post.data.category).darkBg}; --cat-dark-text: ${getCategoryColor(post.data.category).darkText}; display: inline-flex; align-items: center; gap: 0.3rem;`}><span style="display: inline-flex;" set:html={getCategoryIcon(post.data.category)}></span><a href={`/articles/categories/${slugify(post.data.category)}/`} style="color: inherit; text-decoration: none;">{post.data.category}</a></span>
   <h1>{post.data.title}</h1>
   <div class="article-meta">
     <span>By <a href={`/authors/${authorSlug}/`}>{authorName}</a></span>

@@ -12,14 +12,14 @@ interface Props {
   relatedCount?: number;
 }
 const { term, shortDefinition, category, slug, letter, relatedCount } = Astro.props;
-const { bg, text } = getCategoryColor(category);
+const { bg, text, darkBg, darkText } = getCategoryColor(category);
 const icon = getCategoryIcon(category);
 ---
-<div class="card">
-  <div class="card-accent" style={`background: linear-gradient(90deg, ${text}, ${bg});`}></div>
+<div class="card" style={`--cat-bg: ${bg}; --cat-text: ${text}; --cat-dark-bg: ${darkBg}; --cat-dark-text: ${darkText};`}>
+  <div class="card-accent"></div>
   <div class="card-body">
     <div class="card-top-row">
-      <a class="badge" href={`/glossary/categories/${slugify(category)}/`} style={`background: ${bg}; color: ${text};`}>
+      <a class="badge" href={`/glossary/categories/${slugify(category)}/`}>
         <span set:html={icon}></span>
         {category}
       </a>

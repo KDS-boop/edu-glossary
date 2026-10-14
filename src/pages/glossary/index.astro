@@ -8,30 +8,48 @@ const allEntries = (await getCollectionSorted('glossary')).sort((a, b) =>
 );
 
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-const activeLetters = new Set(allEntries.map((e) => e.data.letter.toUpperCase()));
+
+// Group entries alphabetically by letter
+const groupedEntries = new Map<string, typeof allEntries>();
+for (const entry of allEntries) {
+  const letter = (entry.data.letter || entry.data.term.charAt(0)).toUpperCase();
+  const list = groupedEntries.get(letter) || [];
+  list.push(entry);
+  groupedEntries.set(letter, list);
+}
+
+const activeLetters = new Set(groupedEntries.keys());
 ---
 <Layout title="Technology Glossary: A-Z Terms & Definitions" description="Complete A-Z list of technology terms.">
   <h1>Glossary</h1>
   <p class="muted">Browse definitions alphabetically.</p>
 
-  <nav class="az-index">
+  <nav class="az-index" aria-label="Alphabetical index">
     {alphabet.map((letter) => (
       activeLetters.has(letter)
-        ? <a href={`#huruf-${letter}`}>{letter}</a>
-        : <span class="az-index" style="opacity:0.3;">{letter}</span>
+        ? <a href={`#letter-${letter}`}>{letter}</a>
+        : <span class="az-index-disabled" aria-disabled="true">{letter}</span>
     ))}
   </nav>
 
-  <div class="grid">
-    {allEntries.map((entry) => (
-      <div id={`huruf-${entry.data.letter.toUpperCase()}`}>
-        <GlossaryCard
-          term={entry.data.term}
-          shortDefinition={entry.data.shortDefinition}
-          category={entry.data.category}
-          slug={entry.id}
-        />
-      </div>
-    ))}
+  <div class="glossary-alphabet-sections">
+    {alphabet.filter((letter) => activeLetters.has(letter)).map((letter) => {
+      const entries = groupedEntries.get(letter) || [];
+      return (
+        <section id={`letter-${letter}`} class="glossary-letter-group" aria-labelledby={`heading-letter-${letter}`}>
+          <h2 id={`heading-letter-${letter}`} class="glossary-letter-heading">{letter}</h2>
+          <div class="grid">
+            {entries.map((entry) => (
+              <GlossaryCard
+                term={entry.data.term}
+                shortDefinition={entry.data.shortDefinition}
+                category={entry.data.category}
+                slug={entry.id}
+              />
+            ))}
+          </div>
+        </section>
+      );
+    })}
   </div>
 </Layout>

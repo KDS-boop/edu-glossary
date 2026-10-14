@@ -50,6 +50,8 @@ const nav = [
   
   if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
     html.setAttribute('data-theme', 'dark');
+  } else {
+    html.setAttribute('data-theme', 'light');
   }
   
   themeToggle?.addEventListener('click', () => {
@@ -67,6 +69,7 @@ const nav = [
   function closeMenu() {
     if (!toggle || !menu) return;
     toggle.setAttribute('aria-expanded', 'false');
+    toggle.classList.remove('active');
     menu.classList.remove('open');
   }
   
@@ -74,6 +77,7 @@ const nav = [
     toggle.addEventListener('click', () => {
       const isOpen = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!isOpen));
+      toggle.classList.toggle('active');
       menu.classList.toggle('open');
     });
     
@@ -102,8 +106,15 @@ const nav = [
 </script>
 
 <style>
-  /* Hide moon icon in light mode, sun icon in dark mode */
-  [data-theme='light'] .icon-moon { display: none; }
-  [data-theme='dark'] .icon-sun { display: none; }
+  /* Default: sun visible, moon hidden */
   .icon-sun { display: block; }
+  .icon-moon { display: none; }
+
+  /* In dark mode: hide sun, show moon */
+  :global([data-theme='dark']) .icon-sun { display: none !important; }
+  :global([data-theme='dark']) .icon-moon { display: block !important; }
+
+  /* In light mode: ensure sun is visible and moon is hidden */
+  :global([data-theme='light']) .icon-moon { display: none !important; }
+  :global([data-theme='light']) .icon-sun { display: block !important; }
 </style>

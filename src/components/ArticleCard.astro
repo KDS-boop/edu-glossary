@@ -15,17 +15,17 @@ interface Props {
 }
 const { title, description, category, author, publishedDate, slug, featured = false } = Astro.props;
 const dateLabel = publishedDate.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
-const { bg, text } = getCategoryColor(category);
+const { bg, text, darkBg, darkText } = getCategoryColor(category);
 const icon = getCategoryIcon(category);
 
 const authorData = getAuthorBySlug(author);
 const authorName = authorData?.name || author;
 const authorSlug = authorData?.slug || slugify(author);
 ---
-<div class="card" data-featured={featured ? '' : undefined}>
-  <div class="card-accent" style={`background: linear-gradient(90deg, ${text}, ${bg});`}></div>
+<div class="card" data-featured={featured ? '' : undefined} style={`--cat-bg: ${bg}; --cat-text: ${text}; --cat-dark-bg: ${darkBg}; --cat-dark-text: ${darkText};`}>
+  <div class="card-accent"></div>
   <div class="card-body">
-    <a class="badge" href={`/articles/categories/${slugify(category)}/`} style={`background: ${bg}; color: ${text};`}>
+    <a class="badge" href={`/articles/categories/${slugify(category)}/`}>
       <span set:html={icon}></span>
       {category}
     </a>

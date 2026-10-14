@@ -20,14 +20,14 @@ const categories = [...categoryMap.entries()].sort((a, b) => a[0].localeCompare(
 
   <div class="grid" style="margin-top: 1.5rem;">
     {categories.map(([category, count]) => {
-      const { text } = getCategoryColor(category);
+      const { text, darkText } = getCategoryColor(category);
       const icon = getCategoryIcon(category);
       return (
-        <a class="card" href={`/glossary/categories/${slugify(category)}/`} style={`border-left: 4px solid ${text};`}>
+        <a class="card category-overview-card" href={`/glossary/categories/${slugify(category)}/`} style={`--cat-text: ${text}; --cat-dark-text: ${darkText};`}>
           <div class="card-body">
             <div style="display: flex; align-items: center; gap: 0.5rem;">
-              <span style={`display: inline-flex; color: ${text};`} set:html={icon}></span>
-              <span style={`font-weight: 600; color: ${text};`}>{category}</span>
+              <span class="category-icon" style="display: inline-flex;" set:html={icon}></span>
+              <span class="category-title" style="font-weight: 600;">{category}</span>
             </div>
             <p class="muted" style="margin-top: 0.5rem;">{count} terms</p>
           </div>
@@ -36,3 +36,20 @@ const categories = [...categoryMap.entries()].sort((a, b) => a[0].localeCompare(
     })}
   </div>
 </Layout>
+
+<style>
+  .category-overview-card {
+    border-left: 4px solid var(--cat-text);
+  }
+  .category-overview-card .category-icon,
+  .category-overview-card .category-title {
+    color: var(--cat-text);
+  }
+  :global([data-theme="dark"]) .category-overview-card {
+    border-left-color: var(--cat-dark-text);
+  }
+  :global([data-theme="dark"]) .category-overview-card .category-icon,
+  :global([data-theme="dark"]) .category-overview-card .category-title {
+    color: var(--cat-dark-text);
+  }
+</style>

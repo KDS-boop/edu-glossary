@@ -71,7 +71,7 @@ const breadcrumbs = [
 
   <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
     <span style={`display: inline-flex; color: ${text}; font-size: 1.5rem;`} set:html={icon}></span>
-    <span class="badge" style={`background: ${bg}; color: ${text}; font-size: 0.8rem;`}>{glossaryEntries.length} terms</span>
+    <span class="badge" style={`--cat-bg: ${bg}; --cat-text: ${text}; --cat-dark-bg: ${getCategoryColor(categoryName).darkBg}; --cat-dark-text: ${getCategoryColor(categoryName).darkText}; font-size: 0.8rem;`}>{glossaryEntries.length} terms</span>
   </div>
 
   <h1>{hub.title}</h1>
@@ -84,12 +84,12 @@ const breadcrumbs = [
     <h2 id="key-concepts-heading">Key Concepts</h2>
     <div class="hub-terms-grid">
       {glossaryEntries.map((entry) => {
-        const { bg: tBg, text: tText } = getCategoryColor(entry.data.category);
+        const catColor = getCategoryColor(entry.data.category);
         return (
-          <a class="card hub-term-card" href={`/glossary/${entry.id}/`}>
-            <div class="card-accent" style={`background: ${tText};`}></div>
+          <a class="card hub-term-card" href={`/glossary/${entry.id}/`} style={`--cat-bg: ${catColor.bg}; --cat-text: ${catColor.text}; --cat-dark-bg: ${catColor.darkBg}; --cat-dark-text: ${catColor.darkText};`}>
+            <div class="card-accent"></div>
             <div class="card-body">
-              <span class="badge" style={`background: ${tBg}; color: ${tText}; font-size: 0.65rem;`}>{entry.data.category}</span>
+              <span class="badge" style="font-size: 0.75rem;">{entry.data.category}</span>
               <h3 class="hub-term-title">{entry.data.term}</h3>
               <p class="hub-term-def">{entry.data.shortDefinition}</p>
             </div>
@@ -104,12 +104,12 @@ const breadcrumbs = [
       <h2 id="related-articles-heading">Related Articles</h2>
       <div class="hub-terms-grid">
         {articleEntries.map((article) => {
-          const { bg: aBg, text: aText } = getCategoryColor(article.data.category);
+          const catColor = getCategoryColor(article.data.category);
           return (
-            <a class="card hub-term-card" href={`/articles/${article.id}/`}>
-              <div class="card-accent" style={`background: ${aText};`}></div>
+            <a class="card hub-term-card" href={`/articles/${article.id}/`} style={`--cat-bg: ${catColor.bg}; --cat-text: ${catColor.text}; --cat-dark-bg: ${catColor.darkBg}; --cat-dark-text: ${catColor.darkText};`}>
+              <div class="card-accent"></div>
               <div class="card-body">
-                <span class="badge" style={`background: ${aBg}; color: ${aText}; font-size: 0.65rem;`}>{article.data.category}</span>
+                <span class="badge" style="font-size: 0.75rem;">{article.data.category}</span>
                 <h3 class="hub-term-title">{article.data.title}</h3>
                 <p class="hub-term-def">{article.data.description}</p>
               </div>
@@ -178,7 +178,7 @@ const breadcrumbs = [
   }
 
   .hub-term-def {
-    color: var(--color-muted);
+    color: var(--color-text-muted);
     font-size: 0.85rem;
     line-height: 1.5;
     margin: 0;
