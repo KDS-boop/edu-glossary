@@ -598,7 +598,7 @@ article.prose {
   .menu-toggle { display: flex; }
   .site-header ul {
     position: fixed;
-    top: 64px;
+    top: 100%;
     left: 0;
     right: 0;
     background: var(--color-bg);
