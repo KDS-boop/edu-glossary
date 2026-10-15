@@ -440,6 +440,15 @@ article.prose {
   gap: var(--space-6);
 }
 
+/* Logo + hamburger share one row. Without this the block-level
+   .menu-toggle button wraps onto its own line below the logo. */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
 .site-header .logo {
   font-family: var(--font-sans);
   font-weight: 800;
@@ -597,7 +606,10 @@ article.prose {
 @media (max-width: 768px) {
   .menu-toggle { display: flex; }
   .site-header ul {
-    position: fixed;
+    /* Absolute (not fixed) so `top: 100%` is 100% of the sticky header's
+       height, placing the panel directly below it. With fixed positioning
+       it resolves against the viewport and lands off-screen. */
+    position: absolute;
     top: 100%;
     left: 0;
     right: 0;
