@@ -119,8 +119,6 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
           const script = document.createElement('script');
           script.async = true;
           script.crossOrigin = 'anonymous';
-          script.setAttribute('data-cfasync', 'false');
-          script.setAttribute('data-eduglossary-adsense', 'true');
           script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + encodeURIComponent(adsenseClientId);
           (document.head || document.documentElement).appendChild(script);
         }
