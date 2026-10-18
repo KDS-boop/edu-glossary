@@ -32,6 +32,7 @@ const schema = {
   '@type': 'Article',
   headline: post.data.title,
   description: post.data.description,
+  ...(post.data.coverImage && { image: new URL(post.data.coverImage, Astro.site).toString() }),
   url: new URL(`/articles/${post.id}/`, Astro.site).toString(),
   author: {
     '@type': 'Organization',
