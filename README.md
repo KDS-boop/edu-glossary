@@ -1,6 +1,6 @@
 # EduGlossary
 
-Glosarium istilah teknologi & artikel edukasi, dibangun dengan [Astro](https://astro.build). Live di **[eduglossary.my.id](https://eduglossary.my.id/)** (hosting Cloudflare Pages).
+Glosarium istilah teknologi & artikel edukasi, dibangun dengan [Astro V7](https://astro.build). Live di **[eduglossary.my.id](https://eduglossary.my.id/)** (hosting Cloudflare Pages).
 
 ## Menjalankan di komputer kamu
 
@@ -14,7 +14,7 @@ Buka `http://localhost:4321`.
 ### Python (data processing)
 
 ```bash
-python3.14 -m venv venv
+python3.15 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```

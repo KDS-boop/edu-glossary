@@ -30,6 +30,9 @@
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3"
   },
+  "overrides": {
+    "postcss-selector-parser": "^7.1.6"
+  },
   "allowScripts": {
     "sharp@0.34.5": true,
     "esbuild@0.28.2": true
