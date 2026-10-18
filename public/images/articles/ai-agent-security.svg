@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">AI Agent Security</title>
+  <desc id="desc">A central AI agent connects to five protective controls: scoped tools, least privilege, human approval, monitoring, and incident response.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#101c36"/><stop offset="1" stop-color="#163f5c"/></linearGradient>
+    <linearGradient id="agent" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8be3dd"/><stop offset="1" stop-color="#55a9ec"/></linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="7"/></filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g fill="none" stroke="#7fb6d7" stroke-opacity=".18" stroke-width="2"><path d="M0 110H1200M0 520H1200M85 0V630M1115 0V630"/><circle cx="600" cy="292" r="210" stroke-dasharray="5 13"/><circle cx="600" cy="292" r="158" stroke-dasharray="2 10"/></g>
+  <g font-family="Inter,Segoe UI,Arial,sans-serif">
+    <text x="70" y="76" font-size="19" font-weight="700" fill="#8be3dd" letter-spacing="4">EDUGLOSSARY • CYBERSECURITY</text>
+    <text x="70" y="135" font-size="47" font-weight="750" fill="#fff">AI Agent Security</text>
+    <text x="72" y="174" font-size="21" fill="#c5d8eb">Bound the actions. Protect the access. Prepare for failure.</text>
+    <g stroke="#8be3dd" stroke-width="3" stroke-linecap="round" fill="none" opacity=".85"><path d="M505 270L364 225M695 270L836 225M500 325L364 378M700 325L836 378M600 365V425"/></g>
+    <g transform="translate(600 292)"><circle r="82" fill="#66c4d8" opacity=".15" filter="url(#glow)"/><circle r="72" fill="#142d4a" stroke="#75d6db" stroke-width="3"/><circle r="55" fill="url(#agent)"/><rect x="-31" y="-23" width="62" height="47" rx="13" fill="#163855"/><circle cx="-13" cy="-1" r="5" fill="#8be3dd"/><circle cx="13" cy="-1" r="5" fill="#8be3dd"/><path d="M-13 13Q0 22 13 13" stroke="#8be3dd" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M0 -34V-24M-43 0H-32M32 0H43M0 24V34" stroke="#163855" stroke-width="4" stroke-linecap="round"/></g>
+    <g transform="translate(160 212)"><rect width="250" height="74" rx="15" fill="#203f5b" stroke="#4a7c9b"/><circle cx="32" cy="37" r="18" fill="#8be3dd" opacity=".18"/><path d="M23 37h18M32 28v18" stroke="#8be3dd" stroke-width="3" stroke-linecap="round"/><text x="61" y="32" fill="#fff" font-size="19" font-weight="700">Scoped tools</text><text x="61" y="54" fill="#b9d0e4" font-size="14">Only needed actions</text></g>
+    <g transform="translate(790 212)"><rect width="250" height="74" rx="15" fill="#203f5b" stroke="#4a7c9b"/><circle cx="32" cy="37" r="18" fill="#8be3dd" opacity=".18"/><path d="M32 24l12 5v10q-4 8-12 12-8-4-12-12V29z" stroke="#8be3dd" stroke-width="2.5" fill="none"/><text x="61" y="32" fill="#fff" font-size="19" font-weight="700">Least privilege</text><text x="61" y="54" fill="#b9d0e4" font-size="14">Narrow access</text></g>
+    <g transform="translate(160 355)"><rect width="250" height="74" rx="15" fill="#203f5b" stroke="#4a7c9b"/><circle cx="32" cy="37" r="18" fill="#8be3dd" opacity=".18"/><path d="M22 39l7 7 14-17" stroke="#8be3dd" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="61" y="32" fill="#fff" font-size="19" font-weight="700">Human approval</text><text x="61" y="54" fill="#b9d0e4" font-size="14">Before impact</text></g>
+    <g transform="translate(790 355)"><rect width="250" height="74" rx="15" fill="#203f5b" stroke="#4a7c9b"/><circle cx="32" cy="37" r="18" fill="#8be3dd" opacity=".18"/><path d="M20 38q12-20 24 0-12 20-24 0z" stroke="#8be3dd" stroke-width="2.5" fill="none"/><circle cx="32" cy="38" r="4" fill="#8be3dd"/><text x="61" y="32" fill="#fff" font-size="19" font-weight="700">Monitoring</text><text x="61" y="54" fill="#b9d0e4" font-size="14">Logs and alerts</text></g>
+    <g transform="translate(465 425)"><rect width="270" height="58" rx="14" fill="#23425c" stroke="#70cbd3" stroke-width="1.6"/><path d="M22 19h22v20H22zM28 25h10M28 31h10" stroke="#8be3dd" stroke-width="2" fill="none"/><text x="58" y="25" fill="#fff" font-size="17" font-weight="700">Incident response</text><text x="58" y="44" fill="#b9d0e4" font-size="13">Pause • contain • recover</text></g>
+    <text x="600" y="548" text-anchor="middle" font-size="17" fill="#8be3dd" font-weight="700" letter-spacing="2">PREPARE → DETECT → RESPOND → RECOVER → REPORT</text>
+    <text x="600" y="584" text-anchor="middle" font-size="14" fill="#b9d0e4">Security is enforced by the system—not just requested in a prompt.</text>
+  </g>
+</svg>
