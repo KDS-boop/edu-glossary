@@ -3,7 +3,7 @@ title: "AI Agent Security: Risks, Guardrails, and Incident Response"
 description: "Learn how to secure AI agents with least-privilege access, scoped tools, human approval, monitoring, and a practical incident-response plan."
 category: "Cybersecurity"
 tags: ["AI Agent Security", "Agentic AI", "Prompt Injection", "Least Privilege", "Incident Response"]
-relatedGlossary: ["Large Language Model", "Prompt Engineering", "Preemptive Cybersecurity", "Firewall", "Digital Provenance", "Model Context Protocol"]
+relatedGlossary: ["Large Language Model (LLM)", "Prompt Engineering", "Preemptive Cybersecurity", "Firewall", "Digital Provenance", "Model Context Protocol (MCP)"]
 author: "eduglossary-team"
 publishedDate: 2026-10-18
 draft: false
@@ -15,7 +15,7 @@ An AI agent can do more than generate a response. Depending on how it is built, 
 
 **AI agent security** is the practice of protecting an agent, its tools, its data, and the systems it can affect so that it operates within an explicitly authorized scope. The goal is not to make a model perfectly reliable. It is to design the surrounding system so that an incorrect, manipulated, or unexpected model decision cannot easily become a damaging action.
 
-On October 16, 2026, the US National Institute of Standards and Technology (NIST), the National Security Agency's Super Intelligence Security Center, and the Cybersecurity and Infrastructure Security Agency published voluntary incident-readiness practices for training and evaluating superintelligence agents. The document focuses on a much narrower and higher-capability setting than everyday assistants, but its emphasis on preparation, monitoring, containment, recovery, and reporting reinforces a useful security principle: plan for failures before granting an agent consequential access. [Read the NIST announcement](https://www.nist.gov/news-events/news/2026/10/key-practices-for-incident-readiness-and-response-super-intelligence-training).
+On October 16, 2026, the US National Institute of Standards and Technology (NIST), the National Security Agency's Super Intelligence Security Center, and the Cybersecurity and Infrastructure Security Agency published voluntary incident-readiness practices for training and evaluating superintelligence agents. The document focuses on a much narrower and higher-capability setting than everyday assistants, but its emphasis on preparation, monitoring, containment, recovery, and reporting reinforces a useful security principle: plan for failures before granting an agent consequential access. [Read the NIST announcement](https://www.nist.gov/news-events/news/2026/10/key-practices-incident-readiness-and-response-super-intelligence-training).
 
 ## What makes an AI agent a security concern?
 
@@ -152,7 +152,7 @@ Recent official guidance from NIST and international cybersecurity agencies rein
 
 ## Further reading
 
-- [NIST: Key Practices for Incident Readiness and Response in Super Intelligence Training and Evaluation (October 16, 2026)](https://www.nist.gov/news-events/news/2026/10/key-practices-for-incident-readiness-and-response-super-intelligence-training)
+- [NIST: Key Practices for Incident Readiness and Response in Super Intelligence Training and Evaluation (October 16, 2026)](https://www.nist.gov/news-events/news/2026/10/key-practices-incident-readiness-and-response-super-intelligence-training)
 - [NIST: Full incident-readiness and response guidance (October 2026)](https://www.nist.gov/document/keypracticesforincidentreadinessandresponseinsuperintelligence-trainingandevaluation)
 - [Australian Cyber Security Centre: Careful Adoption of Agentic AI Services (May 1, 2026)](https://www.cyber.gov.au/publication/careful-adoption-of-agentic-ai-services)
 - [OWASP GenAI Security Project: LLM06:2025 Excessive Agency](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/)
