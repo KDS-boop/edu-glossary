@@ -9,6 +9,10 @@ __pycache__/
 .astro/
 dist/
 
+# Playwright
+/playwright-report/
+/test-results/
+
 # Node
 node_modules/
 

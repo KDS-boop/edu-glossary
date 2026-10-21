@@ -173,6 +173,8 @@ article.prose {
   margin-bottom: var(--space-2);
   line-height: 1.7;
   color: var(--color-text-muted);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .prose ul li::marker {
   color: var(--color-primary);

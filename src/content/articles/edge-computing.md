@@ -3,16 +3,14 @@ title: "Edge Computing: A Technical Overview"
 description: Understanding edge computing architecture, distributed data processing, latency optimization, and its role in modern IT infrastructure.
 category: Networking
 tags: ["edge computing", "distributed systems", "latency optimization", "IoT", "cloud computing"]
-relatedGlossary: ["Cloud Service Provider", "Content Delivery Network", "Latency"]
-author: KDS-boop
+relatedGlossary: ["Cloud Service Provider"]
+author: "eduglossary-team"
 coverImage: /images/edge-computing.svg
 coverImageAlt: Architecture diagram illustrating cloud-edge computing interaction with latency optimization
 publishedDate: 2026-10-20
 updatedDate: 2026-10-20
 draft: false
 ---
-
-# Edge Computing: A Technical Overview
 
 Edge computing is a distributed computing paradigm that brings computation and data storage closer to the location where it is needed to improve response time and save bandwidth. This architectural shift addresses the limitations of traditional cloud computing by decentralizing data processing workflows, reducing reliance on centralized data centers, and enabling real-time decision-making for latency-sensitive applications.
 
@@ -83,15 +81,20 @@ Content delivery networks (CDNs) are an early form of edge computing. By caching
 
 ## Edge Computing vs. Cloud Computing
 
-| Feature | Edge Computing | Traditional Cloud Computing |
-|---------|---------------|------------------------------|
-| Processing Location | Near the data source | Centralized data centers |
-| Latency | Low (milliseconds) | Higher (tens to hundreds of milliseconds) |
-| Bandwidth Usage | Minimal; only essential data transmitted | Significant; raw data often sent upstream |
-| Data Storage | Distributed, often temporary | Centralized, long-term |
-| Scalability | Limited by local hardware | Virtually unlimited |
-| Connectivity | Can operate with intermittent internet | Requires reliable internet |
-| Security Model | Decentralized; more attack surfaces | Centralized control and monitoring |
+<table tabindex="0" aria-label="Comparison of edge computing and traditional cloud computing">
+  <thead>
+    <tr><th scope="col">Feature</th><th scope="col">Edge Computing</th><th scope="col">Traditional Cloud Computing</th></tr>
+  </thead>
+  <tbody>
+    <tr><th scope="row">Processing Location</th><td>Near the data source</td><td>Centralized data centers</td></tr>
+    <tr><th scope="row">Latency</th><td>Low (milliseconds)</td><td>Higher (tens to hundreds of milliseconds)</td></tr>
+    <tr><th scope="row">Bandwidth Usage</th><td>Minimal; only essential data transmitted</td><td>Significant; raw data often sent upstream</td></tr>
+    <tr><th scope="row">Data Storage</th><td>Distributed, often temporary</td><td>Centralized, long-term</td></tr>
+    <tr><th scope="row">Scalability</th><td>Limited by local hardware</td><td>Virtually unlimited</td></tr>
+    <tr><th scope="row">Connectivity</th><td>Can operate with intermittent internet</td><td>Requires reliable internet</td></tr>
+    <tr><th scope="row">Security Model</th><td>Decentralized; more attack surfaces</td><td>Centralized control and monitoring</td></tr>
+  </tbody>
+</table>
 
 Edge computing is not a replacement for cloud computing. Most production deployments use a hybrid model where edge nodes handle real-time processing and the cloud handles storage, training, and cross-site analytics.
 
@@ -174,13 +177,11 @@ As 5G networks expand, IoT deployments grow, and AI inference moves closer to en
 ## References
 
 1. IEEE. "Edge Computing: Architecture, Applications, and Challenges." IEEE Xplore Digital Library. https://ieeexplore.ieee.org/document/9456321
-2. Amazon Web Services. "Edge Computing." AWS Whitepaper. https://docs.aws.amazon.com/whitepapers/latest/edge-computing/edge-computing.pdf
-3. Microsoft Learn. "What is edge computing?" Azure documentation. https://learn.microsoft.com/en-us/azure/edge/edge-computing-overview
+2. Amazon Web Services. "AWS Wavelength Documentation." AWS Documentation. https://docs.aws.amazon.com/wavelength/
+3. Microsoft Learn. "What Is Azure IoT Operations?" Azure documentation. https://learn.microsoft.com/en-us/azure/iot-operations/overview-iot-operations
 4. Amazon Web Services. "AWS Lambda Documentation." https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
 
 ## Related Reading
 
 - [Cloud Computing Explained: Types, Benefits, and How to Get Started](/articles/cloud-computing-explained/)
 - [Cloud Service Provider](/glossary/cloud-service-provider/)
-- [Content Delivery Network](/glossary/content-delivery-network/)
-- [Latency](/glossary/latency/)
