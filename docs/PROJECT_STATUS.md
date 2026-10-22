@@ -20,6 +20,16 @@
 
 Rilis di atas menambahkan dua artikel keamanan bertanggal 22 Oktober 2026. Cleanup dokumentasi tidak mengubah source konten, route, schema, atau konfigurasi runtime. ID deployment di tabel mengacu ke rilis konten/aplikasi yang dicatat, bukan menyatakan bahwa commit cleanup dokumentasi sudah dideploy.
 
+## Deployment cleanup dokumentasi (22 Oktober 2026)
+
+- **Commit:** `dc53fe9e04cb48de65a87d4eb699c97924640ff8`
+- **Branch/environment:** `main` / `production`
+- **Cloudflare deployment ID:** `b9e7c8c7-ff91-4c57-9ba4-51cd4d77fe42`
+- **Status tahap Cloudflare:** `queued, initialize, clone_repo, build, deploy = success`
+- **URL deployment:** https://b9e7c8c7.edu-glossary.pages.dev/
+
+Smoke test pascadeploy menghasilkan HTTP 200 untuk homepage, dua artikel keamanan terbaru, `/sitemap-index.xml`, dan `/rss.xml` pada URL deployment unik. Perubahan ini hanya dokumentasi, `.gitignore`, serta penghapusan catatan sesi dan tooling non-runtime.
+
 ## Artefak konten yang diverifikasi
 
 - Artikel PHP dan Node.js: /articles/php-nodejs-security-crisis-october-2026/
