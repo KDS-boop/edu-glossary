@@ -242,6 +242,20 @@ article.prose {
 }
 
 /* Article tables */
+/* Keep the PQC standards comparison legible and keyboard-scrollable on small screens. */
+.prose .pqc-table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: var(--space-6) 0;
+}
+.prose table.pqc-standards-table {
+  display: table;
+  width: 100%;
+  min-width: 640px;
+  max-width: none;
+  overflow: visible;
+  margin: 0;
+}
 .prose table {
   width: 100%;
   border-collapse: collapse;
