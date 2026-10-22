@@ -1,50 +1,47 @@
+# Python virtual environments and caches
 venv/
-__pycache__/
-*.pyc
-.env
-*.egg-info/
-.pytest_cache/
-
-# Astro
-.astro/
-dist/
-
-# Playwright
-/playwright-report/
-/test-results/
-
-# Node
-node_modules/
-
-# Python
 __pycache__/
 *.py[cod]
 *.egg-info/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
-.env
-# Secrets
+
+# Environment files and secrets
 .env
 .env.*
 !.env.example
 *.pem
 *.key
+/credentials.json
 
-# Cloudflare
+# Astro build/cache output
+.astro/
+dist/
+
+# Node dependencies
+node_modules/
+
+# Playwright output
+/playwright-report/
+/test-results/
+
+# Cloudflare local state
 .wrangler/
 
-# Local tooling
+# Local tooling configuration and generated cache (not runtime source)
 .agents/
 .cursor/
+.claude/
+.codegraph/
+.superpowers/
 .mcp.json
 .vscode/
 google-chrome-stable_current_arm64.deb
 
-# Local GTM/API credentials and helper scripts (never commit)
-/credentials.json
-/gtm-impersonate.js
-/GTM.js
-/login-gtm.js
-/scripts/
-/deno.lock
+# Local session / agent scratch notes (not project documentation)
+/AGENTS.md
+/MEMORY.md
+/RECENT_CONTEXT.md
+/SESSION-STATE.md
+/memory/

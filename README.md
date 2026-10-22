@@ -1,61 +1,80 @@
 # EduGlossary
 
-Glosarium istilah teknologi & artikel edukasi, dibangun dengan [Astro V7](https://astro.build). Live di **[eduglossary.my.id](https://eduglossary.my.id/)** (hosting Cloudflare Pages).
+EduGlossary adalah situs edukasi teknologi berisi glosarium A–Z dan artikel penjelasan. Situs menggunakan Astro static site generation (SSG), Pagefind untuk pencarian, dan Cloudflare Pages untuk hosting.
 
-## Menjalankan di komputer kamu
+- **Produksi:** https://eduglossary.my.id/
+- **Mirror Cloudflare Pages:** https://edu-glossary.pages.dev/
+- **Branch deploy produksi:** main
+- **Versi Node.js proyek:** major 24, sesuai `.nvmrc`, `.node-version`, dan CI
 
-```bash
-npm install
-npm run dev
-```
+## Mulai secara lokal
 
-Buka `http://localhost:4321`.
+Gunakan Node.js 24 terlebih dahulu, lalu jalankan:
 
-### Python (data processing)
+    npm ci
+    npm run dev
 
-```bash
-python3.15 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
+Buka http://localhost:4321/.
 
-## Struktur folder
+## Perintah pengembangan
 
-```
-src/
-  content/
-    config.ts          # skema data glossary & articles
-    glossary/*.md      # tiap file = 1 istilah
-    articles/*.md      # tiap file = 1 artikel
-  components/          # Header, Footer, GlossaryCard, ArticleCard
-  layouts/Layout.astro # kerangka HTML + <head>
-  pages/
-    index.astro        # beranda
-    404.astro          # halaman 404 kustom
-    glossary/          # index A-Z, halaman detail istilah, halaman per kategori
-    articles/          # index, halaman detail artikel, halaman per kategori
-    learn/             # halaman topik "Learn" (paralel dengan kategori glossary)
-  styles/global.css    # semua styling
-public/
-  _headers            # header kustom untuk Cloudflare Pages
-  robots.txt
-```
+| Perintah | Fungsi |
+|---|---|
+| `npm run dev` | Menjalankan server pengembangan Astro |
+| `npm run build` | Membuat situs statis, membangun indeks Pagefind, lalu membuat cache-bust untuk aset pencarian |
+| `npm run preview` | Menyajikan hasil build produksi secara lokal |
+| `npx astro check` | Memeriksa diagnostik Astro dan TypeScript |
+| `npx playwright test` | Menjalankan tes browser Playwright di konfigurasi desktop, mobile, dan small-mobile |
 
-## Menambah konten
+**Catatan:** Pagefind sudah menjadi bagian dari `npm run build`. Jangan menjalankan build Astro saja sebagai pengganti pipeline produksi, karena indeks pencarian juga perlu diperbarui. Playwright menjalankan build dan preview melalui `playwright.config.ts`; browser Playwright harus tersedia di mesin yang menjalankan tes.
 
-- **Istilah baru** → buat file `.md` di `src/content/glossary/`, isi frontmatter sesuai `config.ts`.
-- **Artikel baru** → buat file `.md` di `src/content/articles/`.
+## Struktur penting
 
-## Status saat ini
+    src/
+      content.config.ts          # Skema collection glossary dan articles
+      content/
+        glossary/*.md            # Entri glosarium
+        articles/*.md            # Artikel
+      components/                 # Komponen antarmuka
+      layouts/                    # Layout halaman
+      pages/                      # Route Astro
+      styles/                     # Styling global
+    public/
+      images/articles/            # Sampul artikel
+      _headers                    # Header untuk Cloudflare Pages
+      robots.txt
+    functions/
+      _middleware.js              # Middleware/header Cloudflare
+    scripts/
+      pagefind-cache-bust.mjs     # Cache-bust aset pencarian
+    tests/
+      *.spec.ts                   # Tes Playwright
+    docs/
+      CONTENT_STANDARDS.md        # Standar riset dan penulisan konten
+      PROJECT_RULES.md            # Batasan arsitektur dan aturan perubahan
+      PROJECT_STATUS.md           # Snapshot status terakhir yang diverifikasi
+      archive/                    # Catatan historis, bukan panduan operasional
 
-- Domain kanonik: **eduglossary.my.id**, di-hosting di Cloudflare Pages, sitemap otomatis via `@astrojs/sitemap`.
-- Konten live: 5 kategori glossary (Blockchain, Software Development, Cybersecurity, AI & Data, Cloud Computing) berisi puluhan istilah, plus artikel edukasi per kategori.
-- SEO dasar sudah terpasang: canonical URL, Open Graph, Twitter card, JSON-LD schema (`DefinedTerm`/`Article`), `robots.txt`, halaman 404 kustom.
-- Sedang berjalan: **fase P4 — Search Visibility & Content Expansion** (SEO teknis & crawlability, riset keyword & search intent, perluasan glosarium, perluasan content cluster, refinement SEO on-page, instrumentasi performa pencarian), dipantau lewat Google Search Console.
+## Menambah atau memperbarui konten
 
-## Langkah lanjutan
+1. Entri glosarium baru berada di `src/content/glossary/`; artikel baru berada di `src/content/articles/`.
+2. Ikuti skema di `src/content.config.ts`, termasuk field tanggal dan teks alternatif gambar bila relevan.
+3. Setiap konten baru harus memiliki visual yang sesuai dan bersumber/dirancang untuk konten itu sendiri.
+4. Gunakan sumber primer atau resmi untuk fakta penting; validasi tanggal, versi, URL, serta klaim. Jangan mengarang angka atau sumber.
+5. Ikuti panduan rinci di [CONTENT_STANDARDS.md](docs/CONTENT_STANDARDS.md).
 
-1. Pastikan `public/og-default.png` (1200×630px) sudah ada sebagai fallback OG image untuk halaman tanpa `coverImage`.
-2. Tambahkan **Pagefind** untuk pencarian client-side kalau belum aktif (`npm install pagefind` + jalankan setelah build).
-3. Lanjutkan riset keyword & perluasan konten sesuai roadmap fase P4.
-4. Kalau volume istilah terus bertambah, pertimbangkan migrasi `glossary` dari file `.md` ke folder JSON/CSV import supaya lebih mudah dikelola dalam jumlah besar.
+## Aturan proyek dan QA
+
+- Baca [PROJECT_RULES.md](docs/PROJECT_RULES.md) sebelum mengubah arsitektur, keamanan, privasi, atau deployment.
+- Jalankan `npx astro check`, `npm run build`, `npx playwright test` bila browser tersedia, dan `git diff --check` sesuai cakupan perubahan.
+- QA bersifat read-only kecuali perubahan secara eksplisit diminta.
+- Perubahan kode/konten harus tetap berada dalam cakupan tugas; jangan mengubah dependency, lockfile, routing, CSP, consent, analytics, atau konfigurasi deployment tanpa alasan yang jelas.
+- Detail snapshot produksi dan pemeriksaan terakhir tersedia di [PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
+
+## Deployment
+
+Cloudflare Pages membangun branch `main` dari repository GitHub. Setelah push, verifikasi status deployment terbaru dan uji route/aset yang berubah pada domain produksi. Build lokal yang berhasil saja belum membuktikan bahwa deployment produksi berhasil.
+
+---
+
+EduGlossary — dokumentasi proyek. Tanggal status diverifikasi dicatat dalam `docs/PROJECT_STATUS.md`.
