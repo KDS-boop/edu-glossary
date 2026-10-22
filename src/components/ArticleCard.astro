@@ -29,7 +29,7 @@ const authorSlug = authorData?.slug || slugify(author);
       <span set:html={icon}></span>
       {category}
     </a>
-    <h3 class="card-title"><a href={`/articles/${slug}/`}>{title}</a></h3>
+    <h2 class="card-title"><a href={`/articles/${slug}/`}>{title}</a></h2>
     <p class="card-excerpt">{description}</p>
     <div class="card-meta">
       <span class="card-meta-item">

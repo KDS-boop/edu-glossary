@@ -1,6 +1,6 @@
 ---
 title: "What Is an LLM? How Large Language Models Work"
-description: "A beginner-friendly guide to Large Language Models — what LLM stands for, how they work, training vs inference, tokens, transformers, parameters, context windows, and limitations."
+description: "Learn what large language models are and how transformers, tokens, training, inference, context windows, and limitations shape their behavior."
 category: "AI & Data"
 tags: ["LLM", "Large Language Model", "AI", "Machine Learning", "Generative AI", "Transformer"]
 relatedGlossary: ["Machine Learning", "Natural Language Processing", "Deep Learning", "Training Data", "Chatbot", "Vector Database", "AI Agent"]

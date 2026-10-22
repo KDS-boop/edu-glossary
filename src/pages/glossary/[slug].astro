@@ -114,8 +114,8 @@ const breadcrumbs = [
   { label: entry.data.term, href: `/glossary/${entry.id}/` },
 ];
 
-// Optimized title format: "Term — Short Definition | EduGlossary"
-const pageTitle = `${entry.data.term} — ${entry.data.shortDefinition}`;
+// Keep the HTML title focused on the term; its definition remains in page content and metadata.
+const pageTitle = entry.data.term;
 const pageDescription = entry.data.metaDescription || entry.data.shortDefinition;
 ---
 <Layout

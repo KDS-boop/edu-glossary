@@ -1,7 +1,7 @@
 ---
 term: "Large Language Model (LLM)"
 shortDefinition: "A neural network with billions to trillions of parameters, trained on massive text corpora using the Transformer architecture, that understands and generates human language through next-token prediction."
-metaDescription: "Large Language Models (LLMs) explained: Transformer architecture, training vs inference, tokens, parameters, context windows, capabilities, limitations, hallucination, RAG, fine-tuning, and deployment."
+metaDescription: "Understand large language models, including transformer architecture, tokens, training and inference, capabilities, limitations, and common applications."
 category: "AI & Data"
 letter: "L"
 updatedDate: 2026-10-06

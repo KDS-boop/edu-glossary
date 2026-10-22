@@ -242,11 +242,18 @@ article.prose {
 }
 
 /* Article tables */
-/* Keep the PQC standards comparison legible and keyboard-scrollable on small screens. */
+/* Keep wide tables usable on touch devices and by keyboard users. */
+.prose .table-scroll,
 .prose .pqc-table-scroll {
   max-width: 100%;
   overflow-x: auto;
   margin: var(--space-6) 0;
+  overscroll-behavior-x: contain;
+}
+.prose .table-scroll:focus-visible,
+.prose .pqc-table-scroll:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
 }
 .prose table.pqc-standards-table {
   display: table;
@@ -257,13 +264,13 @@ article.prose {
   margin: 0;
 }
 .prose table {
+  display: table;
   width: 100%;
   border-collapse: collapse;
-  margin: var(--space-6) 0;
+  margin: 0;
   font-size: var(--text-sm);
-  overflow-x: auto;
-  display: block;
-  max-width: 100%;
+  overflow: visible;
+  max-width: none;
 }
 .prose thead {
   display: table-header-group;
@@ -371,7 +378,7 @@ article.prose {
   color: var(--color-primary-dark);
   text-decoration: underline;
 }
-.footer-links h3 {
+.footer-links h2 {
   font-size: var(--text-xs);
   font-weight: 700;
   text-transform: uppercase;

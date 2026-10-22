@@ -18,7 +18,7 @@ interface Props {
 }
 const {
   title,
-  description = 'Learn technology terms and articles — explained clearly.',
+  description = 'Explore clear technology definitions and practical guides on AI, cybersecurity, blockchain, cloud computing, and software development.',
   image,
   type = 'website',
   schema,
@@ -31,7 +31,14 @@ const {
 } = Astro.props;
 
 const siteName = 'EduGlossary';
-const documentTitle = title.endsWith(` | ${siteName}`) ? title : `${title} | ${siteName}`;
+const titleSuffix = ` | ${siteName}`;
+const titleWithoutSiteName = title.endsWith(titleSuffix) ? title.slice(0, -titleSuffix.length).trim() : title.trim();
+const maxDocumentTitleLength = 60;
+const maxTitleBaseLength = maxDocumentTitleLength - titleSuffix.length;
+const shortenedTitle = titleWithoutSiteName.length > maxTitleBaseLength
+  ? `${titleWithoutSiteName.slice(0, maxTitleBaseLength - 1).trimEnd().replace(/[\s—–:;,.-]+$/, '')}…`
+  : titleWithoutSiteName;
+const documentTitle = `${shortenedTitle}${titleSuffix}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = image ? new URL(image, Astro.site) : new URL('/images/og-default.svg', Astro.site);
 const googleTagId = 'GT-PJ46S7C5';

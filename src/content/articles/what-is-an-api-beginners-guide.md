@@ -1,6 +1,6 @@
 ---
 title: "What is an API? A Complete Beginner's Guide"
-description: "A complete, beginner-friendly explanation of what APIs are, how they work, the different types (REST, GraphQL, WebSocket), real-world examples, and how to make your first API call."
+description: "Learn what APIs are, how requests and responses work, common types such as REST and GraphQL, and how APIs connect software applications."
 category: "Software Development"
 tags: ["API", "REST API", "web development", "software engineering", "HTTP", "backend"]
 relatedGlossary: ["API", "API Gateway", "REST API", "Full Stack", "Codebase"]

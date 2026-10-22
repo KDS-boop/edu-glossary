@@ -1,6 +1,6 @@
 ---
 title: "What Is a Vector Database? How It Works with AI and RAG"
-description: "A beginner-friendly guide to vector databases — what vectors and embeddings are, how similarity search works, and why vector databases are essential for RAG and AI applications."
+description: "Learn how vector databases store embeddings and power similarity search for retrieval-augmented generation (RAG) and AI applications."
 category: "AI & Data"
 tags: ["Vector Database", "Embeddings", "RAG", "AI", "Machine Learning", "Similarity Search"]
 relatedGlossary: ["Machine Learning", "Natural Language Processing", "Deep Learning", "Training Data", "LLM", "RAG"]

@@ -1,6 +1,6 @@
 ---
 title: "What Is an API Gateway? How API Gateways Work"
-description: "A beginner-friendly guide to API gateways — what they are, why applications need them, core functions (auth, routing, rate limiting), and how they fit in microservices and AI architectures."
+description: "Explore how API gateways handle routing, authentication, rate limits, and shared policies between clients and backend services."
 category: "Software Development"
 tags: ["API Gateway", "API", "REST API", "Microservices", "Cloud", "Backend"]
 relatedGlossary: ["API", "REST API", "API Gateway", "Full Stack", "Codebase", "OAuth", "JWT"]

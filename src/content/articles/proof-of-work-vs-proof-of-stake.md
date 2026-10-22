@@ -1,6 +1,6 @@
 ---
 title: "Proof of Work vs. Proof of Stake: Complete Comparison Guide"
-description: "A comprehensive, side-by-side comparison of Proof of Work and Proof of Stake consensus mechanisms — how they work, security trade-offs, energy use, and which one powers the future of blockchain."
+description: "Compare Proof of Work and Proof of Stake, including how consensus works, security trade-offs, energy use, and their roles in blockchain networks."
 category: "Blockchain"
 tags: ["blockchain", "consensus mechanism", "proof of work", "proof of stake", "cryptocurrency", "ethereum", "bitcoin"]
 relatedGlossary: ["Proof of Work", "Proof of Stake", "Consensus Mechanism", "Blockchain", "SHA-256", "Smart Contract"]

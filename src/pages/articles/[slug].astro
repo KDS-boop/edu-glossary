@@ -71,8 +71,8 @@ const allArticles = await getCollectionSorted('articles', ({ data }) => !data.dr
 const relatedArticles = allArticles
   .filter((a) => a.id !== post.id && (a.data.category === post.data.category || post.data.tags.some((t: string) => a.data.tags.includes(t))))
   .slice(0, 3);
-// Optimized title format: "Title — Category | EduGlossary"
-const pageTitle = `${post.data.title} — ${post.data.category} Guide`;
+// Layout enforces a concise document title while Open Graph retains the full article title.
+const pageTitle = post.data.title;
 const pageDescription = post.data.description;
 ---
 <Layout

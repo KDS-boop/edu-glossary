@@ -1,6 +1,6 @@
 ---
 title: "eMudhra Certificate Incident: What the October 2026 CA Compromise Means for HTTPS"
-description: "Eight eMudhra intermediate certificate keys were reported compromised in October 2026. Learn how TLS trust works, what browsers are doing, and how website operators should respond."
+description: "Learn about the reported eMudhra certificate incident, how certificate authority trust works, and steps website operators can take to review TLS certificates."
 category: "Cybersecurity"
 tags: ["TLS", "HTTPS", "Certificate Authority", "eMudhra", "Certificate Revocation", "Web Security"]
 relatedGlossary: ["Preemptive Cybersecurity", "Firewall", "End-to-End Encryption"]

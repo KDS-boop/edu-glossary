@@ -66,7 +66,7 @@ const schema = {
 ---
 <Layout
   title={`${category} Glossary`}
-  description={`Browse ${sorted.length} terms in the ${category} category.`}
+  description={`Explore ${sorted.length} ${category} terms with concise definitions, related concepts, and links to deeper explanations.`}
   schema={schema}
   breadcrumbs={breadcrumbs}
 >
@@ -87,6 +87,7 @@ const schema = {
         shortDefinition={entry.data.shortDefinition}
         category={entry.data.category}
         slug={entry.id}
+        headingLevel={2}
       />
     ))}
   </div>

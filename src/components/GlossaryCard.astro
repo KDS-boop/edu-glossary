@@ -10,8 +10,9 @@ interface Props {
   slug: string;
   letter?: string;
   relatedCount?: number;
+  headingLevel?: 2 | 3;
 }
-const { term, shortDefinition, category, slug, letter, relatedCount } = Astro.props;
+const { term, shortDefinition, category, slug, letter, relatedCount, headingLevel = 3 } = Astro.props;
 const { bg, text, darkBg, darkText } = getCategoryColor(category);
 const icon = getCategoryIcon(category);
 ---
@@ -25,7 +26,11 @@ const icon = getCategoryIcon(category);
       </a>
       {letter && <span class="card-letter" aria-label={`Letter ${letter}`}>{letter}</span>}
     </div>
-    <h3 class="card-title"><a href={`/glossary/${slug}/`}>{term}</a></h3>
+    {headingLevel === 2 ? (
+      <h2 class="card-title"><a href={`/glossary/${slug}/`}>{term}</a></h2>
+    ) : (
+      <h3 class="card-title"><a href={`/glossary/${slug}/`}>{term}</a></h3>
+    )}
     <p class="card-excerpt">{shortDefinition}</p>
     {(relatedCount != null && relatedCount > 0) && (
       <span class="card-related-hint">{relatedCount} related terms</span>
