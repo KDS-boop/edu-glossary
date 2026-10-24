@@ -15,7 +15,6 @@
     "astro": "^7.3.8",
     "astro-expressive-code": "^0.44.2",
     "browser-use-sdk": "^3.11.3",
-    "exa-js": "^2.25.0",
     "globby": "^16.2.4",
     "supermemory": "^5.0.1"
   },

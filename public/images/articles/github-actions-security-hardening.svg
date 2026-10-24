@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">GitHub Actions security hardening</title>
+  <desc id="desc">A secure continuous integration and delivery pipeline with pinned dependencies, least-privilege permissions, OIDC credentials, and verifiable artifacts.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#102638"/><stop offset="1" stop-color="#132f50"/></linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7ee7bd"/><stop offset="1" stop-color="#59b7ff"/></linearGradient>
+    <pattern id="grid" width="46" height="46" patternUnits="userSpaceOnUse"><path d="M46 0H0V46" fill="none" stroke="#fff" stroke-opacity=".045"/></pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/><rect width="1200" height="630" fill="url(#grid)"/>
+  <circle cx="1040" cy="98" r="185" fill="#6eddb8" opacity=".07"/>
+  <text x="76" y="91" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" letter-spacing="3" fill="#8ce9c7">CI/CD SECURITY</text>
+  <text x="76" y="157" font-family="Arial, Helvetica, sans-serif" font-size="51" font-weight="700" fill="#ffffff">Harden the workflow</text>
+  <text x="78" y="201" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#c1d4e4">From source commit to verified release</text>
+  <g transform="translate(82 265)">
+    <rect width="252" height="192" rx="20" fill="#fff" fill-opacity=".055" stroke="#7ee7bd" stroke-opacity=".65"/>
+    <circle cx="126" cy="54" r="32" fill="#7ee7bd" fill-opacity=".14" stroke="#8ce9c7" stroke-width="2"/>
+    <path d="M111 45h30v21h-30zM117 39h18M117 71h18" fill="none" stroke="#b3ffe0" stroke-width="3" stroke-linejoin="round"/>
+    <text x="126" y="115" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="middle" font-weight="700" fill="#ffffff">Pinned actions</text>
+    <text x="126" y="144" font-family="Arial, Helvetica, sans-serif" font-size="15" text-anchor="middle" fill="#c3d7e7">Verified commit SHAs</text>
+    <text x="126" y="166" font-family="Arial, Helvetica, sans-serif" font-size="15" text-anchor="middle" fill="#c3d7e7">Reviewed updates</text>
+  </g>
+  <g transform="translate(368 265)">
+    <rect width="252" height="192" rx="20" fill="#fff" fill-opacity=".055" stroke="#7ee7bd" stroke-opacity=".65"/>
+    <circle cx="126" cy="54" r="32" fill="#7ee7bd" fill-opacity=".14" stroke="#8ce9c7" stroke-width="2"/>
+    <path d="M126 32l18 8v15c0 12-9 21-18 26-9-5-18-14-18-26V40z" fill="none" stroke="#b3ffe0" stroke-width="3"/><path d="M117 54l7 7 13-16" fill="none" stroke="#b3ffe0" stroke-width="3" stroke-linecap="round"/>
+    <text x="126" y="115" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="middle" font-weight="700" fill="#ffffff">Least privilege</text>
+    <text x="126" y="144" font-family="Arial, Helvetica, sans-serif" font-size="15" text-anchor="middle" fill="#c3d7e7">Minimal job permissions</text>
+    <text x="126" y="166" font-family="Arial, Helvetica, sans-serif" font-size="15" text-anchor="middle" fill="#c3d7e7">Protected secrets</text>
+  </g>
+  <g transform="translate(654 265)">
+    <rect width="252" height="192" rx="20" fill="#fff" fill-opacity=".055" stroke="#7ee7bd" stroke-opacity=".65"/>
+    <circle cx="126" cy="54" r="32" fill="#7ee7bd" fill-opacity=".14" stroke="#8ce9c7" stroke-width="2"/>
+    <path d="M112 47h28v21h-28zM119 40h14M126 47v-8" fill="none" stroke="#b3ffe0" stroke-width="3" stroke-linejoin="round"/><path d="M117 58h18" stroke="#b3ffe0" stroke-width="3"/>
+    <text x="126" y="115" font-family="Arial, Helvetica, sans-serif" font-size="19" text-anchor="middle" font-weight="700" fill="#ffffff">OIDC identity</text>
+    <text x="126" y="144" font-family="Arial, Helvetica, sans-serif" font-size="15" text-anchor="middle" fill="#c3d7e7">Short-lived credentials</text>
+    <text x="126" y="166" font-family="Arial, Helvetica, sans-serif" font-size="15" text-anchor="middle" fill="#c3d7e7">Scoped trust policy</text>
+  </g>
+  <g transform="translate(940 265)">
+    <rect width="180" height="192" rx="20" fill="#fff" fill-opacity=".055" stroke="#59b7ff" stroke-opacity=".7"/>
+    <circle cx="90" cy="54" r="32" fill="#59b7ff" fill-opacity=".14" stroke="#81d0ff" stroke-width="2"/>
+    <path d="M72 45h36v26H72zM80 39h20M79 54h22M79 62h14" fill="none" stroke="#bde8ff" stroke-width="3" stroke-linejoin="round"/>
+    <text x="90" y="115" font-family="Arial, Helvetica, sans-serif" font-size="18" text-anchor="middle" font-weight="700" fill="#ffffff">Provenance</text>
+    <text x="90" y="144" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle" fill="#c3d7e7">Traceable</text>
+    <text x="90" y="165" font-family="Arial, Helvetica, sans-serif" font-size="14" text-anchor="middle" fill="#c3d7e7">artifact</text>
+  </g>
+  <path d="M334 360h30M620 360h30M906 360h34" stroke="url(#green)" stroke-width="5" stroke-linecap="round"/><path d="M353 349l11 11-11 11M639 349l11 11-11 11M929 349l11 11-11 11" stroke="#7ee7bd" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="82" y="488" width="1038" height="51" rx="14" fill="#7ee7bd" fill-opacity=".09" stroke="#7ee7bd" stroke-opacity=".35"/>
+  <text x="601" y="520" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" text-anchor="middle" fill="#c2ffe7">Never execute untrusted code with privileged credentials</text>
+  <text x="76" y="582" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#92adc4">EDUGLOSSARY  /  CYBERSECURITY</text>
+  <text x="1124" y="582" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#92adc4" text-anchor="end">1200 × 630</text>
+</svg>
