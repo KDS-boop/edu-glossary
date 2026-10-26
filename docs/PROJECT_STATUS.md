@@ -1,9 +1,9 @@
 # Status Proyek EduGlossary
 
-- **Snapshot diverifikasi:** 23 Oktober 2026 (WIB).
-- **Status produksi:** sehat pada cakupan audit halaman, link internal, metadata, responsivitas, dan aksesibilitas yang tercatat di bawah.
-- **Perubahan aplikasi terakhir:** `b8f804dff3f29f52f23b9896735aaad7500a0682` — `fix(a11y,seo): remediate site-wide audit findings`.
-- **Batas status:** ini adalah snapshot QA, bukan jaminan uptime atau bahwa setiap layanan pihak ketiga dan setiap kombinasi browser telah diuji.
+- **Snapshot dokumentasi diperbarui:** 26 Oktober 2026 (WIB).
+- **Status produksi terverifikasi melalui `cf` CLI:** deployment produksi terakhir yang tercatat menggunakan commit `62c745bc28799de5c7b2556c4933230206d2eef0` dan berstatus `success` (dibuat 24 Oktober 2026). Smoke check HTTP ulang pada 26 Oktober mengembalikan 200 untuk homepage, artikel keamanan PHP/Node.js, artikel Edge Computing, halaman privasi, halaman kontak, sitemap, dan robots.txt.
+- **Perubahan lokal yang sedang difinalisasi:** pin Node.js 26, pembaruan dependency/check TypeScript 7, pembersihan konfigurasi MCP dan skrip QA lama, serta pembaruan dokumentasi. Perubahan lokal ini belum termasuk deployment produksi sampai di-commit dan di-push.
+- **Batas status:** audit menyeluruh yang dijabarkan pada bagian berikut dilakukan 23 Oktober 2026; hasil rinci tersebut adalah historis dan tidak membuktikan seluruh halaman/fitur diuji ulang pada 26 Oktober.
 
 ## Identitas produksi dan rilis terakhir
 
@@ -13,16 +13,33 @@
 | Cloudflare Pages project | `eduglossary` |
 | Alias Pages | https://edu-glossary.pages.dev/ |
 | Branch produksi | `main` |
-| Git HEAD aplikasi terakhir saat audit | `b8f804dff3f29f52f23b9896735aaad7500a0682` |
-| Pesan commit | `fix(a11y,seo): remediate site-wide audit findings` |
-| Cloudflare deployment ID | `c7b72023-e05a-4b54-bfb3-daede63390ad` |
-| URL deployment unik | https://c7b72023.edu-glossary.pages.dev/ |
+| Git HEAD aplikasi yang saat ini terdeploy | `62c745bc28799de5c7b2556c4933230206d2eef0` |
+| Pesan commit | `Add security articles and update npm dependencies` |
+| Cloudflare deployment ID | `216fb131-2b99-48eb-9c84-fef61ad431b2` |
+| URL deployment unik | https://216fb131.edu-glossary.pages.dev/ |
+| Waktu deployment | 24 Oktober 2026, 12:39 UTC |
 | Hasil tahap deployment | `deploy = success` |
-| Build statis | Astro menghasilkan 103 halaman; Pagefind mengindeks 103 halaman |
+| Build statis pada verifikasi lokal 26 Oktober | Astro menghasilkan 106 halaman; Pagefind mengindeks 106 halaman / 7.216 kata |
 
 Deployment unik di atas menggunakan SHA commit aplikasi yang cocok dengan GitHub `main` saat pemeriksaan. URL deployment tersebut dan domain kanonik diuji setelah deployment dinyatakan sukses.
 
-## Audit produksi 23 Oktober 2026
+## Verifikasi lokal dan smoke check — 26 Oktober 2026
+
+| Pemeriksaan | Hasil | Cakupan/catatan |
+|---|---|---|
+| Node.js / npm | **PASS** | Node.js `v26.12.1`, npm `12.2.1` |
+| `npm run check` | **PASS** | `astro sync` dan `tsc --noEmit --runExternalCode`; TypeScript dependency saat ini `7.1.0-beta` |
+| `npm run build` | **PASS** | Astro membangun 106 halaman; Pagefind mengindeks 106 halaman dan 7.216 kata; cache-bust selesai |
+| `npx playwright test --reporter=list` | **12/12 PASS** | Tes `tests/edge-computing.spec.ts` di desktop, mobile, dan small-mobile; bukan audit menyeluruh semua route produksi |
+| `cf pages get eduglossary` / deployment list | **PASS** | Autentikasi `cf` valid; deployment produksi terakhir yang tercatat adalah commit `62c745b`, status `deploy = success` |
+| Smoke check domain produksi | **8/8 HTTP 200** | `/`, artikel PHP/Node.js, Edge Computing, `/privacy-policy/`, `/contact/`, `/sitemap-index.xml`, `/sitemap-0.xml`, `/robots.txt` |
+| Status push perubahan ini | **BELUM** | Saat snapshot ini disusun, perubahan lokal belum di-commit/push; deployment yang tercatat di atas belum berisi perubahan lokal ini |
+
+TypeScript 7.1 masih dipasang dari versi beta. Karena itu, pertahankan lockfile dan jalankan pemeriksaan serta build pada CI; jangan menganggap toolchain ini sebagai TypeScript 7 stable.
+
+## Audit produksi historis — 23 Oktober 2026
+
+Audit terperinci di bawah ini dipertahankan sebagai bukti pemeriksaan pada tanggal tersebut. Pada 26 Oktober dilakukan smoke check HTTP terpilih, bukan pengulangan penuh terhadap semua 102 URL, semua ukuran viewport, atau semua aturan Axe.
 
 ### HTTP, tautan, dan indeks
 
@@ -56,7 +73,7 @@ Pemindai URL awal menganggap endpoint `/cdn-cgi/l/email-protection` sebagai 404.
 
 Pemindaian menguji URL sitemap lengkap. Smoke test multi-viewport memeriksa rute pilihan, bukan setiap halaman pada setiap ukuran layar. Pemeriksaan browser juga tidak menggantikan pengujian semua kebijakan consent, request pihak ketiga, browser/OS, atau audit performa lapangan.
 
-## Validasi kode dan build
+## Validasi kode dan build — audit 23 Oktober 2026
 
 | Perintah/pemeriksaan | Hasil | Cakupan/catatan |
 |---|---|---|
@@ -86,7 +103,7 @@ Pada audit produksi, URL artikel, kategori, glossary, homepage, halaman privasi,
 
 - Astro 7, TypeScript strict, static site generation, Tailwind CSS v4 melalui Vite, dan Pagefind.
 - `npm run build` adalah pipeline build resmi: build Astro, pembuatan indeks Pagefind, lalu cache-bust aset pencarian. Jangan menggantinya dengan `astro build` saja untuk validasi produksi.
-- Versi Node proyek dipin ke major **24** melalui `.nvmrc`, `.node-version`, dan konfigurasi CI; jangan mengubah pin hanya untuk menyesuaikan default shell.
+- Node.js lokal dipin ke **26.12.1** melalui `.nvmrc` dan `.node-version`; GitHub Actions dan Cloudflare Pages menggunakan major **26** (`NODE_VERSION=26`). Pertahankan konsistensi ini saat mengubah runtime.
 - Cloudflare Pages mengambil branch produksi `main` dari repository GitHub `KDS-boop/edu-glossary`.
 - Google Tag Manager tidak menjadi bagian dari konfigurasi aktif yang didokumentasikan. Jangan menambahkan GTM atau menghidupkan konfigurasi historis tanpa persetujuan eksplisit.
 - Perubahan CookieYes, Google Analytics, AdSense, Clarity, CSP, header keamanan, atau kebijakan privasi harus menjalani QA consent/security khusus.

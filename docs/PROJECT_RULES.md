@@ -9,7 +9,7 @@ Dokumen ini adalah acuan permanen untuk menjaga arsitektur, keamanan, dan proses
 - **Pencarian:** Pagefind dibuat dalam pipeline build resmi.
 - **Styling:** Tailwind CSS v4 melalui integrasi Vite; ikuti token dan pola styling yang sudah ada.
 - **Hosting:** Cloudflare Pages, branch produksi main, domain kanonik https://eduglossary.my.id/.
-- **Node.js:** major 24, sesuai .nvmrc, .node-version, dan workflow CI.
+- **Node.js lokal:** `26.12.1` melalui `.nvmrc` dan `.node-version`; GitHub Actions dan Cloudflare Pages menggunakan major `26`.
 
 Jangan menambah SSR/adapter, mengganti framework, merombak routing, atau memperkenalkan dependency baru tanpa kebutuhan yang nyata dan persetujuan untuk perubahan berdampak besar.
 

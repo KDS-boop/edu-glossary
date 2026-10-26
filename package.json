@@ -5,29 +5,28 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build && pagefind --site dist --root-selector body && node scripts/pagefind-cache-bust.mjs",
-    "preview": "astro preview"
+    "build": "astro build --timings && pagefind --site dist --root-selector body && node scripts/pagefind-cache-bust.mjs",
+    "preview": "astro preview",
+    "check": "astro sync && tsc --noEmit --runExternalCode"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
     "@fontsource/inter": "^5.3.0",
-    "astro": "^7.3.8",
+    "astro": "^7.4.2",
     "astro-expressive-code": "^0.44.2",
-    "browser-use-sdk": "^3.11.3",
-    "globby": "^16.2.4",
-    "supermemory": "^5.0.1"
+    "globby": "^16.2.4"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.10",
-    "@astrojs/language-server": "^2.17.2",
+    "@astrojs/language-server": "^2.17.3",
+    "@astrojs/ts-content-mapper": "^0.2.0",
     "@axe-core/playwright": "^4.13.0",
     "@emnapi/runtime": "^1.11.3",
     "@tailwindcss/vite": "^4.3.3",
     "pagefind": "^1.5.2",
     "playwright": "^1.64.0",
     "tailwindcss": "^4.3.3",
-    "typescript": "^6.0.3"
+    "typescript": "^7.1.0-beta"
   },
   "overrides": {
     "postcss-selector-parser": "^7.1.6"

@@ -5,11 +5,11 @@ EduGlossary adalah situs edukasi teknologi berisi glosarium A–Z dan artikel pe
 - **Produksi:** https://eduglossary.my.id/
 - **Mirror Cloudflare Pages:** https://edu-glossary.pages.dev/
 - **Branch deploy produksi:** main
-- **Versi Node.js proyek:** major 24, sesuai `.nvmrc`, `.node-version`, dan CI
+- **Versi Node.js lokal:** `26.12.1` melalui `.nvmrc` dan `.node-version`; GitHub Actions dan Cloudflare Pages menggunakan major `26`.
 
 ## Mulai secara lokal
 
-Gunakan Node.js 24 terlebih dahulu, lalu jalankan:
+Gunakan Node.js `26.12.1` terlebih dahulu, lalu jalankan:
 
     npm ci
     npm run dev
@@ -23,10 +23,10 @@ Buka http://localhost:4321/.
 | `npm run dev` | Menjalankan server pengembangan Astro |
 | `npm run build` | Membuat situs statis, membangun indeks Pagefind, lalu membuat cache-bust untuk aset pencarian |
 | `npm run preview` | Menyajikan hasil build produksi secara lokal |
-| `npx astro check` | Memeriksa diagnostik Astro dan TypeScript |
+| `npm run check` | Menjalankan `astro sync` lalu pemeriksaan TypeScript 7 (`tsc --noEmit --runExternalCode`) |
 | `npx playwright test` | Menjalankan tes browser Playwright di konfigurasi desktop, mobile, dan small-mobile |
 
-**Catatan:** Pagefind sudah menjadi bagian dari `npm run build`. Jangan menjalankan build Astro saja sebagai pengganti pipeline produksi, karena indeks pencarian juga perlu diperbarui. Playwright menjalankan build dan preview melalui `playwright.config.ts`; browser Playwright harus tersedia di mesin yang menjalankan tes.
+**Catatan:** Pagefind sudah menjadi bagian dari `npm run build`. Jangan menjalankan build Astro saja sebagai pengganti pipeline produksi, karena indeks pencarian juga perlu diperbarui. `npm run check` menggunakan TypeScript `7.1.0-beta` bersama `@astrojs/ts-content-mapper`; pertahankan lockfile dan verifikasi jalur ini di CI. Playwright menjalankan build dan preview melalui `playwright.config.ts`; browser Playwright harus tersedia di mesin yang menjalankan tes.
 
 ## Struktur penting
 
@@ -66,7 +66,7 @@ Buka http://localhost:4321/.
 ## Aturan proyek dan QA
 
 - Baca [PROJECT_RULES.md](docs/PROJECT_RULES.md) sebelum mengubah arsitektur, keamanan, privasi, atau deployment.
-- Jalankan `npx astro check`, `npm run build`, `npx playwright test` bila browser tersedia, dan `git diff --check` sesuai cakupan perubahan.
+- Jalankan `npm run check`, `npm run build`, `npx playwright test` bila browser tersedia, dan `git diff --check` sesuai cakupan perubahan.
 - QA bersifat read-only kecuali perubahan secara eksplisit diminta.
 - Perubahan kode/konten harus tetap berada dalam cakupan tugas; jangan mengubah dependency, lockfile, routing, CSP, consent, analytics, atau konfigurasi deployment tanpa alasan yang jelas.
 - Detail snapshot produksi dan pemeriksaan terakhir tersedia di [PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
