@@ -2,7 +2,7 @@
 
 - **Snapshot dokumentasi diperbarui:** 26 Oktober 2026 (WIB).
 - **Rilis tooling/runtime terbaru yang diverifikasi melalui `cf` CLI:** commit `66b7e324b45462e8cda3103c5c7ac18a8a7b429b` berhasil dibangun dan dideploy ke Cloudflare Pages pada 26 Oktober 2026. Smoke check HTTP pada domain produksi mengembalikan 200 untuk homepage, artikel keamanan PHP/Node.js, artikel Edge Computing, halaman privasi, halaman kontak, sitemap, dan robots.txt.
-- **Perubahan tooling/runtime:** pin Node.js 26, pembaruan dependency/check TypeScript 7, pembersihan konfigurasi MCP dan skrip QA lama sudah di-commit pada `66b7e32` dan berhasil dideploy. Pembaruan dokumentasi status setelah verifikasi deployment sedang dikirim sebagai commit dokumentasi lanjutan.
+- **Perubahan tooling/runtime:** pin Node.js 26, pembaruan dependency/check TypeScript 7, pembersihan konfigurasi MCP dan skrip QA lama sudah di-commit pada `66b7e32` dan berhasil dideploy. Pembaruan dokumentasi status lanjutan dikirim pada commit `d2dfd1e`; deployment tersebut juga berstatus `deploy = success`.
 - **Batas status:** audit menyeluruh yang dijabarkan pada bagian berikut dilakukan 23 Oktober 2026; hasil rinci tersebut adalah historis dan tidak membuktikan seluruh halaman/fitur diuji ulang pada 26 Oktober.
 
 ## Identitas produksi dan rilis terakhir
