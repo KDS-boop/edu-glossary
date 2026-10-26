@@ -1,8 +1,8 @@
 # Status Proyek EduGlossary
 
 - **Snapshot dokumentasi diperbarui:** 26 Oktober 2026 (WIB).
-- **Status produksi terverifikasi melalui `cf` CLI:** deployment produksi terakhir yang tercatat menggunakan commit `62c745bc28799de5c7b2556c4933230206d2eef0` dan berstatus `success` (dibuat 24 Oktober 2026). Smoke check HTTP ulang pada 26 Oktober mengembalikan 200 untuk homepage, artikel keamanan PHP/Node.js, artikel Edge Computing, halaman privasi, halaman kontak, sitemap, dan robots.txt.
-- **Perubahan lokal yang sedang difinalisasi:** pin Node.js 26, pembaruan dependency/check TypeScript 7, pembersihan konfigurasi MCP dan skrip QA lama, serta pembaruan dokumentasi. Perubahan lokal ini belum termasuk deployment produksi sampai di-commit dan di-push.
+- **Rilis tooling/runtime terbaru yang diverifikasi melalui `cf` CLI:** commit `66b7e324b45462e8cda3103c5c7ac18a8a7b429b` berhasil dibangun dan dideploy ke Cloudflare Pages pada 26 Oktober 2026. Smoke check HTTP pada domain produksi mengembalikan 200 untuk homepage, artikel keamanan PHP/Node.js, artikel Edge Computing, halaman privasi, halaman kontak, sitemap, dan robots.txt.
+- **Perubahan tooling/runtime:** pin Node.js 26, pembaruan dependency/check TypeScript 7, pembersihan konfigurasi MCP dan skrip QA lama sudah di-commit pada `66b7e32` dan berhasil dideploy. Pembaruan dokumentasi status setelah verifikasi deployment sedang dikirim sebagai commit dokumentasi lanjutan.
 - **Batas status:** audit menyeluruh yang dijabarkan pada bagian berikut dilakukan 23 Oktober 2026; hasil rinci tersebut adalah historis dan tidak membuktikan seluruh halaman/fitur diuji ulang pada 26 Oktober.
 
 ## Identitas produksi dan rilis terakhir
@@ -13,11 +13,11 @@
 | Cloudflare Pages project | `eduglossary` |
 | Alias Pages | https://edu-glossary.pages.dev/ |
 | Branch produksi | `main` |
-| Git HEAD aplikasi yang saat ini terdeploy | `62c745bc28799de5c7b2556c4933230206d2eef0` |
-| Pesan commit | `Add security articles and update npm dependencies` |
-| Cloudflare deployment ID | `216fb131-2b99-48eb-9c84-fef61ad431b2` |
-| URL deployment unik | https://216fb131.edu-glossary.pages.dev/ |
-| Waktu deployment | 24 Oktober 2026, 12:39 UTC |
+| Git commit tooling/runtime yang diverifikasi | `66b7e324b45462e8cda3103c5c7ac18a8a7b429b` |
+| Pesan commit | `chore: align Node 26 tooling and clean project configs` |
+| Cloudflare deployment ID | `c074cb43-518d-4bfb-a2a4-b6ab8477d85b` |
+| URL deployment unik | https://c074cb43.edu-glossary.pages.dev/ |
+| Waktu deployment | 26 Oktober 2026, 15:27–15:28 UTC |
 | Hasil tahap deployment | `deploy = success` |
 | Build statis pada verifikasi lokal 26 Oktober | Astro menghasilkan 106 halaman; Pagefind mengindeks 106 halaman / 7.216 kata |
 
@@ -31,9 +31,9 @@ Deployment unik di atas menggunakan SHA commit aplikasi yang cocok dengan GitHub
 | `npm run check` | **PASS** | `astro sync` dan `tsc --noEmit --runExternalCode`; TypeScript dependency saat ini `7.1.0-beta` |
 | `npm run build` | **PASS** | Astro membangun 106 halaman; Pagefind mengindeks 106 halaman dan 7.216 kata; cache-bust selesai |
 | `npx playwright test --reporter=list` | **12/12 PASS** | Tes `tests/edge-computing.spec.ts` di desktop, mobile, dan small-mobile; bukan audit menyeluruh semua route produksi |
-| `cf pages get eduglossary` / deployment list | **PASS** | Autentikasi `cf` valid; deployment produksi terakhir yang tercatat adalah commit `62c745b`, status `deploy = success` |
+| `cf pages get eduglossary` / deployment list | **PASS** | Autentikasi `cf` valid; commit `66b7e32` dibangun dan dideploy dengan status `deploy = success` |
 | Smoke check domain produksi | **8/8 HTTP 200** | `/`, artikel PHP/Node.js, Edge Computing, `/privacy-policy/`, `/contact/`, `/sitemap-index.xml`, `/sitemap-0.xml`, `/robots.txt` |
-| Status push perubahan ini | **BELUM** | Saat snapshot ini disusun, perubahan lokal belum di-commit/push; deployment yang tercatat di atas belum berisi perubahan lokal ini |
+| Status push perubahan tooling/runtime | **PASS** | Commit `66b7e32` sudah berada di `origin/main` dan deployment `c074cb43` berstatus `deploy = success`; pembaruan dokumentasi status ini dikirim sebagai commit dokumentasi lanjutan |
 
 TypeScript 7.1 masih dipasang dari versi beta. Karena itu, pertahankan lockfile dan jalankan pemeriksaan serta build pada CI; jangan menganggap toolchain ini sebagai TypeScript 7 stable.
 
