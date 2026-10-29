@@ -28,7 +28,8 @@ Jangan menduplikasi konfigurasi pada file baru jika implementasi yang ada sudah 
 ## Keamanan, privasi, dan analytics
 
 - Google Tag Manager tidak menjadi bagian dari konfigurasi aktif saat aturan ini ditulis. Jangan menambah GTM atau menghidupkan kembali konfigurasi lama tanpa persetujuan eksplisit.
-- CookieYes, Google Analytics, AdSense, Clarity, CSP, dan halaman privasi saling terkait. Perubahan pada salah satunya harus mempertimbangkan consent sebelum request dibuat, header CSP, iframe, dan perilaku Reject All/Accept All.
+- CookieYes, Google Analytics, Clarity, CSP, dan halaman privasi saling terkait. Perubahan pada salah satunya harus mempertimbangkan consent sebelum request dibuat, header CSP, iframe, dan perilaku Reject All/Accept All.
+- Source saat ini tidak memiliki integrasi monetisasi pihak ketiga. Jangan menambahkan skrip iklan, ID publisher, file deklarasi inventaris iklan, atau host monetisasi tanpa persetujuan eksplisit dan pengujian consent/security.
 - Jangan mengekspos kredensial dalam source, log, dokumentasi, commit, atau output terminal.
 - Jangan melonggarkan CSP atau menambah host/security exception secara luas hanya untuk menutupi kegagalan tes.
 

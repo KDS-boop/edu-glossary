@@ -62,6 +62,7 @@ Gunakan format tanggal yang konsisten dengan berkas konten lain. Jangan menandai
 - Gunakan struktur heading yang logis, link deskriptif, alt text yang bermakna, dan tabel yang tetap usable pada viewport kecil.
 - Build dan cek hasil render untuk memastikan gambar, internal link, title, description, canonical, sitemap/RSS, dan indeks Pagefind konsisten.
 - Untuk artikel baru/perubahan besar, jalankan tes browser pada desktop, mobile, dan small-mobile bila lingkungan tersedia; periksa overflow horizontal dan pelanggaran aksesibilitas serious/critical.
+- Untuk advisori keamanan aktif, cantumkan tanggal pemeriksaan, versi perbaikan minimum dari sumber primer, versi rilis terbaru jika berbeda, serta keterbatasan status paket OS/managed runtime. Jangan menyamakan versi upstream dengan bukti bahwa semua artefak produksi sudah diperbarui.
 - Pastikan kata kunci dari sumber tidak membuat konten menyesatkan; ketepatan dan kegunaan lebih penting daripada panjang.
 
 ## Checklist sebelum menyelesaikan konten

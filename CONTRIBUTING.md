@@ -37,5 +37,5 @@ Konfigurasi Playwright membangun situs dan menjalankan preview lokal. Browser Pl
 ## Keamanan dan privasi
 
 - Jangan commit token, API key, cookie, file kredensial, atau output yang mengandung rahasia.
-- Jangan menambahkan kembali Google Tag Manager. Perubahan consent, Google Analytics, AdSense, Clarity, CSP, atau kebijakan privasi harus menjadi bagian dari tugas yang disetujui dan diuji khusus.
+- Jangan menambahkan Google Tag Manager atau skrip monetisasi eksternal. Perubahan consent, Google Analytics, Clarity, CSP, atau kebijakan privasi harus menjadi bagian dari tugas yang disetujui dan diuji khusus.
 - QA bersifat read-only secara default. Jangan mengedit kode, konten, konfigurasi, atau dependency dalam tugas QA murni kecuali perubahan memang diminta.

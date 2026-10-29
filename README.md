@@ -69,6 +69,7 @@ Buka http://localhost:4321/.
 - Jalankan `npm run check`, `npm run build`, `npx playwright test` bila browser tersedia, dan `git diff --check` sesuai cakupan perubahan.
 - QA bersifat read-only kecuali perubahan secara eksplisit diminta.
 - Perubahan kode/konten harus tetap berada dalam cakupan tugas; jangan mengubah dependency, lockfile, routing, CSP, consent, analytics, atau konfigurasi deployment tanpa alasan yang jelas.
+- Source saat ini tidak menggunakan integrasi monetisasi pihak ketiga. Jangan menambahkan skrip iklan, tag publisher, deklarasi inventaris iklan, atau host monetisasi ke CSP tanpa persetujuan dan QA khusus.
 - Detail snapshot produksi dan pemeriksaan terakhir tersedia di [PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
 
 ## Deployment
