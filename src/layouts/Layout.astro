@@ -63,8 +63,7 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="google-adsense-account" content="ca-pub-4202775507431567" />
-    <script is:inline data-cfasync="false" data-google-tag-id={googleTagId} data-ga4-id={ga4MeasurementId} data-clarity-id={clarityProjectId} data-adsense-client-id="ca-pub-4202775507431567">
+    <script is:inline data-cfasync="false" data-google-tag-id={googleTagId} data-ga4-id={ga4MeasurementId} data-clarity-id={clarityProjectId}>
       window.dataLayer = window.dataLayer || [];
       function gtag() { window.dataLayer.push(arguments); }
 
@@ -86,11 +85,8 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
         const googleTagId = currentScript && currentScript.getAttribute('data-google-tag-id');
         const analyticsMeasurementId = currentScript && currentScript.getAttribute('data-ga4-id');
         const clarityId = currentScript && currentScript.getAttribute('data-clarity-id');
-        const adsenseClientId = currentScript && currentScript.getAttribute('data-adsense-client-id');
 
         let clarityLoaded = false;
-        let adsenseLoaded = false;
-        let previousAdvertisingConsent = null;
 
         function syncClarityConsent(analytics, advertising) {
           if (!clarityLoaded || typeof window.clarity !== 'function') return;
@@ -115,18 +111,6 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
           script.async = true;
           script.setAttribute('data-cfasync', 'false');
           script.src = 'https://www.clarity.ms/tag/' + encodeURIComponent(clarityId);
-          (document.head || document.documentElement).appendChild(script);
-        }
-
-        function loadAdSense() {
-          if (!adsenseClientId || adsenseLoaded) return;
-          adsenseLoaded = true;
-
-          // Do not create or request the AdSense script until Advertisement consent is granted.
-          const script = document.createElement('script');
-          script.async = true;
-          script.crossOrigin = 'anonymous';
-          script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + encodeURIComponent(adsenseClientId);
           (document.head || document.documentElement).appendChild(script);
         }
 
@@ -157,8 +141,6 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
           const analytics = isGranted(categories.analytics);
           const advertising = isGranted(categories.advertisement);
           const functional = isGranted(categories.functional);
-          const revokeAds = adsenseLoaded && previousAdvertisingConsent === true && !advertising;
-          previousAdvertisingConsent = advertising;
 
           window.gtag('consent', 'update', {
             analytics_storage: analytics ? 'granted' : 'denied',
@@ -168,15 +150,6 @@ const schemas = [schema, breadcrumbSchema].filter(Boolean);
             functionality_storage: functional ? 'granted' : 'denied',
             personalization_storage: functional ? 'granted' : 'denied'
           });
-
-          // Reload after withdrawing previously granted ad consent so an already-running
-          // third-party ad runtime cannot remain active in the current document. The saved
-          // CookieYes choice is re-read on the next load, and ads remain off when denied.
-          if (revokeAds) {
-            window.location.reload();
-            return;
-          }
-          if (advertising) loadAdSense();
 
           // Load GA4 directly only after Analytics consent.
           if (analytics) loadGA4();
