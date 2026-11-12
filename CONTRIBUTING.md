@@ -37,5 +37,5 @@ Konfigurasi Playwright membangun situs dan menjalankan preview lokal. Browser Pl
 ## Keamanan dan privasi
 
 - Jangan commit token, API key, cookie, file kredensial, atau output yang mengandung rahasia.
-- Jangan menambahkan Google Tag Manager, CookieYes, Clarity, atau zona/format iklan tambahan tanpa persetujuan eksplisit. Integrasi yang disetujui saat ini adalah GA4 dengan Consent Mode default-denied dan Monetag Push zone 12211775. Perubahan GA4, Monetag, CSP, atau kebijakan privasi harus diuji khusus.
+- Jangan menambahkan Google Tag Manager, CookieYes, Clarity, atau zona/format iklan tambahan tanpa persetujuan eksplisit. Integrasi Monetag yang saat ini disetujui: Push zone 12211775, OnClick zone 12246903 (head global), dan Direct Link zone 12246904 (hanya CTA sponsor berlabel pada halaman detail artikel). Perubahan GA4, Monetag, CSP, atau kebijakan privasi harus diuji khusus.
 - QA bersifat read-only secara default. Jangan mengedit kode, konten, konfigurasi, atau dependency dalam tugas QA murni kecuali perubahan memang diminta.

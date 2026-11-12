@@ -113,6 +113,21 @@ const pageDescription = post.data.description;
     <Content />
   </article>
 
+  <aside class="sponsored-recommendation" aria-labelledby="sponsored-recommendation-heading">
+    <p class="sponsored-recommendation__eyebrow">Sponsored link</p>
+    <h2 id="sponsored-recommendation-heading">Explore a recommendation</h2>
+    <p>Open an external offer provided by our advertising partner.</p>
+    <a
+      class="sponsored-recommendation__link"
+      href="https://uplcm.com/4/12246904"
+      target="_blank"
+      rel="sponsored nofollow noopener"
+      aria-label="Lihat Rekomendasi — sponsored link, opens in a new tab"
+    >
+      Lihat Rekomendasi <span aria-hidden="true">↗</span>
+    </a>
+  </aside>
+
   {post.data.tags.length > 0 && (
     <p style="margin-top: 2rem;">
       {post.data.tags.map((tag: string) => <span class="badge" style="margin-right: 0.4rem;">{tag}</span>)}

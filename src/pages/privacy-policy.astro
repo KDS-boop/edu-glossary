@@ -5,7 +5,7 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "Privacy Policy",
-  description: "Learn how EduGlossary handles technical data, restricted GA4 measurement, Monetag push advertising, security, and privacy choices.",
+  description: "Learn how EduGlossary handles technical data, restricted GA4 measurement, Monetag advertising, security, and privacy choices.",
 };
 
 const breadcrumbs = [
@@ -16,7 +16,7 @@ const breadcrumbs = [
 
 <Layout
   title="Privacy Policy"
-  description="Learn how EduGlossary handles technical data, restricted GA4 measurement, Monetag push advertising, security, and privacy choices."
+  description="Learn how EduGlossary handles technical data, restricted GA4 measurement, Monetag advertising, security, and privacy choices."
   schema={schema}
   breadcrumbs={breadcrumbs}
 >
@@ -50,7 +50,7 @@ const breadcrumbs = [
       cookieless measurement signals, but Google Analytics cookies such as <code>_ga</code> and
       <code>_ga_*</code> are not enabled by this configuration. Cloudflare may use strictly
       necessary security technologies. Monetag may use advertising cookies or similar technologies
-      as described in its own policies.
+      for ad delivery, frequency controls, and advertising preferences as described in its own policies.
     </p>
 
     <h2>Third-party services</h2>
@@ -64,11 +64,14 @@ const breadcrumbs = [
         <a href="https://policies.google.com/privacy" rel="noopener">Google Privacy Policy</a>.
       </li>
       <li>
-        <strong>Monetag</strong> provides Push Notifications advertising. Its tag and service
-        worker enable the browser notification opt-in flow. If you grant notification permission,
-        your browser may receive advertising notifications even when you are no longer visiting
-        this site. You can revoke that permission in your browser or device notification settings.
-        Monetag may process technical, browser, advertising, and interaction data under its own
+        <strong>Monetag</strong> provides Push Notifications, OnClick, and Direct Link advertising.
+        Its Push tag and service worker enable the browser notification opt-in flow. If you grant
+        notification permission, your browser may receive advertising notifications even when you
+        are no longer visiting this site. You can revoke that permission in your browser or device
+        notification settings. The OnClick format may open a separate advertising tab after you click anywhere
+        on a page. On article pages, a clearly labeled sponsored link opens a third-party offer
+        in a new tab only when you select it. Monetag may process technical, browser, advertising,
+        and interaction data and use advertising cookies or similar technologies under its own
         policies. See the
         <a href="https://monetag.com/privacy/" rel="noopener">Monetag Privacy Policy</a>,
         <a href="https://monetag.com/cookies-policy/" rel="noopener">Cookies Policy</a>, and

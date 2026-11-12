@@ -29,7 +29,7 @@ Jangan menduplikasi konfigurasi pada file baru jika implementasi yang ada sudah 
 
 - Google Tag Manager tidak aktif. GA4 menggunakan Google Consent Mode dengan analytics/ad storage denied secara default; jangan mengubah default ini tanpa tinjauan privasi dan pengujian.
 - CookieYes dan Microsoft Clarity telah dihapus dari implementasi aktif. Jangan menghidupkan kembali kedua layanan tersebut tanpa persetujuan eksplisit.
-- Monetag Push Notifications adalah integrasi monetisasi yang disetujui untuk EduGlossary: zone 12211775, tag https://5gvci.com/act/files/tag.min.js?z=12211775, dan public/sw.js yang cocok dengan zone tersebut. Jangan mengganti zone, menambah format iklan, atau mengubah service worker tanpa persetujuan eksplisit.
+- Integrasi Monetag yang disetujui: Push zone 12211775 (tag https://5gvci.com/act/files/tag.min.js?z=12211775 dan public/sw.js yang cocok), OnClick zone 12246903 (https://al5sm.com/tag.min.js dengan data-zone=12246903, dipasang satu kali di head global), dan Direct Link zone 12246904 (https://uplcm.com/4/12246904, hanya pada CTA sponsor berlabel di halaman detail artikel). CSP OnClick mengizinkan al5sm.com pada script-src dan 255md.com pada connect-src. Jangan menambah zona/format atau mengubah scope penempatan tanpa persetujuan eksplisit.
 - Perubahan GA4/Consent Mode, tag atau service worker Monetag, CSP, header keamanan, atau kebijakan privasi wajib menjalani QA privasi/security khusus. Batasi host CSP pada endpoint yang benar-benar dibutuhkan.
 - Jangan mengekspos kredensial dalam source, log, dokumentasi, commit, atau output terminal.
 - Jangan melonggarkan CSP atau menambah host/security exception secara luas hanya untuk menutupi kegagalan tes.
