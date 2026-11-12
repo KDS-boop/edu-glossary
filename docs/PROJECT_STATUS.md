@@ -1,9 +1,21 @@
 # Status Proyek EduGlossary
 
+## Snapshot terkini — 12 November 2026
+
+- **CookieYes:** pemuat CookieYes, event listener consent, cookie parsing, tombol Cookie Settings di footer, dan origin CookieYes pada CSP telah dihapus dari source aktif.
+- **Microsoft Clarity:** project ID, loader, consent handling, dan origin Clarity pada CSP telah dihapus.
+- **GA4:** Google tag langsung dipertahankan tanpa GTM. Google Consent Mode menetapkan analytics/ad storage ke denied secara default; pengukuran yang dikirim bersifat cookieless. Event pencarian Pagefind hanya mengirim jenis event dan panjang query, bukan teks pencarian.
+- **Monetag:** API akun mengembalikan situs eduglossary.my.id (site ID 3565605) dan zona EduGlossary Push (zone ID 12211775, direction_id=61). Tag https://5gvci.com/act/files/tag.min.js?z=12211775 dipasang di bagian atas head dengan data-cfasync=false. File public/sw.js cocok dengan isi service worker yang dikembalikan Monetag untuk zone 12211775.
+- **CSP:** origin CookieYes dan Clarity dihapus; endpoint Monetag 5gvci.com dan 3nbf4.com tetap diizinkan sesuai tag dan service worker saat ini.
+- **Kebijakan privasi:** halaman /privacy-policy/ diperbarui untuk menjelaskan GA4 default-denied, Monetag Push Notifications, pengelolaan izin notifikasi browser, dan layanan Cloudflare.
+- **Verifikasi lokal 12 November:** npm run check PASS; npm run build PASS (Astro menghasilkan 110 halaman; Pagefind mengindeks 110 halaman / 7.367 kata); pemeriksaan statis homepage/privacy, tag tunggal, atribut data-cfasync, kesamaan dist/sw.js dengan source, CSP inline-script hashes, dan git diff --check PASS. Playwright **18/18 PASS** pada desktop, mobile, dan small-mobile memakai Google Chrome 157 (/usr/bin/google-chrome): 12 tes suite repository serta 6 pemeriksaan Monetag/privacy. Tes dijalankan satu worker dengan navigasi DOMContentLoaded agar unduhan skrip iklan pihak ketiga tidak menahan event load; perubahan konfigurasi/tes untuk workaround ini bersifat sementara dan tidak disimpan. Belum ada push/deployment dalam snapshot ini.
+
+## Snapshot historis — 29 Oktober 2026
+
 - **Dokumentasi diperbarui:** 29 Oktober 2026 (WIB).
 - **Rilis konten terbaru yang diverifikasi:** commit `4f236f5` (`content: update Brotli CVE guidance for active exploitation`) berhasil dibangun dan dideploy ke Cloudflare Pages; deployment `abb5a6c3-b303-4b37-b7de-5224fe32ab59` (`https://abb5a6c3.edu-glossary.pages.dev/`), tahap `deploy = success`.
 - **Smoke test produksi release tersebut:** artikel Brotli/CVE-2026-111497, tiga entri glosarium baru, dan halaman kebijakan privasi merespons HTTP 200 pada domain kanonik. Jalur deklarasi publisher lama merespons HTTP 404.
-- **Status iklan/monetisasi:** repository dan output `dist` tidak memiliki pemuat iklan, ID publisher, deklarasi inventaris iklan, atau endpoint jaringan iklan. Berkas deklarasi publisher telah dihapus. GA4, Clarity, dan CookieYes tetap aktif sesuai consent; monetisasi pihak ketiga baru memerlukan persetujuan dan QA consent/security.
+- **Monetisasi pada snapshot 29 Oktober:** saat itu repository dan output dist belum memiliki pemuat iklan; GA4, Clarity, dan CookieYes masih aktif sesuai consent. Catatan ini bersifat historis dan telah digantikan oleh snapshot 12 November di atas.
 - **Verifikasi lokal 29 Oktober 2026:** `npm run check` PASS; `npm run build` PASS (Astro menghasilkan 110 halaman, Pagefind mengindeks 110 halaman / 7.370 kata); `git diff --check` PASS. Playwright lulus 12/12 tes suite yang tersedia serta 6/6 smoke/accessibility tests sementara untuk keempat halaman baru di desktop, mobile, dan small-mobile (18/18 total). Tes sementara dihapus setelah selesai.
 - **Perubahan konten terbaru:** artikel CVE-2026-111497 diperbarui agar menyebut advisori NCSC Selandia Baru 29 Oktober yang menyatakan eksploitasi aktif dan proof-of-concept tersedia. Artikel juga membedakan patch Node.js menurut release line dan memberi peringatan khusus mengenai status Node.js 24 serta rollout runtime terkelola. Tiga entri glosarium (Brotli, Remote Code Execution, Out-of-Bounds Write) dan visual SVG orisinalnya sudah ada dalam rilis konten sebelumnya.
 - **Cakupan status:** deployment `4f236f5` diuji dengan route smoke test dan pemeriksaan isi peringatan aktif. Audit ini bukan bukti bahwa seluruh halaman, semua viewport, atau setiap fitur produksi diuji penuh pada tanggal ini. Detail audit menyeluruh yang lebih lama ditandai sebagai historis di bawah.
@@ -116,7 +128,7 @@ Pada audit produksi, URL artikel, kategori, glossary, homepage, halaman privasi,
 - Node.js lokal dipin ke **26.12.1** melalui `.nvmrc` dan `.node-version`; GitHub Actions dan Cloudflare Pages menggunakan major **26** (`NODE_VERSION=26`). Pertahankan konsistensi ini saat mengubah runtime.
 - Cloudflare Pages mengambil branch produksi `main` dari repository GitHub `KDS-boop/edu-glossary`.
 - Google Tag Manager tidak menjadi bagian dari konfigurasi aktif yang didokumentasikan. Jangan menambahkan GTM atau menghidupkan konfigurasi historis tanpa persetujuan eksplisit.
-- Perubahan CookieYes, Google Analytics, Clarity, CSP, header keamanan, kebijakan privasi, atau integrasi monetisasi harus menjalani QA consent/security khusus. Tidak ada integrasi monetisasi pihak ketiga yang aktif pada snapshot ini.
+- Pada snapshot 29 Oktober ini belum ada integrasi monetisasi aktif. Perubahan integrasi setelah tanggal tersebut dijelaskan pada snapshot 12 November di bagian atas; setiap perubahan GA4/Consent Mode, Monetag, CSP, header keamanan, atau kebijakan privasi tetap memerlukan QA privasi/security khusus.
 
 ## Snapshot resource Colab — laporan operator 23 Oktober 2026
 

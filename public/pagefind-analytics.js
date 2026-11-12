@@ -9,34 +9,11 @@
     return 'other';
   };
 
-  const hasAnalyticsConsent = () => {
-    try {
-      const entry = document.cookie
-        .split(';')
-        .map((part) => part.trim())
-        .find((part) => part.startsWith('cookieyes-consent='));
-      if (!entry) return false;
-
-      const value = decodeURIComponent(entry.slice('cookieyes-consent='.length));
-      const consent = {};
-      for (const item of value.split(',')) {
-        const separator = item.indexOf(':');
-        if (separator < 0) continue;
-        const key = item.slice(0, separator).trim();
-        consent[key] = item.slice(separator + 1).trim().toLowerCase();
-      }
-
-      return consent.consent === 'yes' && consent.analytics === 'yes';
-    } catch {
-      // A missing or malformed consent signal must fail closed.
-      return false;
-    }
-  };
-
   const pushAnalyticsEvent = (payload) => {
-    // Send events directly to GA4; never queue pre-consent interactions.
-    if (!hasAnalyticsConsent() || typeof window.gtag !== 'function') return;
+    if (typeof window.gtag !== 'function') return;
 
+    // Search text is never sent; only event type and query length are recorded.
+    // Google Consent Mode keeps analytics storage denied by default.
     const { event, ...parameters } = payload;
     window.gtag('event', event, {
       send_to: 'G-F3Z7H2NXEG',
