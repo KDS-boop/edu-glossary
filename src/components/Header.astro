@@ -15,11 +15,6 @@ const nav = [
         <a class="logo" href="/">
           <span>E</span>duGlossary
         </a>
-        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
       </div>
       <ul class="nav-menu" id="nav-menu">
         {nav.map((item) => (
@@ -27,13 +22,18 @@ const nav = [
         ))}
       </ul>
       <div class="header-actions">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <button id="theme-toggle" aria-label="Toggle dark mode" title="Toggle theme">
           <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42m12.72-12.72l1.42-1.42"/></svg>
           <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
-        <div id="search" class="pagefind-theme">
-          <pagefind-searchbox instance="header" placeholder="Search terms, articles..." show-sub-results max-results="5" hide-shortcut></pagefind-searchbox>
-        </div>
+      </div>
+      <div id="search" class="pagefind-theme">
+        <pagefind-searchbox instance="header" placeholder="Search terms, articles..." show-sub-results max-results="5" hide-shortcut></pagefind-searchbox>
       </div>
     </nav>
   </div>

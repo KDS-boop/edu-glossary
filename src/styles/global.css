@@ -443,8 +443,8 @@ article.prose {
   gap: var(--space-6);
 }
 
-/* Logo + hamburger share one row. Without this the block-level
-   .menu-toggle button wraps onto its own line below the logo. */
+/* Keep the brand independent from mobile controls so compact headers can
+   allocate predictable grid space to the menu, theme toggle, and search. */
 .nav-left {
   display: flex;
   align-items: center;
@@ -607,7 +607,32 @@ article.prose {
 }
 
 @media (max-width: 768px) {
-  .menu-toggle { display: flex; }
+  .site-header nav {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(160px, 200px);
+    grid-template-areas: "brand actions search";
+    align-items: center;
+    column-gap: var(--space-3);
+  }
+  .nav-left { grid-area: brand; }
+  .header-actions {
+    grid-area: actions;
+    gap: var(--space-2);
+    flex-shrink: 0;
+  }
+  #search {
+    grid-area: search;
+    width: 100%;
+    min-width: 160px;
+    max-width: 200px;
+  }
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+  }
   .site-header ul {
     /* Absolute (not fixed) so `top: 100%` is 100% of the sticky header's
        height, placing the panel directly below it. With fixed positioning
@@ -1243,33 +1268,25 @@ article.prose {
 }
 
 @media (max-width: 480px) {
-  .header-actions {
+  .site-header nav {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "brand actions"
+      "search search";
+    row-gap: var(--space-2);
+  }
+  #search {
+    width: 100%;
     min-width: 0;
     max-width: 100%;
   }
-  #search {
-    min-width: 0;
-    max-width: min(180px, 100%);
-    width: min(180px, 100%);
-  }
   #search pagefind-searchbox {
-    --pf-searchbox-max-width: 180px;
+    --pf-searchbox-max-width: min(260px, 100%);
     --pf-searchbox-dropdown-max-height: min(65vh, 320px);
   }
   .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--space-6);
-  }
-  .header-actions {
-    flex-shrink: 1;
-  }
-  #theme-toggle {
-    flex-shrink: 1;
-  }
-  #search {
-    flex-shrink: 1;
-    min-width: 120px;
-    max-width: 180px;
   }
   .prose h1 {
     font-size: 1.4rem;
