@@ -6,18 +6,18 @@ Panduan singkat untuk perubahan kode, konten, dan QA di EduGlossary.
 
 - Catat branch dan kondisi working tree dengan `git status --short --branch`.
 - Baca [aturan proyek](docs/PROJECT_RULES.md) dan [standar konten](docs/CONTENT_STANDARDS.md) untuk perubahan yang relevan.
-- Gunakan Node.js `26.12.1` sesuai `.nvmrc` dan `.node-version`; CI dan Cloudflare Pages dikonfigurasi pada major `26`.
+- Gunakan Node.js `26.13.1` sesuai `.nvmrc` dan `.node-version`; CI dan Cloudflare Pages dikonfigurasi pada major `26`.
 - Pertahankan perubahan sekecil mungkin dan sesuai permintaan. Hindari refactor yang tidak terkait.
 
 ## Validasi lokal
 
-Aktifkan Node.js `26.12.1`, lalu jalankan pemeriksaan yang relevan:
+Aktifkan Node.js `26.13.1`, lalu jalankan pemeriksaan yang relevan:
 
     npm run check
     npm run build
     git diff --check
 
-`npm run check` saat ini memakai TypeScript `7.1.0-beta` dan `@astrojs/ts-content-mapper`. Jangan menghapus atau memperbarui dependency/lockfile terkait tanpa mengulangi pemeriksaan ini dan tes CI.
+`npm run check` saat ini menjalankan `astro sync && tsc --noEmit` dengan TypeScript `7.0.2` stabil. TypeScript 7.0 tidak menerima opsi `--runExternalCode` yang diperkenalkan untuk content mappers pada jalur 7.1; ulangi pemeriksaan dan tes CI saat memperbarui compiler.
 
 Untuk perubahan UI, interaksi, route, aksesibilitas, atau konten yang dirender di browser, jalankan tes Playwright:
 

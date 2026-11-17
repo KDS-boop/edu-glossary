@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Node.js November 2026 security releases</title>
+  <desc id="desc">A shield protects HTTP/2 streams and TLS connections as they pass through a runtime patch and verification gate.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14223b"/><stop offset="1" stop-color="#102f3b"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8fb8ff"/><stop offset="1" stop-color="#66e1c5"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".045"/></pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/><rect width="1200" height="630" fill="url(#grid)"/>
+  <circle cx="1050" cy="95" r="210" fill="#72dcca" opacity=".07"/>
+  <text x="76" y="85" font-family="Arial,Helvetica,sans-serif" font-size="17" letter-spacing="4" font-weight="700" fill="#a8c8ff">RUNTIME SECURITY · 17 NOVEMBER 2026</text>
+  <text x="76" y="158" font-family="Arial,Helvetica,sans-serif" font-size="56" font-weight="700" fill="#fff">Node.js security releases</text>
+  <text x="78" y="204" font-family="Arial,Helvetica,sans-serif" font-size="25" fill="#c6d5e8">HTTP/2 · HTTPS · TLS hardening</text>
+  <path d="M225 360H975" stroke="url(#accent)" stroke-width="7" stroke-linecap="round" opacity=".8"/>
+  <g transform="translate(108 275)">
+    <rect width="245" height="172" rx="22" fill="#fff" fill-opacity=".055" stroke="#8fb8ff" stroke-opacity=".75" stroke-width="2"/>
+    <circle cx="122" cy="55" r="34" fill="#8fb8ff" fill-opacity=".14" stroke="#a9c7ff" stroke-width="2"/>
+    <path d="M101 47h42v22h-42zM108 39h28v8M109 55h26M109 62h18" fill="none" stroke="#dce9ff" stroke-width="3" stroke-linejoin="round"/>
+    <text x="122" y="116" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700" fill="#fff">HTTP/2</text>
+    <text x="122" y="143" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="15" fill="#c2d0e4">Streams and memory</text>
+  </g>
+  <g transform="translate(477 253)">
+    <path d="M122 0l99 37v76c0 69-50 111-99 137-49-26-99-68-99-137V37z" fill="#66e1c5" fill-opacity=".10" stroke="#66e1c5" stroke-width="4"/>
+    <path d="M122 56l42 18v39c0 36-19 60-42 75-23-15-42-39-42-75V74z" fill="#66e1c5" fill-opacity=".15" stroke="#9af3dc" stroke-width="3"/>
+    <path d="M101 116l15 16 31-37" fill="none" stroke="#b9ffed" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="122" y="300" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#fff">PATCH + VERIFY</text>
+  </g>
+  <g transform="translate(847 275)">
+    <rect width="245" height="172" rx="22" fill="#fff" fill-opacity=".055" stroke="#66e1c5" stroke-opacity=".75" stroke-width="2"/>
+    <circle cx="122" cy="55" r="34" fill="#66e1c5" fill-opacity=".13" stroke="#8af0d9" stroke-width="2"/>
+    <rect x="103" y="42" width="38" height="27" rx="4" fill="none" stroke="#b9ffed" stroke-width="3"/>
+    <path d="M110 42v-8a12 12 0 0 1 24 0v8M122 53v8" fill="none" stroke="#b9ffed" stroke-width="3" stroke-linecap="round"/>
+    <text x="122" y="116" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700" fill="#fff">TLS / HTTPS</text>
+    <text x="122" y="143" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="15" fill="#c2d0e4">Sessions and identity</text>
+  </g>
+  <rect x="76" y="512" width="1048" height="58" rx="15" fill="#66e1c5" fill-opacity=".08" stroke="#66e1c5" stroke-opacity=".35"/>
+  <text x="600" y="549" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#c4fff0">22.23.5  ·  24.22.3  ·  26.13.1</text>
+</svg>

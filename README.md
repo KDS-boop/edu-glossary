@@ -5,11 +5,11 @@ EduGlossary adalah situs edukasi teknologi berisi glosarium A–Z dan artikel pe
 - **Produksi:** https://eduglossary.my.id/
 - **Mirror Cloudflare Pages:** https://edu-glossary.pages.dev/
 - **Branch deploy produksi:** main
-- **Versi Node.js lokal:** `26.12.1` melalui `.nvmrc` dan `.node-version`; GitHub Actions dan Cloudflare Pages menggunakan major `26`.
+- **Versi Node.js lokal:** `26.13.1` melalui `.nvmrc` dan `.node-version`; GitHub Actions dan Cloudflare Pages menggunakan major `26`.
 
 ## Mulai secara lokal
 
-Gunakan Node.js `26.12.1` terlebih dahulu, lalu jalankan:
+Gunakan Node.js `26.13.1` terlebih dahulu, lalu jalankan:
 
     npm ci
     npm run dev
@@ -23,10 +23,10 @@ Buka http://localhost:4321/.
 | `npm run dev` | Menjalankan server pengembangan Astro |
 | `npm run build` | Membuat situs statis, membangun indeks Pagefind, lalu membuat cache-bust untuk aset pencarian |
 | `npm run preview` | Menyajikan hasil build produksi secara lokal |
-| `npm run check` | Menjalankan `astro sync` lalu pemeriksaan TypeScript 7 (`tsc --noEmit --runExternalCode`) |
+| `npm run check` | Menjalankan `astro sync` lalu pemeriksaan TypeScript 7 stabil (`tsc --noEmit`) |
 | `npx playwright test` | Menjalankan tes browser Playwright di konfigurasi desktop, mobile, dan small-mobile |
 
-**Catatan:** Pagefind sudah menjadi bagian dari `npm run build`. Jangan menjalankan build Astro saja sebagai pengganti pipeline produksi, karena indeks pencarian juga perlu diperbarui. `npm run check` menggunakan TypeScript `7.1.0-beta` bersama `@astrojs/ts-content-mapper`; pertahankan lockfile dan verifikasi jalur ini di CI. Playwright menjalankan build dan preview melalui `playwright.config.ts`; browser Playwright harus tersedia di mesin yang menjalankan tes.
+**Catatan:** Pagefind sudah menjadi bagian dari `npm run build`. Jangan menjalankan build Astro saja sebagai pengganti pipeline produksi, karena indeks pencarian juga perlu diperbarui. `npm run check` menggunakan TypeScript `7.0.2` setelah `astro sync`. TypeScript 7.0 tidak menggunakan opsi content-mapper `--runExternalCode`; pertahankan konsistensi lockfile dan verifikasi jalur ini di CI. Playwright menjalankan build dan preview melalui `playwright.config.ts`; browser Playwright harus tersedia di mesin yang menjalankan tes.
 
 ## Struktur penting
 
