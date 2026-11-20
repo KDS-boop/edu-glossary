@@ -176,5 +176,5 @@ Predictive capability is only one part of a reliable robot. Perception, planning
 ## Official sources and further reading
 
 - [NTT: Physical AI technology that predicts outcomes before robots move](https://group.ntt/en/newsrelease/2026/11/11/261111b.html), 11 November 2026; includes the company's world-model architecture and reported shelf-loading result.
-- [Google DeepMind: Gemini Robotics](https://deepmind.google/discover/blog/gemini-robotics-brings-advanced-ai-into-the-physical-world/), background on AI models designed to interact with the physical world.
+- [Google DeepMind: Gemini Robotics](https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/), background on AI models designed to interact with the physical world.
 - [NIST: Artificial Intelligence](https://www.nist.gov/artificial-intelligence), research and resources on AI measurement, trustworthiness, and risk.
