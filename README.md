@@ -69,7 +69,7 @@ Buka http://localhost:4321/.
 - Jalankan `npm run check`, `npm run build`, `npx playwright test` bila browser tersedia, dan `git diff --check` sesuai cakupan perubahan.
 - QA bersifat read-only kecuali perubahan secara eksplisit diminta.
 - Perubahan kode/konten harus tetap berada dalam cakupan tugas; jangan mengubah dependency, lockfile, routing, CSP, consent, analytics, atau konfigurasi deployment tanpa alasan yang jelas.
-- Source saat ini tidak menggunakan integrasi monetisasi pihak ketiga. Jangan menambahkan skrip iklan, tag publisher, deklarasi inventaris iklan, atau host monetisasi ke CSP tanpa persetujuan dan QA khusus.
+- Monetisasi pihak ketiga yang aktif adalah Monetag: Push zone `12211775`, OnClick zone `12246903`, dan Direct Link zone `12246904` yang hanya digunakan pada CTA sponsor berlabel di halaman detail artikel. CookieYes dan Microsoft Clarity sudah dihapus. Jangan menambahkan provider, zona, penempatan iklan, atau host CSP baru tanpa persetujuan dan QA khusus; lihat [status proyek](docs/PROJECT_STATUS.md) dan [kebijakan privasi](https://eduglossary.my.id/privacy-policy/).
 - Detail snapshot produksi dan pemeriksaan terakhir tersedia di [PROJECT_STATUS.md](docs/PROJECT_STATUS.md).
 
 ## Deployment

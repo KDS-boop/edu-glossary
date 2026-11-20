@@ -1,6 +1,21 @@
 # Status Proyek EduGlossary
 
-## Snapshot terkini — 17 November 2026
+## Snapshot terkini — 20 November 2026
+
+- **Runtime dan dependency:** Node.js lokal **26.13.1** (`.nvmrc` dan `.node-version`), npm **12.2.3**, Astro **7.4.13**, `@astrojs/sitemap` **3.7.6**, `astro-expressive-code` **0.44.4**, TypeScript **7.0.2**, Pagefind **1.6.0**, dan Playwright **1.65.1**. `npm ls --depth=0` bersih; `npm outdated` tidak melaporkan paket yang tertinggal dalam rentang deklarasi; `npm audit` melaporkan **0 vulnerabilities**.
+- **Konten baru dan pembaruan editorial:** tiga artikel ditambahkan: `/articles/adversarial-machine-learning-ai-agent-security/`, `/articles/small-business-cybersecurity-nist-csf-2026/`, dan `/articles/physical-ai-world-models-robotics-predicting-actions/`. Lima artikel yang ada dan dua entri glosarium (`physical-ai`, `world-model`) juga diperbarui. Ketiga artikel baru memiliki cover SVG 1200×630, metadata SEO, canonical, Article JSON-LD, dan tautan internal terkait.
+- **Perbaikan referensi DeepMind (20 November):** URL Google DeepMind yang sebelumnya 404 pada artikel Physical AI diganti dengan halaman resmi [Gemini Robotics 2.5](https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/). URL pengganti diverifikasi HTTP 200; URL lama tidak lagi ada di source maupun HTML hasil build.
+- **Dependency dan validasi kode:** pembaruan dependency dalam rentang semver selesai; `npm run check`, `npm audit`, dan `git diff --check` lulus. Tidak ada penambahan dependency langsung di luar pembaruan lockfile yang dihasilkan npm.
+- **Build lokal terbaru:** `npm run build` lulus. Astro menghasilkan **127 halaman**; sitemap dibuat; Pagefind 1.6.0 mengindeks **114 halaman / 7.794 kata**. Skrip cache-bust mencatat versi aset pencarian `c031f98` pada build lokal yang diverifikasi sebelum commit perbaikan tautan.
+- **QA browser produksi untuk tiga artikel baru:** Playwright Firefox 159.0 berhasil dijalankan pada ARM64; Chromium headless pada host ini belum dapat membuat browser context. Ketiga artikel merespons HTTP 200, memiliki tepat satu H1, canonical benar, Article JSON-LD, cover SVG 1200 px dengan alt, serta tautan related glossary/article. Pada viewport desktop 1365×900 dan mobile 390×844 tidak ditemukan horizontal overflow. Tidak ada page-level JavaScript error atau HTTP error first-party.
+- **Aksesibilitas otomatis:** axe-core dengan tag WCAG 2.0 A/AA dan WCAG 2.1 A/AA mencatat **0 violation** dan **0 incomplete** pada masing-masing dari tiga artikel baru. Ini merupakan pemeriksaan halaman terpilih, bukan klaim audit ulang seluruh situs.
+- **Tautan internal dan pencarian:** 39 URL internal unik yang ditemukan dari tiga halaman artikel yang diuji merespons HTTP 200 (39/39). Pencarian Pagefind produksi menemukan masing-masing tiga artikel sebagai hasil pertama untuk kueri yang relevan.
+- **Sitemap dan robots:** `/sitemap-index.xml`, `/sitemap-0.xml`, dan `/robots.txt` merespons HTTP 200; XML valid; ketiga URL artikel baru tercantum di sitemap.
+- **Push perbaikan DeepMind:** commit `3e9be0098930765b0924d8759f567c189010105b` (`fix: update broken DeepMind reference`) berhasil dipush ke `origin/main`. Commit ini hanya mengubah satu baris pada `src/content/articles/physical-ai-world-models-robotics-predicting-actions.md`; working tree bersih dan SHA lokal sama dengan remote.
+- **Cloudflare Pages production:** CLI `cf` memverifikasi project `eduglossary`, repository `KDS-boop/edu-glossary`, dan branch `main`. Deployment produksi **`9f954e94-36a3-4ac1-8562-8c3dcd0362b0`** (URL unik: https://9f954e94.edu-glossary.pages.dev/) dibangun dari commit `3e9be0098930765b0924d8759f567c189010105b`; seluruh tahap queued, initialize, clone_repo, build, dan deploy berstatus **success** pada 20 November 2026. Domain kanonik `https://eduglossary.my.id` tetap terpasang.
+- **Smoke test setelah deployment:** halaman artikel Physical AI pada URL deployment unik dan domain kanonik sama-sama HTTP 200. HTML keduanya memuat URL DeepMind baru tepat satu kali, tidak memuat URL lama, dan menyertakan marker build yang cocok dengan commit `3e9be00`.
+
+## Snapshot sebelumnya — 17 November 2026
 
 - **Dependensi utama diperbarui:** `@astrojs/sitemap` 3.7.5, `@tailwindcss/vite` 4.3.5, Astro 7.4.12, Pagefind 1.6.0, Playwright 1.65.1, Tailwind CSS 4.3.5, dan TypeScript 7.0.2.
 - **TypeScript check script:** skrip `check` diselaraskan menjadi `astro sync && tsc --noEmit`. TypeScript 7.0.2 menolak opsi `--runExternalCode` dengan TS5023; opsi content-mapper tersebut bukan bagian jalur TypeScript 7.0. `astro sync` tetap dijalankan untuk menghasilkan tipe Astro sebelum pemeriksaan compiler.
@@ -22,7 +37,7 @@
 - **Axe produksi:** enam kombinasi homepage (320, 390, desktop), artikel Node.js (mobile/desktop), dan kategori Cloud Computing mobile menghasilkan **0 pelanggaran** WCAG 2 A/AA maupun WCAG 2.1 A/AA. Tiga audit homepage memuat masing-masing dua hasil `incomplete`; artikel dan kategori tidak memiliki hasil incomplete. Pemeriksaan desktop kategori juga tercakup pada QA lokal tujuh kombinasi.
 - **Diagnostik browser produksi:** Firefox mencatat pesan CSP `Report-Only` untuk beberapa request pihak ketiga; kebijakan ini hanya melaporkan dan bukan kebijakan enforcement. Tidak ditemukan page-level JavaScript exception. Dua request telemetri pihak ketiga dibatalkan saat navigasi (`NS_BINDING_ABORTED`), sedangkan smoke test jaringan terpisah sebelumnya mendapatkan respons sukses untuk skrip Monetag dan endpoint terkait.
 
-## Snapshot terkini — 12 November 2026
+## Snapshot sebelumnya — 12 November 2026
 
 - **CookieYes:** pemuat CookieYes, event listener consent, cookie parsing, tombol Cookie Settings di footer, dan origin CookieYes pada CSP telah dihapus dari source aktif.
 - **Microsoft Clarity:** project ID, loader, consent handling, dan origin Clarity pada CSP telah dihapus.
