@@ -6,7 +6,7 @@ tags: ["Post-Quantum Cryptography", "PQC", "Cryptography", "TLS", "Key Managemen
 relatedGlossary: ["Post-Quantum Cryptography (PQC)", "End-to-End Encryption", "Symmetric Encryption", "Hash Function"]
 author: "eduglossary-team"
 publishedDate: 2026-10-23
-updatedDate: 2026-10-23
+updatedDate: 2026-11-20
 draft: false
 coverImage: "/images/articles/post-quantum-cryptography-migration-guide.svg"
 coverImageAlt: "Diagram showing a migration from conventional public-key cryptography to a hybrid post-quantum key exchange and a staged cryptographic inventory and testing process."
@@ -16,7 +16,15 @@ Post-quantum cryptography (PQC) is a family of cryptographic algorithms designed
 
 The transition is already a standards and engineering task. On 13 August 2024, the US National Institute of Standards and Technology (NIST) finalized three post-quantum standards: ML-KEM for establishing shared keys, and ML-DSA and SLH-DSA for digital signatures. In July 2026, the Internet Engineering Task Force (IETF) published RFC 9954, an informational specification for hybrid key exchange in TLS 1.3; RFC 10024 followed in August 2026 with specific hybrid groups combining ML-KEM and conventional elliptic-curve key exchange. These developments provide concrete building blocks, but organizations still need to assess product support, compatibility, performance, and their own risk.
 
-**Status checked: 23 October 2026.** Standards and vendor support can evolve. Confirm the current guidance for your products before making production changes.
+**Status checked: 20 November 2026.** NIST finalized Interagency Report 8547 on 27 October 2026, giving organizations a high-level roadmap for transitioning from quantum-vulnerable algorithms to post-quantum key-establishment and digital-signature standards. In the United States, Executive Order 14412 and OMB Memorandum M-26-15 set federal-agency milestones for high-impact systems: PQC key establishment by 31 December 2030 and PQC digital signatures by 31 December 2031. These dates apply to the specified U.S. federal systems; they are not universal legal deadlines for every private company or country. On 19 November, NIST also announced that it plans to revise SP 800-52 Rev. 2, including future guidance on post-quantum algorithms in TLS. That revision is still being prepared, not a final new TLS requirement. Validate the current standard and product support before making production changes.
+
+## What changed in the migration roadmap in October and November 2026?
+
+NIST's finalized [IR 8547](https://csrc.nist.gov/pubs/ir/8547/final) is an important update because it moves the discussion beyond algorithm selection toward an organized transition away from quantum-vulnerable public-key cryptography. The report identifies standards that need to be replaced and the quantum-resistant standards intended to take their place. It supports federal migration direction under Executive Order 14412 and OMB Memorandum M-26-15, while also giving industry and standards organizations a reference for planning. It does not mean that every vendor product is already ready or that a single migration date applies to every organization.
+
+The U.S. federal milestones are specifically scoped. The executive direction calls for high-impact systems to transition to PQC for key establishment by 31 December 2030 and for digital signatures by 31 December 2031. Organizations outside that scope should treat the dates as a planning signal, not copy them as their own statutory deadline. Their priorities should reflect data confidentiality lifetime, system replacement cycles, regulatory and customer requirements, and the time needed to validate compatible products.
+
+A related development concerns TLS. On 19 November 2026, NIST announced that it will revise SP 800-52 Rev. 2. The planned revision is expected to align with TLS 1.3 developments, update cipher-suite guidance, and add support for post-quantum algorithms. NIST has not yet published the revised document. Do not change a production TLS configuration simply because a revision has been announced; follow current standards and the instructions from the TLS library, operating-system, and hosting vendors.
 
 ## Why does post-quantum cryptography matter?
 
@@ -219,5 +227,8 @@ Not without checking product support and compatibility. Follow the official guid
 5. [Cloudflare: Post-quantum cryptography documentation](https://developers.cloudflare.com/ssl/post-quantum-cryptography/) — implementation details for hybrid key agreement and product support.
 6. [RFC 9954: Hybrid Key Exchange in TLS 1.3](https://www.rfc-editor.org/rfc/rfc9954.html) — IETF framework for hybrid key exchange.
 7. [RFC 10024: Post-Quantum Traditional Hybrid Key Agreement Mechanisms for TLS 1.3](https://www.rfc-editor.org/rfc/rfc10024.html) — standardized hybrid groups combining ML-KEM and conventional key exchange.
+8. [NIST IR 8547: Transition to Post-Quantum Cryptography Standards](https://csrc.nist.gov/pubs/ir/8547/final), finalized 27 October 2026 — NIST's migration roadmap.
+9. [Executive Order 14412: Securing the Nation Against Advanced Cryptographic Attacks](https://www.whitehouse.gov/presidential-actions/2026/06/securing-the-nation-against-advanced-cryptographic-attacks/) — U.S. federal PQC migration direction and milestones.
+10. [NIST: Decision to revise SP 800-52 Rev. 2](https://csrc.nist.gov/news/2026/nist-will-revise-tls-guidelines), 19 November 2026 — planned TLS guidance updates, including post-quantum algorithm support.
 
 The practical lesson is simple: prepare for post-quantum cryptography through an inventory-led, risk-based migration. Know which systems depend on vulnerable public-key algorithms, protect the data that must remain secret for years, validate real product support, and deploy tested changes in stages. Preparation is more reliable than waiting for a single deadline or assuming that one upgraded TLS endpoint makes an entire organization quantum-resistant.

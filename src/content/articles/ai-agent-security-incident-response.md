@@ -6,6 +6,7 @@ tags: ["AI Agent Security", "Agentic AI", "Prompt Injection", "Least Privilege",
 relatedGlossary: ["Large Language Model (LLM)", "Prompt Engineering", "Preemptive Cybersecurity", "Firewall", "Digital Provenance", "Model Context Protocol (MCP)"]
 author: "eduglossary-team"
 publishedDate: 2026-10-18
+updatedDate: 2026-11-20
 draft: false
 coverImage: "/images/articles/ai-agent-security.svg"
 coverImageAlt: "AI agent security diagram showing scoped tools, least-privilege access, human approval, monitoring, and a prepare-detect-respond-recover-report cycle."
@@ -16,6 +17,8 @@ An AI agent can do more than generate a response. Depending on how it is built, 
 **AI agent security** is the practice of protecting an agent, its tools, its data, and the systems it can affect so that it operates within an explicitly authorized scope. The goal is not to make a model perfectly reliable. It is to design the surrounding system so that an incorrect, manipulated, or unexpected model decision cannot easily become a damaging action.
 
 On October 16, 2026, the US National Institute of Standards and Technology (NIST), the National Security Agency's Super Intelligence Security Center, and the Cybersecurity and Infrastructure Security Agency published voluntary incident-readiness practices for training and evaluating superintelligence agents. The document focuses on a much narrower and higher-capability setting than everyday assistants, but its emphasis on preparation, monitoring, containment, recovery, and reporting reinforces a useful security principle: plan for failures before granting an agent consequential access. [Read the NIST announcement](https://www.nist.gov/news-events/news/2026/10/key-practices-incident-readiness-and-response-super-intelligence-training).
+
+**Update checked: 20 November 2026.** NIST published the initial public draft of SP 2400-102e2026, *Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations*, on 9 November. Its new section on agentic systems describes how prompt injection, tool access, retrieved data, memory, and inter-agent communication can expand the attack surface. The draft's public-comment period closes on 18 December 2026. It is a draft taxonomy focused on agentic super-intelligence systems, not a finalized rule for all commercial agents. [Read the draft](https://csrc.nist.gov/pubs/sp/2400-102/e2026/ipd).
 
 ## What makes an AI agent a security concern?
 
@@ -157,3 +160,4 @@ Recent official guidance from NIST and international cybersecurity agencies rein
 - [Australian Cyber Security Centre: Careful Adoption of Agentic AI Services (May 1, 2026)](https://www.cyber.gov.au/publication/careful-adoption-of-agentic-ai-services)
 - [OWASP GenAI Security Project: LLM06:2025 Excessive Agency](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/)
 - [NIST SP 800-61 Rev. 3: Incident Response Recommendations](https://csrc.nist.gov/pubs/sp/800/61/r3/final)
+- [NIST SP 2400-102e2026: Adversarial Machine Learning — A Taxonomy and Terminology of Attacks and Mitigations](https://csrc.nist.gov/pubs/sp/2400-102/e2026/ipd), public draft published 9 November 2026; comments close 18 December 2026.

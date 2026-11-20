@@ -4,7 +4,7 @@ shortDefinition: "A learned or constructed representation of an environment that
 metaDescription: "World models, environment prediction, planning, simulation and the sim-to-real gap explained."
 category: "AI & Data"
 letter: "W"
-updatedDate: 2026-10-06
+updatedDate: 2026-11-20
 image: "./images/world-model.svg"
 imageAlt: "World model concept illustration showing an internal model representing entities, relationships, and environments."
 relatedTerms: ["Machine Learning", "Deep Learning", "Physical AI", "Predictive Analytics"]
@@ -152,3 +152,8 @@ A learned world model can support planning or synthetic training data, but its o
 Long sequences and high-resolution observations can make world-model training and inference expensive. Evaluate whether the added planning ability justifies latency, compute, and data-collection cost. Record model versions and training-data provenance so behavior changes can be traced. When the model is used in consequential settings, define human oversight, operational limits, fallback behavior, and procedures for reporting unexpected actions.
 
 World models are one approach to representing how an environment changes after actions. They do not guarantee that an agent has a complete or correct understanding of the world. Their value depends on the task, the fidelity of the learned dynamics, the quality of planning, and the safety mechanisms surrounding real-world action.
+
+
+## A recent robotics example
+
+On 11 November 2026, NTT announced a world-model approach for robot loading tasks. Its system combines video prediction with a physics control adapter to estimate object properties and predict outcomes such as collisions, falling objects, and load collapse before a robot executes a candidate action. NTT reported a higher success rate in a specific shelf-loading test, while noting plans for further field trials. The result is an example of predictive world models being integrated into physical-AI workflows; it should not be treated as evidence that every robot or environment will achieve the same performance. [Read the NTT technical announcement](https://group.ntt/en/newsrelease/2026/11/11/261111b.html).

@@ -4,7 +4,7 @@ shortDefinition: "AI systems that perceive, reason about and act in the physical
 metaDescription: "Physical AI, perception, planning, control, simulation and safety challenges explained."
 category: "AI & Data"
 letter: "P"
-updatedDate: 2026-10-06
+updatedDate: 2026-11-20
 image: "./images/physical-ai.svg"
 imageAlt: "Physical AI concept illustration showing an intelligent robot interacting with the physical world."
 relatedTerms: ["Machine Learning", "Deep Learning", "World Model", "Training Data"]
@@ -146,3 +146,8 @@ Training data should represent expected environments, object variation, viewpoin
 Define which decisions are autonomous, which require operator confirmation, and who can stop the system. Operators need understandable status information and a clear path to intervene. Maintain records of model, firmware, sensors, and control-policy versions so an incident can be reconstructed. Changes to hardware, software, payload, or environment may alter the risk profile and should trigger renewed testing.
 
 Physical AI combines AI with sensing, planning, and actuation, but safe operation depends on the complete system: mechanics, control software, environment, human procedures, and maintenance. A successful demonstration is not sufficient evidence for broad deployment.
+
+
+## Recent physical-AI example
+
+On 11 November 2026, NTT announced a robot-loading technology that uses a physics-based world model to predict whether a candidate action may cause a load to collapse or an object to fall. NTT reported that its approach improved success in a specific shelf-loading test and described plans for field trials. This illustrates how physical AI can combine perception, prediction, planning, and existing robot control software. The reported benchmark result is specific to the test described by NTT; it is not a general guarantee of robot safety or task performance. [Read NTT's announcement](https://group.ntt/en/newsrelease/2026/11/11/261111b.html).

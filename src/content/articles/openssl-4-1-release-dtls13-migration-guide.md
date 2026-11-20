@@ -6,7 +6,7 @@ tags: ["OpenSSL", "TLS", "DTLS 1.3", "Cryptography", "Infrastructure Security", 
 relatedGlossary: ["End-to-End Encryption", "Symmetric Encryption", "Preemptive Cybersecurity"]
 author: "eduglossary-team"
 publishedDate: 2026-10-24
-updatedDate: 2026-10-24
+updatedDate: 2026-11-20
 draft: false
 coverImage: "/images/articles/openssl-4-1-dtls13-migration.svg"
 coverImageAlt: "OpenSSL 4.1.0 release overview highlighting DTLS 1.3, cryptographic optimizations, compatibility testing, and a staged migration plan."
@@ -16,7 +16,13 @@ OpenSSL 4.1.0 was released on 23 October 2026 as a feature release, adding DTLS 
 
 The distinction matters because OpenSSL is more than a command-line utility. It is a cryptographic library used directly or indirectly by servers, language runtimes, reverse proxies, VPN software, networking tools, and many other components. The version printed by a terminal may not be the version linked into a particular running service, and a distribution can backport a security fix without adopting the upstream release number.
 
-**Status checked: 24 October 2026.** Release details and support dates can change. Before a production change, check the OpenSSL project’s release page and the package vendor’s current security bulletin.
+**Status checked: 20 November 2026.** A relevant standards update followed the OpenSSL release: on 19 November, NIST announced that it will revise SP 800-52 Rev. 2, its guidance for selecting, configuring, and using TLS implementations. Planned topics include stronger cipher-suite guidance, alignment with TLS 1.3 developments, and support for post-quantum algorithms. The revised publication has not yet been released, and the announcement is not an OpenSSL release or an immediate instruction to change every deployment. Continue to follow the OpenSSL project's release notes and the package vendor's supported branch and security guidance. [Read NIST's revision announcement](https://csrc.nist.gov/news/2026/nist-will-revise-tls-guidelines).
+
+## New TLS guidance under review in November 2026
+
+NIST's 19 November announcement is relevant to teams planning TLS upgrades because the forthcoming revision of SP 800-52 Rev. 2 is expected to update protocol and cryptographic guidance. NIST says the planned changes include no general allowance for TLS 1.0 or TLS 1.1, a different recommendation for TLS 1.2 support, updated TLS 1.3 algorithm guidance, stronger minimum security expectations, and post-quantum algorithm support. These are revision plans, not a finalized replacement document. OpenSSL 4.1.0 does not by itself make an application compliant with future NIST guidance; the effective configuration depends on the application, certificates, cipher suites, provider configuration, and the operating environment.
+
+Use the announcement to build a test plan: inventory TLS endpoints, identify legacy clients, verify protocol negotiation, check certificate and signature compatibility, and test post-quantum support when it is offered by the actual product. Do not disable older protocol versions or change cipher suites in production without compatibility testing and an approved rollout plan.
 
 ## What is OpenSSL 4.1.0?
 

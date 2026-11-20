@@ -6,7 +6,7 @@ tags: ["TLS", "HTTPS", "Certificate Authority", "eMudhra", "Certificate Revocati
 relatedGlossary: ["Preemptive Cybersecurity", "Firewall", "End-to-End Encryption"]
 author: "eduglossary-team"
 publishedDate: 2026-10-22
-updatedDate: 2026-10-22
+updatedDate: 2026-11-20
 draft: false
 coverImage: "/images/articles/emudhra-ca-certificate-incident-october-2026.svg"
 coverImageAlt: "Illustration of an HTTPS certificate trust chain, a compromised intermediate certificate warning, and a website operator replacing an affected certificate."
@@ -16,7 +16,7 @@ On 20 October 2026, Mozilla published an incident update explaining that private
 
 This does not mean every website using an eMudhra-issued certificate was hacked. A compromised certificate authority (CA) key creates the possibility of impersonation, but an attack also depends on certificate issuance, connection interception or redirection, and whether the client trusts the affected chain. The event requires a coordinated response from browser vendors, certificate operators, website owners, and software publishers.
 
-**Status checked: 22 October 2026.** Certificate trust decisions and migration guidance may change as affected trust-store operators and certificate subscribers complete their response. Check the official status updates linked below before changing production certificate configuration.
+**Status checked: 20 November 2026.** eMudhra's latest public statement is dated 5 November 2026. It records scheduled emSign G1 trust-program changes: the Chrome and Mozilla phase-out date was 16 November, which has now passed, while Apple's listed G1 removal date is 30 November 2026. eMudhra says the date-based phase-out does not affect certificates issued before the relevant dates. Do not infer that every eMudhra certificate or every customer was compromised: identify the exact issuer and chain, check the applicable browser and platform trust-store updates, and follow the certificate subscriber's migration instructions. [See eMudhra's incident statement and dated updates](https://emudhra.com/en/post/certificate-security-incident).
 
 ## What happened?
 
@@ -159,11 +159,13 @@ No. A familiar page does not authenticate a server. Never bypass the warning; ve
 
 ## Official sources and further reading
 
-1. [Mozilla Security Blog: Protecting Firefox users following the compromise of eMudhra intermediate certificates, 20 October 2026](https://blog.mozilla.org/security/2026/10/20/protecting-firefox-users-following-the-compromise-of-emudhra-intermediate-certificates/) — Mozilla's public explanation of its Firefox response.
-2. [Mozilla Bugzilla: eMudhra private key compromise of intermediate certificates](https://bugzilla.mozilla.org/show_bug.cgi?id=2083449) — incident timeline and subsequent trust-store decisions, including the G3 root response.
-3. [Chromium source change: adding compromised eMudhra intermediates to the blocklist](https://chromium.googlesource.com/chromium/src/net/+/de7d6b99731d2f20e253950c761e4dbd85b451e3) — a Chrome implementation change dated 20 October 2026.
-4. [Node.js 24.22.1 LTS release notes](https://nodejs.org/en/blog/release/v24.22.1/) — security fixes and certificate trust-store update.
-5. [Node.js 26.12.1 release notes](https://nodejs.org/en/blog/release/v26.12.1/) — corresponding Current-line security updates.
-6. [RFC 9525: Service Identity in TLS](https://www.rfc-editor.org/rfc/rfc9525) — the IETF standard for verifying server identities in TLS.
+1. [eMudhra: Statement on Recent Certificate Security Incident](https://emudhra.com/en/post/certificate-security-incident) — latest dated update reviewed 5 November 2026, including the scheduled browser and platform trust-program changes.
+2. [Mozilla Security Blog: Protecting Firefox users following the compromise of eMudhra intermediate certificates, 20 October 2026](https://blog.mozilla.org/security/2026/10/20/protecting-firefox-users-following-the-compromise-of-emudhra-intermediate-certificates/) — Mozilla's public explanation of its Firefox response.
+3. [Mozilla Bugzilla: eMudhra private key compromise of intermediate certificates](https://bugzilla.mozilla.org/show_bug.cgi?id=2083449) — incident timeline and subsequent trust-store decisions, including the G3 root response.
+4. [Chromium source change: adding compromised eMudhra intermediates to the blocklist](https://chromium.googlesource.com/chromium/src/net/+/de7d6b99731d2f20e253950c761e4dbd85b451e3) — a Chrome implementation change dated 20 October 2026.
+5. [Microsoft Security Response Center: response to compromised eMudhra CA keys](https://www.microsoft.com/en-us/msrc/blog/2026/10/microsoft-response-to-compromised-emudhra-certificate-authority-keys) — platform-specific root-store response and dated product updates.
+6. [Node.js 24.22.1 LTS release notes](https://nodejs.org/en/blog/release/v24.22.1/) — security fixes and certificate trust-store update.
+7. [Node.js 26.12.1 release notes](https://nodejs.org/en/blog/release/v26.12.1/) — corresponding Current-line security updates.
+8. [RFC 9525: Service Identity in TLS](https://www.rfc-editor.org/rfc/rfc9525) — the IETF standard for verifying server identities in TLS.
 
 The operational takeaway is clear: **identify the exact certificate chain, follow the current CA and browser guidance, replace affected credentials through a trusted path, and verify real client connections with validation enabled.** The incident is a reminder that trustworthy HTTPS requires sound key generation, reliable revocation, and continuous maintenance of the systems that decide whom to trust.
